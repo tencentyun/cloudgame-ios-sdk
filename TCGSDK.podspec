@@ -1,10 +1,11 @@
 Pod::Spec.new do |spec|
   spec.name         = "TCGSDK"
-  spec.version      = "0.0.1"
+  spec.version      = "0.2.1"
   spec.summary      = "Tencent Cloud Gaming Software Development Kit"
+  spec.license      = "MIT"
 
   spec.description  = <<-DESC
-Tencent Cloud Gaming Software Development Kit
+Tencent Cloud Gaming Software Development Kit.
                    DESC
 
   spec.homepage     = "https://git.code.oa.com/cloud_video_product_private/cloud_gaming"
@@ -13,7 +14,7 @@ Tencent Cloud Gaming Software Development Kit
 
   spec.ios.deployment_target = '9.0'
 
-  spec.source       = { :git => 'https://github.com/tencentyun/cloudgame-ios-sdk.git', :tag => '0.1' }
+  spec.source       = { :git => 'https://github.com/tencentyun/cloudgame-ios-sdk.git', :tag => spec.version.to_s }
 
   spec.source_files  = "tcgsdk/*.{h,m}"
 
