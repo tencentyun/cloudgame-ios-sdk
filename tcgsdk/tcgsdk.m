@@ -818,8 +818,8 @@
     LOG_TRACE("got km response %@", response);
     NSNumber *cursorShowing = toType(response.raw_[@"cursor_showing"], [NSNumber class]);
     if (cursorShowing != nil) {
-        self->cursorShowing = cursorShowing;
-        self->_overlayView.drawMouse = cursorShowing && (_cursorMode != TcgSdkCursorModeRemote);
+        self->cursorShowing = [cursorShowing boolValue];
+        self->_overlayView.drawMouse = [cursorShowing boolValue] && (_cursorMode != TcgSdkCursorModeRemote);
     }
     [self->_report retrieveFromDictionary:response.raw_];
 }
