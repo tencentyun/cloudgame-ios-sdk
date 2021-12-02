@@ -1,37 +1,22 @@
 Pod::Spec.new do |spec|
-  spec.name         = "TCGSDK"
-  spec.version      = "0.2.1"
-  spec.summary      = "Tencent Cloud Gaming Software Development Kit"
-  spec.license      = "MIT"
-
-  spec.description  = <<-DESC
-Tencent Cloud Gaming Software Development Kit.
-                   DESC
-
-  spec.homepage     = "https://git.code.oa.com/cloud_video_product_private/cloud_gaming"
-
-  spec.author             = { "okhowang(王沛文)" => "okhowang@tencent.com" }
-
-  spec.ios.deployment_target = '9.0'
-
-  spec.source       = { :git => 'https://github.com/tencentyun/cloudgame-ios-sdk.git', :tag => spec.version.to_s }
-
-  spec.source_files  = "tcgsdk/*.{h,m}"
-
-  spec.public_header_files = "tcgsdk/{tcgsdk,TcgSdkDelegate,TcgSdkParams,TcgSdkEvent,TcgSdkLogger,TcgSdkReport}.h"
-
-  spec.resources = "resource/**"
-
+  spec.name         = 'TCGSDK'
+  spec.version      = '1.1.7.20'
+  spec.license      = { :type => 'MIT' }
+  spec.homepage     = 'https://github.com/tencentyun/cloudgame-ios-sdk'
+  spec.summary      = 'Tencent Cloud Gaming Software Development Kit for iOS.'
+  spec.authors      = { 'lyleyu' => 'lyleyu@tencent.com' }
+  spec.source       = { :path => './' }
   spec.pod_target_xcconfig = {
     'ENABLE_BITCODE' => 'OFF'
   }
-
-  spec.requires_arc = true
-
-  spec.dependency "GoogleWebRTC"
-
+  spec.vendored_frameworks = 'SDK/TCGSDK.framework', 'SDK/TWEBRTC.framework'
   spec.info_plist = {
-    # 'CFBundleIdentifier' => 'com.tencent.cloudgaming',
-    # https://github.com/CocoaPods/CocoaPods/issues/9536
+    'UISupportedInterfaceOrientations' => [
+      'UIInterfaceOrientationPortrait',
+      'UIInterfaceOrientationLandscapeLeft',
+      'UIInterfaceOrientationLandscapeRight',
+    ],
+    'NSMicrophoneUsageDescription' => '云游戏互动时需要开启麦克风'
   }
 end
+
