@@ -1,0 +1,6 @@
+framework module TCGSDK {
+  umbrella header "TCGSDK.h"
+
+  export *
+  module * { export * }
+}
