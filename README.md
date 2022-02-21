@@ -41,4 +41,3 @@ pod 'TCGSDK', :git => "https://github.com/yujunleik/test_pod.git"
 ## 四、相关链接
 [腾讯云云游戏解决方案](https://cloud.tencent.com/solution/gs)
 
-[构建端到端整体方案说明](https://docs.qq.com/doc/DSFBvWlhQTkVKZUlQ?wwapp_deviceid=bec61743-e9f5-4075-8f18-776a84374f56&wwapp_vid=1688850546831822&wwapp_cst=D3DCAAA8762E2D7554CAF70E75334B554A78709E24D3CD8E08DCAFFB909C1657D5168566444E3F1533E95090B7EED354)
