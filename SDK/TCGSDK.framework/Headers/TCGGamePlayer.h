@@ -111,8 +111,6 @@
  */
 - (BOOL)startGameWithRemoteSession:(NSString *)remoteSession error:(NSError **)error;
 
-- (void)startGameWithExperienceCode:(NSDictionary *)params error:(NSError **)error;
-
 /*!
  * 结束游戏，释放本地资源。
  * @discussion 云端资源在心跳断开90秒后自动释放，立即释放需业务后台主动调用接口。
@@ -134,8 +132,8 @@
 
 /*!
  * 设置游戏视频的输出编码码率和帧率
- * @param minBitrate 范围[1*1024,15*1024]，单位Kbps
- * @param maxBitrate 范围[1*1024,15*1024]，单位Kbps
+ * @param minBitrate 范围[1*1000,15*1000]，单位Kbps
+ * @param maxBitrate 范围[1*1000,15*1000]，单位Kbps
  * @param fps 范围[10,60]，单位帧;
  */
 - (void)setStreamBitrateMix:(UInt32)minBitrate max:(UInt32)maxBitrate fps:(int)fps;
@@ -198,7 +196,7 @@
 - (NSDictionary *)currentStatisReport;
 
 /*!
- * 创建一个能与云端程序通讯的通道，最多允许存在三个通道
+ * 创建一个能与云端程序通讯的通道，最多允许存在三个通道。
  * @param remotePort 云端程序的UDP端口号
  * @param channelDelegate 通讯对象的代理，详情见TCGCustomTransChannelDelegate
  * @return TCGCustomTransChannel 通讯对象
