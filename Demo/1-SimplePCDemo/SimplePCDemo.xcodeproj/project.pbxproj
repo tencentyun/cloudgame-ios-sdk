@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11554627279A947A00E998F6 /* SecurityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 11554626279A947A00E998F6 /* SecurityUtil.m */; };
 		8AB05950271EC91A00D5B560 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB0594F271EC91A00D5B560 /* AppDelegate.m */; };
 		8AB05956271EC91A00D5B560 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB05955271EC91A00D5B560 /* ViewController.m */; };
 		8AB05959271EC91A00D5B560 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AB05957271EC91A00D5B560 /* Main.storyboard */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11554625279A947A00E998F6 /* SecurityUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecurityUtil.h; sourceTree = "<group>"; };
+		11554626279A947A00E998F6 /* SecurityUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecurityUtil.m; sourceTree = "<group>"; };
 		8AB0594B271EC91A00D5B560 /* SimplePCDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimplePCDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AB0594E271EC91A00D5B560 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8AB0594F271EC91A00D5B560 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -59,6 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				8AB0594E271EC91A00D5B560 /* AppDelegate.h */,
+				11554625279A947A00E998F6 /* SecurityUtil.h */,
+				11554626279A947A00E998F6 /* SecurityUtil.m */,
 				8AB0594F271EC91A00D5B560 /* AppDelegate.m */,
 				8AB05954271EC91A00D5B560 /* ViewController.h */,
 				8AB05955271EC91A00D5B560 /* ViewController.m */,
@@ -144,6 +149,7 @@
 				8AB05956271EC91A00D5B560 /* ViewController.m in Sources */,
 				8AB05950271EC91A00D5B560 /* AppDelegate.m in Sources */,
 				8AB05961271EC91B00D5B560 /* main.m in Sources */,
+				11554627279A947A00E998F6 /* SecurityUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

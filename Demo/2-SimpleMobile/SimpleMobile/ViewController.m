@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import <TCGSDK/TCGSDK.h>
-
+#import "SecurityUtil.h"
 typedef void (^httpResponseBlk)(NSData * data, NSURLResponse * response, NSError * error);
 
 @interface ViewController ()<TCGGamePlayerDelegate>
@@ -64,9 +64,19 @@ typedef void (^httpResponseBlk)(NSData * data, NSURLResponse * response, NSError
 
 - (void)getRemoteSessionWithLocalSession:(NSString *)localSession {
     // TODO: 这里的接口地址仅供Demo体验，请及时更换为自己的业务后台接口
-    NSString *createSession = @"https://service-dn0r2sec-1304469412.gz.apigw.tencentcs.com/release/StartCloudGame";
-    self.userId = [NSString stringWithFormat:@"SimplePC-%@", [[NSUUID UUID] UUIDString]];
-    NSDictionary *params = @{@"GameId":@"game-0qo599jg", @"UserId":self.userId, @"ClientSession":localSession};
+    NSString *createSession = @"https://microcg.myqcloud.com/StartGame";
+    NSString *requestID = [[NSUUID UUID] UUIDString];
+    NSString *salt = @"DLaB%$bfAc!@ds";
+    self.userId = [NSString stringWithFormat:@"SimpleMoblie-%@", [[NSUUID UUID] UUIDString]];
+    long long int currentTime = (long long int)time;
+    NSString *timeStamp = [NSString stringWithFormat:@"%lld000", currentTime];
+    NSString *stringSHA256 = [[NSString alloc] initWithFormat:@"%@game-sdtjeruu%@%@%@%@",localSession,requestID,timeStamp,self.userId,salt];
+    NSString *sign = [SecurityUtil sha256Hash:stringSHA256];
+
+    NSDictionary *params = @{@"RequestId":requestID,@"UserId":self.userId,
+                             @"GameId":@"game-sdtjeruu",@"ClientSession":localSession,
+                             @"TimeStamp":timeStamp,@"Sign":sign};
+    
     [self postUrl:createSession params:params finishBlk:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error != nil || data == nil) {
             NSLog(@"申请云端机器失败:%@", error.userInfo.description);
@@ -79,12 +89,12 @@ typedef void (^httpResponseBlk)(NSData * data, NSURLResponse * response, NSError
             return;
         }
         NSDictionary *jsonObj = (NSDictionary *) json;
-        NSString *code = [jsonObj objectForKey:@"code"];
+        NSString *code = [jsonObj objectForKey:@"Code"];
         if ([code intValue] != 0) {
             NSLog(@"返回结果异常:%@", jsonObj);
             return;
         }
-        NSDictionary *dataDic = [jsonObj objectForKey:@"data"];
+        NSDictionary *dataDic = [jsonObj objectForKey:@"SessionDescribe"];
         NSString *serverSession = [dataDic objectForKey:@"ServerSession"];
         if (serverSession.length == 0) {
             NSLog(@"返回结果异常:%@", jsonObj);
@@ -119,7 +129,7 @@ typedef void (^httpResponseBlk)(NSData * data, NSURLResponse * response, NSError
             return;
         }
         // TODO: 业务后台需要及时向腾讯云后台释放机器，避免资源浪费
-        NSString *releaseSession = @"https://service-dn0r2sec-1304469412.gz.apigw.tencentcs.com/release/StopCloudGame";
+        NSString *releaseSession = @"https://microcg.myqcloud.com/StopGame";
         NSDictionary *params = @{@"UserId":self.userId};
         [self postUrl:releaseSession params:params finishBlk:^(NSData *data, NSURLResponse *response, NSError *error) {
             if (error != nil || data == nil) {
