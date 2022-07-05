@@ -70,11 +70,11 @@ typedef void (^httpResponseBlk)(NSData * data, NSURLResponse * response, NSError
     self.userId = [NSString stringWithFormat:@"SimpleMoblie-%@", [[NSUUID UUID] UUIDString]];
     long long int currentTime = (long long int)time;
     NSString *timeStamp = [NSString stringWithFormat:@"%lld000", currentTime];
-    NSString *stringSHA256 = [[NSString alloc] initWithFormat:@"%@game-sdtjeruu%@%@%@%@",localSession,requestID,timeStamp,self.userId,salt];
+    NSString *stringSHA256 = [[NSString alloc] initWithFormat:@"%@game-fvokabtq%@%@%@%@",localSession,requestID,timeStamp,self.userId,salt];
     NSString *sign = [SecurityUtil sha256Hash:stringSHA256];
 
     NSDictionary *params = @{@"RequestId":requestID,@"UserId":self.userId,
-                             @"GameId":@"game-sdtjeruu",@"ClientSession":localSession,
+                             @"GameId":@"game-fvokabtq",@"ClientSession":localSession,
                              @"TimeStamp":timeStamp,@"Sign":sign};
     
     [self postUrl:createSession params:params finishBlk:^(NSData *data, NSURLResponse *response, NSError *error) {
