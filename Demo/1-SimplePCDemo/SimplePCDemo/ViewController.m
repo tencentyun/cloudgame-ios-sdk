@@ -67,8 +67,7 @@ typedef void (^httpResponseBlk)(NSData * data, NSURLResponse * response, NSError
     NSString *requestID = [[NSUUID UUID] UUIDString];
     NSString *salt = @"DLaB%$bfAc!@ds";
     self.userId = [NSString stringWithFormat:@"SimplePC-%@", [[NSUUID UUID] UUIDString]];
-    long long int currentTime = (long long int)time;
-    NSString *timeStamp = [NSString stringWithFormat:@"%lld000", currentTime];
+    NSNumber *timeStamp = [self currentTimeStamp];
     NSString *stringSHA256 = [[NSString alloc] initWithFormat:@"%@game-zmuayrmi%@%@%@%@",localSession,requestID,timeStamp,self.userId,salt];
     NSString *sign = [SecurityUtil sha256Hash:stringSHA256];
 
@@ -217,6 +216,15 @@ typedef void (^httpResponseBlk)(NSData * data, NSURLResponse * response, NSError
     [request setHTTPBody:body];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [[session dataTaskWithRequest:request completionHandler:finishBlk] resume];
+}
+
+- (NSNumber *)currentTimeStamp{
+    NSDate* date = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSTimeInterval time=[date timeIntervalSince1970]*1000;
+    NSString *timeString = [NSString stringWithFormat:@"%.0f", time];
+    int timeInt = [timeString intValue];
+    NSNumber *timeStamp = [NSNumber numberWithInt:timeInt];
+    return timeStamp;
 }
 
 @end
