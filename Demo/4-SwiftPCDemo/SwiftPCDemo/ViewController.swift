@@ -64,7 +64,7 @@ class ViewController: UIViewController {
                 self.gamePlayer = nil
             }
             if let uid = self.userId {
-                let releaseSession = "https://service-dn0r2sec-1304469412.gz.apigw.tencentcs.com/release/StopCloudGame"
+                let releaseSession = "xxxxx/StopGame"
                 self.postUrl(releaseSession, ["UserId":uid]) { (data:Data?, req:URLResponse?, err:Error?) in
                     if err != nil || data == nil {
                         print("释放机器失败:\(err.debugDescription)")
@@ -101,9 +101,9 @@ class ViewController: UIViewController {
     }
     
     func getRemoteSession(_ localSession:String) -> Void {
-        let createSession = "https://service-dn0r2sec-1304469412.gz.apigw.tencentcs.com/release/StartCloudGame"
+        let createSession = "xxxxx/StartGame"
         if let uid = self.userId {
-            self.postUrl(createSession, ["GameId":"game-nf771d1e", "UserId":uid, "ClientSession":localSession]) { (data:Data?, req:URLResponse?, err:Error?) in
+            self.postUrl(createSession, ["GameId":"game-xxx", "UserId":uid, "ClientSession":localSession]) { (data:Data?, req:URLResponse?, err:Error?) in
                 if err != nil {
                     print("申请云端机器失败:\(err.debugDescription)")
                     return

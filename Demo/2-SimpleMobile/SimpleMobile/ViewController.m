@@ -64,16 +64,17 @@ typedef void (^httpResponseBlk)(NSData * data, NSURLResponse * response, NSError
 
 - (void)getRemoteSessionWithLocalSession:(NSString *)localSession {
     // TODO: 这里的接口地址仅供Demo体验，请及时更换为自己的业务后台接口
-    NSString *createSession = @"https://microcg.myqcloud.com/StartGame";
+    // 云应用将StartGame替换为StartProject
+    NSString *createSession = @"xxxxx/StartGame";
     NSString *requestID = [[NSUUID UUID] UUIDString];
     NSString *salt = @"DLaB%$bfAc!@ds";
     self.userId = [NSString stringWithFormat:@"SimpleMoblie-%@", [[NSUUID UUID] UUIDString]];
     NSNumber *timeStamp = [self currentTimeStamp];
-    NSString *stringSHA256 = [[NSString alloc] initWithFormat:@"%@game-fvokabtq%@%@%@%@",localSession,requestID,timeStamp,self.userId,salt];
+    NSString *stringSHA256 = [[NSString alloc] initWithFormat:@"%@game-xxx%@%@%@%@",localSession,requestID,timeStamp,self.userId,salt];
     NSString *sign = [SecurityUtil sha256Hash:stringSHA256];
     NSLog(@"%@",requestID);
     NSDictionary *params = @{@"RequestId":requestID,@"UserId":self.userId,
-                             @"GameId":@"game-fvokabtq",@"ClientSession":localSession,
+                             @"GameId":@"game-xxx",@"ClientSession":localSession,
                              @"TimeStamp":timeStamp,@"Sign":sign};
     
     [self postUrl:createSession params:params finishBlk:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -128,7 +129,8 @@ typedef void (^httpResponseBlk)(NSData * data, NSURLResponse * response, NSError
             return;
         }
         // TODO: 业务后台需要及时向腾讯云后台释放机器，避免资源浪费
-        NSString *releaseSession = @"https://microcg.myqcloud.com/StopGame";
+        // 云应用将StopGame替换为StopProject
+        NSString *releaseSession = @"xxxxx/StopGame";
         NSDictionary *params = @{@"UserId":self.userId};
         [self postUrl:releaseSession params:params finishBlk:^(NSData *data, NSURLResponse *response, NSError *error) {
             if (error != nil || data == nil) {
