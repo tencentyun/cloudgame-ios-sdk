@@ -3,5 +3,5 @@ project './SwiftPCDemo.xcodeproj'
 target 'SwiftPCDemo' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  pod 'TCGSDK', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git", :tag => '1.1.7.20'
+  pod 'TCGSDK', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git", :tag => '1.1.8.22'
 end
