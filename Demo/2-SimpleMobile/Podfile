@@ -3,5 +3,5 @@ project './SimpleMobile.xcodeproj'
 target 'SimpleMobile' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  pod 'TCGSDK', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git", :tag => '1.1.8.22'
+  pod 'TCGSDK', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git", :tag => '1.1.9'
 end

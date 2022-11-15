@@ -196,6 +196,14 @@
 - (NSDictionary *)currentStatisReport;
 
 /*!
+ * 修改云端桌面的分辨率，仅云端为PC Windows应用支持。修改后云端桌面的分辨率会改变为目标分辨率大小。
+ * 如果客户端的gameView大小不变，修改分辨率后画面会有一定的拉伸/收缩。
+ * @param width 需要修改到的目标云端桌面宽度
+ * @param height 需要修改到的目标云端桌面高度
+ */
+- (void)setRemoteDesktopResolution:(int)width videoheight:(int)height;
+
+/*!
  * 创建一个能与云端程序通讯的通道，最多允许存在三个通道。
  * @param remotePort 云端程序的UDP端口号
  * @param channelDelegate 通讯对象的代理，详情见TCGCustomTransChannelDelegate
