@@ -1,43 +1,43 @@
-# 腾讯云云游戏 iOS
-## 一、仓库介绍
-该工程提供了集成云游SDK的简单应用示例，能够让您快速体验云游戏的运行效果。
+# Tencent cloud GS for iOS
+## I.Introduction
+This project provides a simple application example of integrating the Formos SDK, allowing you to quickly experience the running effect of the cloud game.
 
-同时还提供了快速入门的集成指引，帮您快速完成云游SDK的接入。
+At the same time, it also provides a quick start integration guide to help you quickly complete the access of the iOS SDK.
 
-如果您需要实现一些进阶的功能，我们还提供了使用进阶指引。
+If you need to implement some advanced functions, we also provide advanced guidance.
 
-## 二、快速入门
-1、快速体验云游戏
+## II、Quick start
+1、Experience Cloud Gaming Quickly
 
-进入Demo下的工程目录, **pod update** 更新SDK库文件，运行对应的工程即可快速体验云游示例，如果有疑问请参考[Demo运行说明](Demo/README.md)。
+Enter the project directory under Demo, **pod update** update the SDK library file, and run the corresponding project to quickly experience the GS example. If you have any questions, please refer to[Demo](Demo/README_EN-US.md)。
 
-2、端游快速接入
+2、PC game quick start
 
-如果您需要在您的应用中集成云端游的功能，请参考[端游接入文档](Doc/端游接入说明.md)。
+If you need to integrate the cloud pc game function in your application, please refer to[PCGameQuickStart](Doc/PC_Game_Quick_Start_EN-US.md)。
 
-3、手游快速接入
+3、Mobile game quick start
 
-如果您需要在您的应用中集成云手游的功能，请参考[手游接入文档](Doc/手游接入说明.md)。
+If you need to integrate cloud mobile game functions in your application, please refer to[MobileGameQuickStart](Doc/Mobile_Game_Quick_Start_EN-US.md)。
 
-4、虚拟按键快速接入
+4、Virtual key quick start
 
-如果您需要在您的应用中集成灵活可配置的游戏按键布局，请参考[虚拟接入文档](Doc/自定义虚拟按键.md)。
+If you need to integrate a flexible and configurable game button layout in your application, please refer to[VirtualKeyQuickStart](Doc/Virtual_Key_Quick_Start_EN-US.md)。
 
-## 三、SDK集成
+## III、SDK integrated
 
-在Podfile中添加
+Edit Podfile
 ```
 pod 'TCGSDK', :git => "https://github.com/yujunleik/test_pod.git"
 
-# 虚拟按键可选库
+# Optional library of virtual keys
 # pod 'TCGVKey', :git => "https://github.com/yujunleik/test_pod.git"
 ```
 
-我们会定期更新SDK的功能，您可以在本工程SDK目录下获取最新的版本。
+We will regularly update the functions of the SDK, and you can obtain the latest version under the SDK directory of this project.
 
-你还可以查看SDK的发布历史，了解各版本的变更信息。
+You can also view the release history of the SDK to learn about changes in each version.
 
 
 ## 四、相关链接
-[腾讯云云游戏解决方案](https://cloud.tencent.com/solution/gs)
+[CAR](https://www.tencentcloud.com/document/product/1158)
 
