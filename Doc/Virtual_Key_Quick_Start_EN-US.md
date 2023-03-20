@@ -1,3 +1,4 @@
+[中文文档](自定义虚拟按键.md)
 # Custom Virtual Key
 
 ## Feature Overview

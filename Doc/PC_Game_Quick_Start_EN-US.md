@@ -1,3 +1,4 @@
+[中文文档](端游接入说明.md)  
 **GS Native SDK for iOS (Object-C)**
 # I. Framework Component Description
 - TCGSDK.framework: The cloud game business library

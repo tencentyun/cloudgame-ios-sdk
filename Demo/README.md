@@ -1,3 +1,4 @@
+[English document](README_EN-US.md)
 # 云游戏 Demo
 ## 目录介绍
 

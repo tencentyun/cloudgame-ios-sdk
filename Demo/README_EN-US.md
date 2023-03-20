@@ -1,23 +1,24 @@
-# 云游戏 Demo
-## 目录介绍
+[中文文档](README.md)
+# Cloud Game Demo
+## Directory Introduction
 
-提供了四个演示Demo，包含端游-简单示例、手游-简单示例、端游-虚拟按键，端游-Swift版本，运行前**pod update**更新SDK。
+Four demos are provided, including PC Game-Simple Example, Mobile Game-Simple Example, PC Game-Virtual Button, PC Game-Swift Version, **pod update** update the SDK before running.
 
-1、SimplePCDemo
+1. SimplePCDemo
 
-主要展示了云端运行传统PC端游时的启动流程。
-端游的画面默认为横屏(宽大于高)显示。
+It mainly shows the startup process when running traditional PC end games on the cloud.
+The screen of the terminal game defaults to a horizontal screen (width greater than height) display.
 
-2、SimpleMobile
+2. SimpleMobile
 
-主要展示了云端运行手游时的启动流程。
-手游的画面默认为竖屏(宽小于高)显示，与端游的主要区别在videoView的横竖屏切换处理。
+It mainly shows the startup process when running mobile games on the cloud.
+The screen of the mobile game defaults to a vertical screen (width smaller than the height), and the main difference from the client game is the horizontal and vertical screen switching processing of the videoView.
 
-3、VKeyDemo
+3. VKeyDemo
 
-主要展示了虚拟按键的使用。
-工程提供了两套布局，可通过点击"Switch"按钮进行按键布局的切换。
+It mainly shows the use of virtual buttons.
+The project provides two sets of layouts, which can be switched by clicking the "Switch" button.
 
-4、SwiftPCDemo
+4. SwiftPCDemo
 
-主要展示了云端运行传统PC端游时的启动流程(Swift版本)。
+It mainly shows the startup process (Swift version) when running traditional PC end games on the cloud.

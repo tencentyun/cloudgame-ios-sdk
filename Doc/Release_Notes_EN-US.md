@@ -1,3 +1,12 @@
+[中文文档](历史版本.md)
+### Version 1.1.9 (2022-11-15)
+Features
+- TCGGamePlayer newly added method setRemoteDesktopResolution(int, int) for setting the resolution of cloud desktop.
+
+### Version 1.1.8.22 (2022-5-10)
+Bug Fixes
+- Fix and optimize some known issues.
+
 ### Version 1.1.8.21 (2021-12-10)
 Features
 - Replaced the WebRTC-based reconnection API with the reconnection delegate API.

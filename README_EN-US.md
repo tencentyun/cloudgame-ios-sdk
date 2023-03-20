@@ -1,3 +1,4 @@
+[中文文档](README.md)
 # Tencent cloud GS for iOS
 ## I.Introduction
 This project provides a simple application example of integrating the Formos SDK, allowing you to quickly experience the running effect of the cloud game.
@@ -38,6 +39,6 @@ We will regularly update the functions of the SDK, and you can obtain the latest
 You can also view the release history of the SDK to learn about changes in each version.
 
 
-## 四、相关链接
+## IV、See also
 [CAR](https://www.tencentcloud.com/document/product/1158)
 

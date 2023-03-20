@@ -1,3 +1,4 @@
+[English document](README_EN-US.md)
 # 腾讯云云游戏 iOS
 ## 一、仓库介绍
 该工程提供了集成云游SDK的简单应用示例，能够让您快速体验云游戏的运行效果。
