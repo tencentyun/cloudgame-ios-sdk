@@ -28,10 +28,10 @@ If you need to integrate a flexible and configurable game button layout in your 
 
 Edit Podfile
 ```
-pod 'TCGSDK', :git => "https://github.com/yujunleik/test_pod.git"
+pod 'TCGSDK', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git"
 
 # Optional library of virtual keys
-# pod 'TCGVKey', :git => "https://github.com/yujunleik/test_pod.git"
+# pod 'TCGVKey', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git"
 ```
 
 We will regularly update the functions of the SDK, and you can obtain the latest version under the SDK directory of this project.

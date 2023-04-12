@@ -1,4 +1,8 @@
 [中文文档](历史版本.md)
+### Version 1.1.19.1 (2023-4-12)
+Bug Fixes
+- Fix and optimize some known issues.
+
 ### Version 1.1.9 (2022-11-15)
 Features
 - TCGGamePlayer newly added method setRemoteDesktopResolution(int, int) for setting the resolution of cloud desktop.
