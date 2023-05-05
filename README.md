@@ -40,5 +40,5 @@ pod 'TCGSDK', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git"
 
 
 ## 四、相关链接
-[腾讯云云游戏解决方案](https://cloud.tencent.com/solution/gs)
+[腾讯云云游戏解决方案](https://cloud.tencent.com/solution/gs)  
 [API详细文档](https://tencentyun.github.io/cloudgame-ios-sdk/)
