@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>TCGGamePlayerDelegate Protocol Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">tcgsdk </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">tencent</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/onConnectionFailure:msg:">- onConnectionFailure:msg:</option>
+		
+		<option value="//api/name/onGameProcessRun">- onGameProcessRun</option>
+		
+		<option value="//api/name/onInitFailure:msg:">- onInitFailure:msg:</option>
+		
+		<option value="//api/name/onInitSuccess:">- onInitSuccess:</option>
+		
+		<option value="//api/name/onStartReConnectWithReason:">- onStartReConnectWithReason:</option>
+		
+		<option value="//api/name/onVideoOrientationChanged:">- onVideoOrientationChanged:</option>
+		
+		<option value="//api/name/onVideoShow">- onVideoShow</option>
+		
+		<option value="//api/name/onVideoSizeChanged:">- onVideoSizeChanged:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">TCGGamePlayerDelegate Protocol Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Conforms to</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>TCGGamePlayer.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/onInitSuccess:" title="onInitSuccess:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onInitSuccess:">&ndash;&nbsp;onInitSuccess:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>本地资源初始化成功，必选</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)onInitSuccess:(NSString *)<em>localSession</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>localSession</code></th>
+						<td><p>本地信息用于申请云端资源</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>本地资源初始化成功，必选</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TCGGamePlayer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/onInitFailure:msg:" title="onInitFailure:msg:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onInitFailure:msg:">&ndash;&nbsp;onInitFailure:msg:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>本地资源初始化失败，必选</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)onInitFailure:(TCGErrorType)<em>errorCode</em> msg:(NSError *)<em>errorMsg</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>errorCode</code></th>
+						<td><p>错误码</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>errorMsg</code></th>
+						<td><p>内部错误信息</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>本地资源初始化失败，必选</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TCGGamePlayer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/onConnectionFailure:msg:" title="onConnectionFailure:msg:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onConnectionFailure:msg:">&ndash;&nbsp;onConnectionFailure:msg:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>与云端的连接异常，必选。(未成功建立连接，或连接因网络等原因异常断开)</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)onConnectionFailure:(TCGErrorType)<em>errorCode</em> msg:(NSError *)<em>errorMsg</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>errorCode</code></th>
+						<td><p>错误码</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>errorMsg</code></th>
+						<td><p>内部错误信息</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>与云端的连接异常，必选。(未成功建立连接，或连接因网络等原因异常断开)</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TCGGamePlayer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/onStartReConnectWithReason:" title="onStartReConnectWithReason:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onStartReConnectWithReason:">&ndash;&nbsp;onStartReConnectWithReason:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>与云端的连接异常，开始自动重连，必选。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)onStartReConnectWithReason:(TCGErrorType)<em>reason</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>reason</code></th>
+						<td><p>触发重连的原因</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>与云端的连接异常，开始自动重连，必选。</p><p>重连后之前连接的虚拟手柄与鼠标的信息需要重新设置。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TCGGamePlayer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/onVideoSizeChanged:" title="onVideoSizeChanged:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onVideoSizeChanged:">&ndash;&nbsp;onVideoSizeChanged:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>视频流画面尺寸发生变化，(第一次连接成功后在画面显示之前也会回调)，必选。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)onVideoSizeChanged:(CGSize)<em>videoSize</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>videoSize</code></th>
+						<td><p>视频源宽高</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>视频流画面尺寸发生变化，(第一次连接成功后在画面显示之前也会回调)，必选。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TCGGamePlayer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/onVideoOrientationChanged:" title="onVideoOrientationChanged:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onVideoOrientationChanged:">&ndash;&nbsp;onVideoOrientationChanged:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>(手游)视频画面的朝向发生改变，(进入游戏前也会回调)。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)onVideoOrientationChanged:(UIInterfaceOrientation)<em>orientation</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>orientation</code></th>
+						<td><p>视频画面的朝向，UIInterfaceOrientationLandscapeRight 画面内容为横屏，UIInterfaceOrientationPortrait 画面内容为竖屏。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>(手游)视频画面的朝向发生改变，(进入游戏前也会回调)。</p><p>注意这里的朝向是指画面里的内容是竖屏或横屏内容(可理解为云端手机的朝向)，而视频画面的宽高是不会发生改变的。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TCGGamePlayer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/onVideoShow" title="onVideoShow"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onVideoShow">&ndash;&nbsp;onVideoShow</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>视频首帧出图(包括重连后出画面)，必选。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)onVideoShow</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>视频首帧出图(包括重连后出画面)，必选。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TCGGamePlayer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/onGameProcessRun" title="onGameProcessRun"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onGameProcessRun">&ndash;&nbsp;onGameProcessRun</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>游戏进程启动成功，用于区别如账号登录窗口等游戏前置窗口（可选）。
+回调表明前置窗口已关闭，拉起了游戏主体窗口。(需后台配置来指定主体进程)</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)onGameProcessRun</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>游戏进程启动成功，用于区别如账号登录窗口等游戏前置窗口（可选）。
+回调表明前置窗口已关闭，拉起了游戏主体窗口。(需后台配置来指定主体进程)</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TCGGamePlayer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2023 tencent. All rights reserved. Updated: 2023-05-05</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
