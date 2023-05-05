@@ -1,6 +1,0 @@
-framework module TCGARKit {
-  umbrella header "TCGARKit.h"
-
-  export *
-  module * { export * }
-}
