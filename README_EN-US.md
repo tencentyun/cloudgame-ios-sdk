@@ -41,4 +41,6 @@ You can also view the release history of the SDK to learn about changes in each 
 
 ## IV、See also
 [CAR](https://www.tencentcloud.com/document/product/1158)
+[API DOC](https://tencentyun.github.io/cloudgame-ios-sdk/)
+
 
