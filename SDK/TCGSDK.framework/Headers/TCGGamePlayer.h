@@ -111,8 +111,6 @@
  */
 - (BOOL)startGameWithRemoteSession:(NSString *)remoteSession error:(NSError **)error;
 
-- (void)startGameWithExperienceCode:(NSDictionary *)params error:(NSError **)error;
-
 /*!
  * 结束游戏，释放本地资源。
  * @discussion 云端资源在心跳断开90秒后自动释放，立即释放需业务后台主动调用接口。
@@ -134,8 +132,8 @@
 
 /*!
  * 设置游戏视频的输出编码码率和帧率
- * @param minBitrate 范围[1*1024,15*1024]，单位Kbps
- * @param maxBitrate 范围[1*1024,15*1024]，单位Kbps
+ * @param minBitrate 范围[1*1000,15*1000]，单位Kbps
+ * @param maxBitrate 范围[1*1000,15*1000]，单位Kbps
  * @param fps 范围[10,60]，单位帧;
  */
 - (void)setStreamBitrateMix:(UInt32)minBitrate max:(UInt32)maxBitrate fps:(int)fps;
@@ -198,7 +196,15 @@
 - (NSDictionary *)currentStatisReport;
 
 /*!
- * 创建一个能与云端程序通讯的通道，最多允许存在三个通道
+ * 修改云端桌面的分辨率，仅云端为PC Windows应用支持。修改后云端桌面的分辨率会改变为目标分辨率大小。
+ * 如果客户端的gameView大小不变，修改分辨率后画面会有一定的拉伸/收缩。
+ * @param width 需要修改到的目标云端桌面宽度
+ * @param height 需要修改到的目标云端桌面高度
+ */
+- (void)setRemoteDesktopResolution:(int)width videoheight:(int)height;
+
+/*!
+ * 创建一个能与云端程序通讯的通道，最多允许存在三个通道。
  * @param remotePort 云端程序的UDP端口号
  * @param channelDelegate 通讯对象的代理，详情见TCGCustomTransChannelDelegate
  * @return TCGCustomTransChannel 通讯对象
