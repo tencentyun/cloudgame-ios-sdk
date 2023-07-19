@@ -1,5 +1,16 @@
 [中文文档](历史版本.md)
-### Version 1.1.19.1 (2023-4-12)
+### Version 1.2.1 (2023-7.17)
+Bug Fixes
+- Fix and optimize some known issues.
+### Version 1.2.0 (2023-7.6)
+Features
+- Added TCGMultiPlayer interface class
+### Version 1.1.9.2 (2023-7-19)
+Features
+- Add configurable audioSession parameters for creating TCGGameplayer
+Bug Fixes
+- Fix and optimize some known issues.
+### Version 1.1.9.1 (2023-4-12)
 Bug Fixes
 - Fix and optimize some known issues.
 
