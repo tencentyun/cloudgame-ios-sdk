@@ -1,4 +1,9 @@
 [中文文档](历史版本.md)
+
+### Version 1.1.9.2 (2023-7-19)
+Bug Fixes
+- Fix and optimize some known issues.
+- Add configurable audioSession parameters for creating TCGGameplayer
 ### Version 1.1.19.1 (2023-4-12)
 Bug Fixes
 - Fix and optimize some known issues.
