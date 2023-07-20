@@ -1,4 +1,7 @@
 [中文文档](历史版本.md)
+### Version 1.1.9.3 (2023-7-20)
+Features
+- Support emulator x86_64 architecture
 
 ### Version 1.1.9.2 (2023-7-19)
 Bug Fixes
