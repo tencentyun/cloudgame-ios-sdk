@@ -10,6 +10,8 @@
 #import <UIKit/UIKit.h>
 #import <tcgsdk/TCGSdkConst.h>
 #import <tcgsdk/TCGCustomTransChannel.h>
+#import <AVFoundation/AVFoundation.h>
+
 
 @class TCGGameController;
 
@@ -90,6 +92,19 @@
 
 @end
 
+/*!
+ * sdk audioSession代理，实现并通过addTCGAudioSessionDelegate后。sdk中将不再操作AudioSession，而是将AudioSession相关操作通过该代理回调到APP
+ * 处理，APP根据实际需要根据参数对AVAudioSession进行设置。
+ */
+@protocol TCGAudioSessionDelegate <NSObject>
+@optional
+- (BOOL)onSetCategory:(NSString *)category
+        withOptions:(AVAudioSessionCategoryOptions)options
+        error:(NSError **)outError;
+- (BOOL)onSetMode:(NSString *)mode error:(NSError **)outError;
+- (BOOL)onSetActive:(BOOL)active error:(NSError **)outError;
+@end
+
 #pragma mark --- SDK云游基础类，提供云游能力 ---
 @interface TCGGamePlayer : NSObject
 
@@ -144,6 +159,12 @@
  * @discussion 过度放大声音，会引起失真
  */
 - (void)setVolumeScale:(float)scale;
+
+/*!
+ * 设置本地麦克风的禁用与开启，默认关闭
+ * @param enable YES 开启，NO 关闭
+ */
+- (void)setEnableLocalAudio:(BOOL)enable;
 
 /*!
  * 设置连接超时时长，在连接开始前设置才有效，默认10秒
@@ -211,6 +232,15 @@
  * @discussion 异步执行，通过TCGCustomTransChannelDelegate返回结果
  */
 - (TCGCustomTransChannel *)openCustomTransChannel:(int)remotePort delegate:(id<TCGCustomTransChannelDelegate>)channelDelegate;
+
+/*!
+ * 设置sdk audioSession代理，实现并通过addTCGAudioSessionDelegate后。sdk中将不再操作AudioSession，而是将AudioSession相关操作通过该代理回调到APP
+ * 处理，APP根据实际需要根据参数对AVAudioSession进行设置。
+ */
++ (void)setAudioSessionDelegate:(id<TCGAudioSessionDelegate>)delegate;
+
+// 获取sdk audioSessionDelegate
++ (id<TCGAudioSessionDelegate>)audioSessionDelegate;
 @end
 
 #pragma mark --- 日志接口 ---

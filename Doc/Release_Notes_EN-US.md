@@ -5,6 +5,10 @@ Bug Fixes
 ### Version 1.2.0 (2023-7.6)
 Features
 - Added TCGMultiPlayer interface class
+### Version 1.1.9.4 (2023-8-2)
+Features
+- Added TCGAudioSessionDelegate agent, which is used to call back the parameters of operating audiosession in sdk, and stop sdk from operating these parameters
+- New interface setEnableLocalAudio is used to enable and disable the local microphone
 ### Version 1.1.9.2 (2023-7-19)
 Features
 - Add configurable audioSession parameters for creating TCGGameplayer
