@@ -5,6 +5,10 @@ Bug Fixes
 ### Version 1.2.0 (2023-7.6)
 Features
 - Added TCGMultiPlayer interface class
+
+### Version 1.1.9.5 (2023-8-3)
+Bug Fixes
+- Fix and optimize some known issues.
 ### Version 1.1.9.4 (2023-8-2)
 Features
 - Added TCGAudioSessionDelegate agent, which is used to call back the parameters of operating audiosession in sdk, and stop sdk from operating these parameters
