@@ -6,6 +6,9 @@ Bug Fixes
 Features
 - Added TCGMultiPlayer interface class
 
+### Version 1.1.9.6 (2023-8-7)
+Bug Fixes
+- Fix and optimize some known issues.
 ### Version 1.1.9.5 (2023-8-3)
 Bug Fixes
 - Fix and optimize some known issues.
