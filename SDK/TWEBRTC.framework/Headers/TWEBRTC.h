@@ -1,5 +1,5 @@
 /*
- *  Copyright 2021 The WebRTC project authors. All Rights Reserved.
+ *  Copyright 2023 The WebRTC project authors. All Rights Reserved.
  *
  *  Use of this source code is governed by a BSD-style license
  *  that can be found in the LICENSE file in the root of the source
@@ -27,6 +27,7 @@
 #import <TWEBRTC/RTCVideoFrame.h>
 #import <TWEBRTC/RTCVideoFrameBuffer.h>
 #import <TWEBRTC/RTCVideoRenderer.h>
+#import <TWEBRTC/RTCAudioSink.h>
 #import <TWEBRTC/RTCYUVPlanarBuffer.h>
 #import <TWEBRTC/RTCAudioSession.h>
 #import <TWEBRTC/RTCAudioSessionConfiguration.h>

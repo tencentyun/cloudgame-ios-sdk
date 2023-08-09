@@ -13,13 +13,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol RTCAudioSink;
 @class RTCAudioSource;
 
 RTC_OBJC_EXPORT
 @interface RTCAudioTrack : RTCMediaStreamTrack
 
 - (instancetype)init NS_UNAVAILABLE;
+/** 注册audioSink*/
+- (void)addSink:(id<RTCAudioSink>)sink;
 
+/** 注销audioSink */
+- (void)removeSink:(id<RTCAudioSink>)sink;
 /** The audio source for this audio track. */
 @property(nonatomic, readonly) RTCAudioSource *source;
 
