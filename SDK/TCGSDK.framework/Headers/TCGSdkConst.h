@@ -93,11 +93,12 @@ typedef NS_ENUM(NSInteger, TCGMouseCursorTouchMode) {
 typedef NS_ENUM(NSInteger, TCGTextFieldType) {
     /*! 鼠标左键点击了一个普通的文本框 */
     TCGTextFieldType_Normal = 0,
-    /*! 光标从输入框移出 */
-    TCGTextFieldType_UnFocused = 1,
-    TCGTextFieldType_AutoLoginInput = 2,
-    /*! 鼠标左键点击了文本框，但当前状态为禁止用户输入 */
+    /*! 鼠标左键点击了一个支持自动登录的文本框 */
+    TCGTextFieldType_AutoLogin = 1,
+    /*! 鼠标左键点击了文本框，但当前状态为禁止用户输入(如后台正在模拟自动登录) */
     TCGTextFieldType_Disable = 99,
+
+    TCGTextFieldType_Unknown = -1
 };
 
 typedef enum : NSInteger {
