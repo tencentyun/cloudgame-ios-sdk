@@ -31,12 +31,6 @@ typedef void(^tBoolFinishBlk)(BOOL isCapsLock, NSError *error);
 - (void)onCursorVisibleChanged:(BOOL)isVisble;
 
 /*!
- * 鼠标左键点中了文本输入框
- * @param type 当前文本框的类型或状态
- */
-- (void)onClickedTextField:(TCGTextFieldType)type;
-
-/*!
  * 云端是否禁止客户端的输入
  * @discussion 如云端在尝试自动登陆账号时，会忽略客户端的输入。
  * @param isEnable YES:允许客户端输入, NO:忽略客户端的输入消息
