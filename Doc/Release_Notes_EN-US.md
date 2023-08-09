@@ -1,10 +1,8 @@
 [中文文档](历史版本.md)
-### Version 1.2.1 (2023-7.17)
-Bug Fixes
-- Fix and optimize some known issues.
-### Version 1.2.0 (2023-7.6)
+### Version 1.2.2 (2023-8.9)
 Features
-- Added TCGMultiPlayer interface class
+- TCGGamePlayer adds interface setVideoSink && setAudioSink for callback audio and video data
+- Added TCGVideoFrame && TCGAudioFrame
 
 ### Version 1.1.9.6 (2023-8-7)
 Bug Fixes
