@@ -1,4 +1,7 @@
 [中文文档](历史版本.md)
+### Version 1.3.1 (2023-8.9)
+Bug Fixes
+- Fix the echo problem after turning on the microphone
 ### Version 1.3.0 (2023-8.9)
 Features
 - TCGGamePlayer adds interface setVideoSink && setAudioSink for callback audio and video data
