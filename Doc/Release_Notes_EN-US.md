@@ -1,4 +1,13 @@
 [中文文档](历史版本.md)
+
+### Version 1.3.2 (2023-8.14)
+Features
+- Added TCGMultiPlayer interface class
+- Log proxy module refactoring
+
+Bug Fixes
+- Fix and optimize some known issues.
+
 ### Version 1.3.1 (2023-8.9)
 Bug Fixes
 - Fix the echo problem after turning on the microphone

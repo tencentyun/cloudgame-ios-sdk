@@ -32,9 +32,11 @@ typedef void(^tBoolFinishBlk)(BOOL isCapsLock, NSError *error);
 
 /*!
  * 鼠标左键点中了文本输入框
- * @param type 当前文本框的类型或状态
+ * @param type 当前文本框的类型或状态, 有效取值请参考TCGSdkConst#TCGTextFieldType
+ * @param inputType 当前文本框类型，仅云端平台为android时支持
+ * @param text 当前文本框的文字，仅云端平台为android时支持
  */
-- (void)onClickedTextField:(TCGTextFieldType)type;
+- (void)onClickedTextField:(TCGTextFieldType)type input_type:(NSInteger)inputType text:(NSString*)text;
 
 /*!
  * 云端是否禁止客户端的输入
@@ -42,14 +44,6 @@ typedef void(^tBoolFinishBlk)(BOOL isCapsLock, NSError *error);
  * @param isEnable YES:允许客户端输入, NO:忽略客户端的输入消息
  */
 - (void)onRemoteInputStatus:(BOOL)isEnable;
-
-/*!
-* 云端执行自动登录任务结束(并不识别账号与密码的正确性)
-* @discussion 云端在尝试自动登陆时，会忽略客户端的输入。
-* @param status 0:模拟输入动作执行成功，并不代表账号与密码正确。
-             -1:模拟输入动作执行失败，只是输入动作执行失败。
-*/
--(void)onAutoLoginFinish:(int)status;
 
 @end
 
@@ -153,27 +147,6 @@ typedef void(^tBoolFinishBlk)(BOOL isCapsLock, NSError *error);
  * @discussion 回调返回0，仅表示云端接收到文本内容，输入成功与否取决于当前文本框是否支持复制操作，接口本身无法感知。
  */
 - (void)asyncPasteText:(NSString *)text intoTextFieldWithBlk:(void(^)(int retCode))finishBlk;
-
-/*!
-* 云端自动登录(模拟输入账号与密码)
-*  @param username 用户名
-*  @param passwd 密码
-*  @param finishBlk 执行结果回调，retCode: 0 开始自动登录，
-                                 -1 当前游戏不支持，
-                                 -2 当前窗口不支持，
-                                 -3 上一次自动登录未结束，
-                                 -4 云端内部错误。
-                                 -9 云端响应超时，
-                                 -10 参数错误
-* @discussion 接口回调返回0表明云端开始模拟输入信息，这个过程耗时较长(但超过10秒会触发超时逻辑)，在此期间客户端的控制消息会被云端忽略掉。
-         模拟输入动作执行结束后，通过代理onAutoLoginFinish通知执行情况。
-*/
-- (void)asyncAutoLogin:(NSString *)username passwd:(NSString *)passwd finishBlk:(void(^)(int retCode))finishBlk;
-
-/*!
-* 取消当前自动登录操作
-*/
-- (void)cancleAutoLogin;
 
 /*!
 * (手游) 触发云端的返回动作(触发安卓的物理返回键)

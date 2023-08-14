@@ -21,3 +21,4 @@ FOUNDATION_EXPORT const unsigned char tcgsdkVersionString[];
 #import <TCGSDK/TCGVirtualMouseCursor.h>
 #import <TCGSDK/TCGCustomTransChannel.h>
 #import <TCGSDK/TCGRemoteTouchScreen.h>
+#import <TCGSDK/TCGMultiPlayer.h>
