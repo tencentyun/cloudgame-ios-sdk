@@ -1,5 +1,7 @@
 [中文文档](历史版本.md)
-
+### Version 1.3.3 (2023-8.17)
+Features
+- The new startup parameter `software_aec` is used to enable software echo cancellation
 ### Version 1.3.2 (2023-8.14)
 Features
 - Added TCGMultiPlayer interface class
