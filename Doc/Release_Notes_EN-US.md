@@ -1,4 +1,7 @@
 [中文文档](历史版本.md)
+### Version 1.3.4 (2023-8.22)
+Bug Fixes
+- Fix and optimize some known issues.
 ### Version 1.3.3 (2023-8.17)
 Features
 - The new startup parameter `software_aec` is used to enable software echo cancellation
