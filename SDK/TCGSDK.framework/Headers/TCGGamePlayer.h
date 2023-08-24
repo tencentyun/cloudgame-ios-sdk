@@ -253,12 +253,18 @@
 - (TCGCustomTransChannel *)openCustomTransChannel:(int)remotePort delegate:(id<TCGCustomTransChannelDelegate>)channelDelegate;
 
 /*!
- * 开启自定义渲染模式，调用后sdk将不再向TCGGamePlayer.videoView上渲染画面
+ * 开启视频数据回调，回调待渲染的视频帧数据
  * @param videoSink 待渲染视频帧的回调，详情见TCGVideoSinkDelegate
+ * @param enable  YES, 开启sdk视频渲染；NO, 关闭sdk视频渲染。
  */
-- (void)setVideoSink:(id<TCGVideoSinkDelegate>)videoSink;
+- (void)setVideoSink:(id<TCGVideoSinkDelegate>)videoSink enableInternalRendering:(BOOL)enable;
 
-- (void)setAudioSink:(id<TCGAudioSinkDelegate>)audioSink;
+/*!
+ * 开启音频数据回调，回调播放的音频PCM数据
+ * @param audioSink 待播放音频数据的回调，详情见TCGAudioSinkDelegate
+ * @param enable YES, 开启sdk音频播放；NO, 关闭sdk音频播放。
+ */
+- (void)setAudioSink:(id<TCGAudioSinkDelegate>)audioSink enableInternalPlaying:(BOOL)enable;
 
 /*!
  * 设置sdk audioSession代理，实现并通过addTCGAudioSessionDelegate后。sdk中将不再操作AudioSession，而是将AudioSession相关操作通过该代理回调到APP
