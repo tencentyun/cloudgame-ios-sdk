@@ -1,4 +1,9 @@
 [中文文档](历史版本.md)
+
+### Version 1.3.5 (2023-8.25)
+Features
+- The audio and video data callback interface adds a configuration switch for internal rendering and playback
+
 ### Version 1.3.4 (2023-8.22)
 Bug Fixes
 - Fix and optimize some known issues.
