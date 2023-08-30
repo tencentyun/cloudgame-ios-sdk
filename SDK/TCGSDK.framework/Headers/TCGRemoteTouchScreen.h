@@ -14,5 +14,8 @@
 @interface TCGRemoteTouchScreen : UIView
 
 - (instancetype)initWithFrame:(CGRect)frame controller:(TCGGameController *)controller;
-
+/*
+  清除本地存储的touch事件(用于卡键情况)
+ */
+- (void)cleanTouchEvent;
 @end

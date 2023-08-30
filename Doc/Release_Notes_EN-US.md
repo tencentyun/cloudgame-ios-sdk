@@ -1,4 +1,7 @@
 [中文文档](历史版本.md)
+### Version 1.3.6 (2023-8.30)
+Bug Fixes
+- Fix and optimize some known issues.
 
 ### Version 1.3.5 (2023-8.25)
 Features
