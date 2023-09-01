@@ -1,4 +1,8 @@
 [中文文档](历史版本.md)
+### Version 1.3.7 (2023-9.1)
+Bug Fixes
+- Fix the problem that the volume adjustment interface ‘setVolume’ fails
+
 ### Version 1.3.6 (2023-8.30)
 Bug Fixes
 - Fix and optimize some known issues.
