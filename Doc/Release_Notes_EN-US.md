@@ -1,4 +1,7 @@
 [中文文档](历史版本.md)
+### Version 1.3.8 (2023-9.5)
+Features
+- TCGGamePlayer#currentStatisReport adds audio downlink bitrate field
 ### Version 1.3.7 (2023-9.1)
 Bug Fixes
 - Fix the problem that the volume adjustment interface ‘setVolume’ fails
