@@ -1,4 +1,9 @@
 [中文文档](历史版本.md)
+
+### Version 1.3.9 (2023-9.7)
+Bug Fixes
+- Fix and optimize some known issues.
+
 ### Version 1.3.8 (2023-9.5)
 Features
 - TCGGamePlayer#currentStatisReport adds audio downlink bitrate field
