@@ -1,5 +1,8 @@
 [中文文档](历史版本.md)
-### Version 1.3.9 (2023-9.12)
+### Version 1.3.11 (2023-9.12)
+Bug Fixes
+- Fix and optimize some known issues.
+### Version 1.3.10 (2023-9.12)
 Bug Fixes
 - Fix and optimize some known issues.
 

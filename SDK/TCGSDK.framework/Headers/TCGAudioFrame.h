@@ -22,7 +22,7 @@
 /**
  音频数据
  */
-@property (nonatomic, assign) NSData* data;
+@property (nonatomic, copy) NSData* data;
 /**
  每个音频样本的位数
  */
