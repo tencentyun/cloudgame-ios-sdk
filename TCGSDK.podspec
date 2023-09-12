@@ -1,10 +1,10 @@
 Pod::Spec.new do |spec|
   spec.name         = 'TCGSDK'
-  spec.version      = '1.3.9'
+  spec.version      = '1.3.10'
   spec.license      = { :type => 'MIT' }
   spec.homepage     = 'https://github.com/tencentyun/cloudgame-ios-sdk'
   spec.summary      = 'Tencent Cloud Gaming Software Development Kit for iOS.'
-  spec.authors      = { 'lyleyu' => 'lyleyu@tencent.com' }
+  spec.authors      = { 'xxhapecheng' => 'xxhapecheng@tencent.com' }
   spec.source       = { :path => './' }
   spec.pod_target_xcconfig = {
     'ENABLE_BITCODE' => 'OFF'
