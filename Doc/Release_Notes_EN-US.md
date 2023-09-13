@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 1.3.14 (2023-9.13)
+Bug Fixes
+- Fixed the issue where audio track volume settings failed after reconnection
+
 ### Version 1.3.13 (2023-9.13)
 Features 
 - TCGVideoFrame adds `timestamp` field
