@@ -1,4 +1,8 @@
 [中文文档](历史版本.md)
+
+### Version 1.3.12 (2023-9.13)
+Bug Fixes
+- Fix the problem of ·rtt· statistics error
 ### Version 1.3.11 (2023-9.12)
 Bug Fixes
 - Fix and optimize some known issues.
