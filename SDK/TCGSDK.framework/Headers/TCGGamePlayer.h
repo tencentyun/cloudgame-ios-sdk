@@ -70,6 +70,11 @@
  */
 - (void)onGameProcessRun;
 
+/*!
+ * 游戏进程结束，用于监测云端应用进程的异常状态
+ */
+- (void)onGameProcessStopped:(NSString*)message;
+
 // 暂未实现
 //- (void)onReceiveTransChannel:(NSString *)name data:(NSData *)data;
 
