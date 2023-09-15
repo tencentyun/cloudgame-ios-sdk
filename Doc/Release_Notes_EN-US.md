@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 1.4.1 (2023-9.15)
+Bug Fixes
+- Fixed the problem of timer failure in SDK in certain scenarios
+
 ### Version 1.4.0 (2023-9.14)
 Features
 -TCGGamePlayer adds `onGameProcessStopped` callback
