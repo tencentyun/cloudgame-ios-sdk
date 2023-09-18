@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 1.4.2 (2023-9.18)
+Bug Fixes
+- Fix and optimize some known issues.
+
 ### Version 1.4.1 (2023-9.15)
 Bug Fixes
 - Fixed the problem of timer failure in SDK in certain scenarios
