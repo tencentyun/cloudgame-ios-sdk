@@ -138,7 +138,10 @@
 
 /*!
  * 初始化本地资源，异步回调结果
- * @param params 选填，预留暂未启用
+ * @param params 选填，可选以下键值对：
+ *         - @"preferredCodec": 可选值为@"H264"或@"H265"。用于设置首选的编解码器，若值不是@"H264"或@"H265"，则设置无效。如果设置了此字段，会话将尝试使用首选编解码器进行通信，如果首选编解码器不可用，则会使用其他可用的编解码器。如果未设置该字段或设置无效，则会话将使用默认的编解码器。
+ *         - @"local_audio": 可选值为bool类型。用于开启本地麦克风
+ *
  * @param listener  必填，player的代理，监听关键事件的回调
  */
 - (instancetype )initWithParams:(NSDictionary *)params andDelegate:(id<TCGGamePlayerDelegate>)listener;
