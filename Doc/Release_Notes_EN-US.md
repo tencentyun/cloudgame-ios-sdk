@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 1.5.1 (2023-9.20)
+Bug Fixes
+- Fix and optimize some known issues.
+
 ### Version 1.5.0 (2023-9.19)
 Features  
 - TCGGamePlayer adds a new startup parameter `preferredCodec`, which is used to set the preferred codec. If this field is set, the session will attempt to communicate using the preferred codec, or use other available codecs if the preferred codec is not available. If this field is not set, the session will use the default codec.
