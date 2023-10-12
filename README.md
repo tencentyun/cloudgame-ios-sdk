@@ -9,26 +9,16 @@
 
 ## 二、快速入门
 1、快速体验云游戏
+进入Demo下的工程目录, **pod update** 更新SDK库文件，运行对应的工程即可快速体验云游示例
 
-进入Demo下的工程目录, **pod update** 更新SDK库文件，运行对应的工程即可快速体验云游示例，如果有疑问请参考[Demo运行说明](Demo/README.md)。
-
-2、端游快速接入
-
-如果您需要在您的应用中集成云端游的功能，请参考[端游接入文档](Doc/端游接入说明.md)。
-
-3、手游快速接入
-
-如果您需要在您的应用中集成云手游的功能，请参考[手游接入文档](Doc/手游接入说明.md)。
-
-4、虚拟按键快速接入
-
+2、虚拟按键快速接入
 如果您需要在您的应用中集成灵活可配置的游戏按键布局，请参考[虚拟接入文档](Doc/自定义虚拟按键.md)。
 
 ## 三、SDK集成
 
 在Podfile中添加
 ```
-pod 'TCGSDK', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git"
+pod 'TCRSDK', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git"
 
 # 虚拟按键可选库
 # pod 'TCGVKey', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git"

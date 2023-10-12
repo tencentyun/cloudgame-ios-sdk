@@ -10,17 +10,9 @@ If you need to implement some advanced functions, we also provide advanced guida
 ## II、Quick start
 1、Experience Cloud Gaming Quickly
 
-Enter the project directory under Demo, **pod update** update the SDK library file, and run the corresponding project to quickly experience the GS example. If you have any questions, please refer to[Demo](Demo/README_EN-US.md)。
+Enter the project directory under Demo, **pod update** update the SDK library file, and run the corresponding project to quickly experience the GS example. 
 
-2、PC game quick start
-
-If you need to integrate the cloud pc game function in your application, please refer to[PCGameQuickStart](Doc/PC_Game_Quick_Start_EN-US.md)。
-
-3、Mobile game quick start
-
-If you need to integrate cloud mobile game functions in your application, please refer to[MobileGameQuickStart](Doc/Mobile_Game_Quick_Start_EN-US.md)。
-
-4、Virtual key quick start
+2、Virtual key quick start
 
 If you need to integrate a flexible and configurable game button layout in your application, please refer to[VirtualKeyQuickStart](Doc/Virtual_Key_Quick_Start_EN-US.md)。
 
@@ -28,7 +20,7 @@ If you need to integrate a flexible and configurable game button layout in your 
 
 Edit Podfile
 ```
-pod 'TCGSDK', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git"
+pod 'TCRSDK', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git"
 
 # Optional library of virtual keys
 # pod 'TCGVKey', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git"
