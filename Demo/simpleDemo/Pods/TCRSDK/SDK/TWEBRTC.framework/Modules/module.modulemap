@@ -1,0 +1,6 @@
+framework module TWEBRTC {
+  umbrella header "TWEBRTC.h"
+
+  export *
+  module * { export * }
+}
