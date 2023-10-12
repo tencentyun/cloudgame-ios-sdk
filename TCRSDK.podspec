@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
   spec.pod_target_xcconfig = {
     'ENABLE_BITCODE' => 'OFF'
   }
-  spec.vendored_frameworks = 'SDK/TCGSDK.framework', 'SDK/TWEBRTC.framework'
+  spec.vendored_frameworks = 'SDK/TCRSDK.framework', 'SDK/TWEBRTC.framework'
   spec.info_plist = {
     'UISupportedInterfaceOrientations' => [
       'UIInterfaceOrientationPortrait',
