@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-simpleDemo/Pods-simpleDemo-frameworks.sh
+${PODS_ROOT}/TCRSDK/SDK/TCRSDK.framework
+${PODS_ROOT}/TCRSDK/SDK/TWEBRTC.framework

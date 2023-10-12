@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 2.0.0 (2023-10.12)
+Features 
+- SDK reconstruction interface design
+
 ### Version 1.5.1 (2023-9.20)
 Bug Fixes
 - Fix and optimize some known issues.

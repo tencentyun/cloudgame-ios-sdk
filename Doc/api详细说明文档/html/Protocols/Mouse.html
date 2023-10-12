@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Mouse Protocol Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">tcrsdk </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">tencent</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/onMouseDeltaMove:deltaY:">- onMouseDeltaMove:deltaY:</option>
+		
+		<option value="//api/name/onMouseKey:isDown:">- onMouseKey:isDown:</option>
+		
+		<option value="//api/name/onMouseMoveTo:y:">- onMouseMoveTo:y:</option>
+		
+		<option value="//api/name/onMouseScroll:">- onMouseScroll:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">Mouse Protocol Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Conforms to</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>Mouse.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/onMouseKey:isDown:" title="onMouseKey:isDown:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onMouseKey:isDown:">&ndash;&nbsp;onMouseKey:isDown:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Trigger a click event of the cloud mouse.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)onMouseKey:(TCRMouseKeyType)<em>key</em> isDown:(BOOL)<em>down</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The mouse button. Valid values: <code>left</code>: The left button; <code>middle</code>: The scroll wheel; <code>right</code>:
+The right button; <code>forward</code>: The forward side button; <code>backward</code>: The back side button.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>down</code></th>
+						<td><p>Valid values: <code>true</code>: Press; <code>false</code>: Release.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Trigger a click event of the cloud mouse.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Mouse.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/onMouseScroll:" title="onMouseScroll:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onMouseScroll:">&ndash;&nbsp;onMouseScroll:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Rotate the scroll wheel of the cloud mouse.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)onMouseScroll:(float)<em>delta</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>delta</code></th>
+						<td><p>Valid values: -1.0~1.0</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Rotate the scroll wheel of the cloud mouse.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Mouse.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/onMouseDeltaMove:deltaY:" title="onMouseDeltaMove:deltaY:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onMouseDeltaMove:deltaY:">&ndash;&nbsp;onMouseDeltaMove:deltaY:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>According to the offset pixel amount [localDeltaX, localDeltaY] of the local mouse movement,
+calculate the relative movement pixel amount [DeltaX, DeltaY] of the remote movement. <br></p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)onMouseDeltaMove:(int)<em>deltaX</em> deltaY:(int)<em>deltaY</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>deltaX</code></th>
+						<td><p>The offset on the horizontal axis by which the cursor needs to move in remote device</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>deltaY</code></th>
+						<td><p>The offset on the vertical axis by which the cursor needs to move in remote device</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>According to the offset pixel amount [localDeltaX, localDeltaY] of the local mouse movement,
+calculate the relative movement pixel amount [DeltaX, DeltaY] of the remote movement. <br></p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Mouse.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/onMouseMoveTo:y:" title="onMouseMoveTo:y:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onMouseMoveTo:y:">&ndash;&nbsp;onMouseMoveTo:y:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>After you get the coordinates of the local View, you need to convert the coordinates to the coordinates of the
+remote end before calling this method.Before calculation, you need to get the width and height of the gameView
+[localViewWidth, localViewHeight] and the position of the click position in the game screen [localX, localY].
+Then calculate the coordinates through the following sample code to get [remoteX,remoteY].<br>
+Finally, call the interface to send the mouse movement event.<br></p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)onMouseMoveTo:(int)<em>x</em> y:(int)<em>y</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>x</code></th>
+						<td><p>The X coordinate on the remote device</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>y</code></th>
+						<td><p>The Y coordinate on the remote device</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>After you get the coordinates of the local View, you need to convert the coordinates to the coordinates of the
+remote end before calling this method.Before calculation, you need to get the width and height of the gameView
+[localViewWidth, localViewHeight] and the position of the click position in the game screen [localX, localY].
+Then calculate the coordinates through the following sample code to get [remoteX,remoteY].<br>
+Finally, call the interface to send the mouse movement event.<br></p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Mouse.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2023 tencent. All rights reserved. Updated: 2023-10-12</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
