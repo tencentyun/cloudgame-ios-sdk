@@ -48,6 +48,7 @@
 #import <TWEBRTC/RTCCameraPreviewView.h>
 #import <TWEBRTC/RTCDispatcher.h>
 #import <TWEBRTC/UIDevice+RTCDevice.h>
+#import <TWEBRTC/RTCAudioDeviceModule.h>
 #import <TWEBRTC/RTCAudioSource.h>
 #import <TWEBRTC/RTCAudioTrack.h>
 #import <TWEBRTC/RTCConfiguration.h>

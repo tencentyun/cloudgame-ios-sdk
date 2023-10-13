@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 1.6.0 (2023-10.13)
+Features
+- Support for custom audio capture.
+
 ### Version 1.5.1 (2023-9.20)
 Bug Fixes
 - Fix and optimize some known issues.

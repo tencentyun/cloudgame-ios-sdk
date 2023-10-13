@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class RTCVideoSource;
 @class RTCVideoTrack;
 @class RTCPeerConnectionFactoryOptions;
+@class RTCAudioDeviceModule;
 @protocol RTCPeerConnectionDelegate;
 @protocol RTCVideoDecoderFactory;
 @protocol RTCVideoEncoderFactory;
@@ -40,6 +41,11 @@ RTC_OBJC_EXPORT
 /* Initialize object with injectable video encoder/decoder factories */
 - (instancetype)initWithEncoderFactory:(nullable id<RTCVideoEncoderFactory>)encoderFactory
                         decoderFactory:(nullable id<RTCVideoDecoderFactory>)decoderFactory;
+
+/* Initialize object with injectable video encoder/decoder factories, and enable custom audio capture. */
+- (instancetype)initWithEncoderFactory:(nullable id<RTCVideoEncoderFactory>)encoderFactory
+                        decoderFactory:(nullable id<RTCVideoDecoderFactory>)decoderFactory
+                        audioDeviceModule:(RTCAudioDeviceModule *)audioDeviceModule;
 
 /** Initialize an RTCAudioSource with constraints. */
 - (RTCAudioSource *)audioSourceWithConstraints:(nullable RTCMediaConstraints *)constraints;

@@ -141,6 +141,9 @@
  * @param params 选填，可选以下键值对：
  *         - @"preferredCodec": 可选值为@"H264"或@"H265"。用于设置首选的编解码器，若值不是@"H264"或@"H265"，则设置无效。如果设置了此字段，会话将尝试使用首选编解码器进行通信，如果首选编解码器不可用，则会使用其他可用的编解码器。如果未设置该字段或设置无效，则会话将使用默认的编解码器。
  *         - @"local_audio": 可选值为bool类型。用于开启本地麦克风
+ *         - @"enableCustomAudioCapture":@{@"sampleRate":NSInteger, @"useStereoInput": BOOL}，开启自定义音频采集，并带上自定义采集音频的采样率和通道数（两个参数都是必须的）。
+ *                          e.g. @"enableCustomAudioCapture":@{@"sampleRate":@(48000), @"useStereoInput":@(true)}表示采样率为48000，双通道数据。
+ *                          除此之外，要开启自定义音频采集，还需要设置@"local_audio"开启音频上行。
  *
  * @param listener  必填，player的代理，监听关键事件的回调
  */
@@ -273,6 +276,16 @@
  * @param enable YES, 开启sdk音频播放；NO, 关闭sdk音频播放。
  */
 - (void)setAudioSink:(id<TCGAudioSinkDelegate>)audioSink enableInternalPlaying:(BOOL)enable;
+
+/**
+ * 发送自定义音频数据的音频数据。仅当开启了自定义音频采集时，此方法才有效。
+ * 开启自定义音频采集的方式见initWithParams
+ *
+ * @param audioData 包含音频数据的ByteBuffer。此缓冲区必须包含根据配置的音频格式的PCM数据（16位）。
+ * @param captureTimeNs 音频数据的采集时间，以纳秒为单位。 
+ * @return 发送自定义采集的音频数据是否成功
+ */
+- (BOOL)sendCustomAudioData:(NSData*_Nonnull)audioData captureTimeNs:(uint64_t)captureTimeNs;
 
 /*!
  * 设置sdk audioSession代理，实现并通过addTCGAudioSessionDelegate后。sdk中将不再操作AudioSession，而是将AudioSession相关操作通过该代理回调到APP
