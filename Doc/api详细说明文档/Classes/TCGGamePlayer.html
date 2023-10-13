@@ -97,6 +97,8 @@
 		<option value="//api/name/videoView">- videoView</option>
 		
 		<option value="//api/name/videoViewScale">- videoViewScale</option>
+
+		<option value="//api/name/sendCustomAudioData">- sendCustomAudioData</option>
 		
 	</optgroup>
 	
@@ -229,7 +231,14 @@
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>params</code></th>
-						<td><p>选填，预留暂未启用</p></td>
+						<td>
+							<p>选填，可选以下键值对：</p>
+							<p>- @"preferredCodec": 可选值为@"H264"或@"H265"。用于设置首选的编解码器，若值不是@"H264"或@"H265"，则设置无效。如果设置了此字段，会话将尝试使用首选编解码器进行通信，如果首选编解码器不可用，则会使用其他可用的编解码器。如果未设置该字段或设置无效，则会话将使用默认的编解码器。</p>
+							<p>- @"local_audio": 可选值为bool类型。用于开启本地麦克风</p>
+							<p>- @"enableCustomAudioCapture":@{@"sampleRate":NSInteger, @"useStereoInput": BOOL}，开启自定义音频采集，并带上自定义采集音频的采样率和通道数（两个参数都是必须的）。
+								                          <br>e.g. @"enableCustomAudioCapture":@{@"sampleRate":@(48000), @"useStereoInput":@(true)}表示采样率为48000，双通道数据。
+								                          除此之外，要开启自定义音频采集，还需要设置@"local_audio"开启音频上行。</p>
+						</td>
 					</tr>
 				
 					<tr>
@@ -1105,7 +1114,74 @@
 			
 		</div>
 	</div>
-</div><div class="section-method">
+</div>
+<div class="section-method">
+	<a name="//api/name/sendCustomAudioData:" title="sendCustomAudioData:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sendCustomAudioData:">&ndash;&nbsp;sendCustomAudioData:captureTimeNs</a></code>
+	</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+
+
+			<div class="method-subsection brief-description">
+				<p>发送自定义音频数据的音频数据。仅当开启了自定义音频采集时，此方法才有效。</p>
+			</div>
+
+
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)sendCustomAudioData:(NSData*_Nonnull)<em>audioData</em> captureTimeNs:(uint64_t)<em>captureTimeNs</em></code></div>
+
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>发送自定义采集的音频数据是否成功</p>
+			</div>
+
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+
+					<tr>
+						<th scope="row" class="argument-name"><code>audioData</code></th>
+						<td><p>包含音频数据的ByteBuffer。此缓冲区必须包含根据配置的音频格式的PCM数据（16位）。</p></td>
+					</tr>
+					<tr>
+						<th scope="row" class="argument-name"><code>captureTimeNs</code></th>
+						<td><p>音频数据的采集时间，以纳秒为单位。 </p></td>
+					</tr>
+
+				</table>
+			</div>
+
+
+
+
+
+
+
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>发送自定义音频数据的音频数据。仅当开启了自定义音频采集时，此方法才有效。</p><p>开启自定义音频采集的方式见initWithParams</p>
+			</div>
+
+
+
+
+
+
+
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TCGGamePlayer.h</code></p>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+							<div class="section-method">
 	<a name="//api/name/setVideoViewInsets:" title="setVideoViewInsets:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/setVideoViewInsets:">&ndash;&nbsp;setVideoViewInsets:</a></code>
 </h3>
