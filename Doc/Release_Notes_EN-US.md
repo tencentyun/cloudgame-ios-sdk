@@ -4,6 +4,15 @@
 Features 
 - SDK reconstruction interface design
 
+### Version 1.6.1 (2023-10.17)
+Bug Fixes
+- Fixed the problem of black screen when exiting the background and returning to the foreground
+- Fix and optimize some known issues
+
+### Version 1.6.0 (2023-10.13)
+Features
+- Support for custom audio capture.
+
 ### Version 1.5.1 (2023-9.20)
 Bug Fixes
 - Fix and optimize some known issues.
