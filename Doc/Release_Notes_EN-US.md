@@ -3,7 +3,7 @@
 ### Version 1.6.1 (2023-10.17)
 Bug Fixes
 - Fixed the problem of black screen when exiting the background and returning to the foreground
-- Fix and optimize some known issues
+- Fixed an issue where startup parameters were not passed correctly when custom audio collection was turned on
 
 ### Version 1.6.0 (2023-10.13)
 Features
