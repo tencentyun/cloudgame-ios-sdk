@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <TCRSDK/TCRSdkConst.h>
+#import <tcrsdk/TCRSdkConst.h>
 #import <AVFoundation/AVFoundation.h>
 #import <tcrsdk/TcrRenderView.h>
 #import <tcrsdk/AudioSink.h>
@@ -42,11 +42,28 @@
 
 @interface TcrSession : NSObject
 
-- (instancetype)initWithParams:(NSDictionary *)params;
+/**
+ * Initialize local resources, asynchronously callback results
+ * @param params Optional, the following key-value pairs can be selected:
+ *         - @"preferredCodec": Optional values are @"H264" or @"H265". Used to set the preferred codec. If the value is not @"H264" or @"H265", the setting is invalid. If this field is set, the session will try to use the preferred codec for communication. If the preferred codec is not available, other available codecs will be used. If this field is not set or the setting is invalid, the session will use the default codec.
+ *         - @"local_video": Optional value is of bool type. Used to enable the local camera..
+ *         - @"local_audio": Optional value is of bool type. Used to enable the local microphone.
+ *         - @"enableCustomAudioCapture":@{@"sampleRate":NSInteger, @"useStereoInput": BOOL}, enable custom audio capture and bring the sample rate and channel count of the custom captured audio (both parameters are required).
+ *                          e.g. @"enableCustomAudioCapture":@{@"sampleRate":@(48000), @"useStereoInput":@(false)} means a sample rate of 48000 and mono data.
+ *                          In addition, to enable custom audio capture, you also need to set @"local_audio" to enable local audio upstream.
+ *
+ * @param Observer The delegate of the TcrSession, listening for callback of events.
+ */
+- (instancetype _Nonnull )initWithParams:(NSDictionary *_Nullable)params andDelegate:(id<TcrSessionObserver>_Nonnull)Observer;
 
-- (instancetype)initWithParams:(NSDictionary *)params andDelegate:(id<TcrSessionObserver>)Observer;
+/**
+ * setOberServer for session
+ *
+ * @param Observer session Observer
+ */
 
-- (void)setTcrSessionObserver:(id<TcrSessionObserver>)Observer;
+- (void)setTcrSessionObserver:(id<TcrSessionObserver>_Nonnull)Observer;
+
 /**
  * Starts the session. This method should only be called once.
  *
@@ -101,6 +118,13 @@
  */
 - (void)setEnableLocalAudio:(BOOL)enable;
 
+/**
+ * Enable or disable the local video track that is captured from the camera.
+ *
+ * @param enable true to enable the local video, false otherwise.
+ */
+- (void)setEnableLocalVideo:(BOOL)enable;
+
 //////////////////////////////////////////////// 上下行音视频流控制 ////////////////////////////////////////////////
 
 /**
@@ -122,6 +146,17 @@
  */
 
 - (void)setRemoteVideoProfile:(int)fps minBitrate:(int)minBitrate maxBitrate:(int)maxBitrate;
+
+/**
+ * Set the local video profile.
+ *
+ * @param width The frame width, range[128, 1920]. Suggested value: 640.
+ * @param height The frame height, range[128, 1920]. Suggested value: 480.
+ * @param fps The frame rate must be greater than 0 Default value: `30`.
+ * @param minBitrate The minimum bitrate in Kbps. Value range: [1000,15000]. Default value: `1000`.
+ * @param maxBitrate The maximum bitrate in Kbps. Value range: [1000,15000]. Default value: `15000`.
+ */
+- (void)setLocalVideoProfile:(int)width height:(int)height fps:(int)fps minBitrate:(int)minBitrate maxBitrate:(int)maxBitrate isFrontCamera:(BOOL)isFrontCamera;
 
 /**
  * Set the playing profile of the remote audio.
@@ -170,6 +205,18 @@
  * @param height Height of cloud desktop.
  */
 - (void)setRemoteDesktopResolution:(int)width height:(int)height;
+
+/**
+ * Send custom audio data.
+ * <br>
+ * This method is only effective when custom audio capture is enabled.
+ * <br>
+ * To enable custom audio capture, see initWithParams
+ *
+ * @param audioData The non-null NSData object containing the PCM data(16-bit) to be sent.
+ * @param captureTimeNs The capture time of the audio data in nanoseconds.
+ */
+- (void)sendCustomAudioData:(NSData *_Nonnull)audioData captureTimeNs:(uint64_t)captureTimeNs;
 
 //////////////////////////////////////////////// 云端外设交互 ////////////////////////////////////////////////
 

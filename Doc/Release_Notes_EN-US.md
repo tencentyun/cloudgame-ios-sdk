@@ -1,5 +1,14 @@
 [中文文档](历史版本.md)
 
+### Version 2.1.0 (2023-10.19)
+Features
+- Added video uplink function interface
+- Added self-collection audio interface
+
+Bug Fixes
+- Fixed the problem of black screen when exiting the background and returning to the foreground
+- Fixed some known issues
+
 ### Version 2.0.0 (2023-10.12)
 Features 
 - SDK reconstruction interface design
