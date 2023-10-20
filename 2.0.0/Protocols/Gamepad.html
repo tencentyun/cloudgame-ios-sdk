@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>TCGCustomTransChannelDelegate Protocol Reference</title>
+	<title>Gamepad Protocol Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">tcgsdk </a>
+				<a href="../index.html">tcrsdk </a>
 			</h1>
 
 			<p id="developer-home">
@@ -58,13 +58,15 @@
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/onClosedAtRemotePort:">- onClosedAtRemotePort:</option>
+		<option value="//api/name/connectGamepad">- connectGamepad</option>
 		
-		<option value="//api/name/onConnFailed:atRemotePort:">- onConnFailed:atRemotePort:</option>
+		<option value="//api/name/disconnectGamepad">- disconnectGamepad</option>
 		
-		<option value="//api/name/onConnSuccessAtRemotePort:">- onConnSuccessAtRemotePort:</option>
+		<option value="//api/name/onGamepadKey:down:">- onGamepadKey:down:</option>
 		
-		<option value="//api/name/onReceiveData:fromRemotePort:">- onReceiveData:fromRemotePort:</option>
+		<option value="//api/name/onGamepadStick:x:y:">- onGamepadStick:x:y:</option>
+		
+		<option value="//api/name/onGamepadTrigger:value:down:">- onGamepadTrigger:value:down:</option>
 		
 	</optgroup>
 	
@@ -81,7 +83,7 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">TCGCustomTransChannelDelegate Protocol Reference</h1>
+					<h1 class="title">Gamepad Protocol Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
@@ -90,7 +92,7 @@
 	<td>NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>TCGCustomTransChannel.h</td>
+	<td>GamePad.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -108,8 +110,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/onConnSuccessAtRemotePort:" title="onConnSuccessAtRemotePort:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/onConnSuccessAtRemotePort:">&ndash;&nbsp;onConnSuccessAtRemotePort:</a></code>
+	<a name="//api/name/connectGamepad" title="connectGamepad"></a>
+	<h3 class="method-title"><code><a href="#//api/name/connectGamepad">&ndash;&nbsp;connectGamepad</a></code>
 <span class="task-item-suffix">required method</span></h3>
 
 	<div class="method-info">
@@ -119,26 +121,14 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>与后台连接成功</p>
+				<p>Trigger the cloud machine to insert the virtual Gamepad.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)onConnSuccessAtRemotePort:(int)<em>remotePort</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)connectGamepad</code></div>
 
 		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>remotePort</code></th>
-						<td><p>云端程序监听的UDP端口号</p></td>
-					</tr>
-				
-				</table>
-			</div>
 			
 
 			
@@ -148,7 +138,7 @@
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>与后台连接成功</p>
+				<p>Trigger the cloud machine to insert the virtual Gamepad.</p>
 			</div>
 			
 
@@ -159,15 +149,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">TCGCustomTransChannel.h</code></p>
+				<p><code class="declared-in-ref">GamePad.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/onConnFailed:atRemotePort:" title="onConnFailed:atRemotePort:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/onConnFailed:atRemotePort:">&ndash;&nbsp;onConnFailed:atRemotePort:</a></code>
+	<a name="//api/name/disconnectGamepad" title="disconnectGamepad"></a>
+	<h3 class="method-title"><code><a href="#//api/name/disconnectGamepad">&ndash;&nbsp;disconnectGamepad</a></code>
 <span class="task-item-suffix">required method</span></h3>
 
 	<div class="method-info">
@@ -177,31 +167,14 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>与后台连接失败</p>
+				<p>Trigger the cloud machine to pull out the virtual Gamepad.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)onConnFailed:(NSError *)<em>error</em> atRemotePort:(int)<em>remotePort</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)disconnectGamepad</code></div>
 
 		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>error</code></th>
-						<td><p>连接失败的原因，code：-1云端连接程序失败，10009 连接处理超时，</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>remotePort</code></th>
-						<td><p>云端程序监听的UDP端口号</p></td>
-					</tr>
-				
-				</table>
-			</div>
 			
 
 			
@@ -211,7 +184,7 @@
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>与后台连接失败</p>
+				<p>Trigger the cloud machine to pull out the virtual Gamepad.</p>
 			</div>
 			
 
@@ -222,15 +195,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">TCGCustomTransChannel.h</code></p>
+				<p><code class="declared-in-ref">GamePad.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/onClosedAtRemotePort:" title="onClosedAtRemotePort:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/onClosedAtRemotePort:">&ndash;&nbsp;onClosedAtRemotePort:</a></code>
+	<a name="//api/name/onGamepadKey:down:" title="onGamepadKey:down:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onGamepadKey:down:">&ndash;&nbsp;onGamepadKey:down:</a></code>
 <span class="task-item-suffix">required method</span></h3>
 
 	<div class="method-info">
@@ -240,12 +213,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>云端主动关闭了通道</p>
+				<p>Trigger a key event of the cloud Gamepad.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)onClosedAtRemotePort:(int)<em>remotePort</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)onGamepadKey:(NSInteger)<em>keycode</em> down:(BOOL)<em>down</em></code></div>
 
 		    
 			
@@ -254,8 +227,13 @@
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>remotePort</code></th>
-						<td><p>云端程序监听的UDP端口号</p></td>
+						<th scope="row" class="argument-name"><code>keycode</code></th>
+						<td><p>The keycode. Please refer to WindowsKeyEvent.h for the definition of key codes.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>down</code></th>
+						<td><p>true if the button is pressed, false if the button is released.</p></td>
 					</tr>
 				
 				</table>
@@ -269,7 +247,7 @@
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>云端主动关闭了通道</p>
+				<p>Trigger a key event of the cloud Gamepad.</p>
 			</div>
 			
 
@@ -280,15 +258,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">TCGCustomTransChannel.h</code></p>
+				<p><code class="declared-in-ref">GamePad.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/onReceiveData:fromRemotePort:" title="onReceiveData:fromRemotePort:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/onReceiveData:fromRemotePort:">&ndash;&nbsp;onReceiveData:fromRemotePort:</a></code>
+	<a name="//api/name/onGamepadStick:x:y:" title="onGamepadStick:x:y:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onGamepadStick:x:y:">&ndash;&nbsp;onGamepadStick:x:y:</a></code>
 <span class="task-item-suffix">required method</span></h3>
 
 	<div class="method-info">
@@ -298,12 +276,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>接收来自云端程序的数据</p>
+				<p>Trigger a stick event of the cloud Gamepad.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)onReceiveData:(NSData *)<em>data</em> fromRemotePort:(int)<em>remotePort</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)onGamepadStick:(KeyType)<em>type</em> x:(NSInteger)<em>x</em> y:(NSInteger)<em>y</em></code></div>
 
 		    
 			
@@ -312,13 +290,18 @@
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>data</code></th>
-						<td><p>云端发过来的数据</p></td>
+						<th scope="row" class="argument-name"><code>type</code></th>
+						<td><p>The stick type. See KeyTypeLS, KeyTypeRS in this file.</p></td>
 					</tr>
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>remotePort</code></th>
-						<td><p>云端程序监听的UDP端口号</p></td>
+						<th scope="row" class="argument-name"><code>x</code></th>
+						<td><p>The X coordinate of the stick</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>y</code></th>
+						<td><p>The Y coordinate of the stick</p></td>
 					</tr>
 				
 				</table>
@@ -332,7 +315,7 @@
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>接收来自云端程序的数据</p>
+				<p>Trigger a stick event of the cloud Gamepad.</p>
 			</div>
 			
 
@@ -343,7 +326,76 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">TCGCustomTransChannel.h</code></p>
+				<p><code class="declared-in-ref">GamePad.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/onGamepadTrigger:value:down:" title="onGamepadTrigger:value:down:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onGamepadTrigger:value:down:">&ndash;&nbsp;onGamepadTrigger:value:down:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Trigger a trigger event of the cloud Gamepad.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)onGamepadTrigger:(KeyType)<em>type</em> value:(NSInteger)<em>value</em> down:(BOOL)<em>down</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>type</code></th>
+						<td><p>The trigger type. See KeyTypeLT, KeyTypeRT in this file.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>value</code></th>
+						<td><p>The absolute position of the trigger control. The value is normalized to a range from 0
+(released) to 255 (fully pressed).</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>down</code></th>
+						<td><p>true if the trigger is pressed, false if the trigger is released.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Trigger a trigger event of the cloud Gamepad.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">GamePad.h</code></p>
 			</div>
 			
 			
@@ -364,7 +416,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2023 tencent. All rights reserved. Updated: 2023-05-05</p>
+						<p class="copyright">Copyright &copy; 2023 tencent. All rights reserved. Updated: 2023-10-12</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>TCGVirtualMouseCursor Class Reference</title>
+	<title>PcTouchView Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">tcgsdk </a>
+				<a href="../index.html">tcrsdk </a>
 			</h1>
 
 			<p id="developer-home">
@@ -76,8 +76,6 @@
 		
 		<option value="//api/name/setCursorTouchMode:">- setCursorTouchMode:</option>
 		
-		<option value="//api/name/setVideoSize:">- setVideoSize:</option>
-		
 	</optgroup>
 	
 	
@@ -93,7 +91,7 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">TCGVirtualMouseCursor Class Reference</h1>
+					<h1 class="title">PcTouchView Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
@@ -102,7 +100,7 @@
 	<td>UIView</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>TCGVirtualMouseCursor.h<br />TCGVirtualMouseCursor.m</td>
+	<td>PcTouchView.h<br />PcTouchView.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -120,64 +118,6 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/setVideoSize:" title="setVideoSize:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/setVideoSize:">&ndash;&nbsp;setVideoSize:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>设置视频源尺寸大小，用于换算坐标值(版本1.1.1 废弃)</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)setVideoSize:(CGSize)<em>videoSize</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>videoSize</code></th>
-						<td><p>云端视频编码输出的尺寸</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>设置视频源尺寸大小，用于换算坐标值(版本1.1.1 废弃)</p>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">TCGVirtualMouseCursor.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/setCursorTouchMode:" title="setCursorTouchMode:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/setCursorTouchMode:">&ndash;&nbsp;setCursorTouchMode:</a></code>
 </h3>
@@ -189,12 +129,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>设置鼠标的操控模式</p>
+				<p>Set the mouse control mode</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setCursorTouchMode:(TCGMouseCursorTouchMode)<em>mode</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setCursorTouchMode:(TCRMouseCursorTouchMode)<em>mode</em></code></div>
 
 		    
 			
@@ -204,7 +144,7 @@
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>mode</code></th>
-						<td><p>详情见TCGMouseCursorTouchMode的定义</p></td>
+						<td><p>For details, see the definition of <a href="../Constants/TCRMouseCursorTouchMode.html">TCRMouseCursorTouchMode</a></p></td>
 					</tr>
 				
 				</table>
@@ -218,7 +158,7 @@
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>设置鼠标的操控模式</p>
+				<p>Set the mouse control mode</p>
 			</div>
 			
 
@@ -229,7 +169,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">TCGVirtualMouseCursor.h</code></p>
+				<p><code class="declared-in-ref">PcTouchView.h</code></p>
 			</div>
 			
 			
@@ -247,7 +187,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>设置鼠标是否可见</p>
+				<p>Set whether the mouse is visible</p>
 			</div>
 			
 		    
@@ -262,7 +202,7 @@
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>isShow</code></th>
-						<td><p>YES 显示，NO 隐藏</p></td>
+						<td><p>YES to display, NO to hide</p></td>
 					</tr>
 				
 				</table>
@@ -276,7 +216,7 @@
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>设置鼠标是否可见</p>
+				<p>Set whether the mouse is visible</p>
 			</div>
 			
 
@@ -287,7 +227,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">TCGVirtualMouseCursor.h</code></p>
+				<p><code class="declared-in-ref">PcTouchView.h</code></p>
 			</div>
 			
 			
@@ -305,7 +245,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>设置鼠标移动时的灵敏度，在相对移动模式下有效</p>
+				<p>Set the sensitivity when moving the mouse, valid in relative movement mode</p>
 			</div>
 			
 		    
@@ -320,7 +260,7 @@
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>sensitive</code></th>
-						<td><p>默认1.0与手动滑动的幅度相同</p></td>
+						<td><p>The default 1.0 is the same as the manual sliding range</p></td>
 					</tr>
 				
 				</table>
@@ -334,7 +274,7 @@
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>设置鼠标移动时的灵敏度，在相对移动模式下有效</p>
+				<p>Set the sensitivity when moving the mouse, valid in relative movement mode</p>
 			</div>
 			
 
@@ -345,7 +285,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">TCGVirtualMouseCursor.h</code></p>
+				<p><code class="declared-in-ref">PcTouchView.h</code></p>
 			</div>
 			
 			
@@ -363,7 +303,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>设置鼠标的默认图标，在本地渲染模式 下有效</p>
+				<p>Set the default mouse icon, valid in local rendering mode</p>
 			</div>
 			
 		    
@@ -378,12 +318,12 @@
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>image</code></th>
-						<td><p>游标指针图标</p></td>
+						<td><p>cursor pointer icon</p></td>
 					</tr>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>remoteFrame</code></th>
-						<td><p>游标view的大小位置，视频源坐标系中</p></td>
+						<td><p>The size and position of the cursor view, in the video source coordinate system</p></td>
 					</tr>
 				
 				</table>
@@ -397,7 +337,7 @@
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>设置鼠标的默认图标，在本地渲染模式 下有效</p>
+				<p>Set the default mouse icon, valid in local rendering mode</p>
 			</div>
 			
 
@@ -408,7 +348,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">TCGVirtualMouseCursor.h</code></p>
+				<p><code class="declared-in-ref">PcTouchView.h</code></p>
 			</div>
 			
 			
@@ -426,7 +366,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>设置点击时触发鼠标的点击类型，默认触发左键点击</p>
+				<p>Set the click type that triggers the mouse when clicking. The default triggers left click.</p>
 			</div>
 			
 		    
@@ -441,7 +381,7 @@
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>isLeft</code></th>
-						<td><p>YES，触发鼠标左键；NO，触发鼠标右键</p></td>
+						<td><p>YES, triggers the left mouse button; NO, triggers the right mouse button</p></td>
 					</tr>
 				
 				</table>
@@ -455,7 +395,7 @@
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>设置点击时触发鼠标的点击类型，默认触发左键点击</p>
+				<p>Set the click type that triggers the mouse when clicking. The default triggers left click.</p>
 			</div>
 			
 
@@ -466,7 +406,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">TCGVirtualMouseCursor.h</code></p>
+				<p><code class="declared-in-ref">PcTouchView.h</code></p>
 			</div>
 			
 			
@@ -484,7 +424,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>以接口的方式移动鼠标指针(本地渲染模式下有效)</p>
+				<p>Move the mouse pointer through the interface (valid in local rendering mode)</p>
 			</div>
 			
 		    
@@ -499,12 +439,12 @@
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>diffX</code></th>
-						<td><p>在当前鼠标视图的X轴上，鼠标指针移动diffX个point.</p></td>
+						<td><p>On the X-axis of the current mouse view, the mouse pointer moves diffX points.</p></td>
 					</tr>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>diffY</code></th>
-						<td><p>在当前鼠标视图的Y轴上，鼠标指针移动diffY个point.</p></td>
+						<td><p>On the Y axis of the current mouse view, the mouse pointer moves diffY points.</p></td>
 					</tr>
 				
 				</table>
@@ -518,7 +458,7 @@
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>以接口的方式移动鼠标指针(本地渲染模式下有效)</p>
+				<p>Move the mouse pointer through the interface (valid in local rendering mode)</p>
 			</div>
 			
 
@@ -529,7 +469,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">TCGVirtualMouseCursor.h</code></p>
+				<p><code class="declared-in-ref">PcTouchView.h</code></p>
 			</div>
 			
 			
@@ -583,7 +523,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">TCGVirtualMouseCursor.m</code></p>
+				<p><code class="declared-in-ref">PcTouchView.m</code></p>
 			</div>
 			
 			
@@ -604,7 +544,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2023 tencent. All rights reserved. Updated: 2023-05-05</p>
+						<p class="copyright">Copyright &copy; 2023 tencent. All rights reserved. Updated: 2023-10-12</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

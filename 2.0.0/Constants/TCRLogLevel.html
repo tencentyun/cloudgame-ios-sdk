@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>TCGTextFieldType Constants Reference</title>
+	<title>TCRLogLevel Constants Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">tcgsdk </a>
+				<a href="../index.html">tcrsdk </a>
 			</h1>
 
 			<p id="developer-home">
@@ -59,13 +59,13 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">TCGTextFieldType Constants Reference</h1>
+					<h1 class="title">TCRLogLevel Constants Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<th>Declared in</th>
-	<td>TCGSdkConst.h</td>
+	<td>TCRSdkConst.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -75,21 +75,23 @@
 					
 
                     
-                    <h3 class="subsubtitle method-title">TCGTextFieldType</h3>
+                    <h3 class="subsubtitle method-title">TCRLogLevel</h3>
                     
                     <div class="section">
                         <!-- display enum values -->
                         
                         <h4 class="method-subtitle">Definition</h4>
-                        <code>typedef NS_ENUM(NSInteger, TCGTextFieldType ) {<br>
+                        <code>typedef NS_ENUM(NSUInteger, TCRLogLevel ) {<br>
                             
-                            &nbsp;&nbsp; <a href="">TCGTextFieldType_Normal</a> = 0,<br>
+                            &nbsp;&nbsp; <a href="">TCRLogLevelDebug</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">TCGTextFieldType_AutoLogin</a> = 1,<br>
+                            &nbsp;&nbsp; <a href="">TCRLogLevelInfo</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">TCGTextFieldType_Disable</a> = 99,<br>
+                            &nbsp;&nbsp; <a href="">TCRLogLevelWarning</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">TCGTextFieldType_Unknown</a> = -1,<br>
+                            &nbsp;&nbsp; <a href="">TCRLogLevelError</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TCRLogLevelNone</a>,<br>
                             
                             };</code>
                     
@@ -99,63 +101,52 @@
                         <h4 class="method-subtitle">Constants</h4>
                         <dl class="termdef">
                             
-                            <dt><a name="" title="TCGTextFieldType_Normal"></a><code>TCGTextFieldType_Normal</code></dt>
+                            <dt><a name="" title="TCRLogLevelDebug"></a><code>TCRLogLevelDebug</code></dt>
 <dd>
-
-
-<p>鼠标左键点击了一个普通的文本框</p>
-
-
-
-
 
     
 	<p>
-		Declared In <code class="declared-in-ref">TCGSdkConst.h</code>.
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="TCGTextFieldType_AutoLogin"></a><code>TCGTextFieldType_AutoLogin</code></dt>
+                            <dt><a name="" title="TCRLogLevelInfo"></a><code>TCRLogLevelInfo</code></dt>
 <dd>
-
-
-<p>鼠标左键点击了一个支持自动登录的文本框</p>
-
-
-
-
 
     
 	<p>
-		Declared In <code class="declared-in-ref">TCGSdkConst.h</code>.
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="TCGTextFieldType_Disable"></a><code>TCGTextFieldType_Disable</code></dt>
+                            <dt><a name="" title="TCRLogLevelWarning"></a><code>TCRLogLevelWarning</code></dt>
 <dd>
-
-
-<p>鼠标左键点击了文本框，但当前状态为禁止用户输入(如后台正在模拟自动登录)</p>
-
-
-
-
 
     
 	<p>
-		Declared In <code class="declared-in-ref">TCGSdkConst.h</code>.
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="TCGTextFieldType_Unknown"></a><code>TCGTextFieldType_Unknown</code></dt>
+                            <dt><a name="" title="TCRLogLevelError"></a><code>TCRLogLevelError</code></dt>
 <dd>
 
     
 	<p>
-		Declared In <code class="declared-in-ref">TCGSdkConst.h</code>.
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TCRLogLevelNone"></a><code>TCRLogLevelNone</code></dt>
+<dd>
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
 	</p>
 	
 </dd>
@@ -173,7 +164,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2023 tencent. All rights reserved. Updated: 2023-05-05</p>
+						<p class="copyright">Copyright &copy; 2023 tencent. All rights reserved. Updated: 2023-10-12</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

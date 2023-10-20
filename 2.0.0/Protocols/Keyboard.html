@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>TCGGameControllerDelegate Protocol Reference</title>
+	<title>Keyboard Protocol Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">tcgsdk </a>
+				<a href="../index.html">tcrsdk </a>
 			</h1>
 
 			<p id="developer-home">
@@ -58,15 +58,15 @@
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/onAutoLoginFinish:">- onAutoLoginFinish:</option>
+		<option value="//api/name/checkKeyboardCapsLock:">- checkKeyboardCapsLock:</option>
 		
-		<option value="//api/name/onClickedTextField:">- onClickedTextField:</option>
+		<option value="//api/name/onKeyboard:down:">- onKeyboard:down:</option>
 		
-		<option value="//api/name/onCursorImageUpdated:frame:">- onCursorImageUpdated:frame:</option>
+		<option value="//api/name/onKeyboard:down:isLeft:">- onKeyboard:down:isLeft:</option>
 		
-		<option value="//api/name/onCursorVisibleChanged:">- onCursorVisibleChanged:</option>
+		<option value="//api/name/resetKeyboard">- resetKeyboard</option>
 		
-		<option value="//api/name/onRemoteInputStatus:">- onRemoteInputStatus:</option>
+		<option value="//api/name/resetKeyboardCapsLock">- resetKeyboardCapsLock</option>
 		
 	</optgroup>
 	
@@ -83,7 +83,7 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">TCGGameControllerDelegate Protocol Reference</h1>
+					<h1 class="title">Keyboard Protocol Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
@@ -92,7 +92,7 @@
 	<td>NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>TCGGameController.h</td>
+	<td>Keyboard.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -110,9 +110,9 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/onCursorImageUpdated:frame:" title="onCursorImageUpdated:frame:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/onCursorImageUpdated:frame:">&ndash;&nbsp;onCursorImageUpdated:frame:</a></code>
-</h3>
+	<a name="//api/name/onKeyboard:down:" title="onKeyboard:down:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onKeyboard:down:">&ndash;&nbsp;onKeyboard:down:</a></code>
+<span class="task-item-suffix">required method</span></h3>
 
 	<div class="method-info">
 		<div class="pointy-thing"></div>
@@ -121,12 +121,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>鼠标本地绘制模式下，云端实时下发鼠标游标的图片</p>
+				<p>Trigger a key event of the cloud keyboard.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)onCursorImageUpdated:(UIImage *)<em>image</em> frame:(CGRect)<em>imageFrame</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)onKeyboard:(NSInteger)<em>keycode</em> down:(BOOL)<em>down</em></code></div>
 
 		    
 			
@@ -135,13 +135,13 @@
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>image</code></th>
-						<td><p>游标指针的图片</p></td>
+						<th scope="row" class="argument-name"><code>keycode</code></th>
+						<td><p>The keycode</p></td>
 					</tr>
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>imageFrame</code></th>
-						<td><p>游标的位置。视频源的坐标系，本地应用时注意换算</p></td>
+						<th scope="row" class="argument-name"><code>down</code></th>
+						<td><p>Valid values: <code>true</code>: Press; <code>false</code>: Release.</p></td>
 					</tr>
 				
 				</table>
@@ -155,7 +155,7 @@
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>鼠标本地绘制模式下，云端实时下发鼠标游标的图片</p>
+				<p>Trigger a key event of the cloud keyboard.</p>
 			</div>
 			
 
@@ -166,16 +166,16 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">TCGGameController.h</code></p>
+				<p><code class="declared-in-ref">Keyboard.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/onCursorVisibleChanged:" title="onCursorVisibleChanged:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/onCursorVisibleChanged:">&ndash;&nbsp;onCursorVisibleChanged:</a></code>
-</h3>
+	<a name="//api/name/onKeyboard:down:isLeft:" title="onKeyboard:down:isLeft:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onKeyboard:down:isLeft:">&ndash;&nbsp;onKeyboard:down:isLeft:</a></code>
+<span class="task-item-suffix">required method</span></h3>
 
 	<div class="method-info">
 		<div class="pointy-thing"></div>
@@ -184,12 +184,13 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>云端鼠标显示状态变化</p>
+				<p>Trigger a key event of the cloud keyboard. Differentiate between the left and right keys of the
+keyboard.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)onCursorVisibleChanged:(BOOL)<em>isVisble</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)onKeyboard:(NSInteger)<em>keycode</em> down:(BOOL)<em>down</em> isLeft:(BOOL)<em>isLeft</em></code></div>
 
 		    
 			
@@ -198,8 +199,19 @@
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>isVisble</code></th>
-						<td><p>YES 当前鼠标可见，NO 不可见</p></td>
+						<th scope="row" class="argument-name"><code>keycode</code></th>
+						<td><p>The keycode. Please refer to WindowsKeyEvent.h for the definition of key codes.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>down</code></th>
+						<td><p>Valid values: <code>true</code>: Press; <code>false</code>: Release.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>isLeft</code></th>
+						<td><p>Used to distinguish between left and right keys of the keyboard: <code>true</code>: Left; <code>false</code> :
+Right.</p></td>
 					</tr>
 				
 				</table>
@@ -213,7 +225,8 @@
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>云端鼠标显示状态变化</p>
+				<p>Trigger a key event of the cloud keyboard. Differentiate between the left and right keys of the
+keyboard.</p>
 			</div>
 			
 
@@ -224,16 +237,16 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">TCGGameController.h</code></p>
+				<p><code class="declared-in-ref">Keyboard.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/onClickedTextField:" title="onClickedTextField:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/onClickedTextField:">&ndash;&nbsp;onClickedTextField:</a></code>
-</h3>
+	<a name="//api/name/checkKeyboardCapsLock:" title="checkKeyboardCapsLock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/checkKeyboardCapsLock:">&ndash;&nbsp;checkKeyboardCapsLock:</a></code>
+<span class="task-item-suffix">required method</span></h3>
 
 	<div class="method-info">
 		<div class="pointy-thing"></div>
@@ -242,12 +255,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>鼠标左键点中了文本输入框</p>
+				<p>Query the capitalization status of the cloud virtual keyboard.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)onClickedTextField:(TCGTextFieldType)<em>type</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)checkKeyboardCapsLock:(void ( ^ ) ( int retCode ))<em>finishBlk</em></code></div>
 
 		    
 			
@@ -256,8 +269,8 @@
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>type</code></th>
-						<td><p>当前文本框的类型或状态</p></td>
+						<th scope="row" class="argument-name"><code>finishBlk</code></th>
+						<td><p>retCode 0 lower，1 upper</p></td>
 					</tr>
 				
 				</table>
@@ -271,7 +284,7 @@
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>鼠标左键点中了文本输入框</p>
+				<p>Query the capitalization status of the cloud virtual keyboard.</p>
 			</div>
 			
 
@@ -282,16 +295,16 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">TCGGameController.h</code></p>
+				<p><code class="declared-in-ref">Keyboard.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/onRemoteInputStatus:" title="onRemoteInputStatus:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/onRemoteInputStatus:">&ndash;&nbsp;onRemoteInputStatus:</a></code>
-</h3>
+	<a name="//api/name/resetKeyboardCapsLock" title="resetKeyboardCapsLock"></a>
+	<h3 class="method-title"><code><a href="#//api/name/resetKeyboardCapsLock">&ndash;&nbsp;resetKeyboardCapsLock</a></code>
+<span class="task-item-suffix">required method</span></h3>
 
 	<div class="method-info">
 		<div class="pointy-thing"></div>
@@ -300,76 +313,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>云端是否禁止客户端的输入</p>
+				<p>Reset the capitalization status (to lowercase) of the cloud virtual keyboard.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)onRemoteInputStatus:(BOOL)<em>isEnable</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>isEnable</code></th>
-						<td><p>YES:允许客户端输入, NO:忽略客户端的输入消息</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>云端是否禁止客户端的输入</p><p>如云端在尝试自动登陆账号时，会忽略客户端的输入。</p>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">TCGGameController.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/onAutoLoginFinish:" title="onAutoLoginFinish:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/onAutoLoginFinish:">&ndash;&nbsp;onAutoLoginFinish:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<ul>
-<li>云端执行自动登录任务结束(并不识别账号与密码的正确性)</li>
-<li>@discussion 云端在尝试自动登陆时，会忽略客户端的输入。</li>
-<li>@param status 0:模拟输入动作执行成功，并不代表账号与密码正确。
-           -1:模拟输入动作执行失败，只是输入动作执行失败。</li>
-</ul>
-
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)onAutoLoginFinish:(int)<em>status</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)resetKeyboardCapsLock</code></div>
 
 		    
 			
@@ -381,13 +330,7 @@
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<ul>
-<li>云端执行自动登录任务结束(并不识别账号与密码的正确性)</li>
-<li>@discussion 云端在尝试自动登陆时，会忽略客户端的输入。</li>
-<li>@param status 0:模拟输入动作执行成功，并不代表账号与密码正确。
-           -1:模拟输入动作执行失败，只是输入动作执行失败。</li>
-</ul>
-
+				<p>Reset the capitalization status (to lowercase) of the cloud virtual keyboard.</p>
 			</div>
 			
 
@@ -398,7 +341,55 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">TCGGameController.h</code></p>
+				<p><code class="declared-in-ref">Keyboard.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/resetKeyboard" title="resetKeyboard"></a>
+	<h3 class="method-title"><code><a href="#//api/name/resetKeyboard">&ndash;&nbsp;resetKeyboard</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Reset the key status of the cloud keyboard.<br>
+This API is used to release all keys when there are stuck keys on the keyboard.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)resetKeyboard</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Reset the key status of the cloud keyboard.<br>
+This API is used to release all keys when there are stuck keys on the keyboard.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Keyboard.h</code></p>
 			</div>
 			
 			
@@ -419,7 +410,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2023 tencent. All rights reserved. Updated: 2023-05-05</p>
+						<p class="copyright">Copyright &copy; 2023 tencent. All rights reserved. Updated: 2023-10-12</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
