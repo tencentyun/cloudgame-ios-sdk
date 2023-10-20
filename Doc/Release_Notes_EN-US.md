@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 2.1.1 (2023-10.20)
+Bug Fixes
+- Fix and optimize some known issues.
+
 ### Version 2.1.0 (2023-10.19)
 Features
 - Added video uplink function interface
@@ -12,6 +16,10 @@ Bug Fixes
 ### Version 2.0.0 (2023-10.12)
 Features 
 - SDK reconstruction interface design
+
+### Version 1.6.2 (2023-10.20)
+Bug Fixes
+- Fix and optimize some known issues.
 
 ### Version 1.6.1 (2023-10.17)
 Bug Fixes

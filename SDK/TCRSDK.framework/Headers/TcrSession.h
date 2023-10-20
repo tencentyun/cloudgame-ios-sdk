@@ -150,8 +150,8 @@
 /**
  * Set the local video profile.
  *
- * @param width The frame width, range[128, 1920]. Suggested value: 640.
- * @param height The frame height, range[128, 1920]. Suggested value: 480.
+ * @param width The frame width, range[128, 1920]. Suggested value: 1280.
+ * @param height The frame height, range[128, 1920]. Suggested value: 720.
  * @param fps The frame rate must be greater than 0 Default value: `30`.
  * @param minBitrate The minimum bitrate in Kbps. Value range: [1000,15000]. Default value: `1000`.
  * @param maxBitrate The maximum bitrate in Kbps. Value range: [1000,15000]. Default value: `15000`.
