@@ -197,7 +197,7 @@
 - (void)setEnableLocalAudio:(BOOL)enable;
 
 /*!
- * 设置连接超时时长，在连接开始前设置才有效，默认10秒
+ * 设置连接超时时长，在连接开始前设置才有效，默认20秒
  * @param timeout 设置从连接远端开始到出画面的超时时长
  */
 - (void)setConnectTimeout:(NSTimeInterval)timeout;
