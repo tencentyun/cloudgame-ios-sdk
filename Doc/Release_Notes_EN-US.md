@@ -17,6 +17,10 @@ Bug Fixes
 Features 
 - SDK reconstruction interface design
 
+### Version 1.6.4 (2023-10.26)
+Bug Fixes
+- Fix and optimize some known issues.
+
 ### Version 1.6.2 (2023-10.20)
 Bug Fixes
 - Fix and optimize some known issues.
