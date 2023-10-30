@@ -177,16 +177,18 @@
 			<div class="method-subsection arguments-section parameters">
 				<h4 class="method-subtitle parameter-title">Parameters</h4>
 				<table class="argument-def parameter-def">
-				
+
 					<tr>
 						<th scope="row" class="argument-name"><code>params</code></th>
-						<td><p>Optional, the following key-value pairs can be selected:
-- @&ldquo;preferredCodec&rdquo;: Optional values are @&ldquo;H264&rdquo; or @&ldquo;H265&rdquo;. Used to set the preferred codec. If the value is not @&ldquo;H264&rdquo; or @&ldquo;H265&rdquo;, the setting is invalid. If this field is set, the session will try to use the preferred codec for communication. If the preferred codec is not available, other available codecs will be used. If this field is not set or the setting is invalid, the session will use the default codec.
-- @&ldquo;local_video&rdquo;: Optional value is of bool type. Used to enable the local camera..
-- @&ldquo;local_audio&rdquo;: Optional value is of bool type. Used to enable the local microphone.
-- @&ldquo;enableCustomAudioCapture&rdquo;:@{@&ldquo;sampleRate&rdquo;:NSInteger, @&ldquo;useStereoInput&rdquo;: BOOL}, enable custom audio capture and bring the sample rate and channel count of the custom captured audio (both parameters are required).
-e.g. @&ldquo;enableCustomAudioCapture&rdquo;:@{@&ldquo;sampleRate&rdquo;:@(48000), @&ldquo;useStereoInput&rdquo;:@(false)} means a sample rate of 48000 and mono data.
-In addition, to enable custom audio capture, you also need to set @&ldquo;local_audio&rdquo; to enable local audio upstream.</p></td>
+						<td>
+							<p>Optional, the following key-value pairs can be selected:</p>
+							<p>- @&ldquo;preferredCodec&rdquo;: Optional values are @&ldquo;H264&rdquo; or @&ldquo;H265&rdquo;. Used to set the preferred codec. If the value is not @&ldquo;H264&rdquo; or @&ldquo;H265&rdquo;, the setting is invalid. If this field is set, the session will try to use the preferred codec for communication. If the preferred codec is not available, other available codecs will be used. If this field is not set or the setting is invalid, the session will use the default codec.</p>
+							<p>- @&ldquo;local_video&rdquo;: Optional value is of bool type. Used to enable the local camera.</p>
+							<p>- @&ldquo;local_audio&rdquo;: Optional value is of bool type. Used to enable the local microphone.</p>
+							<p>- @&ldquo;enableCustomAudioCapture&rdquo;:@{@&ldquo;sampleRate&rdquo;:NSInteger, @&ldquo;useStereoInput&rdquo;: BOOL}, enable custom audio capture and bring the sample rate and channel count of the custom captured audio (both parameters are required).
+								<br>e.g. @&ldquo;enableCustomAudioCapture&rdquo;:@{@&ldquo;sampleRate&rdquo;:@(48000), @&ldquo;useStereoInput&rdquo;:@(false)} means a sample rate of 48000 and mono data.
+								In addition, to enable custom audio capture, you also need to set @&ldquo;local_audio&rdquo; to enable local audio upstream.</p>
+						</td>
 					</tr>
 				
 					<tr>
