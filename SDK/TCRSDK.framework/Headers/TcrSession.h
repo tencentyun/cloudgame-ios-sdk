@@ -215,8 +215,10 @@
  *
  * @param audioData The non-null NSData object containing the PCM data(16-bit) to be sent.
  * @param captureTimeNs The capture time of the audio data in nanoseconds.
+ *
+ * @return The result of send custom audio data.
  */
-- (void)sendCustomAudioData:(NSData *_Nonnull)audioData captureTimeNs:(uint64_t)captureTimeNs;
+- (BOOL)sendCustomAudioData:(NSData *_Nonnull)audioData captureTimeNs:(uint64_t)captureTimeNs;
 
 //////////////////////////////////////////////// 云端外设交互 ////////////////////////////////////////////////
 

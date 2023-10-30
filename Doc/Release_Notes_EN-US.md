@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 2.1.2 (2023-10.30)
+Bug Fixes
+- Fix and optimize some known issues.
+
 ### Version 2.1.1 (2023-10.20)
 Bug Fixes
 - Fix and optimize some known issues.
@@ -17,11 +21,19 @@ Bug Fixes
 Features 
 - SDK reconstruction interface design
 
+### Version 1.6.6 (2023-10.27)
+Bug Fixes
+- Fix and optimize some known issues.
+
 ### Version 1.6.5 (2023-10.27)
 Bug Fixes
 - Optimized the problem of main thread deadlock caused by heartbeat timer
 
 ### Version 1.6.4 (2023-10.26)
+Bug Fixes
+- Fix and optimize some known issues.
+
+### Version 1.6.3 (2023-10.26)
 Bug Fixes
 - Fix and optimize some known issues.
 
