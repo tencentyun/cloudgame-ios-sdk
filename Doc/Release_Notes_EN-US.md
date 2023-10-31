@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 2.1.3 (2023-10.31)
+Bug Fixes
+- Fixed the problem of occasional data channel creation failure
+
 ### Version 2.1.2 (2023-10.30)
 Bug Fixes
 - Fix and optimize some known issues.
@@ -20,6 +24,10 @@ Bug Fixes
 ### Version 2.0.0 (2023-10.12)
 Features 
 - SDK reconstruction interface design
+
+### Version 1.6.7 (2023-10.31)
+Bug Fixes
+- Fixed the problem of occasional data channel creation failure
 
 ### Version 1.6.6 (2023-10.27)
 Bug Fixes
