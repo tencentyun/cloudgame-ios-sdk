@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
       'UIInterfaceOrientationLandscapeLeft',
       'UIInterfaceOrientationLandscapeRight',
     ],
-    'NSMicrophoneUsageDescription' => '云游戏互动时需要开启麦克风'
+    'NSMicrophoneUsageDescription' => '云游戏互动时需要开启麦克风',
     'NSCameraUsageDescription' => '云游戏互动时需要开启摄像头'
   }
 end
