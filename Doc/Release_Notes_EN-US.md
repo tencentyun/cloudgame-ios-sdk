@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 2.1.4 (2023-11.1)
+Bug Fixes
+- Fix and optimize some known issues.
+
 ### Version 2.1.3 (2023-10.31)
 Bug Fixes
 - Fixed the problem of occasional data channel creation failure
