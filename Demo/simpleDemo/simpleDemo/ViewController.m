@@ -9,20 +9,20 @@
 
 #import <TCRSDK/TCRSDK.h>
 
-typedef void (^httpResponseBlk)(NSData * data, NSURLResponse * response, NSError * error);
+typedef void (^httpResponseBlk)(NSData *data, NSURLResponse *response, NSError *error);
 
-@interface ViewController ()<TcrSessionObserver>
-@property(nonatomic, copy) NSString *userId;
-@property(nonatomic, strong) TcrSession *session;
-@property(nonatomic, strong) TcrRenderView *renderView;
-@property(nonatomic, strong) PcTouchView *touchView; // 云端为PC时添加该view到最上层
-@property(nonatomic, strong) MobileTouchView *mobileTouchView;// 云端为手机容器时添加该view到最上层
+@interface ViewController () <TcrSessionObserver, TcrRenderViewObserver, TCRLogDelegate>
+@property (nonatomic, copy) NSString *userId;
+@property (nonatomic, strong) TcrSession *session;
+@property (nonatomic, strong) TcrRenderView *renderView;
+@property (nonatomic, strong) PcTouchView *touchView;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [TcrSdkInstance setLogger:self withMinLevel:TCRLogLevelInfo];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor grayColor];
     UIButton *startBtn = [[UIButton alloc] initWithFrame:CGRectMake(50, 50, 100, 45)];
@@ -36,13 +36,16 @@ typedef void (^httpResponseBlk)(NSData * data, NSURLResponse * response, NSError
     self.userId = @"test";
 }
 
-- (void)initSession{
+- (void)initSession {
     self.session = [[TcrSession alloc] initWithParams:nil andDelegate:self];
     self.renderView = [[TcrRenderView alloc] initWithFrame:self.view.frame];
+    [self.renderView setTcrRenderViewObserver:self];
     [self.session setRenderView:self.renderView];
     self.touchView = [[PcTouchView alloc] initWithFrame:self.view.frame session:self.session];
-    [self.view addSubview:self.renderView];
+    [self.view insertSubview:self.renderView atIndex:0];
+
     [self.touchView setCursorIsShow:YES];
+
     [self.touchView setCursorTouchMode:TCRMouseCursorTouchMode_AbsoluteTouch];
     [self.renderView addSubview:self.touchView];
 }
@@ -71,14 +74,11 @@ typedef void (^httpResponseBlk)(NSData * data, NSURLResponse * response, NSError
     NSString *requestID = [[NSUUID UUID] UUIDString];
     NSString *createSessionUrl = @"";
     NSDictionary *params = @{
-        @"RequestId"     : requestID,
-        @"UserId"        : self.userId,
-        @"GameId"        : @"game-xxx",
-        @"clientSession" : localSession,
-//        @"TimeStamp"     : timeStamp,
-//        @"Sign"          : sign
+        @"RequestId": requestID,
+        @"UserId": self.userId,
+        @"clientSession": localSession,
     };
-        
+
     [self postUrl:createSessionUrl params:params finishBlk:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error != nil || data == nil) {
             NSLog(@"申请云端机器失败:%@", error.userInfo.description);
@@ -90,7 +90,7 @@ typedef void (^httpResponseBlk)(NSData * data, NSURLResponse * response, NSError
             NSLog(@"返回结果解析失败:%@", error.userInfo.description);
             return;
         }
-        NSDictionary *jsonObj = (NSDictionary *) json;
+        NSDictionary *jsonObj = (NSDictionary *)json;
         NSString *serverSession = [jsonObj objectForKey:@"ServerSession"];
         if (serverSession.length == 0) {
             NSLog(@"返回结果异常:%@", jsonObj);
@@ -123,7 +123,7 @@ typedef void (^httpResponseBlk)(NSData * data, NSURLResponse * response, NSError
         // TODO: 业务后台需要及时向腾讯云后台释放机器，避免资源浪费
         NSString *releaseSession = @"";
 
-        NSDictionary *params = @{@"UserId":self.userId};
+        NSDictionary *params = @ { @"UserId": self.userId };
         [self postUrl:releaseSession params:params finishBlk:^(NSData *data, NSURLResponse *response, NSError *error) {
             if (error != nil || data == nil) {
                 NSLog(@"释放云端机器失败:%@", error.userInfo.description);
@@ -134,16 +134,25 @@ typedef void (^httpResponseBlk)(NSData * data, NSURLResponse * response, NSError
     });
 }
 
-
-- (void)onEvent:(TcrEvent)event eventData:(NSDictionary * _Nullable)eventData { 
+- (void)onEvent:(TcrEvent)event eventData:(id)eventData {
+    NSLog(@"EVNET%@", @(event));
     switch (event) {
         case STATE_INITED:
-            [self getRemoteSessionWithLocalSession:(NSString*)eventData];
+            [self getRemoteSessionWithLocalSession:(NSString *)eventData];
+            break;
+        case STATE_CONNECTED:
+            //;
             break;
         default:
             break;
     }
 }
 
+- (void)onFirstFrameRendered {
+    NSLog(@"首帧渲染");
+}
+- (void)logWithLevel:(TCRLogLevel)logLevel log:(NSString *)log {
+    NSLog(@"[TCRSDK] %zu, %@", logLevel, log);
+}
 
 @end
