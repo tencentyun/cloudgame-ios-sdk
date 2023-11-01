@@ -3,5 +3,5 @@ project './simpleDemo.xcodeproj'
 target 'simpleDemo' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  pod 'TCRSDK', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git", :tag => '2.1.2'
+  pod 'TCRSDK', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git", :tag => '2.1.4'
 end
