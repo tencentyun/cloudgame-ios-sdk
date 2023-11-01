@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <tcrsdk/TCRSdkConst.h>
+#import <TCRSDK/TCRSdkConst.h>
 NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark --- 日志接口 ---

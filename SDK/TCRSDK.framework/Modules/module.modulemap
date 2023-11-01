@@ -1,5 +1,5 @@
-framework module tcrsdk {
-  umbrella header "tcrsdk.h"
+framework module TCRSDK {
+  umbrella header "TCRSDK.h"
 
   export *
   module * { export * }

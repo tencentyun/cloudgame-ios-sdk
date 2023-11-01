@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <tcrsdk/TCRSdkConst.h>
 #import <AVFoundation/AVFoundation.h>
-#import <tcrsdk/TcrRenderView.h>
-#import <tcrsdk/AudioSink.h>
-#import <tcrsdk/VideoSink.h>
-#import <tcrsdk/Mouse.h>
-#import <tcrsdk/Keyboard.h>
-#import <tcrsdk/GamePad.h>
-#import <tcrsdk/TouchScreen.h>
-#import <tcrsdk/CustomDataChannel.h>
+#import <TCRSDK/TcrRenderView.h>
+#import <TCRSDK/AudioSink.h>
+#import <TCRSDK/VideoSink.h>
+#import <TCRSDK/Mouse.h>
+#import <TCRSDK/Keyboard.h>
+#import <TCRSDK/GamePad.h>
+#import <TCRSDK/TouchScreen.h>
+#import <TCRSDK/CustomDataChannel.h>
 
 #pragma mark --- session事件回调 ---
 @protocol TcrSessionObserver <NSObject>
