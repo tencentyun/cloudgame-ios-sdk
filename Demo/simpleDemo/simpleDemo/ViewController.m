@@ -143,6 +143,12 @@ typedef void (^httpResponseBlk)(NSData *data, NSURLResponse *response, NSError *
         case STATE_CONNECTED:
             //;
             break;
+        case CURSOR_IMAGE_INFO:
+            info = (NSDictionary*)eventData;
+            array = info[@"imageFrame"];
+            rect = CGRectMake([array[0] floatValue], [array[1] floatValue], [array[2] floatValue], [array[3] floatValue]);
+            [self.pcTouchView setCursorImage:info[@"image"] andRemoteFrame:rect];
+            break;
         default:
             break;
     }
