@@ -290,14 +290,6 @@ typedef NS_ENUM(NSUInteger, TcrEvent) {
     START_AUTO_LOGIN
 };
 
-typedef NS_ENUM(NSInteger, TCRMouseCursorShowMode) {
-    /*! 客户端自行渲染鼠标 **/
-    TCRMouseCursorShowMode_Custom = 0,
-    /*! 云端下发鼠标图片，由客户端渲染 **/
-    TCRMouseCursorShowMode_Local = 1,
-    /*! 云端画面内渲染鼠标图片 **/
-    TCRMouseCursorShowMode_Remote = 2
-};
 
 typedef NS_ENUM(NSInteger, TCRMouseCursorTouchMode) {
     /*! 鼠标跟随手指移动,点击可以单击按键 */

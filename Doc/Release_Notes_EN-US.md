@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 2.1.5 (2023-11.2)
+Bug Fixes
+- Fix the problem of absolute mouse movement and click
+
 ### Version 2.1.4 (2023-11.1)
 Bug Fixes
 - Fix and optimize some known issues.
