@@ -136,6 +136,9 @@ typedef void (^httpResponseBlk)(NSData *data, NSURLResponse *response, NSError *
 
 - (void)onEvent:(TcrEvent)event eventData:(id)eventData {
     NSLog(@"EVNET%@", @(event));
+    NSDictionary* info;
+    NSArray* array;
+    CGRect rect;
     switch (event) {
         case STATE_INITED:
             [self getRemoteSessionWithLocalSession:(NSString *)eventData];
@@ -147,7 +150,7 @@ typedef void (^httpResponseBlk)(NSData *data, NSURLResponse *response, NSError *
             info = (NSDictionary*)eventData;
             array = info[@"imageFrame"];
             rect = CGRectMake([array[0] floatValue], [array[1] floatValue], [array[2] floatValue], [array[3] floatValue]);
-            [self.pcTouchView setCursorImage:info[@"image"] andRemoteFrame:rect];
+            [self.touchView setCursorImage:info[@"image"] andRemoteFrame:rect];
             break;
         default:
             break;
