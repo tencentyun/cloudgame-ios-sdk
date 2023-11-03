@@ -1,8 +1,12 @@
 [中文文档](历史版本.md)
 
+### Version 2.1.8 (2023-11.3)
+Bug Fixes
+- Fix and optimize some known issues.
+
 ### Version 2.1.7 (2023-11.3)
 Bug Fixes
-- Fix the problem of incorrect performance data acquisition
+- Fix and optimize some known issues.
 
 ### Version 2.1.6 (2023-11.3)
 Bug Fixes
