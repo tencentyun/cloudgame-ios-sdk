@@ -231,6 +231,12 @@ typedef NS_ENUM(NSUInteger, TcrEvent) {
      */
     CURSOR_IMAGE_INFO,
     /**
+     * This event indicates that the frame rate remains low for 10 consecutive seconds.<br>
+     *
+     * This event has no associated data.
+     */
+    CLIENT_LOW_FPS,
+    /**
      * This event indicates that the showing status of cloud cursor is changed. <br>
      *
      * The associated event data is of type BOOL
