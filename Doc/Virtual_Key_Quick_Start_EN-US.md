@@ -10,31 +10,26 @@ After integrating the SDK, you can load a configuration file to generate custom 
 
 ## Framework component description
 
-TCGVKey.framework: The virtual key extension library.
+TCRVKey.framework: The virtual key extension library.
 
 ## API overview
 
 | API | Description |
 | ------------------------------------------------------------ | ------------------------ |
-| TCGVKeyGamepad initWithFrame:(CGRect)frame controller:(TCGGameController *)controller;      | Creates a virtual key view. |
-| TCGVKeyGamepad showKeyGamepad:(NSString *)cfg; | Loads the virtual key layout and generates virtual keys.   |
-| TCGVKeyGamepad needConnected()                               | Queries whether the current key layout needs to be notified to the cloud.     |
+| TCRVKeyGamepad initWithFrame:(CGRect)frame session:(TcrSession *)session;      | Creates a virtual key view. |
+| TCRVKeyGamepad showKeyGamepad:(NSString *)cfg; | Loads the virtual key layout and generates virtual keys.   |
+| TCRVKeyGamepad needConnected()                               | Queries whether the current key layout needs to be notified to the cloud.     |
 
 
 ## Sample call
 
 ```objectivec
 - (void)initControlViews {
-    self.gamepad = [[TCGVKeyGamepad alloc] initWithFrame:self.view.bounds controller:self.gameController];
+    self.gamepad = [[TCRVKeyGamepad alloc] initWithFrame:self.view.bounds session:self.session];
     [self.view addSubview:self.gamepad];
     [self.gamepad showKeyGamepad:[self readJsonFromFile:@"tcg_default_ps4"]];
 }
 
-- (void)onVideoShow {
-    if ([self.gamepad needConnected]) {
-        [self.gameController enableVirtualGamepad:YES];
-    }
-}
 ```
 
 ## Usage after integration
