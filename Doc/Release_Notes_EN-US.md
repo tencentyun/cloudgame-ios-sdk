@@ -1,5 +1,12 @@
 [中文文档](历史版本.md)
 
+### Version 2.2.0 (2023-11.9)
+Features
+- Added adaptation of virtual key library
+
+Bug Fixes
+- Fix and optimize some known issues
+
 ### Version 2.1.8 (2023-11.3)
 Bug Fixes
 - Fix and optimize some known issues.

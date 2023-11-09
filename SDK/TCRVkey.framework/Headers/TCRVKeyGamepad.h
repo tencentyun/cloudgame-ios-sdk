@@ -8,19 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@class TCGGameController;
 
-@interface TCGVKeyGamepad : UIView
+@class TcrSession;
 
-@property(nonatomic, weak) TCGGameController *weakController;
+@interface TCRVKeyGamepad : UIView
 
-- (instancetype)initWithController:(TCGGameController *)controller;
+@property(nonatomic, weak) TcrSession *weakSession;
+
+- (instancetype)initWithSession:(TcrSession *)session;
 
 /*! 创建一个虚拟按键视图
 * @param frame 虚拟按键视图的frame
-* @param controller tcgsdk句柄
+* @param session tcrsdk句柄
 */
-- (instancetype)initWithFrame:(CGRect)frame controller:(TCGGameController *)controller;
+- (instancetype)initWithFrame:(CGRect)frame session:(TcrSession *)session;
 
 /*! 加载虚拟按键布局，生成按键
 * @param cfg 布局文件的内容
