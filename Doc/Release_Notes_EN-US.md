@@ -52,6 +52,10 @@ Bug Fixes
 Features 
 - SDK reconstruction interface design
 
+### Version 1.6.8 (2023-11.14)
+Bug Fixes
+- Fixed the problem of disabling the microphone previously set after reconnection.
+
 ### Version 1.6.7 (2023-10.31)
 Bug Fixes
 - Fixed the problem of occasional data channel creation failure
