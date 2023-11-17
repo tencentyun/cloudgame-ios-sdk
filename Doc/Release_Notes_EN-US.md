@@ -52,6 +52,10 @@ Bug Fixes
 Features 
 - SDK reconstruction interface design
 
+### Version 1.6.9 (2023-11.17)
+Bug Fixes
+- Fixed the problem of invalid setting of audio playback switch
+
 ### Version 1.6.8 (2023-11.14)
 Bug Fixes
 - Fixed the problem of disabling the microphone previously set after reconnection.
