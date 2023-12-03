@@ -10,8 +10,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import "RTCCodecSpecificInfo.h"
-#import "RTCMacros.h"
+#import <TWEBRTC/RTCCodecSpecificInfo.h>
+#import <TWEBRTC/RTCMacros.h>
 
 /** Class for H264 specific config. */
 typedef NS_ENUM(NSUInteger, RTCH264PacketizationMode) {
@@ -20,7 +20,7 @@ typedef NS_ENUM(NSUInteger, RTCH264PacketizationMode) {
 };
 
 RTC_OBJC_EXPORT
-@interface RTCCodecSpecificInfoH264 : NSObject <RTCCodecSpecificInfo>
+@interface RTC_OBJC_TYPE (RTCCodecSpecificInfoH264) : NSObject <RTC_OBJC_TYPE(RTCCodecSpecificInfo)>
 
 @property(nonatomic, assign) RTCH264PacketizationMode packetizationMode;
 

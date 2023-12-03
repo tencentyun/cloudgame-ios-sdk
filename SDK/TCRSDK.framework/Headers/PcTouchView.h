@@ -13,8 +13,7 @@
 
 // Mouse type, only supports single-finger sliding operation
 @interface PcTouchView : UIView
-- (instancetype)initWithFrame:(CGRect)frame
-                      session:(TcrSession *)session;
+- (instancetype)initWithFrame:(CGRect)frame session:(TcrSession *)session;
 
 /*!
  * Set the mouse control mode
@@ -51,8 +50,7 @@
  * Move the mouse pointer through the interface (valid in local rendering mode)
  * @param diffX On the X-axis of the current mouse view, the mouse pointer moves diffX points.
  * @param diffY On the Y axis of the current mouse view, the mouse pointer moves diffY points.
-*/
+ */
 - (void)moveCursorWithDiffX:(CGFloat)diffX diffY:(CGFloat)diffY;
 
 @end
-

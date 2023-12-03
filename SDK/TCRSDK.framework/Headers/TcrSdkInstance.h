@@ -10,7 +10,7 @@
 #import <TCRSDK/TCRSdkConst.h>
 NS_ASSUME_NONNULL_BEGIN
 
-#pragma mark --- 日志接口 ---
+#pragma mark--- 日志接口 ---
 @protocol TCRLogDelegate <NSObject>
 @required
 /*!
@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TcrSdkInstance : NSObject
 
-+ (void)setLogger:(id<TCRLogDelegate>_Nonnull)logger withMinLevel:(TCRLogLevel)minLevel;
++ (void)setLogger:(id<TCRLogDelegate> _Nonnull)logger withMinLevel:(TCRLogLevel)minLevel;
 
 @end
 NS_ASSUME_NONNULL_END

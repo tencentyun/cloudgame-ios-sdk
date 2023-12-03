@@ -11,28 +11,25 @@
 
 @protocol TcrRenderViewObserver <NSObject>
 
--(void)onFirstFrameRendered;
+- (void)onFirstFrameRendered;
 
 @end
 
-
 // 暂时不启用metal，目前只有OpenGL才能使视图内容铺满videoView
-//#if __arm64__
+// #if __arm64__
 //@interface TCGGameVideoView : RTCMTLVideoView
-//#else
+// #else
 @interface TcrRenderView : RTCEAGLVideoView
-//#endif
+// #endif
 
-@property(nonatomic, assign) CGFloat scaleValue;
-@property(nonatomic, assign) BOOL enablePinch;
-@property(nonatomic, assign) UIEdgeInsets moveInsets;
-@property(nonatomic, assign) UIInterfaceOrientation videoOrientation;
-@property(nonatomic, assign) BOOL enableRender;
-@property(nonatomic, weak) id<TcrRenderViewObserver> Observer;
+@property (nonatomic, assign) CGFloat scaleValue;
+@property (nonatomic, assign) BOOL enablePinch;
+@property (nonatomic, assign) UIEdgeInsets moveInsets;
+@property (nonatomic, assign) UIInterfaceOrientation videoOrientation;
+@property (nonatomic, assign) BOOL enableRender;
+@property (nonatomic, weak) id<TcrRenderViewObserver> Observer;
 - (instancetype)initWithFrame:(CGRect)frame;
 - (void)setTcrRenderViewObserver:(id<TcrRenderViewObserver>)Observer;
 - (void)resetVideoViewFrame;
 - (void)setEnablePinch:(BOOL)enablePinch;
 @end
-
-

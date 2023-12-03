@@ -23,7 +23,7 @@
 /**
  音频数据
  */
-@property (nonatomic, copy) NSData* data;
+@property (nonatomic, copy) NSData *data;
 /**
  每个音频样本的位数
  */
@@ -42,7 +42,7 @@
 @property (nonatomic, assign) int frames;
 @end
 
-#pragma mark --- 音频数据回调接口 ---
+#pragma mark--- 音频数据回调接口 ---
 @protocol AudioSink <NSObject>
 @required
 /**

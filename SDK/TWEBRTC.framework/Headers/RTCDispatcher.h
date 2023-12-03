@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "RTCMacros.h"
+#import <TWEBRTC/RTCMacros.h>
 
 typedef NS_ENUM(NSInteger, RTCDispatcherQueueType) {
   // Main dispatcher queue.
@@ -20,13 +20,15 @@ typedef NS_ENUM(NSInteger, RTCDispatcherQueueType) {
   RTCDispatcherTypeCaptureSession,
   // Used for operations on AVAudioSession.
   RTCDispatcherTypeAudioSession,
+  // Used for operations on NWPathMonitor.
+  RTCDispatcherTypeNetworkMonitor,
 };
 
 /** Dispatcher that asynchronously dispatches blocks to a specific
  *  shared dispatch queue.
  */
 RTC_OBJC_EXPORT
-@interface RTCDispatcher : NSObject
+@interface RTC_OBJC_TYPE (RTCDispatcher) : NSObject
 
 - (instancetype)init NS_UNAVAILABLE;
 

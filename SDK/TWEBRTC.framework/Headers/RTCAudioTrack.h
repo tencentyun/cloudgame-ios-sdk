@@ -8,8 +8,8 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-#import "RTCMacros.h"
-#import "RTCMediaStreamTrack.h"
+#import <TWEBRTC/RTCMacros.h>
+#import <TWEBRTC/RTCMediaStreamTrack.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,16 +17,16 @@ NS_ASSUME_NONNULL_BEGIN
 @class RTCAudioSource;
 
 RTC_OBJC_EXPORT
-@interface RTCAudioTrack : RTCMediaStreamTrack
+@interface RTC_OBJC_TYPE (RTCAudioTrack) : RTC_OBJC_TYPE(RTCMediaStreamTrack)
 
 - (instancetype)init NS_UNAVAILABLE;
-/** 注册audioSink*/
+/** Register a audioSink*/
 - (void)addSink:(id<RTCAudioSink>)sink;
 
-/** 注销audioSink */
+/** Deregister a audioSink. */
 - (void)removeSink:(id<RTCAudioSink>)sink;
 /** The audio source for this audio track. */
-@property(nonatomic, readonly) RTCAudioSource *source;
+@property(nonatomic, readonly) RTC_OBJC_TYPE(RTCAudioSource) * source;
 
 @end
 

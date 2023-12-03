@@ -10,30 +10,22 @@
 
 #import <Foundation/Foundation.h>
 
-#import "RTCMacros.h"
-#import "RTCVideoCodecInfo.h"
-#import "RTCVideoDecoder.h"
+#import <TWEBRTC/RTCMacros.h>
+#import <TWEBRTC/RTCVideoCodecInfo.h>
+#import <TWEBRTC/RTCVideoDecoder.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol FrameBitStreamDelegate <NSObject>
-
--(void) onSEIData:(const uint8_t*)bitstream length:(size_t)length;
-
-@end
-
-/** RTCVideoDecoderFactory is an Objective-C version of webrtc::VideoDecoderFactory. */
+/** RTCVideoDecoderFactory is an Objective-C version of webrtc::VideoDecoderFactory.
+ */
 RTC_OBJC_EXPORT
-@protocol RTCVideoDecoderFactory <NSObject>
+@protocol RTC_OBJC_TYPE
+(RTCVideoDecoderFactory)<NSObject>
 
-
-- (nullable id<RTCVideoDecoder>)createDecoder:(RTCVideoCodecInfo *)info;
-- (NSArray<RTCVideoCodecInfo *> *)supportedCodecs;  // TODO(andersc): "supportedFormats" instead?
-
-@optional
-
-- (void)ResiterFrameBitStreamDelegate:(id<FrameBitStreamDelegate>)delegate;
-- (id<FrameBitStreamDelegate>)getFrameBitStreamDelegate;
+    - (nullable id<RTC_OBJC_TYPE(RTCVideoDecoder)>)createDecoder
+    : (RTC_OBJC_TYPE(RTCVideoCodecInfo) *)info;
+- (NSArray<RTC_OBJC_TYPE(RTCVideoCodecInfo) *> *)
+    supportedCodecs;  // TODO(andersc): "supportedFormats" instead?
 
 @end
 

@@ -18,43 +18,51 @@
 #import <TCRSDK/TouchScreen.h>
 #import <TCRSDK/CustomDataChannel.h>
 
-#pragma mark --- session事件回调 ---
+#pragma mark--- session event callback ---
 @protocol TcrSessionObserver <NSObject>
 @required
-- (void)onEvent:(TcrEvent)event eventData:(id _Nullable )eventData;
+- (void)onEvent:(TcrEvent)event eventData:(id _Nullable)eventData;
 
 @end
 
-#pragma mark --- audioDelegate ---
+#pragma mark--- audioDelegate ---
 /*!
- * sdk audioSession代理，实现并通过addTCGAudioSessionDelegate后。sdk中将不再操作AudioSession，而是将AudioSession相关操作通过该代理回调到APP
- * 处理，APP根据实际需要根据参数对AVAudioSession进行设置。
+ * sdk audioSession proxy, after implementing and passing addTCGAudioSessionDelegate.
+ * AudioSession will no longer be operated in the sdk, but AudioSession related operations will be called back 
+ * to the APP through the proxy for processing. The APP will set the AVAudioSession 
+ * according to the parameters according to actual needs.
  */
-@protocol TCGAudioSessionDelegate <NSObject>
+@protocol TCRAudioSessionDelegate <NSObject>
 @optional
-- (BOOL)onSetCategory:(NSString *_Nonnull)category
-        withOptions:(AVAudioSessionCategoryOptions)options
-                error:(NSError *_Nullable*_Nullable)outError;
-- (BOOL)onSetMode:(NSString *_Nonnull)mode error:(NSError *_Nullable*_Nullable)outError;
-- (BOOL)onSetActive:(BOOL)active error:(NSError *_Nullable*_Nullable)outError;
+- (BOOL)onSetCategory:(NSString *_Nonnull)category withOptions:(AVAudioSessionCategoryOptions)options error:(NSError *_Nullable *_Nullable)outError;
+- (BOOL)onSetMode:(NSString *_Nonnull)mode error:(NSError *_Nullable *_Nullable)outError;
+- (BOOL)onSetActive:(BOOL)active error:(NSError *_Nullable *_Nullable)outError;
 @end
-
 
 @interface TcrSession : NSObject
 
 /**
  * Initialize local resources, asynchronously callback results
  * @param params Optional, the following key-value pairs can be selected:
- *         - @"preferredCodec": Optional values are @"H264" or @"H265". Used to set the preferred codec. If the value is not @"H264" or @"H265", the setting is invalid. If this field is set, the session will try to use the preferred codec for communication. If the preferred codec is not available, other available codecs will be used. If this field is not set or the setting is invalid, the session will use the default codec.
- *         - @"local_video": Optional value is of bool type. Used to enable the local camera..
- *         - @"local_audio": Optional value is of bool type. Used to enable the local microphone.
- *         - @"enableCustomAudioCapture":@{@"sampleRate":NSInteger, @"useStereoInput": BOOL}, enable custom audio capture and bring the sample rate and channel count of the custom captured audio (both parameters are required).
- *                          e.g. @"enableCustomAudioCapture":@{@"sampleRate":@(48000), @"useStereoInput":@(false)} means a sample rate of 48000 and mono data.
- *                          In addition, to enable custom audio capture, you also need to set @"local_audio" to enable local audio upstream.
+ *         - @"preferredCodec": Optional values are @"H264", @"H265", @"VP8", and @"VP9". Used to set the preferred codec.
+ *          If this field is set, the session will try to use the preferred codec for communication. If the preferred codec is not available,
+ *          other available codecs will be used. If this field is not set or the setting is invalid, the session will use the default codec.
  *
+ *         - @"preferredCodecList":  The value is an NSArray, which contains the optional values @"H264", @"H265", @"VP8", and @"VP9".
+ *          Indicate preferred codecs, where the order of the elements in the list represents priority, such as index 0 being the highest priority
+ *          preferred codec. If the set codecs cannot be selected for various reasons, other available codecs will be chosen.
+ *
+ *         - @"local_video": Optional value is of bool type. Used to enable the local camera.
+ *
+ *         - @"local_audio": Optional value is of bool type. Used to enable the local microphone.
+ *
+ *         - @"enableCustomAudioCapture":@{@"sampleRate":NSInteger, @"useStereoInput": BOOL}, enable custom audio capture and bring the sample rate
+ *           and channel count of the custom captured audio (both parameters are required). 
+ *           e.g. @"enableCustomAudioCapture":@{@"sampleRate":@(48000), @"useStereoInput":@(false)} means a sample rate of 48000 and mono data.
+ *           In addition, to enable custom audio capture, you also need to set @"local_audio" to enable local audio upstream.
  * @param Observer The delegate of the TcrSession, listening for callback of events.
  */
-- (instancetype _Nonnull )initWithParams:(NSDictionary *_Nullable)params andDelegate:(id<TcrSessionObserver>_Nonnull)Observer;
+- (instancetype _Nonnull)initWithParams:(NSDictionary *_Nullable)params andDelegate:(id<TcrSessionObserver> _Nonnull)Observer;
 
 /**
  * setOberServer for session
@@ -62,15 +70,16 @@
  * @param Observer session Observer
  */
 
-- (void)setTcrSessionObserver:(id<TcrSessionObserver>_Nonnull)Observer;
+- (void)setTcrSessionObserver:(id<TcrSessionObserver> _Nonnull)Observer;
 
 /**
  * Starts the session. This method should only be called once.
  *
  * @param serverSession The ServerSessionreturned from CreateSessionAPI.
+ *
  * @return true if success, false otherwise.
  */
-- (BOOL)start:(NSString*_Nonnull)serverSession;
+- (BOOL)start:(NSString *_Nonnull)serverSession;
 
 /**
  * Release the session. <br>
@@ -80,12 +89,18 @@
 - (void)releaseSession;
 
 /**
+ * Get the current connection's requestId.
+ *
+ * It takes effect after calling TcrSession.start().
+ */
+- (NSString*_Nonnull) getRequestId;
+
+/**
  * Set the rendering view for this session, and thus the SDK will render the streaming content to the view.
  *
  * @param renderView The rendering view to be set. This can be null to remove any existing renderView.
  */
-- (void)setRenderView:(TcrRenderView* _Nullable)renderView;
-
+- (void)setRenderView:(TcrRenderView *_Nullable)renderView;
 
 /**
  * Sets a video sink for this session. After that, the SDK will callback the decoded video frame data to the
@@ -95,14 +110,14 @@
  *
  * @param videoSink The view sink to be set.This can be null to remove any existing one.
  */
-- (void)setVideoSink:(id<VideoSink>_Nullable)videoSink;
+- (void)setVideoSink:(id<VideoSink> _Nullable)videoSink;
 
 /**
  * Sets a audio sink for this session. After that, the SDK will callback the audio data to the audioSink
  *
  * @param audioSink The audio sink to be set.
  */
-- (void)setAudioSink:(id<AudioSink>_Nullable)audioSink;
+- (void)setAudioSink:(id<AudioSink> _Nullable)audioSink;
 
 /**
  * Set whether the SDK plays audio.
@@ -145,7 +160,7 @@
  * @param maxBitrate The maximum bitrate in Kbps. Value range: [1000,15000]. Default value: `15000`.
  */
 
-- (void)setRemoteVideoProfile:(int)fps minBitrate:(int)minBitrate maxBitrate:(int)maxBitrate;
+- (void)setRemoteVideoProfile:(int)fps minBitrate:(int)minBitrate maxBitrate:(int)maxBitrate DEPRECATED_MSG_ATTRIBUTE();
 
 /**
  * Set the local video profile.
@@ -156,7 +171,12 @@
  * @param minBitrate The minimum bitrate in Kbps. Value range: [1000,15000]. Default value: `1000`.
  * @param maxBitrate The maximum bitrate in Kbps. Value range: [1000,15000]. Default value: `15000`.
  */
-- (void)setLocalVideoProfile:(int)width height:(int)height fps:(int)fps minBitrate:(int)minBitrate maxBitrate:(int)maxBitrate isFrontCamera:(BOOL)isFrontCamera;
+- (void)setLocalVideoProfile:(int)width
+                      height:(int)height
+                         fps:(int)fps
+                  minBitrate:(int)minBitrate
+                  maxBitrate:(int)maxBitrate
+               isFrontCamera:(BOOL)isFrontCamera;
 
 /**
  * Set the playing profile of the remote audio.
@@ -227,38 +247,43 @@
  *
  * @return The interface to interact with the cloud keyboard in this session.
  */
-- (id<Keyboard>_Nonnull)getKeyboard;
+- (id<Keyboard> _Nonnull)getKeyboard;
 
 /**
  * Return the interface to interact with the cloud Mouse in this session.
  *
  * @return The interface to interact with the cloud Mouse in this session.
  */
-- (id<Mouse>_Nonnull)getMouse;
+- (id<Mouse> _Nonnull)getMouse;
 
 /**
  * Return the interface to interact with the cloud Gamepad in this session.
  *
  * @return The interface to interact with the cloud Gamepad in this session.
  */
-- (id<Gamepad>_Nonnull)getGamepad;
+- (id<Gamepad> _Nonnull)getGamepad;
 
 /**
  * Return the interface to interact with the cloud TouchScreen in this session.
  *
  * @return The interface to interact with the cloud TouchScreen in this session.
  */
-- (id<TouchScreen>_Nonnull)getTouchScreen;
+- (id<TouchScreen> _Nonnull)getTouchScreen;
+
+/**
+ * send keycode message to cloud
+ */
+- (void)sendKeycodeMessage:(NSDictionary *_Nonnull)msg;
 
 /**
  * Creates a custom data channel.
  *
  * @param port The cloud port number uniquely identifying the data channel.
- * @param observer The {@link CustomDataChannel.Observer}.
+ * @param observer The CustomDataChannel.CustomDataChannelObserver object .
+ *
  * @return the created data channel.
- * @see CustomDataChannel
  */
-- (CustomDataChannel*_Nonnull)createCustomDataChannel:(int)port observer:(id<CustomDataChannelObserver>_Nullable)observer;
+- (CustomDataChannel *_Nonnull)createCustomDataChannel:(int)port observer:(id<CustomDataChannelObserver> _Nullable)observer;
 
 //////////////////////////////////////////////// 多人互动云游 ////////////////////////////////////////////////
 
@@ -266,29 +291,51 @@
  * Switch the role and seat of a user (`userID`) to `targetRole` and `targetPlayerIndex` respectively.
  *
  * @param userId The target user ID
- * @param targetRole The target role `{@link Role}`
+ * @param targetRole The target role,. valid value: ( 'player' / 'viewer' )
  * @param targetPlayerIndex The target seat. This parameter can take effect only for the `Player` role and
  *         will be `0` for the `Viewer` role.
+ * @param finishBlk Execution result callback. retcode: TcrCode#ErrMultiPlayerBaseCode
  */
-- (void)changeSeat:(NSString *_Nonnull)userId targetRole:(NSString *_Nonnull)targetRole targetPlayerIndex:(int)targetPlayerIndex blk:(void(^_Nullable)(int retCode))finishBlk;
+- (void)changeSeat:(NSString *_Nonnull)userId
+           targetRole:(NSString *_Nonnull)targetRole
+    targetPlayerIndex:(int)targetPlayerIndex
+                  blk:(void (^_Nullable)(int retCode))finishBlk;
 
 /**
  * Apply to the room owner to switch the role and seat of a player (`userID`) to `targetRole` and
  * `targetPlayerIndex` respectively.
  *
  * @param userId The target user ID
- * @param targetRole The target role `{@link Role}`
+ * @param targetRole The target role,. valid value: ( 'player' / 'viewer' )
  * @param targetPlayerIndex The target seat. This parameter can take effect only for the `Player` role and
  *         will be `0` for the `Viewer` role.
+ * @param finishBlk Execution result callback. retcode: TcrCode#ErrMultiPlayerBaseCode
  */
-- (void)requestChangeSeat:(NSString *_Nonnull)userId targetRole:(NSString *_Nonnull)targetRole targetPlayerIndex:(int)targetPlayerIndex blk:(void(^_Nullable)(int retCode))finishBlk;
+- (void)requestChangeSeat:(NSString *_Nonnull)userId
+               targetRole:(NSString *_Nonnull)targetRole
+        targetPlayerIndex:(int)targetPlayerIndex
+                      blk:(void (^_Nullable)(int retCode))finishBlk;
 
+/**
+ * Apply to the room owner to switch the role and seat of a player (`userID`) to `targetRole` and
+ * `targetPlayerIndex` respectively.
+ *
+ * @param userId The target user ID
+ * @param micStatus The mic Status set. 
+ * @param finishBlk Execution result callback.  retcode: TcrCode#ErrMultiPlayerBaseCode
+ */
+- (void)setMicMute:(NSString *_Nonnull)userId micStatus:(int)micStatus blk:(void (^_Nullable)(int retCode))finishBlk;
 
-- (void)setMicMute:(NSString *_Nonnull)userID micStatus:(int)micStatus blk:(void(^_Nullable)(int retCode))finishBlk;
-
+/*!
+* Apply to synchronize room information and return the result through TcrEvent#MULTI_USER_SEAT_INFO
+*/
 - (void)syncRoomInfo;
-+ (void)setAudioSessionDelegate:(id<TCGAudioSessionDelegate>)delegate;
+
+/**
+ * Set audiosession proxy
+ *
+ * @param delegate The delegate to set
+ */
++ (void)setAudioSessionDelegate:(id<TCRAudioSessionDelegate>_Nonnull)delegate;
 
 @end
-
-

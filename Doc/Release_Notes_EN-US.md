@@ -1,5 +1,14 @@
 [中文文档](历史版本.md)
 
+### Version 3.0.0 (2023-12.3)
+Features
+- Update the underlying TWEBRTC library
+- Optimize reconnection
+- Added getRequestID interface
+
+Bug Fixes
+- Fix and optimize some known issues
+
 ### Version 2.2.0 (2023-11.9)
 Features
 - Added adaptation of virtual key library

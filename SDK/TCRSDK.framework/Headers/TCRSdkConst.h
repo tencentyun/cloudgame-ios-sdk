@@ -8,7 +8,7 @@
 
 extern const NSString *TCRSDKVersion;
 
-typedef NS_ENUM(NSUInteger, TCRLogLevel){
+typedef NS_ENUM(NSUInteger, TCRLogLevel) {
     TCRLogLevelDebug,
     TCRLogLevelInfo,
     TCRLogLevelWarning,
@@ -72,6 +72,14 @@ typedef NS_ENUM(NSInteger, TcrCode) {
     SessionStopConnectFailed = SessionStopBaseCode + 7
 };
 
+typedef NS_ENUM(NSInteger, MicStatus) {
+    /** If the mic is muted by the room owner, the user cannot unmute it. */
+    MIC_STATUS_DISABLE = 0,
+    /** If the mic is muted by the user, the user can unmute it. */
+    MIC_STATUS_OFF = 1,
+    /** The user unmutes the mic.*/
+    MIC_STATUS_ON = 2
+};
 
 typedef NS_ENUM(NSUInteger, TcrEvent) {
     /**
@@ -93,10 +101,10 @@ typedef NS_ENUM(NSUInteger, TcrEvent) {
      */
     STATE_RECONNECTING,
     /**
-    * This event indicates that the session is closed, and thus it can not be used any more.<br>
-    *
-    * The associated event data is of type Integer.For the value range, refer to TcrCode#SessionStopBaseCode
-    */
+     * This event indicates that the session is closed, and thus it can not be used any more.<br>
+     *
+     * The associated event data is of type Integer.For the value range, refer to TcrCode#SessionStopBaseCode
+     */
     STATE_CLOSED,
     /**
      * This event indicates that the performance data is updated. <br>
@@ -255,7 +263,8 @@ typedef NS_ENUM(NSUInteger, TcrEvent) {
      * }
      * }
      * sample:
-     *"players":[{"name":"user1","seat_index":0,"mic_status":1},{"name":"user2","seat_index":1,"mic_status":1}],"viewers":[{"name":"user3","seat_index":0,"mic_status":0},{"name":"user4","seat_index":0,"mic_status":0}], "max_players": Number, "player_left":Number}
+     *"players":[{"name":"user1","seat_index":0,"mic_status":1},{"name":"user2","seat_index":1,"mic_status":1}],"viewers":[{"name":"user3","seat_index":0,"mic_status":0},{"name":"user4","seat_index":0,"mic_status":0}],
+     *"max_players": Number, "player_left":Number}
      */
     MULTI_USER_SEAT_INFO,
     /**
@@ -299,18 +308,18 @@ typedef NS_ENUM(NSUInteger, TcrEvent) {
 
 typedef NS_ENUM(NSInteger, TCRMouseCursorTouchMode) {
     /*! 鼠标跟随手指移动,点击可以单击按键 */
-    TCRMouseCursorTouchMode_AbsoluteTouch= 0,
+    TCRMouseCursorTouchMode_AbsoluteTouch = 0,
     /*! 手指滑动控制鼠标相对移动
      * 轻触触发鼠标左键
      * 长按触发按点击鼠标左键, 可以拖动
      * 滑动仅触发鼠标移动
-    **/
+     **/
     TCRMouseCursorTouchMode_RelativeTouch = 1,
     /*! 鼠标在相对位置移动，不触发点击事件 */
     TCRMouseCursorTouchMode_RelativeOnly = 2
 };
 
-typedef NS_ENUM(NSInteger,TCRMouseKeyType) {
+typedef NS_ENUM(NSInteger, TCRMouseKeyType) {
     LEFT = 0,
     RIGHT = 1,
     MIDDLE = 2,
@@ -328,4 +337,4 @@ typedef enum : NSInteger {
     TCRNetwork_Unknown = 9,
 } TCRNetworkStatus;
 
-typedef void(^TCRMsgHandleBlk)(NSError *error, NSDictionary *msg);
+typedef void (^TCRMsgHandleBlk)(NSError *error, NSDictionary *msg);
