@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 3.0.1 (2023-12.5)
+Features
+- Optimize reconnection
+
 ### Version 3.0.0 (2023-12.3)
 Features
 - Update the underlying TWEBRTC library
@@ -60,6 +64,10 @@ Bug Fixes
 ### Version 2.0.0 (2023-10.12)
 Features 
 - SDK reconstruction interface design
+
+### Version 1.6.10 (2023-12.5)
+Features
+- Optimize reconnection
 
 ### Version 1.6.9 (2023-11.17)
 Bug Fixes
