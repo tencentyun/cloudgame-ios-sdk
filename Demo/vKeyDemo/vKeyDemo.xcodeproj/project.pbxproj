@@ -14,8 +14,8 @@
 		11C5558A2B20736C00F94AC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11C555892B20736C00F94AC0 /* Assets.xcassets */; };
 		11C5558D2B20736C00F94AC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11C5558B2B20736C00F94AC0 /* LaunchScreen.storyboard */; };
 		11C555902B20736C00F94AC0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C5558F2B20736C00F94AC0 /* main.m */; };
-		11C5559C2B216DEE00F94AC0 /* lol_5v5.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 11C5559A2B216DED00F94AC0 /* lol_5v5.cfg */; };
-		11C5559D2B216DEE00F94AC0 /* tcg_default_ps4.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 11C5559B2B216DED00F94AC0 /* tcg_default_ps4.cfg */; };
+		11C555B12B21E05200F94AC0 /* tcg_default_ps4.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 11C555AF2B21E05200F94AC0 /* tcg_default_ps4.cfg */; };
+		11C555B22B21E05200F94AC0 /* lol_5v5.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 11C555B02B21E05200F94AC0 /* lol_5v5.cfg */; };
 		C4219353D1924F5A460EA324 /* Pods_vKeyDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 145B6096142335791418740A /* Pods_vKeyDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,8 +32,8 @@
 		11C5558C2B20736C00F94AC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11C5558E2B20736C00F94AC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11C5558F2B20736C00F94AC0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		11C5559A2B216DED00F94AC0 /* lol_5v5.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = lol_5v5.cfg; path = "../../../../ios119/cloudgame-ios-sdk/Demo/3-VKeyDemo/VKeyDemo/lol_5v5.cfg"; sourceTree = "<group>"; };
-		11C5559B2B216DED00F94AC0 /* tcg_default_ps4.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = tcg_default_ps4.cfg; path = "../../../../ios119/cloudgame-ios-sdk/Demo/3-VKeyDemo/VKeyDemo/tcg_default_ps4.cfg"; sourceTree = "<group>"; };
+		11C555AF2B21E05200F94AC0 /* tcg_default_ps4.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tcg_default_ps4.cfg; sourceTree = "<group>"; };
+		11C555B02B21E05200F94AC0 /* lol_5v5.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lol_5v5.cfg; sourceTree = "<group>"; };
 		145B6096142335791418740A /* Pods_vKeyDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vKeyDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7E0964B490C76FFF7DC4648 /* Pods-vKeyDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vKeyDemo.release.xcconfig"; path = "Target Support Files/Pods-vKeyDemo/Pods-vKeyDemo.release.xcconfig"; sourceTree = "<group>"; };
 		CED6268B99B1687B7DAFDCCB /* Pods-vKeyDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vKeyDemo.debug.xcconfig"; path = "Target Support Files/Pods-vKeyDemo/Pods-vKeyDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -72,14 +72,14 @@
 		11C5557C2B20736B00F94AC0 /* vKeyDemo */ = {
 			isa = PBXGroup;
 			children = (
+				11C555B02B21E05200F94AC0 /* lol_5v5.cfg */,
+				11C555AF2B21E05200F94AC0 /* tcg_default_ps4.cfg */,
 				11C5557D2B20736B00F94AC0 /* AppDelegate.h */,
 				11C5557E2B20736B00F94AC0 /* AppDelegate.m */,
 				11C555802B20736B00F94AC0 /* SceneDelegate.h */,
 				11C555812B20736B00F94AC0 /* SceneDelegate.m */,
 				11C555832B20736B00F94AC0 /* ViewController.h */,
 				11C555842B20736B00F94AC0 /* ViewController.m */,
-				11C5559A2B216DED00F94AC0 /* lol_5v5.cfg */,
-				11C5559B2B216DED00F94AC0 /* tcg_default_ps4.cfg */,
 				11C555862B20736B00F94AC0 /* Main.storyboard */,
 				11C555892B20736C00F94AC0 /* Assets.xcassets */,
 				11C5558B2B20736C00F94AC0 /* LaunchScreen.storyboard */,
@@ -166,10 +166,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				11C5558D2B20736C00F94AC0 /* LaunchScreen.storyboard in Resources */,
+				11C555B12B21E05200F94AC0 /* tcg_default_ps4.cfg in Resources */,
+				11C555B22B21E05200F94AC0 /* lol_5v5.cfg in Resources */,
 				11C5558A2B20736C00F94AC0 /* Assets.xcassets in Resources */,
 				11C555882B20736B00F94AC0 /* Main.storyboard in Resources */,
-				11C5559D2B216DEE00F94AC0 /* tcg_default_ps4.cfg in Resources */,
-				11C5559C2B216DEE00F94AC0 /* lol_5v5.cfg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
