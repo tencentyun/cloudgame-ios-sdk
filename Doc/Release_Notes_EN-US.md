@@ -3,6 +3,7 @@
 ### Version 3.0.2 (2023-12.7)
 Bug Fixes 
 - Fixed the problem of failure to load image resources in the virtual key library
+- Fix and optimize some known issues
 
 ### Version 3.0.1 (2023-12.5)
 Features
