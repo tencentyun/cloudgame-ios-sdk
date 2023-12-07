@@ -1,5 +1,5 @@
 Pod::Spec.new do |spec|
-  spec.name         = 'TCGVKey'
+  spec.name         = 'TCRVKey'
   spec.version      = '2.2.0'
   spec.license      = { :type => 'MIT' }
   spec.homepage     = 'https://github.com/tencentyun/cloudgame-ios-sdk'

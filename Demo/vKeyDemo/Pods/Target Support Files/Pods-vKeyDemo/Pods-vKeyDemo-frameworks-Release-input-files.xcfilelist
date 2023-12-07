@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-vKeyDemo/Pods-vKeyDemo-frameworks.sh
+${PODS_ROOT}/TCGVKey/SDK/TCRVkey.framework
+${PODS_ROOT}/TCRSDK/SDK/TCRSDK.framework
+${PODS_ROOT}/TCRSDK/SDK/TWEBRTC.framework

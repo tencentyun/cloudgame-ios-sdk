@@ -10,15 +10,16 @@
 
 #import <AVFoundation/AVFoundation.h>
 
-#import "RTCYUVPlanarBuffer.h"
+#import <TWEBRTC/RTCYUVPlanarBuffer.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 /** Extension of the YUV planar data buffer with mutable data access */
 RTC_OBJC_EXPORT
-@protocol RTCMutableYUVPlanarBuffer <RTCYUVPlanarBuffer>
+@protocol RTC_OBJC_TYPE
+(RTCMutableYUVPlanarBuffer)<RTC_OBJC_TYPE(RTCYUVPlanarBuffer)>
 
-@property(nonatomic, readonly) uint8_t *mutableDataY;
+    @property(nonatomic, readonly) uint8_t *mutableDataY;
 @property(nonatomic, readonly) uint8_t *mutableDataU;
 @property(nonatomic, readonly) uint8_t *mutableDataV;
 

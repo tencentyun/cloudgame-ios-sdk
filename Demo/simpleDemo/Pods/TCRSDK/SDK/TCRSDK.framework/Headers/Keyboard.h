@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @param finishBlk retCode 0 lower，1 upper
  */
-- (void)checkKeyboardCapsLock: (void(^)(int retCode))finishBlk;
+- (void)checkKeyboardCapsLock:(void (^)(int retCode))finishBlk;
 
 /**
  * Reset the capitalization status (to lowercase) of the cloud virtual keyboard.

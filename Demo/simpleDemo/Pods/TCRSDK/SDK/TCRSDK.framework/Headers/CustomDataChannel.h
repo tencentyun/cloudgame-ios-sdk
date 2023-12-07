@@ -10,7 +10,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-
 /**
  * A class can implement the <code>Observer</code> protocol when it wants to be informed of events
  * in CustomDataChannel objects.
@@ -46,11 +45,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface CustomDataChannel:NSObject
+@interface CustomDataChannel : NSObject
 
-@property(nonatomic, weak) id<CustomDataChannelObserver> delegate;
-@property(nonatomic, copy, readonly) NSString *channelLabel;
-@property(nonatomic, assign, readonly) int remoteUdpPort;
+@property (nonatomic, weak) id<CustomDataChannelObserver> delegate;
+@property (nonatomic, copy, readonly) NSString *channelLabel;
+@property (nonatomic, assign, readonly) int remoteUdpPort;
 /**
  * Send data to the cloud Application.
  *

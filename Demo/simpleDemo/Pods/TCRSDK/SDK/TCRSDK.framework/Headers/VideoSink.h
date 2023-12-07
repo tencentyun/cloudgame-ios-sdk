@@ -22,7 +22,7 @@
 @property (nonatomic, assign) CVPixelBufferRef pixelBuffer;
 @end
 
-#pragma mark --- 解码后视频帧接口 ---
+#pragma mark--- 解码后视频帧接口 ---
 @protocol VideoSink <NSObject>
 @required
 /*
@@ -30,5 +30,3 @@
  */
 - (void)onRenderVideoFrame:(TCRVideoFrame *)frame;
 @end
-
-

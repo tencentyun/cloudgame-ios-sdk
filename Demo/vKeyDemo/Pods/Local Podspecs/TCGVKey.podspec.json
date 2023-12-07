@@ -1,0 +1,25 @@
+{
+  "name": "TCGVKey",
+  "version": "2.2.0",
+  "license": {
+    "type": "MIT"
+  },
+  "homepage": "https://github.com/tencentyun/cloudgame-ios-sdk",
+  "summary": "Tencent Cloud Gaming Software Development Kit for iOS.",
+  "authors": {
+    "xxhapecheng": "xxhapecheng@tencent.com"
+  },
+  "source": {
+    "path": "./"
+  },
+  "pod_target_xcconfig": {
+    "ENABLE_BITCODE": "OFF"
+  },
+  "vendored_frameworks": "SDK/TCRVKey.framework",
+  "platforms": {
+    "osx": null,
+    "ios": null,
+    "tvos": null,
+    "watchos": null
+  }
+}

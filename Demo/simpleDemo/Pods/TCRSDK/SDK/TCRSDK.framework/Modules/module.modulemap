@@ -1,6 +1,6 @@
 framework module TCRSDK {
   umbrella header "TCRSDK.h"
-  export *
 
+  export *
   module * { export * }
 }

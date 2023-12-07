@@ -6,17 +6,11 @@
 //  Copyright © 2023 Tencent. All rights reserved.
 //
 
-
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSUInteger, KeyType) {
-    LS,
-    RS,
-    LT,
-    RT
-};
+typedef NS_ENUM(NSUInteger, KeyType) { LS, RS, LT, RT };
 
 @protocol Gamepad <NSObject>
 

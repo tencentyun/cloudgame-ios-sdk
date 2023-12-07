@@ -1,0 +1,30 @@
+PODS:
+  - TCGVKey (2.2.0)
+  - TCRSDK (3.0.1)
+
+DEPENDENCIES:
+  - TCGVKey (from `https://github.com/tencentyun/cloudgame-ios-sdk.git`)
+  - TCRSDK (from `https://github.com/tencentyun/cloudgame-ios-sdk.git`, tag `3.0.1`)
+
+EXTERNAL SOURCES:
+  TCGVKey:
+    :git: https://github.com/tencentyun/cloudgame-ios-sdk.git
+  TCRSDK:
+    :git: https://github.com/tencentyun/cloudgame-ios-sdk.git
+    :tag: 3.0.1
+
+CHECKOUT OPTIONS:
+  TCGVKey:
+    :commit: d128bd11feae9c64bfee95000f37afefa04a1d5e
+    :git: https://github.com/tencentyun/cloudgame-ios-sdk.git
+  TCRSDK:
+    :git: https://github.com/tencentyun/cloudgame-ios-sdk.git
+    :tag: 3.0.1
+
+SPEC CHECKSUMS:
+  TCGVKey: c3c17aac4974de8774cee46e4c4f4e026fa96275
+  TCRSDK: 65eb28114fedde0a5507acc4f4fafe60ffb17614
+
+PODFILE CHECKSUM: 144bc7b31dd6c95fde75ba4ba9d97e9f95b404e1
+
+COCOAPODS: 1.12.0

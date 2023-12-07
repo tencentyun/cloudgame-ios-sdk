@@ -10,12 +10,12 @@
 
 #import <Foundation/Foundation.h>
 
-#import "RTCMacros.h"
+#import <TWEBRTC/RTCMacros.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 RTC_OBJC_EXPORT
-@interface RTCMetricsSampleInfo : NSObject
+@interface RTC_OBJC_TYPE (RTCMetricsSampleInfo) : NSObject
 
 /**
  * Example of RTCMetricsSampleInfo:

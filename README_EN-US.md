@@ -23,7 +23,7 @@ Edit Podfile
 pod 'TCRSDK', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git"
 
 # Optional library of virtual keys
-# pod 'TCGVKey', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git"
+# pod 'TCRVKey', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git"
 ```
 
 We will regularly update the functions of the SDK, and you can obtain the latest version under the SDK directory of this project.

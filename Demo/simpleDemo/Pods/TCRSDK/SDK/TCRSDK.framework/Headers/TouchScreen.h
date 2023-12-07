@@ -35,7 +35,13 @@ NS_ASSUME_NONNULL_BEGIN
  * @param timestamp The time this event occurred, in the {@link android.os.SystemClock#uptimeMillis} time
  *         base. You may obtain this value from {@link android.view.MotionEvent#getEventTime()}.
  */
-- (void)touchWithX:(NSNumber*)x y:(NSNumber*)y eventType:(int)eventType fingerID:(int)fingerID width:(int)width height:(int)height timestamp:(long)timestamp;
+- (void)touchWithX:(NSNumber *)x
+                 y:(NSNumber *)y
+         eventType:(int)eventType
+          fingerID:(int)fingerID
+             width:(int)width
+            height:(int)height
+         timestamp:(long)timestamp;
 
 @end
 

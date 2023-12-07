@@ -10,14 +10,10 @@
 
 #import <Foundation/Foundation.h>
 
-#import "RTCMacros.h"
-#import "RTCVideoDecoder.h"
-#import "RTCVideoDecoderH264.h"
+#import <TWEBRTC/RTCMacros.h>
+#import <TWEBRTC/RTCVideoDecoder.h>
 
 RTC_OBJC_EXPORT
 API_AVAILABLE(ios(11.0))
 @interface RTCVideoDecoderH265 : NSObject <RTCVideoDecoder>
-
-- (instancetype)initWithBFrame:(BOOL)supportBFrame;
-
 @end

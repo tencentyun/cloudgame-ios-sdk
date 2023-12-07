@@ -1,0 +1,37 @@
+{
+  "name": "TCRSDK",
+  "version": "3.0.1",
+  "license": {
+    "type": "MIT"
+  },
+  "homepage": "https://github.com/tencentyun/cloudgame-ios-sdk",
+  "summary": "Tencent Cloud Gaming Software Development Kit for iOS.",
+  "authors": {
+    "xxhapecheng": "xxhapecheng@tencent.com"
+  },
+  "source": {
+    "path": "./"
+  },
+  "pod_target_xcconfig": {
+    "ENABLE_BITCODE": "OFF"
+  },
+  "vendored_frameworks": [
+    "SDK/TCRSDK.framework",
+    "SDK/TWEBRTC.framework"
+  ],
+  "info_plist": {
+    "UISupportedInterfaceOrientations": [
+      "UIInterfaceOrientationPortrait",
+      "UIInterfaceOrientationLandscapeLeft",
+      "UIInterfaceOrientationLandscapeRight"
+    ],
+    "NSMicrophoneUsageDescription": "云游戏互动时需要开启麦克风",
+    "NSCameraUsageDescription": "云游戏互动时需要开启摄像头"
+  },
+  "platforms": {
+    "osx": null,
+    "ios": null,
+    "tvos": null,
+    "watchos": null
+  }
+}

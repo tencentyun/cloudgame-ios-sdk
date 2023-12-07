@@ -1,6 +1,6 @@
 {
   "name": "TCRSDK",
-  "version": "2.0.0",
+  "version": "3.0.1",
   "license": {
     "type": "MIT"
   },
@@ -25,7 +25,8 @@
       "UIInterfaceOrientationLandscapeLeft",
       "UIInterfaceOrientationLandscapeRight"
     ],
-    "NSMicrophoneUsageDescription": "云游戏互动时需要开启麦克风"
+    "NSMicrophoneUsageDescription": "云游戏互动时需要开启麦克风",
+    "NSCameraUsageDescription": "云游戏互动时需要开启摄像头"
   },
   "platforms": {
     "osx": null,

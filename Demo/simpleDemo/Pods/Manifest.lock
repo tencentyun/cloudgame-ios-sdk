@@ -1,22 +1,22 @@
 PODS:
-  - TCRSDK (2.0.0)
+  - TCRSDK (3.0.1)
 
 DEPENDENCIES:
-  - TCRSDK (from `https://github.com/tencentyun/cloudgame-ios-sdk.git`, branch `refactor/sdk2.0`)
+  - TCRSDK (from `https://github.com/tencentyun/cloudgame-ios-sdk.git`, tag `3.0.1`)
 
 EXTERNAL SOURCES:
   TCRSDK:
-    :branch: refactor/sdk2.0
     :git: https://github.com/tencentyun/cloudgame-ios-sdk.git
+    :tag: 3.0.1
 
 CHECKOUT OPTIONS:
   TCRSDK:
-    :commit: 6eeee6ace2d976719ae24be1240c906b0b830177
     :git: https://github.com/tencentyun/cloudgame-ios-sdk.git
+    :tag: 3.0.1
 
 SPEC CHECKSUMS:
-  TCRSDK: cd44515372cff740f2716037fc1c628c9e23d0c2
+  TCRSDK: 65eb28114fedde0a5507acc4f4fafe60ffb17614
 
-PODFILE CHECKSUM: 3b3a41967bb982e7a63ec670d657fe4ae01d1a1f
+PODFILE CHECKSUM: 874e6df275a5b40c7dabcbb6c280229dcd7d6bf7
 
 COCOAPODS: 1.12.0
