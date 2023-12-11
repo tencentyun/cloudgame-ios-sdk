@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 3.0.4 (2023-12.11)
+Features  
+- Performance data callback adds new field decode/drop frame fps
+
 ### Version 3.0.3 (2023-12.11)
 Bug Fixes 
 - Fixed an issue that would trigger a crash under certain circumstances
