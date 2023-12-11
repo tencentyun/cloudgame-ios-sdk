@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 3.0.3 (2023-12.11)
+Bug Fixes 
+- Fixed an issue that would trigger a crash under certain circumstances
+
 ### Version 3.0.2 (2023-12.7)
 Bug Fixes 
 - Fixed the problem of failure to load image resources in the virtual key library

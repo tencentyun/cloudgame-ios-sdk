@@ -60,6 +60,10 @@
  *           and channel count of the custom captured audio (both parameters are required). 
  *           e.g. @"enableCustomAudioCapture":@{@"sampleRate":@(48000), @"useStereoInput":@(false)} means a sample rate of 48000 and mono data.
  *           In addition, to enable custom audio capture, you also need to set @"local_audio" to enable local audio upstream.
+ *
+ *         - @"remoteDesktopResolution":@{@"width":NSInteger , @"height":NSInteger} ,Set the resolution of Cloud Desktop. If the cloud PC
+ *           application is in full-screen mode, the resolution of the downstream video stream will also change accordingly.
+ *           NOTE：This param  is only for PC application, and the mobile application is not supported.
  * @param Observer The delegate of the TcrSession, listening for callback of events.
  */
 - (instancetype _Nonnull)initWithParams:(NSDictionary *_Nullable)params andDelegate:(id<TcrSessionObserver> _Nonnull)Observer;
