@@ -1,5 +1,12 @@
 [中文文档](历史版本.md)
 
+### Version 3.0.5 (2023-12.21)
+Refactor  
+- Modify the initial parameters of AvAudioSession
+
+Bug Fixes 
+- Fix and optimize some known issues
+
 ### Version 3.0.4 (2023-12.11)
 Features  
 - Performance data callback adds new field decode/drop frame fps
