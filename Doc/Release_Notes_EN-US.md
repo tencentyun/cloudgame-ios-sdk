@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 3.0.6 (2023-12.22)
+Bug Fixes 
+- Fix and optimize some known issues
+
 ### Version 3.0.5 (2023-12.21)
 Refactor  
 - Modify the initial parameters of AvAudioSession
