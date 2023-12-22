@@ -1,0 +1,2114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>TcrSession Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">tcrsdk </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">tencent</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/setAudioSessionDelegate:">+ setAudioSessionDelegate:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/changeSeat:targetRole:targetPlayerIndex:blk:">- changeSeat:targetRole:targetPlayerIndex:blk:</option>
+		
+		<option value="//api/name/createCustomDataChannel:observer:">- createCustomDataChannel:observer:</option>
+		
+		<option value="//api/name/getGamepad">- getGamepad</option>
+		
+		<option value="//api/name/getKeyboard">- getKeyboard</option>
+		
+		<option value="//api/name/getMouse">- getMouse</option>
+		
+		<option value="//api/name/getRequestId">- getRequestId</option>
+		
+		<option value="//api/name/getTouchScreen">- getTouchScreen</option>
+		
+		<option value="//api/name/initWithParams:andDelegate:">- initWithParams:andDelegate:</option>
+		
+		<option value="//api/name/pasteText:">- pasteText:</option>
+		
+		<option value="//api/name/pauseStreaming">- pauseStreaming</option>
+		
+		<option value="//api/name/releaseSession">- releaseSession</option>
+		
+		<option value="//api/name/requestChangeSeat:targetRole:targetPlayerIndex:blk:">- requestChangeSeat:targetRole:targetPlayerIndex:blk:</option>
+		
+		<option value="//api/name/restartCloudApp">- restartCloudApp</option>
+		
+		<option value="//api/name/resumeStreaming">- resumeStreaming</option>
+		
+		<option value="//api/name/sendCustomAudioData:captureTimeNs:">- sendCustomAudioData:captureTimeNs:</option>
+		
+		<option value="//api/name/sendKeycodeMessage:">- sendKeycodeMessage:</option>
+		
+		<option value="//api/name/setAudioSink:">- setAudioSink:</option>
+		
+		<option value="//api/name/setDisableCloudInput:">- setDisableCloudInput:</option>
+		
+		<option value="//api/name/setEnableAudioPlaying:">- setEnableAudioPlaying:</option>
+		
+		<option value="//api/name/setEnableLocalAudio:">- setEnableLocalAudio:</option>
+		
+		<option value="//api/name/setEnableLocalVideo:">- setEnableLocalVideo:</option>
+		
+		<option value="//api/name/setLocalVideoProfile:height:fps:minBitrate:maxBitrate:isFrontCamera:">- setLocalVideoProfile:height:fps:minBitrate:maxBitrate:isFrontCamera:</option>
+		
+		<option value="//api/name/setMicMute:micStatus:blk:">- setMicMute:micStatus:blk:</option>
+		
+		<option value="//api/name/setRemoteAudioProfile:">- setRemoteAudioProfile:</option>
+		
+		<option value="//api/name/setRemoteDesktopResolution:height:">- setRemoteDesktopResolution:height:</option>
+		
+		<option value="//api/name/setRemoteVideoProfile:minBitrate:maxBitrate:">- setRemoteVideoProfile:minBitrate:maxBitrate:</option>
+		
+		<option value="//api/name/setRenderView:">- setRenderView:</option>
+		
+		<option value="//api/name/setTcrSessionObserver:">- setTcrSessionObserver:</option>
+		
+		<option value="//api/name/setVideoSink:">- setVideoSink:</option>
+		
+		<option value="//api/name/start:">- start:</option>
+		
+		<option value="//api/name/syncRoomInfo">- syncRoomInfo</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">TcrSession Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>TcrSession.h<br />TcrSession.m</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/initWithParams:andDelegate:" title="initWithParams:andDelegate:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithParams:andDelegate:">&ndash;&nbsp;initWithParams:andDelegate:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Initialize local resources, asynchronously callback results</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithParams:(NSDictionary *)<em>params</em> andDelegate:(id&lt;TcrSessionObserver&gt;)<em>Observer</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>Optional, the following key-value pairs can be selected:
+- @&ldquo;preferredCodec&rdquo;: Optional values are @&ldquo;H264&rdquo;, @&ldquo;H265&rdquo;, @&ldquo;VP8&rdquo;, and @&ldquo;VP9&rdquo;. Used to set the preferred codec.
+If this field is set, the session will try to use the preferred codec for communication. If the preferred codec is not available,
+other available codecs will be used. If this field is not set or the setting is invalid, the session will use the default codec.</p>
+
+<ul>
+<li><p>@&ldquo;preferredCodecList&rdquo;:  The value is an NSArray, which contains the optional values @&ldquo;H264&rdquo;, @&ldquo;H265&rdquo;, @&ldquo;VP8&rdquo;, and @&ldquo;VP9&rdquo;.
+Indicate preferred codecs, where the order of the elements in the list represents priority, such as index 0 being the highest priority
+preferred codec. If the set codecs cannot be selected for various reasons, other available codecs will be chosen.</p></li>
+<li><p>@&ldquo;local_video&rdquo;: Optional value is of bool type. Used to enable the local camera.</p></li>
+<li><p>@&ldquo;local_audio&rdquo;: Optional value is of bool type. Used to enable the local microphone.</p></li>
+<li><p>@&ldquo;enableCustomAudioCapture&rdquo;:@{@&ldquo;sampleRate&rdquo;:NSInteger, @&ldquo;useStereoInput&rdquo;: BOOL}, enable custom audio capture and bring the sample rate
+and channel count of the custom captured audio (both parameters are required).
+e.g. @&ldquo;enableCustomAudioCapture&rdquo;:@{@&ldquo;sampleRate&rdquo;:@(48000), @&ldquo;useStereoInput&rdquo;:@(false)} means a sample rate of 48000 and mono data.
+In addition, to enable custom audio capture, you also need to set @&ldquo;local_audio&rdquo; to enable local audio upstream.</p></li>
+<li><p>@&ldquo;remoteDesktopResolution&rdquo;:@{@&ldquo;width&rdquo;:NSInteger , @&ldquo;height&rdquo;:NSInteger} ,Set the resolution of Cloud Desktop. If the cloud PC
+application is in full-screen mode, the resolution of the downstream video stream will also change accordingly.
+NOTE：This param  is only for PC application, and the mobile application is not supported.</p></li>
+</ul>
+</td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>Observer</code></th>
+						<td><p>The delegate of the TcrSession, listening for callback of events.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Initialize local resources, asynchronously callback results</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setTcrSessionObserver:" title="setTcrSessionObserver:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setTcrSessionObserver:">&ndash;&nbsp;setTcrSessionObserver:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>setOberServer for session</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setTcrSessionObserver:(id&lt;TcrSessionObserver&gt;)<em>Observer</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>Observer</code></th>
+						<td><p>session Observer</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>setOberServer for session</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/start:" title="start:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/start:">&ndash;&nbsp;start:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Starts the session. This method should only be called once.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)start:(NSString *_Nonnull)<em>serverSession</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>serverSession</code></th>
+						<td><p>The ServerSessionreturned from CreateSessionAPI.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>true if success, false otherwise.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Starts the session. This method should only be called once.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getRequestId" title="getRequestId"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getRequestId">&ndash;&nbsp;getRequestId</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Get the current connection&rsquo;s requestId.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSString *_Nonnull)getRequestId</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Get the current connection&rsquo;s requestId.</p>
+
+<p>It takes effect after calling TcrSession.start().</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createCustomDataChannel:observer:" title="createCustomDataChannel:observer:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createCustomDataChannel:observer:">&ndash;&nbsp;createCustomDataChannel:observer:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a custom data channel.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (CustomDataChannel *_Nonnull)createCustomDataChannel:(int)<em>port</em> observer:(id&lt;CustomDataChannelObserver&gt; _Nullable)<em>observer</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>port</code></th>
+						<td><p>The cloud port number uniquely identifying the data channel.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>observer</code></th>
+						<td><p>The <a href="../Classes/CustomDataChannel.html">CustomDataChannel</a>.<a href="../Protocols/CustomDataChannelObserver.html">CustomDataChannelObserver</a> object .</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>the created data channel.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Creates a custom data channel.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getKeyboard" title="getKeyboard"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getKeyboard">&ndash;&nbsp;getKeyboard</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Return the interface to interact with the cloud keyboard in this session.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (id&lt;Keyboard&gt; _Nonnull)getKeyboard</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The interface to interact with the cloud keyboard in this session.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Return the interface to interact with the cloud keyboard in this session.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getMouse" title="getMouse"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getMouse">&ndash;&nbsp;getMouse</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Return the interface to interact with the cloud <a href="../Protocols/Mouse.html">Mouse</a> in this session.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (id&lt;Mouse&gt; _Nonnull)getMouse</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The interface to interact with the cloud <a href="../Protocols/Mouse.html">Mouse</a> in this session.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Return the interface to interact with the cloud <a href="../Protocols/Mouse.html">Mouse</a> in this session.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getGamepad" title="getGamepad"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getGamepad">&ndash;&nbsp;getGamepad</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Return the interface to interact with the cloud <a href="../Protocols/Gamepad.html">Gamepad</a> in this session.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (id&lt;Gamepad&gt; _Nonnull)getGamepad</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The interface to interact with the cloud <a href="../Protocols/Gamepad.html">Gamepad</a> in this session.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Return the interface to interact with the cloud <a href="../Protocols/Gamepad.html">Gamepad</a> in this session.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getTouchScreen" title="getTouchScreen"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getTouchScreen">&ndash;&nbsp;getTouchScreen</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Return the interface to interact with the cloud <a href="../Protocols/TouchScreen.html">TouchScreen</a> in this session.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (id&lt;TouchScreen&gt; _Nonnull)getTouchScreen</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The interface to interact with the cloud <a href="../Protocols/TouchScreen.html">TouchScreen</a> in this session.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Return the interface to interact with the cloud <a href="../Protocols/TouchScreen.html">TouchScreen</a> in this session.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sendKeycodeMessage:" title="sendKeycodeMessage:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sendKeycodeMessage:">&ndash;&nbsp;sendKeycodeMessage:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>send keycode message to cloud</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)sendKeycodeMessage:(NSDictionary *_Nonnull)<em>msg</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>send keycode message to cloud</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/pasteText:" title="pasteText:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/pasteText:">&ndash;&nbsp;pasteText:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Send the text to the input box in the cloud application.<br>
+The input box of the cloud application must have obtained the focus and allow the user to paste text from the
+clipboard.<br></p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)pasteText:(NSString *_Nonnull)<em>text</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>text</code></th>
+						<td><p>The text to be sent</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Send the text to the input box in the cloud application.<br>
+The input box of the cloud application must have obtained the focus and allow the user to paste text from the
+clipboard.<br></p>
+
+<p>For Android cloud applications, sent text replaces the input box content.<br>
+For Windows cloud applications, sent text is added to the existing content in the input box.<br></p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/pauseStreaming" title="pauseStreaming"></a>
+	<h3 class="method-title"><code><a href="#//api/name/pauseStreaming">&ndash;&nbsp;pauseStreaming</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Pause the media stream.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)pauseStreaming</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Pause the media stream.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/resumeStreaming" title="resumeStreaming"></a>
+	<h3 class="method-title"><code><a href="#//api/name/resumeStreaming">&ndash;&nbsp;resumeStreaming</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Resume the media stream.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)resumeStreaming</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Resume the media stream.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/releaseSession" title="releaseSession"></a>
+	<h3 class="method-title"><code><a href="#//api/name/releaseSession">&ndash;&nbsp;releaseSession</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Release the session. <br>
+The session will disconnect from the sever, and the local resources of this
+session will be released. Once released, this session instance cannot be used anymore.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)releaseSession</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Release the session. <br>
+The session will disconnect from the sever, and the local resources of this
+session will be released. Once released, this session instance cannot be used anymore.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setEnableAudioPlaying:" title="setEnableAudioPlaying:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setEnableAudioPlaying:">&ndash;&nbsp;setEnableAudioPlaying:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Set whether the SDK plays audio.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setEnableAudioPlaying:(BOOL)<em>enable</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>enable</code></th>
+						<td><p>true to enable audio playback, false otherwise.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Set whether the SDK plays audio.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setEnableLocalAudio:" title="setEnableLocalAudio:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setEnableLocalAudio:">&ndash;&nbsp;setEnableLocalAudio:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Enable or disable the local audio track that is captured from the mic.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setEnableLocalAudio:(BOOL)<em>enable</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>enable</code></th>
+						<td><p>true to enable the local audio, false otherwise.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Enable or disable the local audio track that is captured from the mic.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setEnableLocalVideo:" title="setEnableLocalVideo:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setEnableLocalVideo:">&ndash;&nbsp;setEnableLocalVideo:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Enable or disable the local video track that is captured from the camera.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setEnableLocalVideo:(BOOL)<em>enable</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>enable</code></th>
+						<td><p>true to enable the local video, false otherwise.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Enable or disable the local video track that is captured from the camera.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setLocalVideoProfile:height:fps:minBitrate:maxBitrate:isFrontCamera:" title="setLocalVideoProfile:height:fps:minBitrate:maxBitrate:isFrontCamera:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setLocalVideoProfile:height:fps:minBitrate:maxBitrate:isFrontCamera:">&ndash;&nbsp;setLocalVideoProfile:height:fps:minBitrate:maxBitrate:isFrontCamera:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Set the local video profile.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setLocalVideoProfile:(int)<em>width</em> height:(int)<em>height</em> fps:(int)<em>fps</em> minBitrate:(int)<em>minBitrate</em> maxBitrate:(int)<em>maxBitrate</em> isFrontCamera:(BOOL)<em>isFrontCamera</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>width</code></th>
+						<td><p>The frame width, range[128, 1920]. Suggested value: 1280.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>height</code></th>
+						<td><p>The frame height, range[128, 1920]. Suggested value: 720.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>fps</code></th>
+						<td><p>The frame rate must be greater than 0 Default value: <code>30</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>minBitrate</code></th>
+						<td><p>The minimum bitrate in Kbps. Value range: [1000,15000]. Default value: <code>1000</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>maxBitrate</code></th>
+						<td><p>The maximum bitrate in Kbps. Value range: [1000,15000]. Default value: <code>15000</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Set the local video profile.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setDisableCloudInput:" title="setDisableCloudInput:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setDisableCloudInput:">&ndash;&nbsp;setDisableCloudInput:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Disable the Cloud input.<br>
+When the cloud input is disable, the cloud application&rsquo;s soft keyboard won&rsquo;t appear.<br>
+<br>
+This function is only supported for mobile cloud applications.<br>
+<br></p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setDisableCloudInput:(BOOL)<em>disableCloudInput</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>disableCloudInput</code></th>
+						<td><p>true disables the cloud input. <br>
+false enables the cloud input, allowing the soft keyboard to appear for user interaction with
+the cloud application via touch screen. <br></p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Disable the Cloud input.<br>
+When the cloud input is disable, the cloud application&rsquo;s soft keyboard won&rsquo;t appear.<br>
+<br>
+This function is only supported for mobile cloud applications.<br>
+<br></p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setAudioSink:" title="setAudioSink:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setAudioSink:">&ndash;&nbsp;setAudioSink:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets a audio sink for this session. After that, the SDK will callback the audio data to the audioSink</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setAudioSink:(id&lt;AudioSink&gt; _Nullable)<em>audioSink</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>audioSink</code></th>
+						<td><p>The audio sink to be set.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Sets a audio sink for this session. After that, the SDK will callback the audio data to the audioSink</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/restartCloudApp" title="restartCloudApp"></a>
+	<h3 class="method-title"><code><a href="#//api/name/restartCloudApp">&ndash;&nbsp;restartCloudApp</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Restart the cloud application process.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)restartCloudApp</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Restart the cloud application process.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setRemoteAudioProfile:" title="setRemoteAudioProfile:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setRemoteAudioProfile:">&ndash;&nbsp;setRemoteAudioProfile:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Set the playing profile of the remote audio.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setRemoteAudioProfile:(float)<em>volume</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>volume</code></th>
+						<td><p>The volume scalar in the range of [0,10] that will be set on this remote audio stream.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Set the playing profile of the remote audio.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setRemoteDesktopResolution:height:" title="setRemoteDesktopResolution:height:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setRemoteDesktopResolution:height:">&ndash;&nbsp;setRemoteDesktopResolution:height:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Set the resolution of Cloud Desktop. If the cloud PC application is in full-screen mode, the resolution of the
+downstream video stream will also change accordingly.<br>
+This method is currently only valid for scenarios where the cloud is a PC application, and the scenario where the
+cloud is a mobile application is to be supported.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setRemoteDesktopResolution:(int)<em>width</em> height:(int)<em>height</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>width</code></th>
+						<td><p>Width of cloud desktop.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>height</code></th>
+						<td><p>Height of cloud desktop.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Set the resolution of Cloud Desktop. If the cloud PC application is in full-screen mode, the resolution of the
+downstream video stream will also change accordingly.<br>
+This method is currently only valid for scenarios where the cloud is a PC application, and the scenario where the
+cloud is a mobile application is to be supported.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setRemoteVideoProfile:minBitrate:maxBitrate:" title="setRemoteVideoProfile:minBitrate:maxBitrate:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setRemoteVideoProfile:minBitrate:maxBitrate:">&ndash;&nbsp;setRemoteVideoProfile:minBitrate:maxBitrate:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Set the remote video profile.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setRemoteVideoProfile:(int)<em>fps</em> minBitrate:(int)<em>minBitrate</em> maxBitrate:(int)<em>maxBitrate</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>fps</code></th>
+						<td><p>The frame rate. Value range: [10,60]. Default value: <code>60</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>minBitrate</code></th>
+						<td><p>The minimum bitrate in Kbps. Value range: [1000,15000]. Default value: <code>1000</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>maxBitrate</code></th>
+						<td><p>The maximum bitrate in Kbps. Value range: [1000,15000]. Default value: <code>15000</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Set the remote video profile.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sendCustomAudioData:captureTimeNs:" title="sendCustomAudioData:captureTimeNs:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sendCustomAudioData:captureTimeNs:">&ndash;&nbsp;sendCustomAudioData:captureTimeNs:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Send custom audio data.
+<br>
+This method is only effective when custom audio capture is enabled.
+<br>
+To enable custom audio capture, see initWithParams</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)sendCustomAudioData:(NSData *_Nonnull)<em>audioData</em> captureTimeNs:(uint64_t)<em>captureTimeNs</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>audioData</code></th>
+						<td><p>The non-null NSData object containing the PCM data(16-bit) to be sent.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>captureTimeNs</code></th>
+						<td><p>The capture time of the audio data in nanoseconds.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The result of send custom audio data.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Send custom audio data.
+<br>
+This method is only effective when custom audio capture is enabled.
+<br>
+To enable custom audio capture, see initWithParams</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setRenderView:" title="setRenderView:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setRenderView:">&ndash;&nbsp;setRenderView:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Set the rendering view for this session, and thus the SDK will render the streaming content to the view.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setRenderView:(TcrRenderView *_Nullable)<em>renderView</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>renderView</code></th>
+						<td><p>The rendering view to be set. This can be null to remove any existing renderView.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Set the rendering view for this session, and thus the SDK will render the streaming content to the view.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setVideoSink:" title="setVideoSink:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setVideoSink:">&ndash;&nbsp;setVideoSink:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets a video sink for this session. After that, the SDK will callback the decoded video frame data to the
+videoSink.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setVideoSink:(id&lt;VideoSink&gt; _Nullable)<em>videoSink</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>videoSink</code></th>
+						<td><p>The view sink to be set.This can be null to remove any existing one.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Sets a video sink for this session. After that, the SDK will callback the decoded video frame data to the
+videoSink.</p>
+
+<p>You may use this interface to post-process or render video images.</p>
+
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/syncRoomInfo" title="syncRoomInfo"></a>
+	<h3 class="method-title"><code><a href="#//api/name/syncRoomInfo">&ndash;&nbsp;syncRoomInfo</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Apply to synchronize room information and return the result through TcrEvent#MULTI_USER_SEAT_INFO</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)syncRoomInfo</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Apply to synchronize room information and return the result through TcrEvent#MULTI_USER_SEAT_INFO</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/requestChangeSeat:targetRole:targetPlayerIndex:blk:" title="requestChangeSeat:targetRole:targetPlayerIndex:blk:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/requestChangeSeat:targetRole:targetPlayerIndex:blk:">&ndash;&nbsp;requestChangeSeat:targetRole:targetPlayerIndex:blk:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Apply to the room owner to switch the role and seat of a player (<code>userID</code>) to <code>targetRole</code> and
+<code>targetPlayerIndex</code> respectively.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)requestChangeSeat:(NSString *_Nonnull)<em>userId</em> targetRole:(NSString *_Nonnull)<em>targetRole</em> targetPlayerIndex:(int)<em>targetPlayerIndex</em> blk:(void ( ^ ) ( int retCode ))<em>finishBlk</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>userId</code></th>
+						<td><p>The target user ID</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>targetRole</code></th>
+						<td><p>The target role,. valid value: ( &lsquo;player&rsquo; / &lsquo;viewer&rsquo; )</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>targetPlayerIndex</code></th>
+						<td><p>The target seat. This parameter can take effect only for the <code>Player</code> role and
+will be <code>0</code> for the <code>Viewer</code> role.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>finishBlk</code></th>
+						<td><p>Execution result callback. retcode: TcrCode#ErrMultiPlayerBaseCode</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Apply to the room owner to switch the role and seat of a player (<code>userID</code>) to <code>targetRole</code> and
+<code>targetPlayerIndex</code> respectively.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setMicMute:micStatus:blk:" title="setMicMute:micStatus:blk:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setMicMute:micStatus:blk:">&ndash;&nbsp;setMicMute:micStatus:blk:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Apply to the room owner to switch the role and seat of a player (<code>userID</code>) to <code>targetRole</code> and
+<code>targetPlayerIndex</code> respectively.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setMicMute:(NSString *)<em>userId</em> micStatus:(int)<em>micStatus</em> blk:(void ( ^ ) ( int retCode ))<em>finishBlk</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>userId</code></th>
+						<td><p>The target user ID</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>micStatus</code></th>
+						<td><p>The mic Status set.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>finishBlk</code></th>
+						<td><p>Execution result callback.  retcode: TcrCode#ErrMultiPlayerBaseCode</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Apply to the room owner to switch the role and seat of a player (<code>userID</code>) to <code>targetRole</code> and
+<code>targetPlayerIndex</code> respectively.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/changeSeat:targetRole:targetPlayerIndex:blk:" title="changeSeat:targetRole:targetPlayerIndex:blk:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/changeSeat:targetRole:targetPlayerIndex:blk:">&ndash;&nbsp;changeSeat:targetRole:targetPlayerIndex:blk:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Switch the role and seat of a user (<code>userID</code>) to <code>targetRole</code> and <code>targetPlayerIndex</code> respectively.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)changeSeat:(NSString *_Nonnull)<em>userId</em> targetRole:(NSString *_Nonnull)<em>targetRole</em> targetPlayerIndex:(int)<em>targetPlayerIndex</em> blk:(void ( ^ ) ( int retCode ))<em>finishBlk</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>userId</code></th>
+						<td><p>The target user ID</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>targetRole</code></th>
+						<td><p>The target role,. valid value: ( &lsquo;player&rsquo; / &lsquo;viewer&rsquo; )</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>targetPlayerIndex</code></th>
+						<td><p>The target seat. This parameter can take effect only for the <code>Player</code> role and
+will be <code>0</code> for the <code>Viewer</code> role.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>finishBlk</code></th>
+						<td><p>Execution result callback. retcode: TcrCode#ErrMultiPlayerBaseCode</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Switch the role and seat of a user (<code>userID</code>) to <code>targetRole</code> and <code>targetPlayerIndex</code> respectively.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setAudioSessionDelegate:" title="setAudioSessionDelegate:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setAudioSessionDelegate:">+&nbsp;setAudioSessionDelegate:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Set audiosession proxy</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)setAudioSessionDelegate:(id&lt;TCRAudioSessionDelegate&gt;)<em>delegate</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>delegate</code></th>
+						<td><p>The delegate to set</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Set audiosession proxy</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2023 tencent. All rights reserved. Updated: 2023-12-22</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
