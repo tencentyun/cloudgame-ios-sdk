@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 3.0.8 (2023-1.10)
+Bug Fixes 
+- Fix the problem of MobileTouch failure in some cases
+
 ### Version 3.0.7 (2023-12.26)
 Bug Fixes 
 - Fixed an issue that would trigger a crash under certain circumstances

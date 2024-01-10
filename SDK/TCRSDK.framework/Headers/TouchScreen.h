@@ -32,8 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
  *         pointers going up and down since the start of the current gesture.
  * @param width The width of the streaming video.
  * @param height The height of the streaming video.
- * @param timestamp The time this event occurred, in the {@link android.os.SystemClock#uptimeMillis} time
- *         base. You may obtain this value from {@link android.view.MotionEvent#getEventTime()}.
+ * @param timestamp The time this event occurred
  */
 - (void)touchWithX:(NSNumber *)x
                  y:(NSNumber *)y
