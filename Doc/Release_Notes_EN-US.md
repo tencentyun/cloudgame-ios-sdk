@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 3.0.9 (2023-1.11)
+Bug Fixes 
+- Fix packet_lost unsigned integer display problem
+
 ### Version 3.0.8 (2023-1.10)
 Bug Fixes 
 - Fix the problem of MobileTouch failure in some cases
