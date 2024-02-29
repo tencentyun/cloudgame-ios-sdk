@@ -16,6 +16,10 @@ typedef void (^httpResponseBlk)(NSData *data, NSURLResponse *response, NSError *
 @property (nonatomic, strong) TcrSession *session;
 @property (nonatomic, strong) TcrRenderView *renderView;
 @property (nonatomic, strong) PcTouchView *touchView;
+@property (nonatomic, assign) UIInterfaceOrientation screenConfig;
+@property (nonatomic, strong) NSDictionary* videoStreamSizeConfig;
+@property (nonatomic, assign) BOOL screenConfigChanged;
+@property (nonatomic, assign) BOOL videoSizeChanged;
 @end
 
 @implementation ViewController
@@ -134,6 +138,36 @@ typedef void (^httpResponseBlk)(NSData *data, NSURLResponse *response, NSError *
     });
 }
 
+- (void)resetVideoOrientation {
+    if (_screenConfig == UIInterfaceOrientationPortrait) {
+        [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIDeviceOrientationPortrait] forKey:@"orientation"];
+    } else {
+        [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIDeviceOrientationLandscapeRight] forKey:@"orientation"];
+    }
+}
+
+- (void)updateRotation {
+    if (!_screenConfigChanged || !_videoSizeChanged) {
+        return;
+    }
+    // 视频流    云端Activity                客户端处理
+    // 宽>高            竖屏            设置竖屏。渲染时旋转画面90度。
+    // 宽>高            横屏            设置横屏。渲染时直接画面。
+    // 宽<高            竖屏            设置竖屏。渲染时直接画面。
+    // 宽<高            横屏            设置横屏。渲染时旋转画面270度。
+    CGFloat angle = 0; // 角度以弧度为单位
+    if ([_videoStreamSizeConfig[@"width"] intValue] > [_videoStreamSizeConfig[@"height"] intValue]) {
+        if (_screenConfig == UIInterfaceOrientationPortrait) {
+            angle = M_PI_2;
+        }
+    } else {
+        if (_screenConfig == UIInterfaceOrientationLandscapeRight) {
+            angle = -M_PI_2;
+        }
+    }
+    self.renderView.transform = CGAffineTransformRotate(CGAffineTransformIdentity, angle);
+}
+
 - (void)onEvent:(TcrEvent)event eventData:(id)eventData {
     NSLog(@"EVNET%@", @(event));
     NSDictionary* info;
@@ -145,6 +179,17 @@ typedef void (^httpResponseBlk)(NSData *data, NSURLResponse *response, NSError *
             break;
         case STATE_CONNECTED:
             //;
+            break;
+        case VIDEO_STREAM_CONFIG_CHANGED:
+            _videoSizeChanged = YES;
+            _videoStreamSizeConfig = (NSDictionary *)eventData;
+            [self updateRotation];
+            break;
+        case SCREEN_CONFIG_CHANGE:
+            _screenConfig = (UIInterfaceOrientation)eventData;
+            [self resetVideoOrientation];
+            _screenConfigChanged = YES;
+            [self updateRotation];
             break;
         case CURSOR_IMAGE_INFO:
             info = (NSDictionary*)eventData;
