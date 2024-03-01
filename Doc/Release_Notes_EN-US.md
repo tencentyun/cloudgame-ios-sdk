@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 3.1.1 (2023-3.1)
+Features  
+- Fix reported errors
+
 ### Version 3.1.0 (2023-2.22)
 Features  
 - Added TcrEnvTest for demo request experience
@@ -104,6 +108,10 @@ Bug Fixes
 ### Version 2.0.0 (2023-10.12)
 Features 
 - SDK reconstruction interface design
+
+### Version 1.6.11 (2023-3.1)
+Features  
+- Fix reported errors
 
 ### Version 1.6.10 (2023-12.5)
 Features
