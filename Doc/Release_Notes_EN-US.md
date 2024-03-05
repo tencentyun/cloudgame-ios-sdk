@@ -1,7 +1,11 @@
 [中文文档](历史版本.md)
 
+### Version 3.1.2 (2023-3.5)
+Bug Fixes 
+- Fixed an issue that would trigger a crash under certain circumstances
+
 ### Version 3.1.1 (2023-3.1)
-Features  
+Bug Fixes  
 - Fix reported errors
 
 ### Version 3.1.0 (2023-2.22)
