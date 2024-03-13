@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 3.2.0 (2023-3.13)
+Features  
+- TcrEvent adds OPEN_URL event
+
 ### Version 3.1.2 (2023-3.5)
 Bug Fixes 
 - Fixed an issue that would trigger a crash under certain circumstances
