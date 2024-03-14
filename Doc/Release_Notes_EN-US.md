@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 3.2.1 (2023-3.14)
+Features  
+- MinimumOSVersion upgraded to 12
+
 ### Version 3.2.0 (2023-3.13)
 Features  
 - TcrEvent adds OPEN_URL event
