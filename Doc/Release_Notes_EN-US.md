@@ -8,7 +8,7 @@ Features
 Features  
 - TcrEvent adds OPEN_URL event
 
-### Version 3.1.2 (2023-3.5)
+### Version 3.1.3 (2023-3.22)
 Bug Fixes 
 - Fixed an issue that would trigger a crash under certain circumstances
 
