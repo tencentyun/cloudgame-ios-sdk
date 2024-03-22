@@ -113,12 +113,6 @@ typedef NS_ENUM(NSUInteger, TcrEvent) {
      */
     CLIENT_STATS,
     /**
-     * This event indicates that an openable url link was clicked. <br>
-     *
-     * The associated event data is NSString (the url);
-     */
-    OPEN_URL,
-    /**
      * This event indicates that the status of the game process on the server has been changed.<br>
      *
      * The associated event data is of type NSDictionary in json format:
@@ -213,9 +207,6 @@ typedef NS_ENUM(NSUInteger, TcrEvent) {
      * }
      */
     INPUT_STATUS_CHANGED,
-    /**
-     * This event indicates that the cloud PC desktop information is updated. <br>
-     */
     REMOTE_DESKTOP_INFO,
     /**
      * This event indicates that the configuration of the cloud phone screen configuration has been changed.<br>
