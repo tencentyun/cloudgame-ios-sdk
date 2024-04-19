@@ -129,8 +129,12 @@ Bug Fixes
 Features 
 - SDK reconstruction interface design
 
+### Version 1.6.12 (2024-4.19)
+Bug Fixes   
+- Fixed the issue where the microphone failed after being turned on and off repeatedly
+
 ### Version 1.6.11 (2023-3.1)
-Features  
+Bug Fixes  
 - Fix reported errors
 
 ### Version 1.6.10 (2023-12.5)
