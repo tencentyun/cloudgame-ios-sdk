@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 3.2.3 (2023-5.20)
+Bug Fixes 
+- Fix and optimize some known issues
+
 ### Version 3.2.2 (2023-4.7)
 Features  
 - Fixed the problem of incorrect message sent by data channel
@@ -11,6 +15,10 @@ Features
 ### Version 3.2.0 (2023-3.13)
 Features  
 - TcrEvent adds OPEN_URL event
+
+### Version 3.1.6 (2023-5.20)
+Bug Fixes 
+- Fix and optimize some known issues
 
 ### Version 3.1.5 (2023-4.7)
 Features  
