@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 3.2.4 (2024-6.19)
+Bug Fixes 
+- sdk adds privacy info list
+
 ### Version 3.2.3 (2023-5.20)
 Bug Fixes 
 - Fix and optimize some known issues
@@ -136,6 +140,10 @@ Bug Fixes
 ### Version 2.0.0 (2023-10.12)
 Features 
 - SDK reconstruction interface design
+
+### Version 1.6.13 (2024-6.19)
+Bug Fixes 
+- sdk adds privacy info list
 
 ### Version 1.6.12 (2024-4.19)
 Bug Fixes   
