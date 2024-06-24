@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 3.2.5 (2023-6.24)
+Bug Fixes 
+- Fixed an issue that would trigger a crash under certain circumstances
+
 ### Version 3.2.4 (2024-6.19)
 Features 
 - sdk adds privacy info list
