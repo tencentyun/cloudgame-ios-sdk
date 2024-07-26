@@ -145,6 +145,10 @@ Bug Fixes
 Features 
 - SDK reconstruction interface design
 
+### Version 1.6.14 (2024-7.25)
+Bug Fixes   
+- Fix and optimize some known issues.
+
 ### Version 1.6.13 (2024-6.19)
 Features 
 - sdk adds privacy info list
