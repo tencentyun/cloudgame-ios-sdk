@@ -145,6 +145,10 @@ Bug Fixes
 Features 
 - SDK reconstruction interface design
 
+### Version 1.6.15 (2024-8.13)
+Bug Fixes
+- Fixed the problem of uninitialized videoView frame causing rendering failure
+
 ### Version 1.6.14 (2024-7.25)
 Bug Fixes   
 - Fix and optimize some known issues.
