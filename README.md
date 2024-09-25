@@ -16,6 +16,7 @@
 
 ## 三、SDK集成
 
+### 集成方式
 在Podfile中添加
 ```
 pod 'TCRSDK', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git"
@@ -23,7 +24,10 @@ pod 'TCRSDK', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git"
 # 虚拟按键可选库
 # pod 'TCRVKey', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git"
 ```
+### 包大小
+ios framework合计大小约13MB（arm真机和x86 模拟器架构）
 
+### 版本
 我们会定期更新SDK的功能，您可以在本工程SDK目录下获取最新的版本。
 
 你还可以查看SDK的发布历史，了解各版本的变更信息。

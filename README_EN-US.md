@@ -18,17 +18,21 @@ If you need to integrate a flexible and configurable game button layout in your 
 
 ## III、SDK integrated
 
-Edit Podfile
-```
-pod 'TCRSDK', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git"
+### Integration Method
+Add the following to your Podfile:
 
-# Optional library of virtual keys
-# pod 'TCRVKey', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git"
-```
+```pod 'TCRSDK', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git"```
 
-We will regularly update the functions of the SDK, and you can obtain the latest version under the SDK directory of this project.
+Optional library for virtual keys
+```pod 'TCRVKey', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git"```
 
-You can also view the release history of the SDK to learn about changes in each version.
+### Package Size
+The total size of the iOS framework is approximately 13MB (including arm real device and x86 simulator architectures).
+
+### Version
+We will regularly update the SDK's features, and you can obtain the latest version in the SDK directory of this project.
+
+You can also check the SDK's release history to understand the changes in each version.
 
 
 ## IV、See also
