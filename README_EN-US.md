@@ -27,7 +27,7 @@ Optional library for virtual keys
 ```pod 'TCRVKey', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git"```
 
 ### Package Size
-The total size of the iOS framework is approximately 13MB (including arm real device and x86 simulator architectures).
+The total size of the iOS framework is approximately 7MB.
 
 ### Version
 We will regularly update the SDK's features, and you can obtain the latest version in the SDK directory of this project.

@@ -25,7 +25,7 @@ pod 'TCRSDK', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git"
 # pod 'TCRVKey', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git"
 ```
 ### 包大小
-ios framework合计大小约13MB（arm真机和x86 模拟器架构）
+ios framework合计大小约7MB
 
 ### 版本
 我们会定期更新SDK的功能，您可以在本工程SDK目录下获取最新的版本。
