@@ -1,6 +1,6 @@
 [中文文档](历史版本.md)
 
-### Version 3.2.5 (2023-6.24)
+### Version 3.2.5 (2024-6.24)
 Bug Fixes 
 - Fixed an issue that would trigger a crash under certain circumstances
 
@@ -8,47 +8,47 @@ Bug Fixes
 Features 
 - sdk adds privacy info list
 
-### Version 3.2.3 (2023-5.20)
+### Version 3.2.3 (2024-5.20)
 Bug Fixes 
 - Fix and optimize some known issues
 
-### Version 3.2.2 (2023-4.7)
+### Version 3.2.2 (2024-4.7)
 Bug Fixes   
 - Fixed the problem of incorrect message sent by data channel
 
-### Version 3.2.1 (2023-3.14)
+### Version 3.2.1 (2024-3.14)
 Features  
 - MinimumOSVersion upgraded to 12
 
-### Version 3.2.0 (2023-3.13)
+### Version 3.2.0 (2024-3.13)
 Features  
 - TcrEvent adds OPEN_URL event
 
-### Version 3.1.6 (2023-5.20)
+### Version 3.1.6 (2024-5.20)
 Bug Fixes 
 - Fix and optimize some known issues
 
-### Version 3.1.5 (2023-4.7)
+### Version 3.1.5 (2024-4.7)
 Features  
 - Fixed the problem of incorrect message sent by data channel
 
-### Version 3.1.4 (2023-3.25)
+### Version 3.1.4 (2024-3.25)
 Bug Fixes 
 - Fixed an issue that would trigger a crash under certain circumstances
 
-### Version 3.1.1 (2023-3.1)
+### Version 3.1.1 (2024-3.1)
 Bug Fixes  
 - Fix reported errors
 
-### Version 3.1.0 (2023-2.22)
+### Version 3.1.0 (2024-2.22)
 Features  
 - Added TcrEnvTest for demo request experience
 
-### Version 3.0.9 (2023-1.11)
+### Version 3.0.9 (2024-1.11)
 Bug Fixes 
 - Fix packet_lost unsigned integer display problem
 
-### Version 3.0.8 (2023-1.10)
+### Version 3.0.8 (2024-1.10)
 Bug Fixes 
 - Fix the problem of MobileTouch failure in some cases
 
