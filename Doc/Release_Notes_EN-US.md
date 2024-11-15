@@ -1,5 +1,12 @@
 [中文文档](历史版本.md)
 
+### Version 3.3.0 (2024-11.15)
+Features  
+- TcrEvent adds CAMERA_STATUS event
+
+Bug Fixes 
+- Fix and optimize some known issues
+
 ### Version 3.2.5 (2024-6.24)
 Bug Fixes 
 - Fixed an issue that would trigger a crash under certain circumstances
