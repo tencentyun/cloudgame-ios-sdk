@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 3.3.1 (2024-11.18)
+Features  
+- TcrEvent change CAMERA_STATUS event data
+
 ### Version 3.3.0 (2024-11.15)
 Features  
 - TcrEvent adds CAMERA_STATUS event

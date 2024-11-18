@@ -121,17 +121,18 @@ typedef NS_ENUM(NSUInteger, TcrEvent) {
     /**
       * This event indicates that the camera status of the server has changed. <br>
       *
-      * The associated event data is of type String in json format:
-      *  {@code
-      * {
-      *   status: String  // The server's camera status
-      *                   // Valid values:
-      *                   // `open_back`: Activates the back camera.
-      *                   // `open_front`: Activates the front camera.
-      *                   // `close`: Deactivates the camera.
-      * }
-      * }
-      */
+     * The associated event data is of type NSDictionary in json format:
+     * {@code
+     * {
+     *     width:  number      // The width of the camera's resolution
+     *     height: number     // The height of the camera's resolution
+     *     status:  String       // The server camera open status. Valid values:
+     *                          // `open_back`:  open back camera;
+     *                          // `open_front`: open front camera;
+     *                          // `close`: camera close;
+     * }
+     * }
+     */
      CAMERA_STATUS_CHANGED,
     /**
      * This event indicates that the status of the game process on the server has been changed.<br>
