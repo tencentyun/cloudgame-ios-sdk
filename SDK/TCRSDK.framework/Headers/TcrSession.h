@@ -16,6 +16,7 @@
 #import <TCRSDK/Keyboard.h>
 #import <TCRSDK/GamePad.h>
 #import <TCRSDK/TouchScreen.h>
+#import <TCRSDK/MotionSensor.h>
 #import <TCRSDK/CustomDataChannel.h>
 
 #pragma mark--- session event callback ---
@@ -273,6 +274,13 @@
  * @return The interface to interact with the cloud TouchScreen in this session.
  */
 - (id<TouchScreen> _Nonnull)getTouchScreen;
+
+/**
+ * Return the interface to interact with the cloud MotionSensor in this session.
+ *
+ * @return The interface to interact with the cloud MotionSensor in this session.
+ */
+- (id<MotionSensor> _Nonnull)getMotionSensor;
 
 /**
  * send keycode message to cloud

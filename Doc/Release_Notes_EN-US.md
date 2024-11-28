@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 3.4.0 (2024-11.28)
+Features  
+- Added new sensor data transfer interface MotionSensor
+
 ### Version 3.3.1 (2024-11.18)
 Features  
 - TcrEvent change CAMERA_STATUS event data
