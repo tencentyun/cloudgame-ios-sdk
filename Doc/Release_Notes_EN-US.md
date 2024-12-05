@@ -160,6 +160,10 @@ Bug Fixes
 Features 
 - SDK reconstruction interface design
 
+### Version 1.6.17 (2024-12.5)
+Bug Fixes
+-Fix leaks that appear when sdk exits
+
 ### Version 1.6.16 (2024-11.27)
 Bug Fixes
 - Fix sdk log reporting error
