@@ -1,16 +1,16 @@
 [中文文档](README.md)
-# Tencent cloud GS for iOS
+# Tencent cloud rendering for iOS
 ## I.Introduction
-This project provides a simple application example of integrating the Formos SDK, allowing you to quickly experience the running effect of the cloud game.
+This project provides a simple application example of integrating the Formos SDK, allowing you to quickly experience the running effect of the cloud rendering.
 
 At the same time, it also provides a quick start integration guide to help you quickly complete the access of the iOS SDK.
 
 If you need to implement some advanced functions, we also provide advanced guidance.
 
 ## II、Quick start
-1、Experience Cloud Gaming Quickly
+1、Experience Cloud Rendering Quickly
 
-Enter the project directory under Demo, **pod update** update the SDK library file, and run the corresponding project to quickly experience the GS example. 
+Enter the project directory under Demo, **pod update** update the SDK library file, and run the corresponding project to quickly experience the Cloud Rendering example. 
 
 2、Virtual key quick start
 
