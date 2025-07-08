@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>TcrEvent Constants Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">TcrSdk </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Tencent</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+
+	
+
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">TcrEvent Constants Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Declared in</th>
+	<td>TCRSdkConst.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+
+					
+
+                    
+                    <h3 class="subsubtitle method-title">TcrEvent</h3>
+                    
+                    <div class="section">
+                        <!-- display enum values -->
+                        
+                        <h4 class="method-subtitle">Definition</h4>
+                        <code>typedef NS_ENUM(NSUInteger, TcrEvent ) {<br>
+                            
+                            &nbsp;&nbsp; <a href="">STATE_INITED</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">STATE_CONNECTED</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">STATE_RECONNECTING</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">STATE_CLOSED</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">CLIENT_STATS</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">OPEN_URL</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">CAMERA_STATUS_CHANGED</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">GAME_START_COMPLETE</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">GAME_PROCESS_STOPPED</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">ARCHIVE_LOAD_STATUS</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">ARCHIVE_SAVE_STATUS</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">INPUT_STATUS_CHANGED</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">REMOTE_DESKTOP_INFO</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SCREEN_CONFIG_CHANGE</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">VIDEO_STREAM_CONFIG_CHANGED</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">CURSOR_IMAGE_INFO</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">CLIENT_IDLE</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">CLIENT_LOW_FPS</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">CURSOR_STATE_CHANGE</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">MULTI_USER_SEAT_INFO</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">MULTI_USER_ROLE_APPLY</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">INPUT_STATE_CHANGE</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">START_AUTO_LOGIN</a>,<br>
+                            
+                            };</code>
+                    
+                    </div>
+                    
+                    <div class="section section-methods">
+                        <h4 class="method-subtitle">Constants</h4>
+                        <dl class="termdef">
+                            
+                            <dt><a name="" title="STATE_INITED"></a><code>STATE_INITED</code></dt>
+<dd>
+
+
+<p>This event indicates that the session has been initialized.<br></p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="STATE_CONNECTED"></a><code>STATE_CONNECTED</code></dt>
+<dd>
+
+
+<p>This event indicates that the session is connected.<br></p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="STATE_RECONNECTING"></a><code>STATE_RECONNECTING</code></dt>
+<dd>
+
+
+<p>This event indicates that the session is reconnecting. You can do some interaction to prompt your user.<br></p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="STATE_CLOSED"></a><code>STATE_CLOSED</code></dt>
+<dd>
+
+
+<p>This event indicates that the session is closed, and thus it can not be used any more.<br></p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CLIENT_STATS"></a><code>CLIENT_STATS</code></dt>
+<dd>
+
+
+<p>This event indicates that the performance data is updated. <br></p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="OPEN_URL"></a><code>OPEN_URL</code></dt>
+<dd>
+
+
+<p>This event indicates that an openable url link was clicked. <br></p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CAMERA_STATUS_CHANGED"></a><code>CAMERA_STATUS_CHANGED</code></dt>
+<dd>
+
+
+<p>This event indicates that the camera status of the server has changed. <br></p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="GAME_START_COMPLETE"></a><code>GAME_START_COMPLETE</code></dt>
+<dd>
+
+
+<p>This event indicates that the status of the game process on the server has been changed.<br></p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="GAME_PROCESS_STOPPED"></a><code>GAME_PROCESS_STOPPED</code></dt>
+<dd>
+
+
+<p>This event indicates that the status of the game process on the server has been stopped.<br></p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="ARCHIVE_LOAD_STATUS"></a><code>ARCHIVE_LOAD_STATUS</code></dt>
+<dd>
+
+
+<p>This event indicates the status of the archive loading in the server.<br></p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="ARCHIVE_SAVE_STATUS"></a><code>ARCHIVE_SAVE_STATUS</code></dt>
+<dd>
+
+
+<p>This event indicates the status of the archive saving in the server.<br></p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="INPUT_STATUS_CHANGED"></a><code>INPUT_STATUS_CHANGED</code></dt>
+<dd>
+
+
+<p>This event indicates that the input status of the server has changed. <br></p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="REMOTE_DESKTOP_INFO"></a><code>REMOTE_DESKTOP_INFO</code></dt>
+<dd>
+
+
+<p>This event indicates that the cloud PC desktop information is updated. <br></p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SCREEN_CONFIG_CHANGE"></a><code>SCREEN_CONFIG_CHANGE</code></dt>
+<dd>
+
+
+<p>This event indicates that the configuration of the cloud phone screen configuration has been changed.<br></p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="VIDEO_STREAM_CONFIG_CHANGED"></a><code>VIDEO_STREAM_CONFIG_CHANGED</code></dt>
+<dd>
+
+
+<p>This event indicates that the cloud Mobile screen information is updated.<br></p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CURSOR_IMAGE_INFO"></a><code>CURSOR_IMAGE_INFO</code></dt>
+<dd>
+
+
+<p>This event indicates that the remote cursor image information is updated. <br></p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CLIENT_IDLE"></a><code>CLIENT_IDLE</code></dt>
+<dd>
+
+
+<p>This event indicates that the user is in an idle state, that is, the user does not operate the mouse,
+keyboard or screen for a while.<br></p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CLIENT_LOW_FPS"></a><code>CLIENT_LOW_FPS</code></dt>
+<dd>
+
+
+<p>This event indicates that the frame rate remains low for 10 consecutive seconds.<br></p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CURSOR_STATE_CHANGE"></a><code>CURSOR_STATE_CHANGE</code></dt>
+<dd>
+
+
+<p>This event indicates that the showing status of cloud cursor is changed. <br></p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="MULTI_USER_SEAT_INFO"></a><code>MULTI_USER_SEAT_INFO</code></dt>
+<dd>
+
+
+<p>This event indicates that the multi user seat info is updated. <br></p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="MULTI_USER_ROLE_APPLY"></a><code>MULTI_USER_ROLE_APPLY</code></dt>
+<dd>
+
+
+<p>This event indicates that some user request to change seat. Note that only the host will receive this
+event.<br></p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="INPUT_STATE_CHANGE"></a><code>INPUT_STATE_CHANGE</code></dt>
+<dd>
+
+
+<p>This event indicates that the status of the remote input box has changed. <br></p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="START_AUTO_LOGIN"></a><code>START_AUTO_LOGIN</code></dt>
+<dd>
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TCRSdkConst.h</code>.
+	</p>
+	
+</dd>
+                            
+                        </dl>
+                    </div>
+                    
+
+                    
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2025 Tencent. All rights reserved. Updated: 2025-07-08</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
