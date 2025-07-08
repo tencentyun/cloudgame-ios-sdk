@@ -264,6 +264,13 @@ typedef NS_ENUM(NSUInteger, TcrEvent) {
      */
     CURSOR_IMAGE_INFO,
     /**
+     * This event indicates that the user is in an idle state, that is, the user does not operate the mouse,
+     * keyboard or screen for a while.<br>
+     *
+     * This event has no associated data.
+     */
+    CLIENT_IDLE,
+    /**
      * This event indicates that the frame rate remains low for 10 consecutive seconds.<br>
      *
      * This event has no associated data.

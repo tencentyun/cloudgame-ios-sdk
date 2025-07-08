@@ -53,6 +53,8 @@
  *          Indicate preferred codecs, where the order of the elements in the list represents priority, such as index 0 being the highest priority
  *          preferred codec. If the set codecs cannot be selected for various reasons, other available codecs will be chosen.
  *
+ *         - @"idleThreshold": The idle detection threshold, that is, the duration of user inactivity. The unit is Millisecond. When this threshold is reached, the event TcrEvent.CLIENT_IDLE will be triggered.
+ *
  *         - @"local_video": Optional value is of bool type. Used to enable the local camera.
  *
  *         - @"local_audio": Optional value is of bool type. Used to enable the local microphone.
