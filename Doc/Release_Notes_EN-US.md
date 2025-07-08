@@ -3,6 +3,8 @@
 ### Version 3.5.0 (2025-7.8)
 Features
 - Added idle detection: When creating a TcrSession, you can now set an idle time threshold via the idleThreshold parameter. If user inactivity persists beyond this threshold, it triggers the CLIENT_IDLE callback.
+- onLocationChanged: Sets longitude and latitude for cloud devices.
+- onSimulateSensorEvent: Triggers simulated sensor events
 
 ### Version 3.4.0 (2024-11.28)
 Features  
