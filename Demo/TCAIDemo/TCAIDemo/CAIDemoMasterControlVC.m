@@ -14,7 +14,6 @@
 #import <AVFoundation/AVFoundation.h>
 #import "AudioQueuePlay.h"
 #import "CAIDemoAudioCapturor.h"
-#import <TCRVkey/TCRVKeyGamepad.h>
 #import <CoreMotion/CoreMotion.h>
 
 @interface CAIDemoMasterControlVC () <TcrSessionObserver, CAIDemoTextFieldDelegate, CustomDataChannelObserver, CAIDemoSettingViewDelegate,
@@ -48,7 +47,6 @@
 @property (nonatomic, strong) PcTouchView *pcTouchView;
 @property (nonatomic, strong) MobileTouchView *mobileTouchView;
 @property (nonatomic, assign) BOOL isFirstRender;
-@property (nonatomic, strong) TCRVKeyGamepad *gamepad;
 @property (nonatomic, assign) BOOL isMobile;
 @property (strong, nonatomic) CMMotionManager *motionManager;
 
@@ -103,7 +101,6 @@
     [self.renderView addSubview:self.mobileTouchView];
 
     [self.session setRenderView:self.renderView];
-    [self.renderView addSubview:self.gamepad];
     [self.renderView setTcrRenderViewObserver:self];
     //    [self.session setVideoSink:self];
     //    self.imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
@@ -193,11 +190,6 @@
         [[MobileTouchView alloc] initWithFrame:CGRectMake(0, 0, self.videoRenderFrame.size.width, self.videoRenderFrame.size.height)
                                        session:self.session];
     self.mobileTouchView.hidden = NO;
-
-    // 虚拟按键视图加载
-    self.gamepad = [[TCRVKeyGamepad alloc] initWithFrame:self.view.frame session:self.session];
-    [self.gamepad showKeyGamepad:[self readJsonFromFile:@"lol_5v5"]];
-    self.gamepad.hidden = YES;
 }
 
 - (void)initSettingView {
