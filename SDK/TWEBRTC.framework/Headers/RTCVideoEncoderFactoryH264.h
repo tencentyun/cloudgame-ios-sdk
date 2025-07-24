@@ -10,9 +10,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import <TWEBRTC/RTCMacros.h>
-#import <TWEBRTC/RTCVideoEncoderFactory.h>
+#import "RTCMacros.h"
+#import "RTCVideoEncoderFactory.h"
 
 RTC_OBJC_EXPORT
-@interface RTC_OBJC_TYPE (RTCVideoEncoderFactoryH264) : NSObject <RTC_OBJC_TYPE(RTCVideoEncoderFactory)>
+@interface RTCVideoEncoderFactoryH264 : NSObject <RTCVideoEncoderFactory>
 @end

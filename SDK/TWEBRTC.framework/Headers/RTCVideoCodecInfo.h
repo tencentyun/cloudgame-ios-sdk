@@ -10,24 +10,29 @@
 
 #import <Foundation/Foundation.h>
 
-#import <TWEBRTC/RTCMacros.h>
+#import "RTCMacros.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /** Holds information to identify a codec. Corresponds to webrtc::SdpVideoFormat. */
 RTC_OBJC_EXPORT
-@interface RTC_OBJC_TYPE (RTCVideoCodecInfo) : NSObject <NSCoding>
+@interface RTCVideoCodecInfo : NSObject <NSCoding>
 
 - (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithName:(NSString *)name;
 
 - (instancetype)initWithName:(NSString *)name
+                  supportBrame:(BOOL)supportBrame
+                  parameters:(nullable NSDictionary<NSString *, NSString *> *)parameters;
+
+- (instancetype)initWithName:(NSString *)name
                   parameters:(nullable NSDictionary<NSString *, NSString *> *)parameters
     NS_DESIGNATED_INITIALIZER;
 
-- (BOOL)isEqualToCodecInfo:(RTC_OBJC_TYPE(RTCVideoCodecInfo) *)info;
+- (BOOL)isEqualToCodecInfo:(RTCVideoCodecInfo *)info;
 
+@property(nonatomic) BOOL supportBrame;
 @property(nonatomic, readonly) NSString *name;
 @property(nonatomic, readonly) NSDictionary<NSString *, NSString *> *parameters;
 

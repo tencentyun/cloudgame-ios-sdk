@@ -11,7 +11,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#import <TWEBRTC/RTCMacros.h>
+#import "RTCMacros.h"
 
 @class AVCaptureSession;
 
@@ -19,7 +19,7 @@
  *  AVCaptureSession.
  */
 RTC_OBJC_EXPORT
-@interface RTC_OBJC_TYPE (RTCCameraPreviewView) : UIView
+@interface RTCCameraPreviewView : UIView
 
 /** The capture session being rendered in the view. Capture session
  *  is assigned to AVCaptureVideoPreviewLayer async in the same

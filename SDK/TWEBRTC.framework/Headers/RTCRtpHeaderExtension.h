@@ -10,12 +10,12 @@
 
 #import <Foundation/Foundation.h>
 
-#import <TWEBRTC/RTCMacros.h>
+#import "RTCMacros.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 RTC_OBJC_EXPORT
-@interface RTC_OBJC_TYPE (RTCRtpHeaderExtension) : NSObject
+@interface RTCRtpHeaderExtension : NSObject
 
 /** The URI of the RTP header extension, as defined in RFC5285. */
 @property(nonatomic, readonly, copy) NSString *uri;
@@ -26,7 +26,7 @@ RTC_OBJC_EXPORT
 /** Whether the header extension is encrypted or not. */
 @property(nonatomic, readonly, getter=isEncrypted) BOOL encrypted;
 
-- (instancetype)init;
+- (instancetype)init NS_DESIGNATED_INITIALIZER;
 
 @end
 

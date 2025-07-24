@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <TWEBRTC/RTCMacros.h>
+#import "RTCMacros.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -21,7 +21,7 @@ typedef NS_ENUM(NSUInteger, RTCVideoCodecMode) {
 
 /** Settings for encoder. Corresponds to webrtc::VideoCodec. */
 RTC_OBJC_EXPORT
-@interface RTC_OBJC_TYPE (RTCVideoEncoderSettings) : NSObject
+@interface RTCVideoEncoderSettings : NSObject
 
 @property(nonatomic, strong) NSString *name;
 

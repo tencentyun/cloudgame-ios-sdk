@@ -10,22 +10,22 @@
 
 #import <Foundation/Foundation.h>
 
-#import <TWEBRTC/RTCMacros.h>
+#import "RTCMacros.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class RTC_OBJC_TYPE(RTCAudioTrack);
-@class RTC_OBJC_TYPE(RTCPeerConnectionFactory);
-@class RTC_OBJC_TYPE(RTCVideoTrack);
+@class RTCAudioTrack;
+@class RTCPeerConnectionFactory;
+@class RTCVideoTrack;
 
 RTC_OBJC_EXPORT
-@interface RTC_OBJC_TYPE (RTCMediaStream) : NSObject
+@interface RTCMediaStream : NSObject
 
 /** The audio tracks in this stream. */
-@property(nonatomic, strong, readonly) NSArray<RTC_OBJC_TYPE(RTCAudioTrack) *> *audioTracks;
+@property(nonatomic, strong, readonly) NSArray<RTCAudioTrack *> *audioTracks;
 
 /** The video tracks in this stream. */
-@property(nonatomic, strong, readonly) NSArray<RTC_OBJC_TYPE(RTCVideoTrack) *> *videoTracks;
+@property(nonatomic, strong, readonly) NSArray<RTCVideoTrack *> *videoTracks;
 
 /** An identifier for this media stream. */
 @property(nonatomic, readonly) NSString *streamId;
@@ -33,16 +33,16 @@ RTC_OBJC_EXPORT
 - (instancetype)init NS_UNAVAILABLE;
 
 /** Adds the given audio track to this media stream. */
-- (void)addAudioTrack:(RTC_OBJC_TYPE(RTCAudioTrack) *)audioTrack;
+- (void)addAudioTrack:(RTCAudioTrack *)audioTrack;
 
 /** Adds the given video track to this media stream. */
-- (void)addVideoTrack:(RTC_OBJC_TYPE(RTCVideoTrack) *)videoTrack;
+- (void)addVideoTrack:(RTCVideoTrack *)videoTrack;
 
 /** Removes the given audio track to this media stream. */
-- (void)removeAudioTrack:(RTC_OBJC_TYPE(RTCAudioTrack) *)audioTrack;
+- (void)removeAudioTrack:(RTCAudioTrack *)audioTrack;
 
 /** Removes the given video track to this media stream. */
-- (void)removeVideoTrack:(RTC_OBJC_TYPE(RTCVideoTrack) *)videoTrack;
+- (void)removeVideoTrack:(RTCVideoTrack *)videoTrack;
 
 @end
 

@@ -28,4 +28,4 @@ FOUNDATION_EXPORT const unsigned char TCRSDKVersionString[];
 #import <TCRSDK/GamePad.h>
 #import <TCRSDK/TouchScreen.h>
 #import <TCRSDK/TcrSdkInstance.h>
-
+#import <TCRSDK/AndroidInstance.h>

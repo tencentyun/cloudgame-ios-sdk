@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <TWEBRTC/RTCMacros.h>
+#import "RTCMacros.h"
 
 RTC_OBJC_EXPORT extern NSString *const kRTCVideoCodecH264Name;
 RTC_OBJC_EXPORT extern NSString *const kRTCLevel31ConstrainedHigh;
@@ -48,7 +48,7 @@ typedef NS_ENUM(NSUInteger, RTCH264Level) {
 };
 
 RTC_OBJC_EXPORT
-@interface RTC_OBJC_TYPE (RTCH264ProfileLevelId) : NSObject
+@interface RTCH264ProfileLevelId : NSObject
 
 @property(nonatomic, readonly) RTCH264Profile profile;
 @property(nonatomic, readonly) RTCH264Level level;

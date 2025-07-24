@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <TWEBRTC/RTCVideoCapturer.h>
+#import "RTCVideoCapturer.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -27,7 +27,7 @@ typedef void (^RTCFileVideoCapturerErrorBlock)(NSError *error);
 RTC_OBJC_EXPORT
 
 NS_CLASS_AVAILABLE_IOS(10)
-@interface RTC_OBJC_TYPE (RTCFileVideoCapturer) : RTC_OBJC_TYPE(RTCVideoCapturer)
+@interface RTCFileVideoCapturer : RTCVideoCapturer
 
 /**
  * Starts asynchronous capture of frames from video file.

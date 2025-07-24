@@ -11,45 +11,43 @@
 #import <AvailabilityMacros.h>
 #import <Foundation/Foundation.h>
 
-#import <TWEBRTC/RTCMacros.h>
+#import "RTCMacros.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 RTC_OBJC_EXPORT
-@interface RTC_OBJC_TYPE (RTCDataBuffer) : NSObject
+@interface RTCDataBuffer : NSObject
 
 /** NSData representation of the underlying buffer. */
 @property(nonatomic, readonly) NSData *data;
 
-/** Indicates whether `data` contains UTF-8 or binary data. */
+/** Indicates whether |data| contains UTF-8 or binary data. */
 @property(nonatomic, readonly) BOOL isBinary;
 
 - (instancetype)init NS_UNAVAILABLE;
 
 /**
- * Initialize an RTCDataBuffer from NSData. `isBinary` indicates whether `data`
+ * Initialize an RTCDataBuffer from NSData. |isBinary| indicates whether |data|
  * contains UTF-8 or binary data.
  */
 - (instancetype)initWithData:(NSData *)data isBinary:(BOOL)isBinary;
 
 @end
 
-@class RTC_OBJC_TYPE(RTCDataChannel);
+@class RTCDataChannel;
 RTC_OBJC_EXPORT
-@protocol RTC_OBJC_TYPE
-(RTCDataChannelDelegate)<NSObject>
+@protocol RTCDataChannelDelegate <NSObject>
 
-    /** The data channel state changed. */
-    - (void)dataChannelDidChangeState : (RTC_OBJC_TYPE(RTCDataChannel) *)dataChannel;
+/** The data channel state changed. */
+- (void)dataChannelDidChangeState:(RTCDataChannel *)dataChannel;
 
 /** The data channel successfully received a data buffer. */
-- (void)dataChannel:(RTC_OBJC_TYPE(RTCDataChannel) *)dataChannel
-    didReceiveMessageWithBuffer:(RTC_OBJC_TYPE(RTCDataBuffer) *)buffer;
+- (void)dataChannel:(RTCDataChannel *)dataChannel
+    didReceiveMessageWithBuffer:(RTCDataBuffer *)buffer;
 
 @optional
-/** The data channel's `bufferedAmount` changed. */
-- (void)dataChannel:(RTC_OBJC_TYPE(RTCDataChannel) *)dataChannel
-    didChangeBufferedAmount:(uint64_t)amount;
+/** The data channel's |bufferedAmount| changed. */
+- (void)dataChannel:(RTCDataChannel *)dataChannel didChangeBufferedAmount:(uint64_t)amount;
 
 @end
 
@@ -62,7 +60,7 @@ typedef NS_ENUM(NSInteger, RTCDataChannelState) {
 };
 
 RTC_OBJC_EXPORT
-@interface RTC_OBJC_TYPE (RTCDataChannel) : NSObject
+@interface RTCDataChannel : NSObject
 
 /**
  * A label that can be used to distinguish this data channel from other data
@@ -112,20 +110,20 @@ RTC_OBJC_EXPORT
 
 /**
  * The number of bytes of application data that have been queued using
- * `sendData:` but that have not yet been transmitted to the network.
+ * |sendData:| but that have not yet been transmitted to the network.
  */
 @property(nonatomic, readonly) uint64_t bufferedAmount;
 
 /** The delegate for this data channel. */
-@property(nonatomic, weak) id<RTC_OBJC_TYPE(RTCDataChannelDelegate)> delegate;
+@property(nonatomic, weak) id<RTCDataChannelDelegate> delegate;
 
 - (instancetype)init NS_UNAVAILABLE;
 
 /** Closes the data channel. */
 - (void)close;
 
-/** Attempt to send `data` on this data channel's underlying data transport. */
-- (BOOL)sendData:(RTC_OBJC_TYPE(RTCDataBuffer) *)data;
+/** Attempt to send |data| on this data channel's underlying data transport. */
+- (BOOL)sendData:(RTCDataBuffer *)data;
 
 @end
 

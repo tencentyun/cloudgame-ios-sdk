@@ -10,12 +10,12 @@
 
 #import <Foundation/Foundation.h>
 
-#import <TWEBRTC/RTCMacros.h>
+#import "RTCMacros.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 RTC_OBJC_EXPORT
-@interface RTC_OBJC_TYPE (RTCIceCandidate) : NSObject
+@interface RTCIceCandidate : NSObject
 
 /**
  * If present, the identifier of the "media stream identification" for the media

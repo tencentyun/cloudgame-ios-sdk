@@ -8,30 +8,29 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-#import <TWEBRTC/RTCMediaStreamTrack.h>
+#import "RTCMediaStreamTrack.h"
 
-#import <TWEBRTC/RTCMacros.h>
+#import "RTCMacros.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol RTC_OBJC_TYPE
-(RTCVideoRenderer);
-@class RTC_OBJC_TYPE(RTCPeerConnectionFactory);
-@class RTC_OBJC_TYPE(RTCVideoSource);
+@protocol RTCVideoRenderer;
+@class RTCPeerConnectionFactory;
+@class RTCVideoSource;
 
 RTC_OBJC_EXPORT
-@interface RTC_OBJC_TYPE (RTCVideoTrack) : RTC_OBJC_TYPE(RTCMediaStreamTrack)
+@interface RTCVideoTrack : RTCMediaStreamTrack
 
 /** The video source for this video track. */
-@property(nonatomic, readonly) RTC_OBJC_TYPE(RTCVideoSource) *source;
+@property(nonatomic, readonly) RTCVideoSource *source;
 
 - (instancetype)init NS_UNAVAILABLE;
 
 /** Register a renderer that will render all frames received on this track. */
-- (void)addRenderer:(id<RTC_OBJC_TYPE(RTCVideoRenderer)>)renderer;
+- (void)addRenderer:(id<RTCVideoRenderer>)renderer;
 
 /** Deregister a renderer. */
-- (void)removeRenderer:(id<RTC_OBJC_TYPE(RTCVideoRenderer)>)renderer;
+- (void)removeRenderer:(id<RTCVideoRenderer>)renderer;
 
 @end
 

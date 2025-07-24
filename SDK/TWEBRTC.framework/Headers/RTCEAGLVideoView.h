@@ -11,35 +11,30 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#import <TWEBRTC/RTCMacros.h>
-#import <TWEBRTC/RTCVideoRenderer.h>
-#import <TWEBRTC/RTCVideoViewShading.h>
+#import "RTCMacros.h"
+#import "RTCVideoRenderer.h"
+#import "RTCVideoViewShading.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class RTC_OBJC_TYPE(RTCEAGLVideoView);
+@class RTCEAGLVideoView;
 
 /**
- * RTCEAGLVideoView is an RTCVideoRenderer which renders video frames
- * in its bounds using OpenGLES 2.0 or OpenGLES 3.0.
+ * RTCEAGLVideoView is an RTCVideoRenderer which renders video frames in its
+ * bounds using OpenGLES 2.0 or OpenGLES 3.0.
  */
 RTC_OBJC_EXPORT
 NS_EXTENSION_UNAVAILABLE_IOS("Rendering not available in app extensions.")
-@interface RTC_OBJC_TYPE (RTCEAGLVideoView) : UIView <RTC_OBJC_TYPE(RTCVideoRenderer)>
+@interface RTCEAGLVideoView : UIView <RTCVideoRenderer>
 
-@property(nonatomic, weak) id<RTC_OBJC_TYPE(RTCVideoViewDelegate)> delegate;
+@property(nonatomic, weak) id<RTCVideoViewDelegate> delegate;
 
 - (instancetype)initWithFrame:(CGRect)frame
-                       shader:(id<RTC_OBJC_TYPE(RTCVideoViewShading)>)shader
-    NS_DESIGNATED_INITIALIZER;
+                       shader:(id<RTCVideoViewShading>)shader NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
-                       shader:(id<RTC_OBJC_TYPE(RTCVideoViewShading)>)shader
-    NS_DESIGNATED_INITIALIZER;
+                       shader:(id<RTCVideoViewShading>)shader NS_DESIGNATED_INITIALIZER;
 
-/** @abstract Wrapped RTCVideoRotation, or nil.
- */
-@property(nonatomic, nullable) NSValue *rotationOverride;
 @end
 
 NS_ASSUME_NONNULL_END

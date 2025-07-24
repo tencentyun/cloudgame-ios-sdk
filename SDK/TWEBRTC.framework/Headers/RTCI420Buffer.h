@@ -10,13 +10,13 @@
 
 #import <AVFoundation/AVFoundation.h>
 
-#import <TWEBRTC/RTCYUVPlanarBuffer.h>
+#import "RTCYUVPlanarBuffer.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /** Protocol for RTCYUVPlanarBuffers containing I420 data */
 RTC_OBJC_EXPORT
-@protocol RTC_OBJC_TYPE
-(RTCI420Buffer)<RTC_OBJC_TYPE(RTCYUVPlanarBuffer)> @end
+@protocol RTCI420Buffer <RTCYUVPlanarBuffer>
+@end
 
 NS_ASSUME_NONNULL_END

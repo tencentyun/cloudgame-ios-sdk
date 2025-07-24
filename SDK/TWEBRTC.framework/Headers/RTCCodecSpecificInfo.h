@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <TWEBRTC/RTCMacros.h>
+#import "RTCMacros.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Corresponds to webrtc::CodecSpecificInfo.
  */
 RTC_OBJC_EXPORT
-@protocol RTC_OBJC_TYPE
-(RTCCodecSpecificInfo)<NSObject> @end
+@protocol RTCCodecSpecificInfo <NSObject>
+@end
 
 NS_ASSUME_NONNULL_END

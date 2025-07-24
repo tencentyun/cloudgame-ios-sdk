@@ -72,6 +72,14 @@ typedef NS_ENUM(NSInteger, TcrCode) {
     SessionStopConnectFailed = SessionStopBaseCode + 7
 };
 
+typedef NS_ENUM(NSInteger, CaiCode) {
+    CAI_INVALID_PARAMS = 10001,
+    CAI_INVALID_TOKEN = 10002,
+    CAI_INVALID_OPERATE = 10003,
+    CAI_REQUEST_FAILED = 10004,
+    CAI_INTERNAL_ERR = 10005
+};
+
 typedef NS_ENUM(NSInteger, MicStatus) {
     /** If the mic is muted by the room owner, the user cannot unmute it. */
     MIC_STATUS_DISABLE = 0,
@@ -134,6 +142,32 @@ typedef NS_ENUM(NSUInteger, TcrEvent) {
      * }
      */
      CAMERA_STATUS_CHANGED,
+    /**
+      * This event indicates that the microphone status of the server has changed. <br>
+      *
+     * The associated event data is of type NSDictionary in json format:
+     * {@code
+     * {
+     *     status:  String       // The server mic open status. Valid values:
+     *                          // `open`:  microphone open;
+     *                          // `close`: microphone close;
+     * }
+     * }
+     */
+     MIC_STATUS_CHANGED,
+    /**
+     * This event indicates the type of input method distributed when establishing a connection to the cloud device, determining whether to utilize the client-side local input method or the cloud device's input method.​.<br>
+     *
+     * The associated event data is of type NSDictionary in json format:
+     * {@code
+     * {
+     *     ime_type: String     // The server ime status. Valid values:
+     *                          // `cloud`: utilize the cloud-side local input method;
+     *                          // `local`: utilize the client-side local input method;
+     * }
+     * }
+     */
+     IME_TYPE,
     /**
      * This event indicates that the status of the game process on the server has been changed.<br>
      *
@@ -236,7 +270,15 @@ typedef NS_ENUM(NSUInteger, TcrEvent) {
     /**
      * This event indicates that the configuration of the cloud phone screen configuration has been changed.<br>
      *
-     * The associated event data is of type interger(enum of UIInterfaceOrientation)
+     * The associated event data is of type NSDictionary in json format:
+     * {@code
+     * {
+     *   orientation: String    // Valid values: `landscape`/` portrait`
+     *   degree: String //  Valid values: `0_degree`, `90_degree`, `180_degree`, `270_degree`
+     *   width: number
+     *   height: number
+     * }
+     * }
      */
     SCREEN_CONFIG_CHANGE,
     /**
@@ -330,11 +372,106 @@ typedef NS_ENUM(NSUInteger, TcrEvent) {
      *
      *   text: String           // The text content in the remote input box.<br>
      *                          // This field is only supported when the cloud application is an Android application
+     *
+     *   status: String         // Only for Windows system.
+     *                          // Valid values:
+     *                          // `disable`: Disable client input.
+     *                          //
+     *                          // `enable`: Enable client input
+     *   input_type: Interger // Bit definitions for an integer defining the basic content type of text held in an Editable object.
+     *
      * }
      * }
      */
     INPUT_STATE_CHANGE,
-    START_AUTO_LOGIN
+    START_AUTO_LOGIN,
+    
+    /**
+     * @const CAI_TRANS_MESSAGE
+     * @brief 云端应用向客户端发送的透传消息事件。
+     *
+     * **数据结构示例**:
+     * {@code
+     * {
+     *      package_name: String // 目标应用的包名（Android 应用标识）。
+     *      msg: String // 透传的原始消息内容（字符串或 JSON 对象）。
+     * }
+     * }
+     *
+     * @note 使用场景：云手机
+     */
+    CAI_TRANS_MESSAGE,
+    /**
+     * @const CAI_SYSTEM_USAGE
+     * @brief 云端应用向客户端发送的负载信息
+     *
+     * **数据结构示例**:
+     * {@code
+     * {
+     *      cpu_usage: number // CPU 使用率（百分比，浮点数）。
+     *      mem_usage: number // 内存使用量（百分比，浮点数）。
+     *      gpu_usage: number // GPU 使用率（百分比，浮点数）。
+     * }
+     * }
+     *
+     * @note 使用场景：云手机
+     */
+    CAI_SYSTEM_USAGE,
+    /**
+     * @const CAI_CLIPBOARD
+     * @brief 云端剪贴板内容同步事件。当云端设备的剪贴板内容发生变化时，自动将最新文本下发至客户端。
+     *
+     * **数据结构示例**:
+     * {@code
+     * {
+     *     text: String // 剪贴板的最新文本内容
+     * }
+     * }
+     */
+    CAI_CLIPBOARD,
+    /**
+     * @const CAI_NOTIFICATION
+     * @brief 云端通知消息下发事件，当云机上有新通知时，下发到客户端
+     *
+     * **数据结构示例**:
+     * {@code
+     * {
+     *      package_name: String // 发送通知的应用包名。
+     *      title: String // 通知标题
+     *      text: String //通知正文
+     * }
+     * }
+     */
+    CAI_NOTIFICATION,
+    /**
+     * @const CAI_IMAGE_EVENT
+     * @brief 定期回调云端实例的画面截图
+     *
+     * **数据结构示例**:
+     * {@code
+     * {
+     *      instanceId1: sceenshotUrl1,
+     *      instanceId2: sceenshotUrl2,
+     *      instanceId3: sceenshotUrl3,
+     *      instanceId4: sceenshotUrl4,
+     *      ...
+     * }
+     * }
+     */
+    CAI_IMAGE_EVENT,
+    /**
+     * @const CAI_SYSTEM_STATUS
+     * @brief 每1s云端应用通过webrtc向客户端发送的系统状态
+     *
+     * **数据结构示例**:
+     * {@code
+     * {
+     *      nav_visible: bool // 导航栏是否可见
+     *      music_volume: number // 系统媒体音量，范围0-100
+     * }
+     * }
+     */
+    CAI_SYSTEM_STATUS,
 };
 
 

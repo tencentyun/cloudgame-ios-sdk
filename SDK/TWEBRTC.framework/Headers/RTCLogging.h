@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <TWEBRTC/RTCMacros.h>
+#import "RTCMacros.h"
 
 // Subset of rtc::LoggingSeverity.
 typedef NS_ENUM(NSInteger, RTCLoggingSeverity) {

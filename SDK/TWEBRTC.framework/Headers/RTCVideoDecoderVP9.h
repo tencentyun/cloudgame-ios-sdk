@@ -10,18 +10,16 @@
 
 #import <Foundation/Foundation.h>
 
-#import <TWEBRTC/RTCMacros.h>
-#import <TWEBRTC/RTCVideoDecoder.h>
+#import "RTCMacros.h"
+#import "RTCVideoDecoder.h"
 
 RTC_OBJC_EXPORT
-@interface RTC_OBJC_TYPE (RTCVideoDecoderVP9) : NSObject
+@interface RTCVideoDecoderVP9 : NSObject
 
 /* This returns a VP9 decoder that can be returned from a RTCVideoDecoderFactory injected into
  * RTCPeerConnectionFactory. Even though it implements the RTCVideoDecoder protocol, it can not be
  * used independently from the RTCPeerConnectionFactory.
  */
-+ (id<RTC_OBJC_TYPE(RTCVideoDecoder)>)vp9Decoder;
-
-+ (bool)isSupported;
++ (id<RTCVideoDecoder>)vp9Decoder;
 
 @end

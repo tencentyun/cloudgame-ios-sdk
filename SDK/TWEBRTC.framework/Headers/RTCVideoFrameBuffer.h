@@ -10,30 +10,20 @@
 
 #import <AVFoundation/AVFoundation.h>
 
-#import <TWEBRTC/RTCMacros.h>
+#import "RTCMacros.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol RTC_OBJC_TYPE
-(RTCI420Buffer);
+@protocol RTCI420Buffer;
 
 // RTCVideoFrameBuffer is an ObjectiveC version of webrtc::VideoFrameBuffer.
 RTC_OBJC_EXPORT
-@protocol RTC_OBJC_TYPE
-(RTCVideoFrameBuffer)<NSObject>
+@protocol RTCVideoFrameBuffer <NSObject>
 
-    @property(nonatomic, readonly) int width;
+@property(nonatomic, readonly) int width;
 @property(nonatomic, readonly) int height;
 
-- (id<RTC_OBJC_TYPE(RTCI420Buffer)>)toI420;
-
-@optional
-- (id<RTC_OBJC_TYPE(RTCVideoFrameBuffer)>)cropAndScaleWith:(int)offsetX
-                                                   offsetY:(int)offsetY
-                                                 cropWidth:(int)cropWidth
-                                                cropHeight:(int)cropHeight
-                                                scaleWidth:(int)scaleWidth
-                                               scaleHeight:(int)scaleHeight;
+- (id<RTCI420Buffer>)toI420;
 
 @end
 

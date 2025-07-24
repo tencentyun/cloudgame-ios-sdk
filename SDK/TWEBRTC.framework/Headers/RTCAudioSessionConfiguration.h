@@ -11,7 +11,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <Foundation/Foundation.h>
 
-#import <TWEBRTC/RTCMacros.h>
+#import "RTCMacros.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,7 +23,7 @@ RTC_EXTERN const double kRTCAudioSessionLowComplexityIOBufferDuration;
 
 // Struct to hold configuration values.
 RTC_OBJC_EXPORT
-@interface RTC_OBJC_TYPE (RTCAudioSessionConfiguration) : NSObject
+@interface RTCAudioSessionConfiguration : NSObject
 
 @property(nonatomic, strong) NSString *category;
 @property(nonatomic, assign) AVAudioSessionCategoryOptions categoryOptions;
@@ -41,10 +41,9 @@ RTC_OBJC_EXPORT
 /** Returns the configuration that WebRTC needs. */
 + (instancetype)webRTCConfiguration;
 /** Provide a way to override the default configuration. */
-+ (void)setWebRTCConfiguration:(RTC_OBJC_TYPE(RTCAudioSessionConfiguration) *)configuration;
++ (void)setWebRTCConfiguration:(RTCAudioSessionConfiguration *)configuration;
 
 + (BOOL)supportPlayOrRecored;
-
 @end
 
 NS_ASSUME_NONNULL_END

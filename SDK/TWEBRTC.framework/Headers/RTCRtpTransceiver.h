@@ -10,13 +10,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import <TWEBRTC/RTCMacros.h>
-#import <TWEBRTC/RTCRtpReceiver.h>
-#import <TWEBRTC/RTCRtpSender.h>
+#import "RTCMacros.h"
+#import "RTCRtpReceiver.h"
+#ifdef WEBRTC_BUILD_SENDSTREAM
+#import "RTCRtpSender.h"
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
-
-extern NSString *const kRTCRtpTransceiverErrorDomain;
 
 /** https://w3c.github.io/webrtc-pc/#dom-rtcrtptransceiverdirection */
 typedef NS_ENUM(NSInteger, RTCRtpTransceiverDirection) {
@@ -24,7 +24,6 @@ typedef NS_ENUM(NSInteger, RTCRtpTransceiverDirection) {
   RTCRtpTransceiverDirectionSendOnly,
   RTCRtpTransceiverDirectionRecvOnly,
   RTCRtpTransceiverDirectionInactive,
-  RTCRtpTransceiverDirectionStopped
 };
 
 /** Structure for initializing an RTCRtpTransceiver in a call to
@@ -32,7 +31,7 @@ typedef NS_ENUM(NSInteger, RTCRtpTransceiverDirection) {
  *  https://w3c.github.io/webrtc-pc/#dom-rtcrtptransceiverinit
  */
 RTC_OBJC_EXPORT
-@interface RTC_OBJC_TYPE (RTCRtpTransceiverInit) : NSObject
+@interface RTCRtpTransceiverInit : NSObject
 
 /** Direction of the RTCRtpTransceiver. See RTCRtpTransceiver.direction. */
 @property(nonatomic) RTCRtpTransceiverDirection direction;
@@ -41,14 +40,14 @@ RTC_OBJC_EXPORT
 @property(nonatomic) NSArray<NSString *> *streamIds;
 
 /** TODO(bugs.webrtc.org/7600): Not implemented. */
-@property(nonatomic) NSArray<RTC_OBJC_TYPE(RTCRtpEncodingParameters) *> *sendEncodings;
+@property(nonatomic) NSArray<RTCRtpEncodingParameters *> *sendEncodings;
 
 @end
 
-@class RTC_OBJC_TYPE(RTCRtpTransceiver);
+@class RTCRtpTransceiver;
 
-/** The RTCRtpTransceiver maps to the RTCRtpTransceiver defined by the
- *  WebRTC specification. A transceiver represents a combination of an RTCRtpSender
+/** The RTCRtpTransceiver maps to the RTCRtpTransceiver defined by the WebRTC
+ *  specification. A transceiver represents a combination of an RTCRtpSender
  *  and an RTCRtpReceiver that share a common mid. As defined in JSEP, an
  *  RTCRtpTransceiver is said to be associated with a media description if its
  *  mid property is non-nil; otherwise, it is said to be disassociated.
@@ -61,13 +60,12 @@ RTC_OBJC_EXPORT
  *  https://w3c.github.io/webrtc-pc/#dom-rtcrtptransceiver
  */
 RTC_OBJC_EXPORT
-@protocol RTC_OBJC_TYPE
-(RTCRtpTransceiver)<NSObject>
+@protocol RTCRtpTransceiver <NSObject>
 
-    /** Media type of the transceiver. The sender and receiver will also have this
-     *  type.
-     */
-    @property(nonatomic, readonly) RTCRtpMediaType mediaType;
+/** Media type of the transceiver. The sender and receiver will also have this
+ *  type.
+ */
+@property(nonatomic, readonly) RTCRtpMediaType mediaType;
 
 /** The mid attribute is the mid negotiated and present in the local and
  *  remote descriptions. Before negotiation is complete, the mid value may be
@@ -81,14 +79,15 @@ RTC_OBJC_EXPORT
  *  present, regardless of the direction of media.
  *  https://w3c.github.io/webrtc-pc/#dom-rtcrtptransceiver-sender
  */
-@property(nonatomic, readonly) RTC_OBJC_TYPE(RTCRtpSender) * sender;
-
+#ifdef WEBRTC_BUILD_SENDSTREAM
+@property(nonatomic, readonly) RTCRtpSender *sender;
+#endif
 /** The receiver attribute exposes the RTCRtpReceiver corresponding to the RTP
  *  media that may be received with the transceiver's mid. The receiver is
  *  always present, regardless of the direction of media.
  *  https://w3c.github.io/webrtc-pc/#dom-rtcrtptransceiver-receiver
  */
-@property(nonatomic, readonly) RTC_OBJC_TYPE(RTCRtpReceiver) * receiver;
+@property(nonatomic, readonly) RTCRtpReceiver *receiver;
 
 /** The isStopped attribute indicates that the sender of this transceiver will
  *  no longer send, and that the receiver will no longer receive. It is true if
@@ -100,9 +99,12 @@ RTC_OBJC_EXPORT
 
 /** The direction attribute indicates the preferred direction of this
  *  transceiver, which will be used in calls to createOffer and createAnswer.
+ *  An update of directionality does not take effect immediately. Instead,
+ *  future calls to createOffer and createAnswer mark the corresponding media
+ *  descriptions as sendrecv, sendonly, recvonly, or inactive.
  *  https://w3c.github.io/webrtc-pc/#dom-rtcrtptransceiver-direction
  */
-@property(nonatomic, readonly) RTCRtpTransceiverDirection direction;
+@property(nonatomic) RTCRtpTransceiverDirection direction;
 
 /** The currentDirection attribute indicates the current direction negotiated
  *  for this transceiver. If this transceiver has never been represented in an
@@ -116,19 +118,12 @@ RTC_OBJC_EXPORT
  *  this transceiver will no longer send, the receiver will no longer receive.
  *  https://w3c.github.io/webrtc-pc/#dom-rtcrtptransceiver-stop
  */
-- (void)stopInternal;
-
-/** An update of directionality does not take effect immediately. Instead,
- *  future calls to createOffer and createAnswer mark the corresponding media
- *  descriptions as sendrecv, sendonly, recvonly, or inactive.
- *  https://w3c.github.io/webrtc-pc/#dom-rtcrtptransceiver-direction
- */
-- (void)setDirection:(RTCRtpTransceiverDirection)direction error:(NSError **)error;
+- (void)stop;
 
 @end
 
 RTC_OBJC_EXPORT
-@interface RTC_OBJC_TYPE (RTCRtpTransceiver) : NSObject <RTC_OBJC_TYPE(RTCRtpTransceiver)>
+@interface RTCRtpTransceiver : NSObject <RTCRtpTransceiver>
 
 - (instancetype)init NS_UNAVAILABLE;
 

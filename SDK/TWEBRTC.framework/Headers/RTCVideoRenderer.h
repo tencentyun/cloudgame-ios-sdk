@@ -13,30 +13,43 @@
 #import <UIKit/UIKit.h>
 #endif
 
-#import <TWEBRTC/RTCMacros.h>
+#import "RTCMacros.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class RTC_OBJC_TYPE(RTCVideoFrame);
+@class RTCVideoFrame;
 
+typedef void (^RTCFrozenHandler)(BOOL isFreeze);
 RTC_OBJC_EXPORT
-@protocol RTC_OBJC_TYPE
-(RTCVideoRenderer)<NSObject>
+@protocol RTCVideoRenderer <NSObject>
 
-    /** The size of the frame. */
-    - (void)setSize : (CGSize)size;
+/** The size of the frame. */
+- (void)setSize:(CGSize)size;
 
 /** The frame to be displayed. */
-- (void)renderFrame:(nullable RTC_OBJC_TYPE(RTCVideoFrame) *)frame;
+- (void)renderFrame:(nullable RTCVideoFrame *)frame;
+
+-(void)pause:(BOOL)isPause;
+
+- (void)setRenderRotationOverride:(NSValue *)rotationOverride;
+
+- (void)setViewContentMode:(UIViewContentMode)contentMode;
+
+@optional
+-(RTCVideoFrame*)captureFrame;
+
+- (void)setFrozenHandler:(RTCFrozenHandler)handler frozenDelay:(int64_t)frozenDelay;
 
 @end
 
 RTC_OBJC_EXPORT
-@protocol RTC_OBJC_TYPE
-(RTCVideoViewDelegate)
+@protocol RTCVideoViewDelegate <NSObject>
 
-    - (void)videoView : (id<RTC_OBJC_TYPE(RTCVideoRenderer)>)videoView didChangeVideoSize
-    : (CGSize)size;
+- (void)videoView:(id<RTCVideoRenderer>)videoView didChangeVideoSize:(CGSize)size;
+
+
+@optional
+- (void)videoView:(id<RTCVideoRenderer>)videoView isFirstFrame:(BOOL)isfirstFrame;
 
 @end
 

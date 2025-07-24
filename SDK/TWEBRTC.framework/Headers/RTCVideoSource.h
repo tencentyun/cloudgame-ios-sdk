@@ -10,15 +10,15 @@
 
 #import <Foundation/Foundation.h>
 
-#import <TWEBRTC/RTCMacros.h>
-#import <TWEBRTC/RTCMediaSource.h>
-#import <TWEBRTC/RTCVideoCapturer.h>
+#import "RTCMacros.h"
+#import "RTCMediaSource.h"
+#import "RTCVideoCapturer.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 RTC_OBJC_EXPORT
 
-@interface RTC_OBJC_TYPE (RTCVideoSource) : RTC_OBJC_TYPE(RTCMediaSource) <RTC_OBJC_TYPE(RTCVideoCapturerDelegate)>
+@interface RTCVideoSource : RTCMediaSource <RTCVideoCapturerDelegate>
 
 - (instancetype)init NS_UNAVAILABLE;
 

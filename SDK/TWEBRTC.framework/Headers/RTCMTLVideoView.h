@@ -10,9 +10,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import <TWEBRTC/RTCMacros.h>
-#import <TWEBRTC/RTCVideoFrame.h>
-#import <TWEBRTC/RTCVideoRenderer.h>
+#import "RTCMacros.h"
+#import "RTCVideoFrame.h"
+#import "RTCVideoRenderer.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -21,13 +21,15 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * It has id<RTCVideoRenderer> property that renders video frames in the view's
  * bounds using Metal.
+ * NOTE: always check if metal is available on the running device via
+ * RTC_SUPPORTS_METAL macro before initializing this class.
  */
 NS_CLASS_AVAILABLE_IOS(9)
 
 RTC_OBJC_EXPORT
-@interface RTC_OBJC_TYPE (RTCMTLVideoView) : UIView<RTC_OBJC_TYPE(RTCVideoRenderer)>
+@interface RTCMTLVideoView : UIView<RTCVideoRenderer>
 
-@property(nonatomic, weak) id<RTC_OBJC_TYPE(RTCVideoViewDelegate)> delegate;
+@property(nonatomic, weak) id<RTCVideoViewDelegate> delegate;
 
 @property(nonatomic) UIViewContentMode videoContentMode;
 

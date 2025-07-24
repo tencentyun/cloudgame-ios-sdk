@@ -10,14 +10,14 @@
 
 #import <AVFoundation/AVFoundation.h>
 
-#import <TWEBRTC/RTCI420Buffer.h>
-#import <TWEBRTC/RTCMutableYUVPlanarBuffer.h>
+#import "RTCI420Buffer.h"
+#import "RTCMutableYUVPlanarBuffer.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /** Extension of the I420 buffer with mutable data access */
 RTC_OBJC_EXPORT
-@protocol RTC_OBJC_TYPE
-(RTCMutableI420Buffer)<RTC_OBJC_TYPE(RTCI420Buffer), RTC_OBJC_TYPE(RTCMutableYUVPlanarBuffer)> @end
+@protocol RTCMutableI420Buffer <RTCI420Buffer, RTCMutableYUVPlanarBuffer>
+@end
 
 NS_ASSUME_NONNULL_END

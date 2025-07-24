@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <TWEBRTC/RTCMacros.h>
+#import "RTCMacros.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -31,7 +31,7 @@ RTC_EXTERN NSString *const kRTCMediaConstraintsValueTrue;
 RTC_EXTERN NSString *const kRTCMediaConstraintsValueFalse;
 
 RTC_OBJC_EXPORT
-@interface RTC_OBJC_TYPE (RTCMediaConstraints) : NSObject
+@interface RTCMediaConstraints : NSObject
 
 - (instancetype)init NS_UNAVAILABLE;
 

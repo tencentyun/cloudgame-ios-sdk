@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <TWEBRTC/RTCMacros.h>
+#import "RTCMacros.h"
 
 RTC_OBJC_EXPORT extern NSString *const kRTCVideoCodecH265Name;
 RTC_OBJC_EXPORT extern NSString *const kRTCLevel31Main;

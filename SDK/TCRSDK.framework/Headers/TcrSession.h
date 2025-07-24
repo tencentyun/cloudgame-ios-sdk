@@ -79,6 +79,12 @@
 
 - (void)setTcrSessionObserver:(id<TcrSessionObserver> _Nonnull)Observer;
 
+#pragma mark Cloud Android Instance Connect
+- (void)accessWithInstanceId:(NSString *_Nonnull)instanceId;
+
+- (void)accessWithInstanceIds:(NSArray *_Nonnull)instanceIds;
+
+
 /**
  * Starts the session. This method should only be called once.
  *
@@ -208,6 +214,30 @@
  * @param text The text to be sent
  */
 - (void)pasteText:(NSString *_Nonnull)text;
+
+/**
+ * @brief Inputs text to cloud device without modifying clipboard.
+ * @discussion This method is available only when the client switches to **local input method mode**. It sends text directly to the cloud device's input field and does not alter the local clipboard content.
+ *
+ * @param text Text to input (non-null).
+ * @param append Writing mode control:
+ *   - `YES`: **Append mode** (default). Inserts text at the current cursor position in the cloud input field.
+ *   - `NO`: **Override mode**. Clears the cloud input field and replaces its content with the provided text.
+ *
+ * @note Key constraints and behaviors:
+ * 1. **Input method dependency**: Only effective when `IME_TYPE = local`; otherwise, the call has no effect.
+ * 2. **Clipboard isolation**: Text will not be written to the clipboard, preventing contamination of user clipboard data.
+ *
+ * @example Example usage:
+ * // Append mode (default)
+ * [device inputText:@"Hello" mode:YES];
+ *
+ * // Override mode
+ * [device inputText:@"New Text" mode:NO];
+ *
+ * @see Constant `IME_TYPE` for input method type definitions.
+ */
+- (void)inputText:(NSString *_Nonnull)text mode:(BOOL)append;
 
 /**
  * Disable the Cloud input.<br>

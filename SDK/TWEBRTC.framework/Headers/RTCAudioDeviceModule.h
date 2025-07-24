@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import <TWEBRTC/RTCMacros.h>
+#import "RTCMacros.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

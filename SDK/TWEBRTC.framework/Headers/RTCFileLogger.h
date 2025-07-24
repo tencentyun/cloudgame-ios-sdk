@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <TWEBRTC/RTCMacros.h>
+#import "RTCMacros.h"
 
 typedef NS_ENUM(NSUInteger, RTCFileLoggerSeverity) {
   RTCFileLoggerSeverityVerbose,
@@ -22,6 +22,7 @@ typedef NS_ENUM(NSUInteger, RTCFileLoggerSeverity) {
 typedef NS_ENUM(NSUInteger, RTCFileLoggerRotationType) {
   RTCFileLoggerTypeCall,
   RTCFileLoggerTypeApp,
+  RTCFileLoggerTypeAppAppend,
 };
 
 NS_ASSUME_NONNULL_BEGIN
@@ -34,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 // For kRTCFileLoggerTypeApp, the oldest log is overwritten.
 // This class is not threadsafe.
 RTC_OBJC_EXPORT
-@interface RTC_OBJC_TYPE (RTCFileLogger) : NSObject
+@interface RTCFileLogger : NSObject
 
 // The severity level to capture. The default is kRTCFileLoggerSeverityInfo.
 @property(nonatomic, assign) RTCFileLoggerSeverity severity;
@@ -43,7 +44,7 @@ RTC_OBJC_EXPORT
 // kRTCFileLoggerTypeCall.
 @property(nonatomic, readonly) RTCFileLoggerRotationType rotationType;
 
-// Disables buffering disk writes. Should be set before `start`. Buffering
+// Disables buffering disk writes. Should be set before |start|. Buffering
 // is enabled by default for performance.
 @property(nonatomic, assign) BOOL shouldDisableBuffering;
 

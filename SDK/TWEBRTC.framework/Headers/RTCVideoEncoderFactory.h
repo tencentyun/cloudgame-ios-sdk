@@ -10,42 +10,21 @@
 
 #import <Foundation/Foundation.h>
 
-#import <TWEBRTC/RTCMacros.h>
-#import <TWEBRTC/RTCVideoCodecInfo.h>
-#import <TWEBRTC/RTCVideoEncoder.h>
+#import "RTCMacros.h"
+#import "RTCVideoCodecInfo.h"
+#import "RTCVideoEncoder.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-/** RTCVideoEncoderFactory is an Objective-C version of
- webrtc::VideoEncoderFactory::VideoEncoderSelector.
- */
+/** RTCVideoEncoderFactory is an Objective-C version of webrtc::VideoEncoderFactory. */
 RTC_OBJC_EXPORT
-@protocol RTC_OBJC_TYPE
-(RTCVideoEncoderSelector)<NSObject>
+@protocol RTCVideoEncoderFactory <NSObject>
 
-    - (void)registerCurrentEncoderInfo : (RTC_OBJC_TYPE(RTCVideoCodecInfo) *)info;
-- (nullable RTC_OBJC_TYPE(RTCVideoCodecInfo) *)encoderForBitrate:(NSInteger)bitrate;
-- (nullable RTC_OBJC_TYPE(RTCVideoCodecInfo) *)encoderForBrokenEncoder;
+- (nullable id<RTCVideoEncoder>)createEncoder:(RTCVideoCodecInfo *)info;
+- (NSArray<RTCVideoCodecInfo *> *)supportedCodecs;  // TODO(andersc): "supportedFormats" instead?
 
 @optional
-- (nullable RTC_OBJC_TYPE(RTCVideoCodecInfo) *)encoderForResolutionChangeBySize:(CGSize)size;
-
-@end
-
-/** RTCVideoEncoderFactory is an Objective-C version of webrtc::VideoEncoderFactory.
- */
-RTC_OBJC_EXPORT
-@protocol RTC_OBJC_TYPE
-(RTCVideoEncoderFactory)<NSObject>
-
-    - (nullable id<RTC_OBJC_TYPE(RTCVideoEncoder)>)createEncoder
-    : (RTC_OBJC_TYPE(RTCVideoCodecInfo) *)info;
-- (NSArray<RTC_OBJC_TYPE(RTCVideoCodecInfo) *> *)
-    supportedCodecs;  // TODO(andersc): "supportedFormats" instead?
-
-@optional
-- (NSArray<RTC_OBJC_TYPE(RTCVideoCodecInfo) *> *)implementations;
-- (nullable id<RTC_OBJC_TYPE(RTCVideoEncoderSelector)>)encoderSelector;
+- (NSArray<RTCVideoCodecInfo *> *)implementations;
 
 @end
 
