@@ -10,13 +10,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import "RTCMacros.h"
+#import <TWEBRTC/RTCMacros.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 /** QP thresholds for encoder. Corresponds to webrtc::VideoEncoder::QpThresholds. */
 RTC_OBJC_EXPORT
-@interface RTCVideoEncoderQpThresholds : NSObject
+@interface RTC_OBJC_TYPE (RTCVideoEncoderQpThresholds) : NSObject
 
 - (instancetype)initWithThresholdsLow:(NSInteger)low high:(NSInteger)high;
 

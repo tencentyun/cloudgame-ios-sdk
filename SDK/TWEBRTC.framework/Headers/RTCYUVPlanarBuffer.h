@@ -10,16 +10,17 @@
 
 #import <AVFoundation/AVFoundation.h>
 
-#import "RTCMacros.h"
-#import "RTCVideoFrameBuffer.h"
+#import <TWEBRTC/RTCMacros.h>
+#import <TWEBRTC/RTCVideoFrameBuffer.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 /** Protocol for RTCVideoFrameBuffers containing YUV planar data. */
 RTC_OBJC_EXPORT
-@protocol RTCYUVPlanarBuffer <RTCVideoFrameBuffer>
+@protocol RTC_OBJC_TYPE
+(RTCYUVPlanarBuffer)<RTC_OBJC_TYPE(RTCVideoFrameBuffer)>
 
-@property(nonatomic, readonly) int chromaWidth;
+    @property(nonatomic, readonly) int chromaWidth;
 @property(nonatomic, readonly) int chromaHeight;
 @property(nonatomic, readonly) const uint8_t *dataY;
 @property(nonatomic, readonly) const uint8_t *dataU;

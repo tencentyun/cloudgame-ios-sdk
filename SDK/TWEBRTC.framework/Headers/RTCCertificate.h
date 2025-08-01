@@ -10,16 +10,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import "RTCMacros.h"
+#import <TWEBRTC/RTCMacros.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 RTC_OBJC_EXPORT
-#ifdef RTC_IOS_BUILD_SYSBOL_RENAME
-@interface OBJRTCCertificate : NSObject <NSCopying>
-#else
-@interface RTCCertificate : NSObject <NSCopying>
-#endif
+@interface RTC_OBJC_TYPE (RTCCertificate) : NSObject <NSCopying>
+
 /** Private key in PEM. */
 @property(nonatomic, readonly, copy) NSString *private_key;
 
@@ -40,11 +37,7 @@ RTC_OBJC_EXPORT
  *  provided.
  *  - name: "ECDSA" or "RSASSA-PKCS1-v1_5"
  */
-#ifdef RTC_IOS_BUILD_SYSBOL_RENAME
-+ (nullable OBJRTCCertificate *)generateCertificateWithParams:(NSDictionary *)params;
-#else
-+ (nullable RTCCertificate *)generateCertificateWithParams:(NSDictionary *)params;
-#endif
++ (nullable RTC_OBJC_TYPE(RTCCertificate) *)generateCertificateWithParams:(NSDictionary *)params;
 
 @end
 

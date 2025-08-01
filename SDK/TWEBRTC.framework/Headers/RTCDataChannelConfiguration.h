@@ -11,12 +11,12 @@
 #import <AvailabilityMacros.h>
 #import <Foundation/Foundation.h>
 
-#import "RTCMacros.h"
+#import <TWEBRTC/RTCMacros.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 RTC_OBJC_EXPORT
-@interface RTCDataChannelConfiguration : NSObject
+@interface RTC_OBJC_TYPE (RTCDataChannelConfiguration) : NSObject
 
 /** Set to YES if ordered delivery is required. */
 @property(nonatomic, assign) BOOL isOrdered;

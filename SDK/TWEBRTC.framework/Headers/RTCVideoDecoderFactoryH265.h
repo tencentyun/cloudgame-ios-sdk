@@ -10,8 +10,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import "RTCMacros.h"
-#import "RTCVideoDecoderFactory.h"
+#import <TWEBRTC/RTCMacros.h>
+#import <TWEBRTC/RTCVideoDecoderFactory.h>
 
 RTC_OBJC_EXPORT
 API_AVAILABLE(ios(11.0))
