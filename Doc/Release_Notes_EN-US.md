@@ -1,4 +1,8 @@
 [中文文档](历史版本.md)
+### Version 3.7.1 (2025-8.5)
+Bug Fixes
+- Fix and optimize some known issues
+
 ### Version 3.7.0 (2025-8.1)
 Features
 - Optimize mic permission, request on-demand instead of during setup.

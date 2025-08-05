@@ -111,9 +111,16 @@
 /**
  * Set the rendering view for this session, and thus the SDK will render the streaming content to the view.
  *
- * @param renderView The rendering view to be set. This can be null to remove any existing renderView.
+ * @param renderView The rendering view to be set.
  */
 - (void)setRenderView:(TcrRenderView *_Nullable)renderView;
+
+/**
+ * Remove the rendering view for this session.
+ *
+ * @param renderView The rendering view to be removed.
+ */
+- (void)removeRenderView:(TcrRenderView *_Nullable)renderView;
 
 /**
  * Sets a video sink for this session. After that, the SDK will callback the decoded video frame data to the
