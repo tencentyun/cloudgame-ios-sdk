@@ -1,4 +1,9 @@
 [中文文档](历史版本.md)
+
+### Version 3.8.0 (2025-8.6)
+Features
+- TcrRenderView adds resetRenderState interface to reset the triggering of onFirstFrameRendered event.
+
 ### Version 3.7.1 (2025-8.5)
 Bug Fixes
 - Fix and optimize some known issues

@@ -32,4 +32,5 @@
 - (void)setTcrRenderViewObserver:(id<TcrRenderViewObserver>)Observer;
 - (void)resetVideoViewFrame;
 - (void)setEnablePinch:(BOOL)enablePinch;
+- (void)resetRenderState;
 @end
