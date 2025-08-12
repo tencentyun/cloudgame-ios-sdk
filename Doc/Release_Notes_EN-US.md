@@ -1,4 +1,8 @@
 [中文文档](历史版本.md)
+### Version 3.8.2 (2025-8.12)
+Bug Fixes
+- Fix and optimize some known issues
+
 ### Version 3.8.1 (2025-8.11)
 Bug Fixes
 - Fix and optimize some known issues
