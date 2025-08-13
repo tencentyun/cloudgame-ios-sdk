@@ -1,0 +1,503 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		112D167A2AD67A7F003C292E /* TCGDemoMultiSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 112D16792AD67A7F003C292E /* TCGDemoMultiSettingView.m */; };
+		11D9EB592A83734E0099CF95 /* AudioQueuePlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D9EB582A83734E0099CF95 /* AudioQueuePlay.m */; };
+		4D580E2A2ADD23BF00CE04DC /* TCGDemoAudioCapturor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D580E292ADD23BF00CE04DC /* TCGDemoAudioCapturor.m */; };
+		8A3A055A259AC9FB001E8A34 /* TCGDemoGameListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3A0559259AC9FB001E8A34 /* TCGDemoGameListView.m */; };
+		8A4F628B259C222600AA2DE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A4F6289259C222500AA2DE9 /* Main.storyboard */; };
+		8A4F6293259C268900AA2DE9 /* TCGDemoSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F6292259C268900AA2DE9 /* TCGDemoSettingView.m */; };
+		8A57E0DF259A0E70006980CB /* TCGDemoTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A57E0DE259A0E70006980CB /* TCGDemoTextField.m */; };
+		8A5EDB7E26806E4500B4C96F /* TCGDemoGameListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5EDB7D26806E4500B4C96F /* TCGDemoGameListVC.m */; };
+		8A7ECDE026A6660F0092A918 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7ECDDF26A666060092A918 /* libz.tbd */; };
+		8A7ECDE226A666300092A918 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7ECDE126A666170092A918 /* libc++.tbd */; };
+		8A7ECDE426A666380092A918 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7ECDE326A666380092A918 /* Security.framework */; };
+		8A7ECDE626A6663E0092A918 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7ECDE526A6663E0092A918 /* SystemConfiguration.framework */; };
+		8A7ECDE826A666450092A918 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7ECDE726A666450092A918 /* JavaScriptCore.framework */; };
+		8A863F7826830A9C0072417D /* TCGDemoExperienceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A863F7626830A9C0072417D /* TCGDemoExperienceVC.m */; };
+		8A863F7926830A9C0072417D /* TCGDemoExperienceInputText.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A863F7726830A9C0072417D /* TCGDemoExperienceInputText.m */; };
+		8A863F7C268314B70072417D /* TCGDemoUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A863F7B268314B70072417D /* TCGDemoUtils.m */; };
+		8A97C1CB258B9C7E005AA486 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A97C1CA258B9C7E005AA486 /* AppDelegate.m */; };
+		8A97C1D6258B9C80005AA486 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A97C1D5258B9C80005AA486 /* Assets.xcassets */; };
+		8A97C1DC258B9C80005AA486 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A97C1DB258B9C80005AA486 /* main.m */; };
+		8A97C216258BAC5A005AA486 /* TCGDemoGamePlayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A97C214258BAC5A005AA486 /* TCGDemoGamePlayVC.m */; };
+		8AA931492698371900409D56 /* TCGDemoRaidoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA931482698371900409D56 /* TCGDemoRaidoButton.m */; };
+		8AAD46BA2696F0D8007E9E9C /* TCGDemoPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD46B92696F0D8007E9E9C /* TCGDemoPickerView.m */; };
+		8AC0C3BF269E918900883D6C /* TCGDemoLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC0C3BE269E918900883D6C /* TCGDemoLoadingView.m */; };
+		8AE8AF6E26955B6E005FDF50 /* TCGDemoBitrateInputText.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8AF6D26955B6E005FDF50 /* TCGDemoBitrateInputText.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		11EFBC642AD7DBD4008E2C28 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		112D16782AD67A7F003C292E /* TCGDemoMultiSettingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCGDemoMultiSettingView.h; sourceTree = "<group>"; };
+		112D16792AD67A7F003C292E /* TCGDemoMultiSettingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCGDemoMultiSettingView.m; sourceTree = "<group>"; };
+		11D9EB572A83734E0099CF95 /* AudioQueuePlay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioQueuePlay.h; sourceTree = "<group>"; };
+		11D9EB582A83734E0099CF95 /* AudioQueuePlay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioQueuePlay.m; sourceTree = "<group>"; };
+		4D580E272ADD238600CE04DC /* TCGDemoAudioCapturor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCGDemoAudioCapturor.h; sourceTree = "<group>"; };
+		4D580E292ADD23BF00CE04DC /* TCGDemoAudioCapturor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCGDemoAudioCapturor.m; sourceTree = "<group>"; };
+		8A3A0558259AC9EC001E8A34 /* TCGDemoGameListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCGDemoGameListView.h; sourceTree = "<group>"; };
+		8A3A0559259AC9FB001E8A34 /* TCGDemoGameListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCGDemoGameListView.m; sourceTree = "<group>"; };
+		8A4F628A259C222500AA2DE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8A4F6291259C267100AA2DE9 /* TCGDemoSettingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCGDemoSettingView.h; sourceTree = "<group>"; };
+		8A4F6292259C268900AA2DE9 /* TCGDemoSettingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCGDemoSettingView.m; sourceTree = "<group>"; };
+		8A57E0DD259A0E2B006980CB /* TCGDemoTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCGDemoTextField.h; sourceTree = "<group>"; };
+		8A57E0DE259A0E70006980CB /* TCGDemoTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCGDemoTextField.m; sourceTree = "<group>"; };
+		8A5EDB7D26806E4500B4C96F /* TCGDemoGameListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCGDemoGameListVC.m; sourceTree = "<group>"; };
+		8A5EDB7F26806E5100B4C96F /* TCGDemoGameListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCGDemoGameListVC.h; sourceTree = "<group>"; };
+		8A7AEE7126A16BD300C04A2D /* TCGDemoInputDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCGDemoInputDelegate.h; sourceTree = "<group>"; };
+		8A7ECDDF26A666060092A918 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		8A7ECDE126A666170092A918 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		8A7ECDE326A666380092A918 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8A7ECDE526A6663E0092A918 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8A7ECDE726A666450092A918 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		8A863F7426830A9C0072417D /* TCGDemoExperienceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCGDemoExperienceVC.h; sourceTree = "<group>"; };
+		8A863F7526830A9C0072417D /* TCGDemoExperienceInputText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCGDemoExperienceInputText.h; sourceTree = "<group>"; };
+		8A863F7626830A9C0072417D /* TCGDemoExperienceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCGDemoExperienceVC.m; sourceTree = "<group>"; };
+		8A863F7726830A9C0072417D /* TCGDemoExperienceInputText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCGDemoExperienceInputText.m; sourceTree = "<group>"; };
+		8A863F7A268314A80072417D /* TCGDemoUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCGDemoUtils.h; sourceTree = "<group>"; };
+		8A863F7B268314B70072417D /* TCGDemoUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCGDemoUtils.m; sourceTree = "<group>"; };
+		8A97C1C6258B9C7E005AA486 /* TCRDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCRDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A97C1C9258B9C7E005AA486 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8A97C1CA258B9C7E005AA486 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8A97C1D5258B9C80005AA486 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8A97C1DA258B9C80005AA486 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A97C1DB258B9C80005AA486 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8A97C214258BAC5A005AA486 /* TCGDemoGamePlayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCGDemoGamePlayVC.m; sourceTree = "<group>"; };
+		8A97C215258BAC5A005AA486 /* TCGDemoGamePlayVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCGDemoGamePlayVC.h; sourceTree = "<group>"; };
+		8AA931472698370B00409D56 /* TCGDemoRaidoButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCGDemoRaidoButton.h; sourceTree = "<group>"; };
+		8AA931482698371900409D56 /* TCGDemoRaidoButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCGDemoRaidoButton.m; sourceTree = "<group>"; };
+		8AAD46B82696F08F007E9E9C /* TCGDemoPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCGDemoPickerView.h; sourceTree = "<group>"; };
+		8AAD46B92696F0D8007E9E9C /* TCGDemoPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCGDemoPickerView.m; sourceTree = "<group>"; };
+		8AC0C3BD269E917800883D6C /* TCGDemoLoadingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCGDemoLoadingView.h; sourceTree = "<group>"; };
+		8AC0C3BE269E918900883D6C /* TCGDemoLoadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCGDemoLoadingView.m; sourceTree = "<group>"; };
+		8AE8AF6C26955B5D005FDF50 /* TCGDemoBitrateInputText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCGDemoBitrateInputText.h; sourceTree = "<group>"; };
+		8AE8AF6D26955B6E005FDF50 /* TCGDemoBitrateInputText.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCGDemoBitrateInputText.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8A97C1C3258B9C7E005AA486 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A7ECDE426A666380092A918 /* Security.framework in Frameworks */,
+				8A7ECDE026A6660F0092A918 /* libz.tbd in Frameworks */,
+				8A7ECDE226A666300092A918 /* libc++.tbd in Frameworks */,
+				8A7ECDE626A6663E0092A918 /* SystemConfiguration.framework in Frameworks */,
+				8A7ECDE826A666450092A918 /* JavaScriptCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3C53EF10B3E076995A0C4598 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8A7ECDDE26A666060092A918 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8A7ECDE726A666450092A918 /* JavaScriptCore.framework */,
+				8A7ECDE526A6663E0092A918 /* SystemConfiguration.framework */,
+				8A7ECDE326A666380092A918 /* Security.framework */,
+				8A7ECDE126A666170092A918 /* libc++.tbd */,
+				8A7ECDDF26A666060092A918 /* libz.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8A863F7326830A9C0072417D /* experience */ = {
+			isa = PBXGroup;
+			children = (
+				8A863F7426830A9C0072417D /* TCGDemoExperienceVC.h */,
+				8A863F7626830A9C0072417D /* TCGDemoExperienceVC.m */,
+				8A863F7526830A9C0072417D /* TCGDemoExperienceInputText.h */,
+				8A863F7726830A9C0072417D /* TCGDemoExperienceInputText.m */,
+				8AE8AF6C26955B5D005FDF50 /* TCGDemoBitrateInputText.h */,
+				8AE8AF6D26955B6E005FDF50 /* TCGDemoBitrateInputText.m */,
+				8AAD46B82696F08F007E9E9C /* TCGDemoPickerView.h */,
+				8AAD46B92696F0D8007E9E9C /* TCGDemoPickerView.m */,
+				8AA931472698370B00409D56 /* TCGDemoRaidoButton.h */,
+				8AA931482698371900409D56 /* TCGDemoRaidoButton.m */,
+				8AC0C3BD269E917800883D6C /* TCGDemoLoadingView.h */,
+				8AC0C3BE269E918900883D6C /* TCGDemoLoadingView.m */,
+				8A7AEE7126A16BD300C04A2D /* TCGDemoInputDelegate.h */,
+			);
+			path = experience;
+			sourceTree = "<group>";
+		};
+		8A97C1BD258B9C7E005AA486 = {
+			isa = PBXGroup;
+			children = (
+				8A97C1C8258B9C7E005AA486 /* TCGDemo */,
+				8A97C1C7258B9C7E005AA486 /* Products */,
+				8A7ECDDE26A666060092A918 /* Frameworks */,
+				3C53EF10B3E076995A0C4598 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		8A97C1C7258B9C7E005AA486 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8A97C1C6258B9C7E005AA486 /* TCRDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8A97C1C8258B9C7E005AA486 /* TCGDemo */ = {
+			isa = PBXGroup;
+			children = (
+				8A863F7326830A9C0072417D /* experience */,
+				8A97C1C9258B9C7E005AA486 /* AppDelegate.h */,
+				8A97C1CA258B9C7E005AA486 /* AppDelegate.m */,
+				8A97C215258BAC5A005AA486 /* TCGDemoGamePlayVC.h */,
+				8A97C214258BAC5A005AA486 /* TCGDemoGamePlayVC.m */,
+				8A5EDB7F26806E5100B4C96F /* TCGDemoGameListVC.h */,
+				8A5EDB7D26806E4500B4C96F /* TCGDemoGameListVC.m */,
+				8A4F6291259C267100AA2DE9 /* TCGDemoSettingView.h */,
+				8A4F6292259C268900AA2DE9 /* TCGDemoSettingView.m */,
+				112D16782AD67A7F003C292E /* TCGDemoMultiSettingView.h */,
+				112D16792AD67A7F003C292E /* TCGDemoMultiSettingView.m */,
+				8A57E0DD259A0E2B006980CB /* TCGDemoTextField.h */,
+				8A57E0DE259A0E70006980CB /* TCGDemoTextField.m */,
+				8A3A0558259AC9EC001E8A34 /* TCGDemoGameListView.h */,
+				8A3A0559259AC9FB001E8A34 /* TCGDemoGameListView.m */,
+				8A863F7A268314A80072417D /* TCGDemoUtils.h */,
+				8A863F7B268314B70072417D /* TCGDemoUtils.m */,
+				8A97C1D5258B9C80005AA486 /* Assets.xcassets */,
+				8A97C1DA258B9C80005AA486 /* Info.plist */,
+				8A97C1DB258B9C80005AA486 /* main.m */,
+				8A4F6289259C222500AA2DE9 /* Main.storyboard */,
+				11D9EB572A83734E0099CF95 /* AudioQueuePlay.h */,
+				11D9EB582A83734E0099CF95 /* AudioQueuePlay.m */,
+				4D580E272ADD238600CE04DC /* TCGDemoAudioCapturor.h */,
+				4D580E292ADD23BF00CE04DC /* TCGDemoAudioCapturor.m */,
+			);
+			path = TCGDemo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8A97C1C5258B9C7E005AA486 /* TCRDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A97C1DF258B9C80005AA486 /* Build configuration list for PBXNativeTarget "TCRDemo" */;
+			buildPhases = (
+				8A97C1C2258B9C7E005AA486 /* Sources */,
+				8A97C1C3258B9C7E005AA486 /* Frameworks */,
+				8A97C1C4258B9C7E005AA486 /* Resources */,
+				11EFBC642AD7DBD4008E2C28 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TCRDemo;
+			productName = TCGDemo;
+			productReference = 8A97C1C6258B9C7E005AA486 /* TCRDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8A97C1BE258B9C7E005AA486 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1220;
+				TargetAttributes = {
+					8A97C1C5258B9C7E005AA486 = {
+						CreatedOnToolsVersion = 12.2;
+					};
+				};
+			};
+			buildConfigurationList = 8A97C1C1258B9C7E005AA486 /* Build configuration list for PBXProject "TCRDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8A97C1BD258B9C7E005AA486;
+			productRefGroup = 8A97C1C7258B9C7E005AA486 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8A97C1C5258B9C7E005AA486 /* TCRDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8A97C1C4258B9C7E005AA486 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A4F628B259C222600AA2DE9 /* Main.storyboard in Resources */,
+				8A97C1D6258B9C80005AA486 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8A97C1C2258B9C7E005AA486 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A5EDB7E26806E4500B4C96F /* TCGDemoGameListVC.m in Sources */,
+				8A863F7926830A9C0072417D /* TCGDemoExperienceInputText.m in Sources */,
+				8A97C216258BAC5A005AA486 /* TCGDemoGamePlayVC.m in Sources */,
+				8A863F7C268314B70072417D /* TCGDemoUtils.m in Sources */,
+				4D580E2A2ADD23BF00CE04DC /* TCGDemoAudioCapturor.m in Sources */,
+				8AC0C3BF269E918900883D6C /* TCGDemoLoadingView.m in Sources */,
+				8A4F6293259C268900AA2DE9 /* TCGDemoSettingView.m in Sources */,
+				8AA931492698371900409D56 /* TCGDemoRaidoButton.m in Sources */,
+				8A97C1CB258B9C7E005AA486 /* AppDelegate.m in Sources */,
+				11D9EB592A83734E0099CF95 /* AudioQueuePlay.m in Sources */,
+				8A97C1DC258B9C80005AA486 /* main.m in Sources */,
+				8AE8AF6E26955B6E005FDF50 /* TCGDemoBitrateInputText.m in Sources */,
+				112D167A2AD67A7F003C292E /* TCGDemoMultiSettingView.m in Sources */,
+				8AAD46BA2696F0D8007E9E9C /* TCGDemoPickerView.m in Sources */,
+				8A3A055A259AC9FB001E8A34 /* TCGDemoGameListView.m in Sources */,
+				8A57E0DF259A0E70006980CB /* TCGDemoTextField.m in Sources */,
+				8A863F7826830A9C0072417D /* TCGDemoExperienceVC.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8A4F6289259C222500AA2DE9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8A4F628A259C222500AA2DE9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8A97C1DD258B9C80005AA486 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		8A97C1DE258B9C80005AA486 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8A97C1E0258B9C80005AA486 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = TCGDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.tcrdemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		8A97C1E1258B9C80005AA486 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = TCGDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.tcrdemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8A97C1C1258B9C7E005AA486 /* Build configuration list for PBXProject "TCRDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A97C1DD258B9C80005AA486 /* Debug */,
+				8A97C1DE258B9C80005AA486 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A97C1DF258B9C80005AA486 /* Build configuration list for PBXNativeTarget "TCRDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A97C1E0258B9C80005AA486 /* Debug */,
+				8A97C1E1258B9C80005AA486 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8A97C1BE258B9C7E005AA486 /* Project object */;
+}
