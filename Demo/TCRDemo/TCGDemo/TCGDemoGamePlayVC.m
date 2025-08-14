@@ -605,8 +605,8 @@
             if ([status isEqualToString:@"close"]) {
                 [self onEnableLocalVideo:false];
             } else {
-                [self.session setLocalVideoProfile:720 height:1280 fps:30 minBitrate:1000 maxBitrate:15000 isFrontCamera:[status isEqualToString:@"open_front"] ? YES : NO];
                 [self onEnableLocalVideo:true];
+                [self.session setLocalVideoProfile:720 height:1280 fps:20 minBitrate:1000 maxBitrate:15000 isFrontCamera:[status isEqualToString:@"open_front"] ? YES : NO];
             }
             break;
         }
