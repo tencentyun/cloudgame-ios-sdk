@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>TcrSdkInstance Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">TcrSdk </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Tencent</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/createSessionWithParams:">- createSessionWithParams:</option>
+		
+		<option value="//api/name/destroySession:">- destroySession:</option>
+		
+		<option value="//api/name/getAndroidInstance">- getAndroidInstance</option>
+		
+		<option value="//api/name/setTcrConfig:error:">- setTcrConfig:error:</option>
+		
+		<option value="//api/name/updateToken:">- updateToken:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">TcrSdkInstance Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>TcrSdkInstance.h<br />TcrSdkInstance.m</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/setTcrConfig:error:" title="setTcrConfig:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setTcrConfig:error:">&ndash;&nbsp;setTcrConfig:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Set the AccessInfo and Token to TcrSdk</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setTcrConfig:(TcrConfig *)<em>tcrConfig</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tcrConfig</code></th>
+						<td><p>Session configuration information, which is obtained by the business backend calling the cloud API CreateAndroidInstancesAccessToken.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Set the AccessInfo and Token to TcrSdk</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSdkInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createSessionWithParams:" title="createSessionWithParams:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createSessionWithParams:">&ndash;&nbsp;createSessionWithParams:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a new <a href="../Classes/TcrSession.html">TcrSession</a> instance.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (TcrSession *)createSessionWithParams:(NSDictionary *)<em>params</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>Dictionary containing <a href="../Classes/TcrSession.html">TcrSession</a> configuration parameters.<br>
+Optional, the following key-value pairs can be selected:
+- @&ldquo;preferredCodec&rdquo;: Optional values are @&ldquo;H264&rdquo;, @&ldquo;H265&rdquo;, @&ldquo;VP8&rdquo;, and @&ldquo;VP9&rdquo;. Used to set the preferred codec.
+If this field is set, the session will try to use the preferred codec for communication. If the preferred codec is not available,
+other available codecs will be used. If this field is not set or the setting is invalid, the session will use the default codec.</p>
+
+<ul>
+<li><p>@&ldquo;preferredCodecList&rdquo;:  The value is an NSArray, which contains the optional values @&ldquo;H264&rdquo;, @&ldquo;H265&rdquo;, @&ldquo;VP8&rdquo;, and @&ldquo;VP9&rdquo;.
+Indicate preferred codecs, where the order of the elements in the list represents priority, such as index 0 being the highest priority
+preferred codec. If the set codecs cannot be selected for various reasons, other available codecs will be chosen.</p></li>
+<li><p>@&ldquo;idleThreshold&rdquo;: The idle detection threshold, that is, the duration of user inactivity. The unit is Millisecond. When this threshold is reached, the event <a href="../Constants/TcrEvent.html">TcrEvent</a>.CLIENT_IDLE will be triggered.</p></li>
+<li><p>@&ldquo;local_video&rdquo;: Optional value is of bool type. Used to enable the local camera.</p></li>
+<li><p>@&ldquo;local_audio&rdquo;: Optional value is of bool type. Used to enable the local microphone.</p></li>
+<li><p>@&ldquo;enableCustomAudioCapture&rdquo;:@{@&ldquo;sampleRate&rdquo;:NSInteger, @&ldquo;useStereoInput&rdquo;: BOOL}, enable custom audio capture and bring the sample rate
+and channel count of the custom captured audio (both parameters are required).
+e.g. @&ldquo;enableCustomAudioCapture&rdquo;:@{@&ldquo;sampleRate&rdquo;:@(48000), @&ldquo;useStereoInput&rdquo;:@(false)} means a sample rate of 48000 and mono data.
+In addition, to enable custom audio capture, you also need to set @&ldquo;local_audio&rdquo; to enable local audio upstream.</p></li>
+<li><p>@&ldquo;remoteDesktopResolution&rdquo;:@{@&ldquo;width&rdquo;:NSInteger , @&ldquo;height&rdquo;:NSInteger} ,Set the resolution of Cloud Desktop. If the cloud PC
+application is in full-screen mode, the resolution of the downstream video stream will also change accordingly.
+NOTE：This param  is only for PC application, and the mobile application is not supported.</p></li>
+</ul>
+</td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Newly created <a href="../Classes/TcrSession.html">TcrSession</a> instance, nil if creation fails.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Initializes and returns a new <a href="../Classes/TcrSession.html">TcrSession</a> object with the specified parameters.
+Returns a non-nil pointer on success, nil on failure. The caller is responsible for
+managing the returned session&rsquo;s lifecycle (automatically handled under ARC).</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSdkInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/destroySession:" title="destroySession:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/destroySession:">&ndash;&nbsp;destroySession:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Destroys a session object.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)destroySession:(TcrSession *)<em>session</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>Session object to destroy.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSdkInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getAndroidInstance" title="getAndroidInstance"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getAndroidInstance">&ndash;&nbsp;getAndroidInstance</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the <a href="../Classes/AndroidInstance.html">AndroidInstance</a> operator object.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AndroidInstance *)getAndroidInstance</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p><a href="../Classes/AndroidInstance.html">AndroidInstance</a> operator object, nil if uninitialized.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Returns the operator instance for interacting with cloud Android devices.
+Returns nil if the SDK client hasn&rsquo;t been properly initialized.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSdkInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateToken:" title="updateToken:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateToken:">&ndash;&nbsp;updateToken:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Updates access tokens for all instances.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)updateToken:(NSString *)<em>token</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>token</code></th>
+						<td><p>New access token string.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Bulk updates access tokens for all created instances. This operation takes
+immediate effect, and all subsequent requests will use the new token for authentication.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSdkInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2025 Tencent. All rights reserved. Updated: 2025-08-20</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
