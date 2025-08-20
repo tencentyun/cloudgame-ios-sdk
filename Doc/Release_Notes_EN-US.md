@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 3.9.0 (2025-8.20)
+Features
+- The new TcrSession sendCustomVideoPixelBuffer:rotation:captureTimeNsinterface is used to send custom captured video frames. This capability must be enabled and take effect through the enableCustomVideoCapture field in TcrSession initWithParams.
+
 ### Version 3.8.3 (2025-8.14)
 Bug Fixes
 - Fix and optimize some known issues

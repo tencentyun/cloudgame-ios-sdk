@@ -16,6 +16,7 @@
 #import "AudioQueuePlay.h"
 #import "TCGDemoAudioCapturor.h"
 #import <CoreMotion/CoreMotion.h>
+#import "video_capture/TCGCameraVideoCapturer.h"
 
 @interface TCGDemoGamePlayVC () <TcrSessionObserver, TCGDemoTextFieldDelegate, CustomDataChannelObserver, TCGDemoSettingViewDelegate, TCRLogDelegate,
     VideoSink, AudioSink, TcrRenderViewObserver, TCGDemoMultiSettingViewDelegate, UIGestureRecognizerDelegate>
@@ -50,8 +51,12 @@
 @property (nonatomic, assign) BOOL isFirstRender;
 @property (nonatomic, assign) BOOL isMobile;
 @property (strong, nonatomic) CMMotionManager *motionManager;
-
-
+@property (nonatomic, strong) TCGCameraVideoCapturer *videoCapturer;
+@property (nonatomic, assign) BOOL isFrontCamera;
+@property (nonatomic, assign) int captureWidth;
+@property (nonatomic, assign) int captureHeight;
+@property (nonatomic, assign) int captureFps;
+@property (nonatomic, assign) BOOL enableSendCustomVideo;
 @end
 
 @implementation TCGDemoGamePlayVC
@@ -67,6 +72,25 @@
         self.isFirstRender = NO;
         self.remoteSession = remoteSession;
         self.loadingView = (TCGDemoLoadingView *)loadingView;
+        self.captureWidth = 720;
+        self.captureHeight = 1280;
+        self.captureFps = 20;
+        [self.session setTcrSessionObserver:self];
+    }
+    return self;
+}
+
+- (instancetype)initWithPlay:(TcrSession *)play remoteSession:(NSString *)remoteSession loadingView:(UIView *)loadingView captureWidth:(int)captureWidth captureHeight:(int)captureHeight captureFps:(int)captureFps {
+    self = [super init];
+    if (self) {
+        self.session = play;
+        self.isFirstRender = NO;
+        self.remoteSession = remoteSession;
+        self.loadingView = (TCGDemoLoadingView *)loadingView;
+        self.captureWidth = captureWidth;
+        self.captureHeight = captureHeight;
+        self.captureFps = captureFps;
+        self.enableSendCustomVideo = true;
         [self.session setTcrSessionObserver:self];
     }
     return self;
@@ -349,6 +373,7 @@
         [self.debugLabTimer invalidate];
         [self.renderView removeFromSuperview];
         [self.audioPlayer stop];
+        [self.videoCapturer stopCapture];
         [self.session releaseSession];
         if (self.gameStopBlk) {
             self.gameStopBlk();
@@ -460,11 +485,25 @@
 }
 
 - (void)onEnableLocalVideo:(BOOL)enable {
+    if (_enableSendCustomVideo) {
+        if (enable) {
+            AVCaptureDevice *device = [self selectDevice];
+            AVCaptureDeviceFormat *format = [self selectFormatForDevice:device];
+            if (_videoCapturer == nil) {
+                _videoCapturer = [[TCGCameraVideoCapturer alloc] initWithTcrSession:self.session];
+            }
+            [_videoCapturer startCaptureWithDevice:device format:format fps:_captureFps];
+            
+        } else {
+            [_videoCapturer stopCapture];
+        }
+    }
+
     [self.session setEnableLocalVideo:enable];
 }
 
 - (void)onSwitchCamera:(BOOL)isFrontCamera {
-    [self.session setLocalVideoProfile:1280 height:720 fps:30 minBitrate:1000 maxBitrate:5000 isFrontCamera:isFrontCamera];
+    [self.session setLocalVideoProfile:_captureWidth height:_captureHeight fps:_captureFps minBitrate:1000 maxBitrate:5000 isFrontCamera:isFrontCamera];
 }
 
 - (void)onRotateView {
@@ -583,6 +622,7 @@
             break;
         case CLIENT_STATS:
             info = (NSDictionary *)eventData;
+            NSLog(@"ApiTest CLIENT_STATS: %@", info);
             [self updateDebugInfo:eventData];
             break;
         case CLIENT_IDLE:
@@ -605,8 +645,9 @@
             if ([status isEqualToString:@"close"]) {
                 [self onEnableLocalVideo:false];
             } else {
+                _isFrontCamera = [status isEqualToString:@"open_front"];
                 [self onEnableLocalVideo:true];
-                [self.session setLocalVideoProfile:720 height:1280 fps:20 minBitrate:1000 maxBitrate:15000 isFrontCamera:[status isEqualToString:@"open_front"] ? YES : NO];
+                [self.session setLocalVideoProfile:_captureWidth height:_captureHeight fps:_captureFps minBitrate:1000 maxBitrate:15000 isFrontCamera:_isFrontCamera];
             }
             break;
         }
@@ -725,6 +766,42 @@
         }
         NSLog(@"禁言结果:%d", retCode);
     }];
+}
+    
+- (AVCaptureDevice *)selectDevice {
+    AVCaptureDevicePosition position = _isFrontCamera ? AVCaptureDevicePositionFront : AVCaptureDevicePositionBack;
+    NSArray<AVCaptureDevice *> *captureDevices;
+    if (@available(iOS 10.0, *)) {
+        AVCaptureDeviceDiscoverySession *session =
+            [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:@[AVCaptureDeviceTypeBuiltInWideAngleCamera] mediaType:AVMediaTypeVideo
+                                                                    position:AVCaptureDevicePositionUnspecified];
+        captureDevices = session.devices;
+    } else {
+        captureDevices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
+    }
+    for (AVCaptureDevice *device in captureDevices) {
+        if (device.position == position) {
+            return device;
+        }
+    }
+    return captureDevices[0];
+}
+- (AVCaptureDeviceFormat *)selectFormatForDevice:(AVCaptureDevice *)device {
+    NSArray<AVCaptureDeviceFormat *> *formats = device.formats;
+    AVCaptureDeviceFormat *selectedFormat = nil;
+    int currentDiff = INT_MAX;
+    for (AVCaptureDeviceFormat *format in formats) {
+        CMVideoDimensions dimension = CMVideoFormatDescriptionGetDimensions(format.formatDescription);
+        FourCharCode pixelFormat = CMFormatDescriptionGetMediaSubType(format.formatDescription);
+        int diff = abs(_captureWidth - dimension.width) + abs(_captureHeight - dimension.height);
+        if (diff <= currentDiff) {
+            selectedFormat = format;
+            currentDiff = diff;
+        } else if (_videoCapturer != nil && diff == currentDiff && pixelFormat == [_videoCapturer preferredOutputPixelFormat]) {
+            selectedFormat = format;
+        }
+    }
+    return selectedFormat;
 }
 
 #pragma mark - 手势操作

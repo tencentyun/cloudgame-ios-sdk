@@ -32,6 +32,8 @@ RTC_OBJC_EXPORT
  */
 - (void)adaptOutputFormatToWidth:(int)width height:(int)height fps:(int)fps;
 
+- (void)sendCustomVideoPixelBuffer:(CVPixelBufferRef)pixelBuffer rotation:(int)rotation timestampNS:(int64_t)timestampNs;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -59,6 +59,11 @@
  *
  *         - @"local_audio": Optional value is of bool type. Used to enable the local microphone.
  *
+ *         - @"enableCustomVideoCapture": @{@"captureWidth":NSInteger, @"captureHeight":NSInteger, @"captureFps": NSInteger}, enable custom video capture and bring the resolution
+ *           and fps of the custom captured video (both parameters are required).
+ *           e.g. @"enableCustomVideoCapture":@{@"captureWidth":@(720), @"captureHeight":@(1280), @"captureFps":@(30)}
+ *           In addition, to enable custom video capture, you also need to set @"local_video" to enable local video upstream.
+ *
  *         - @"enableCustomAudioCapture":@{@"sampleRate":NSInteger, @"useStereoInput": BOOL}, enable custom audio capture and bring the sample rate
  *           and channel count of the custom captured audio (both parameters are required). 
  *           e.g. @"enableCustomAudioCapture":@{@"sampleRate":@(48000), @"useStereoInput":@(false)} means a sample rate of 48000 and mono data.
@@ -283,6 +288,21 @@
  * @return The result of send custom audio data.
  */
 - (BOOL)sendCustomAudioData:(NSData *_Nonnull)audioData captureTimeNs:(uint64_t)captureTimeNs;
+
+/**
+ * Send custom video data.
+ * <br>
+ * This method is only effective when custom video capture is enabled.
+ * <br>
+ * To enable custom video capture, see initWithParams
+ *
+ * @param pixelBuffer The non-null CVPixelBufferRef object containing the frame data to be sent.
+ * @param rotation The rotation of video frame.
+ * @param captureTimeNs The capture time of the video frame data in nanoseconds.
+ *
+ * @return The result of send custom video data.
+ */
+- (BOOL)sendCustomVideoPixelBuffer:(CVPixelBufferRef _Nonnull)pixelBuffer rotation:(RTCVideoRotation)rotation captureTimeNs:(uint64_t)captureTimeNs;
 
 //////////////////////////////////////////////// 云端外设交互 ////////////////////////////////////////////////
 

@@ -57,6 +57,11 @@ static NSString *kHostBaseUrl = @"https://code.cloud-gaming.myqcloud.com/";
     NSString *_userId;
     NSString *_experienceCode;
     BOOL _enableCustomAudioCapture;
+    BOOL _enableCustomVideoCapture;
+    int _captureWidth;
+    int _captureHeight;
+    int _captureFps;
+    BOOL _enableSendCustomVideo;
     NSNumber* _idleThreshold;
     
     UIButton *_startBtn;
@@ -168,6 +173,7 @@ static NSString *kHostBaseUrl = @"https://code.cloud-gaming.myqcloud.com/";
     _loadingView = [[TCGDemoLoadingView alloc] initWithFrame:self.view.bounds process:0];
     _loadingView.hidden = YES;
     _enableCustomAudioCapture = false;
+    _enableCustomVideoCapture = true;
 }
 
 - (void)initAdvanceInput {
@@ -523,9 +529,17 @@ static NSString *kHostBaseUrl = @"https://code.cloud-gaming.myqcloud.com/";
 }
 
 - (void)gotoGameplayVC:(NSString *)remoteSession {
-    TCGDemoGamePlayVC *subVC = [[TCGDemoGamePlayVC alloc] initWithPlay:self.session
-                                                         remoteSession:remoteSession
-                                                           loadingView:_loadingView];
+    TCGDemoGamePlayVC *subVC;
+    if (_enableCustomVideoCapture) {
+        subVC = [[TCGDemoGamePlayVC alloc] initWithPlay:self.session
+                                         remoteSession:remoteSession
+                                           loadingView:_loadingView captureWidth:_captureWidth captureHeight:_captureHeight captureFps:_captureFps];
+    } else {
+        subVC = [[TCGDemoGamePlayVC alloc] initWithPlay:self.session
+                                                             remoteSession:remoteSession
+                                                               loadingView:_loadingView];
+    }
+
     [self addChildViewController:subVC];
     subVC.view.frame = self.view.bounds;
     [self.view insertSubview:subVC.view belowSubview:_loadingView];
@@ -572,10 +586,15 @@ static NSString *kHostBaseUrl = @"https://code.cloud-gaming.myqcloud.com/";
         NSInteger channelCount = 1;
         [[TCGDemoAudioCapturor shared]configureWithSampleRate:sampleRate channelCount:channelCount dumpAudio:false];
         [tcrConfig setValue:@{@"sampleRate":@(sampleRate), @"useStereoInput":@(channelCount == 2)} forKey:@"enableCustomAudioCapture"];
-        self.session = [[TcrSession alloc] initWithParams:tcrConfig andDelegate:self];
-    } else {
-        self.session = [[TcrSession alloc] initWithParams:tcrConfig andDelegate:self];
     }
+    if (_enableCustomVideoCapture) {
+        _captureWidth = 720;
+        _captureHeight = 1280;
+        _captureFps = 30;
+        [tcrConfig setValue:@{@"captureWidth":@(_captureWidth), @"captureHeight":@(_captureHeight), @"captureFps":@(_captureFps)} forKey:@"enableCustomVideoCapture"];
+    }
+
+    self.session = [[TcrSession alloc] initWithParams:tcrConfig andDelegate:self];
 }
 
 - (void)stopGame {

@@ -19,6 +19,7 @@ typedef void(^tGameStopBlk)(void);
 
 - (instancetype)initWithPlay:(TcrSession *)play remoteSession:(NSString *)remoteSession;
 - (instancetype)initWithPlay:(TcrSession *)play remoteSession:(NSString *)remoteSession loadingView:(UIView *)loadingView;
+- (instancetype)initWithPlay:(TcrSession *)play remoteSession:(NSString *)remoteSession loadingView:(UIView *)loadingView captureWidth:(int)captureWidth captureHeight:(int)captureHeight captureFps:(int)captureFps;
 - (instancetype)initWithPlay:(TcrSession *)play experienceCode:(NSDictionary *)params;
 
 @end
