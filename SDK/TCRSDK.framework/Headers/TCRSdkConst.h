@@ -387,10 +387,9 @@ typedef NS_ENUM(NSUInteger, TcrEvent) {
     START_AUTO_LOGIN,
     
     /**
-     * @const CAI_TRANS_MESSAGE
-     * @brief 云端应用向客户端发送的透传消息事件。
+     * Message events sent by cloud applications to clients.
      *
-     * **数据结构示例**:
+     * The associated event data is of type NSDictionary in json format:
      * {@code
      * {
      *      package_name: String // 目标应用的包名（Android 应用标识）。
@@ -402,15 +401,14 @@ typedef NS_ENUM(NSUInteger, TcrEvent) {
      */
     CAI_TRANS_MESSAGE,
     /**
-     * @const CAI_SYSTEM_USAGE
-     * @brief 云端应用向客户端发送的负载信息
+     * Load information sent by the cloud application to the client
      *
-     * **数据结构示例**:
+     * The associated event data is of type NSDictionary in json format:
      * {@code
      * {
-     *      cpu_usage: number // CPU 使用率（百分比，浮点数）。
-     *      mem_usage: number // 内存使用量（百分比，浮点数）。
-     *      gpu_usage: number // GPU 使用率（百分比，浮点数）。
+     *      cpu_usage: number // CPU usage（%，float）
+     *      mem_usage: number // Memory usage（%，float）
+     *      gpu_usage: number // GPU usage（%，float）
      * }
      * }
      *
@@ -418,36 +416,33 @@ typedef NS_ENUM(NSUInteger, TcrEvent) {
      */
     CAI_SYSTEM_USAGE,
     /**
-     * @const CAI_CLIPBOARD
-     * @brief 云端剪贴板内容同步事件。当云端设备的剪贴板内容发生变化时，自动将最新文本下发至客户端。
+     * Remote clipboard content synchronization event. When the cloud device's clipboard content changes, the latest text is automatically sent to the client.
      *
-     * **数据结构示例**:
+     * The associated event data is of type NSDictionary in json format:
      * {@code
      * {
-     *     text: String // 剪贴板的最新文本内容
+     *     text: String // The latest text content of the clipboard
      * }
      * }
      */
     CAI_CLIPBOARD,
     /**
-     * @const CAI_NOTIFICATION
-     * @brief 云端通知消息下发事件，当云机上有新通知时，下发到客户端
+     * Remote notification message sending event, when there is a new notification on the cloud phone, it is sent to the client
      *
-     * **数据结构示例**:
+     * The associated event data is of type NSDictionary in json format:
      * {@code
      * {
-     *      package_name: String // 发送通知的应用包名。
-     *      title: String // 通知标题
-     *      text: String //通知正文
+     *      package_name: String // The package name of the application that sends the notification.
+     *      title: String // Notification title
+     *      text: String // Notification text
      * }
      * }
      */
     CAI_NOTIFICATION,
     /**
-     * @const CAI_IMAGE_EVENT
-     * @brief 定期回调云端实例的画面截图
+     * Periodically call back to capture screenshots of cloud instances
      *
-     * **数据结构示例**:
+     * The associated event data is of type NSDictionary in json format:
      * {@code
      * {
      *      instanceId1: sceenshotUrl1,
@@ -460,14 +455,13 @@ typedef NS_ENUM(NSUInteger, TcrEvent) {
      */
     CAI_IMAGE_EVENT,
     /**
-     * @const CAI_SYSTEM_STATUS
-     * @brief 每1s云端应用通过webrtc向客户端发送的系统状态
+     * Every 1 second, the cloud application sends the system status to the client via WebRTC
      *
-     * **数据结构示例**:
+     * The associated event data is of type NSDictionary in json format:
      * {@code
      * {
-     *      nav_visible: bool // 导航栏是否可见
-     *      music_volume: number // 系统媒体音量，范围0-100
+     *      nav_visible: bool // Is the navigation bar visible
+     *      music_volume: number // System media volume, range 0-100
      * }
      * }
      */

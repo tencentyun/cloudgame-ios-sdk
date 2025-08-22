@@ -9,7 +9,12 @@
 /* Begin PBXBuildFile section */
 		112D167A2AD67A7F003C292E /* TCGDemoMultiSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 112D16792AD67A7F003C292E /* TCGDemoMultiSettingView.m */; };
 		11D9EB592A83734E0099CF95 /* AudioQueuePlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D9EB582A83734E0099CF95 /* AudioQueuePlay.m */; };
-		4D580E2A2ADD23BF00CE04DC /* TCGDemoAudioCapturor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D580E292ADD23BF00CE04DC /* TCGDemoAudioCapturor.m */; };
+		4DD7C5B42E58B0020030D82E /* TCGDemoAudioCapturor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD7C5A62E58B0020030D82E /* TCGDemoAudioCapturor.m */; };
+		4DD7C5B52E58B0020030D82E /* AVCaptureSession+DevicePosition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DD7C5A92E58B0020030D82E /* AVCaptureSession+DevicePosition.mm */; };
+		4DD7C5B62E58B0020030D82E /* gcd_helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD7C5AB2E58B0020030D82E /* gcd_helpers.m */; };
+		4DD7C5B72E58B0020030D82E /* TCGCameraVideoCapturer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD7C5AD2E58B0020030D82E /* TCGCameraVideoCapturer.m */; };
+		4DD7C5B82E58B0020030D82E /* TCGDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD7C5AF2E58B0020030D82E /* TCGDispatcher.m */; };
+		4DD7C5B92E58B0020030D82E /* UIDevice+TCGDevice.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DD7C5B22E58B0020030D82E /* UIDevice+TCGDevice.mm */; };
 		8A3A055A259AC9FB001E8A34 /* TCGDemoGameListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3A0559259AC9FB001E8A34 /* TCGDemoGameListView.m */; };
 		8A4F628B259C222600AA2DE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A4F6289259C222500AA2DE9 /* Main.storyboard */; };
 		8A4F6293259C268900AA2DE9 /* TCGDemoSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F6292259C268900AA2DE9 /* TCGDemoSettingView.m */; };
@@ -51,8 +56,19 @@
 		112D16792AD67A7F003C292E /* TCGDemoMultiSettingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCGDemoMultiSettingView.m; sourceTree = "<group>"; };
 		11D9EB572A83734E0099CF95 /* AudioQueuePlay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioQueuePlay.h; sourceTree = "<group>"; };
 		11D9EB582A83734E0099CF95 /* AudioQueuePlay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioQueuePlay.m; sourceTree = "<group>"; };
-		4D580E272ADD238600CE04DC /* TCGDemoAudioCapturor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCGDemoAudioCapturor.h; sourceTree = "<group>"; };
-		4D580E292ADD23BF00CE04DC /* TCGDemoAudioCapturor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCGDemoAudioCapturor.m; sourceTree = "<group>"; };
+		4DD7C5A52E58B0020030D82E /* TCGDemoAudioCapturor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCGDemoAudioCapturor.h; sourceTree = "<group>"; };
+		4DD7C5A62E58B0020030D82E /* TCGDemoAudioCapturor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCGDemoAudioCapturor.m; sourceTree = "<group>"; };
+		4DD7C5A82E58B0020030D82E /* AVCaptureSession+DevicePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVCaptureSession+DevicePosition.h"; sourceTree = "<group>"; };
+		4DD7C5A92E58B0020030D82E /* AVCaptureSession+DevicePosition.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "AVCaptureSession+DevicePosition.mm"; sourceTree = "<group>"; };
+		4DD7C5AA2E58B0020030D82E /* gcd_helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gcd_helpers.h; sourceTree = "<group>"; };
+		4DD7C5AB2E58B0020030D82E /* gcd_helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gcd_helpers.m; sourceTree = "<group>"; };
+		4DD7C5AC2E58B0020030D82E /* TCGCameraVideoCapturer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCGCameraVideoCapturer.h; sourceTree = "<group>"; };
+		4DD7C5AD2E58B0020030D82E /* TCGCameraVideoCapturer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCGCameraVideoCapturer.m; sourceTree = "<group>"; };
+		4DD7C5AE2E58B0020030D82E /* TCGDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCGDispatcher.h; sourceTree = "<group>"; };
+		4DD7C5AF2E58B0020030D82E /* TCGDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCGDispatcher.m; sourceTree = "<group>"; };
+		4DD7C5B02E58B0020030D82E /* TCGDispatcher+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TCGDispatcher+Private.h"; sourceTree = "<group>"; };
+		4DD7C5B12E58B0020030D82E /* UIDevice+TCGDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+TCGDevice.h"; sourceTree = "<group>"; };
+		4DD7C5B22E58B0020030D82E /* UIDevice+TCGDevice.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIDevice+TCGDevice.mm"; sourceTree = "<group>"; };
 		8A3A0558259AC9EC001E8A34 /* TCGDemoGameListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCGDemoGameListView.h; sourceTree = "<group>"; };
 		8A3A0559259AC9FB001E8A34 /* TCGDemoGameListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCGDemoGameListView.m; sourceTree = "<group>"; };
 		8A4F628A259C222500AA2DE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -115,6 +131,33 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		4DD7C5A72E58B0020030D82E /* audio_capture */ = {
+			isa = PBXGroup;
+			children = (
+				4DD7C5A52E58B0020030D82E /* TCGDemoAudioCapturor.h */,
+				4DD7C5A62E58B0020030D82E /* TCGDemoAudioCapturor.m */,
+			);
+			path = audio_capture;
+			sourceTree = "<group>";
+		};
+		4DD7C5B32E58B0020030D82E /* video_capture */ = {
+			isa = PBXGroup;
+			children = (
+				4DD7C5A82E58B0020030D82E /* AVCaptureSession+DevicePosition.h */,
+				4DD7C5A92E58B0020030D82E /* AVCaptureSession+DevicePosition.mm */,
+				4DD7C5AA2E58B0020030D82E /* gcd_helpers.h */,
+				4DD7C5AB2E58B0020030D82E /* gcd_helpers.m */,
+				4DD7C5AC2E58B0020030D82E /* TCGCameraVideoCapturer.h */,
+				4DD7C5AD2E58B0020030D82E /* TCGCameraVideoCapturer.m */,
+				4DD7C5AE2E58B0020030D82E /* TCGDispatcher.h */,
+				4DD7C5AF2E58B0020030D82E /* TCGDispatcher.m */,
+				4DD7C5B02E58B0020030D82E /* TCGDispatcher+Private.h */,
+				4DD7C5B12E58B0020030D82E /* UIDevice+TCGDevice.h */,
+				4DD7C5B22E58B0020030D82E /* UIDevice+TCGDevice.mm */,
+			);
+			path = video_capture;
+			sourceTree = "<group>";
+		};
 		8A7ECDDE26A666060092A918 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +211,8 @@
 		8A97C1C8258B9C7E005AA486 /* TCGDemo */ = {
 			isa = PBXGroup;
 			children = (
+				4DD7C5A72E58B0020030D82E /* audio_capture */,
+				4DD7C5B32E58B0020030D82E /* video_capture */,
 				8A863F7326830A9C0072417D /* experience */,
 				8A97C1C9258B9C7E005AA486 /* AppDelegate.h */,
 				8A97C1CA258B9C7E005AA486 /* AppDelegate.m */,
@@ -191,8 +236,6 @@
 				8A4F6289259C222500AA2DE9 /* Main.storyboard */,
 				11D9EB572A83734E0099CF95 /* AudioQueuePlay.h */,
 				11D9EB582A83734E0099CF95 /* AudioQueuePlay.m */,
-				4D580E272ADD238600CE04DC /* TCGDemoAudioCapturor.h */,
-				4D580E292ADD23BF00CE04DC /* TCGDemoAudioCapturor.m */,
 			);
 			path = TCGDemo;
 			sourceTree = "<group>";
@@ -268,9 +311,14 @@
 			files = (
 				8A5EDB7E26806E4500B4C96F /* TCGDemoGameListVC.m in Sources */,
 				8A863F7926830A9C0072417D /* TCGDemoExperienceInputText.m in Sources */,
+				4DD7C5B82E58B0020030D82E /* TCGDispatcher.m in Sources */,
+				4DD7C5B62E58B0020030D82E /* gcd_helpers.m in Sources */,
+				4DD7C5B72E58B0020030D82E /* TCGCameraVideoCapturer.m in Sources */,
 				8A97C216258BAC5A005AA486 /* TCGDemoGamePlayVC.m in Sources */,
 				8A863F7C268314B70072417D /* TCGDemoUtils.m in Sources */,
-				4D580E2A2ADD23BF00CE04DC /* TCGDemoAudioCapturor.m in Sources */,
+				4DD7C5B42E58B0020030D82E /* TCGDemoAudioCapturor.m in Sources */,
+				4DD7C5B92E58B0020030D82E /* UIDevice+TCGDevice.mm in Sources */,
+				4DD7C5B52E58B0020030D82E /* AVCaptureSession+DevicePosition.mm in Sources */,
 				8AC0C3BF269E918900883D6C /* TCGDemoLoadingView.m in Sources */,
 				8A4F6293259C268900AA2DE9 /* TCGDemoSettingView.m in Sources */,
 				8AA931492698371900409D56 /* TCGDemoRaidoButton.m in Sources */,

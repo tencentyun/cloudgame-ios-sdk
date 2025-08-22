@@ -1,5 +1,6 @@
 #import "TCGDemoAudioCapturor.h"
 #import <os/lock.h>
+#import <AVFoundation/AVFoundation.h>
 
 static const UInt32 kInputBus = 1;
 static const UInt32 kOutputBus = 0;
@@ -62,6 +63,21 @@ static const NSUInteger kMaxBufferSize = 2048;
     
     if (!_audioUnit) {
         [self _setupAudioUnit]; // 延迟初始化
+    }
+    NSError *error = nil;
+    
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord
+                                         withOptions:AVAudioSessionCategoryOptionAllowBluetooth | AVAudioSessionCategoryOptionDefaultToSpeaker
+                                           error:&error];
+    if (error) {
+        NSLog(@"AVAudioSession setCategory failed");
+        return;
+    }
+    
+    [[AVAudioSession sharedInstance] setActive:YES error:&error];
+    if (error) {
+        NSLog(@"AVAudioSession setActive failed");
+        return;
     }
     
     OSStatus status = AudioOutputUnitStart(_audioUnit);

@@ -14,7 +14,7 @@
 #import "TCGDemoGamePlayVC.h"
 #import "TCGDemoLoadingView.h"
 #import "TCGDemoInputDelegate.h"
-#import "../TCGDemoAudioCapturor.h"
+#import "../audio_capture/TCGDemoAudioCapturor.h"
 #import <AVFoundation/AVFoundation.h>
 
 
@@ -172,7 +172,7 @@ static NSString *kHostBaseUrl = @"https://code.cloud-gaming.myqcloud.com/";
     
     _loadingView = [[TCGDemoLoadingView alloc] initWithFrame:self.view.bounds process:0];
     _loadingView.hidden = YES;
-    _enableCustomAudioCapture = false;
+    _enableCustomAudioCapture = true;
     _enableCustomVideoCapture = true;
 }
 
@@ -533,7 +533,7 @@ static NSString *kHostBaseUrl = @"https://code.cloud-gaming.myqcloud.com/";
     if (_enableCustomVideoCapture) {
         subVC = [[TCGDemoGamePlayVC alloc] initWithPlay:self.session
                                          remoteSession:remoteSession
-                                           loadingView:_loadingView captureWidth:_captureWidth captureHeight:_captureHeight captureFps:_captureFps];
+                                            loadingView:_loadingView enableSendCustomVideo:_enableCustomVideoCapture enableSendCustomAudio:_enableCustomAudioCapture captureWidth:_captureWidth captureHeight:_captureHeight captureFps:_captureFps];
     } else {
         subVC = [[TCGDemoGamePlayVC alloc] initWithPlay:self.session
                                                              remoteSession:remoteSession

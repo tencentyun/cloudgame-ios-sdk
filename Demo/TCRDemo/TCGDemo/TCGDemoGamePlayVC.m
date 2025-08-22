@@ -57,6 +57,7 @@
 @property (nonatomic, assign) int captureHeight;
 @property (nonatomic, assign) int captureFps;
 @property (nonatomic, assign) BOOL enableSendCustomVideo;
+@property (nonatomic, assign) BOOL enableSendCustomAudio;
 @end
 
 @implementation TCGDemoGamePlayVC
@@ -80,7 +81,7 @@
     return self;
 }
 
-- (instancetype)initWithPlay:(TcrSession *)play remoteSession:(NSString *)remoteSession loadingView:(UIView *)loadingView captureWidth:(int)captureWidth captureHeight:(int)captureHeight captureFps:(int)captureFps {
+- (instancetype)initWithPlay:(TcrSession *)play remoteSession:(NSString *)remoteSession loadingView:(UIView *)loadingView enableSendCustomVideo:(BOOL)enableSendCustomVideo enableSendCustomAudio:(BOOL)enableSendCustomAudio captureWidth:(int)captureWidth captureHeight:(int)captureHeight captureFps:(int)captureFps; {
     self = [super init];
     if (self) {
         self.session = play;
@@ -90,7 +91,8 @@
         self.captureWidth = captureWidth;
         self.captureHeight = captureHeight;
         self.captureFps = captureFps;
-        self.enableSendCustomVideo = true;
+        self.enableSendCustomVideo = enableSendCustomVideo;
+        self.enableSendCustomAudio = enableSendCustomAudio;
         [self.session setTcrSessionObserver:self];
     }
     return self;
@@ -154,6 +156,15 @@
     //    self.imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     //    [self.view addSubview:self.imageView];
     self.isMobile = NO;  // 云端应用为手机应用还是windows应用
+    
+    [[TCGDemoAudioCapturor shared]setAudioDataHandler:^(NSData * _Nonnull data, uint64_t timestamp) {
+        
+        if ([self.session sendCustomAudioData:data captureTimeNs:timestamp]) {
+            NSLog(@"send custom audio data");
+        } else {
+            NSLog(@"send custom audio data failed.");
+        }
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -481,6 +492,13 @@
 }
 
 - (void)onEnableLocalAudio:(BOOL)enable {
+    if (_enableSendCustomAudio) {
+        if (enable) {
+            [[TCGDemoAudioCapturor shared] startCapture];
+        } else {
+            [[TCGDemoAudioCapturor shared] stopCapture];
+        }
+    }
     [self.session setEnableLocalAudio:enable];
 }
 
