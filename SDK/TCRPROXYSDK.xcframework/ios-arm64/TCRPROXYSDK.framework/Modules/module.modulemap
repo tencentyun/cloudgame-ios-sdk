@@ -1,0 +1,6 @@
+framework module TCRPROXYSDK {
+  umbrella header "TCRPROXYSDK.h"
+  export *
+
+  module * { export * }
+}

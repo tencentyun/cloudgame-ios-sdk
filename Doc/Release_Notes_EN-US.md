@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 3.10.0 (2025-8.30)
+Features
+- Pass proxy relay information through the PROXY_RELAY_AVAILABLE event.
+
 ### Version 3.9.1 (2025-8.2)
 Bug Fixes
 - Fix and optimize some known issues
