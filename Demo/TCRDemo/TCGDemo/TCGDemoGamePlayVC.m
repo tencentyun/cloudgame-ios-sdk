@@ -17,6 +17,7 @@
 #import "TCGDemoAudioCapturor.h"
 #import <CoreMotion/CoreMotion.h>
 #import "video_capture/TCGCameraVideoCapturer.h"
+#import <TCRPROXYSDK/Proxy.h>
 
 @interface TCGDemoGamePlayVC () <TcrSessionObserver, TCGDemoTextFieldDelegate, CustomDataChannelObserver, TCGDemoSettingViewDelegate, TCRLogDelegate,
     VideoSink, AudioSink, TcrRenderViewObserver, TCGDemoMultiSettingViewDelegate, UIGestureRecognizerDelegate>
@@ -371,6 +372,16 @@
 }
 
 #pragma mark--- TCGDemoSettingViewDelegate ---
+- (void)onStartProxy{
+    [[Proxy sharedInstance] startProxy];
+    NSLog(@"onStartProxy");
+}
+
+- (void)onStopProxy{
+    [[Proxy sharedInstance] stopProxy];
+    NSLog(@"onStopProxy");
+}
+
 - (void)settingBtnClick:(id)sender {
     self.settingView.hidden = !self.settingView.isHidden;
 }
@@ -673,6 +684,12 @@
             info = (NSDictionary *)eventData;
             NSLog(@"ApiTest 麦克风状态切换:%@", info);
             [self onEnableLocalAudio:[info[@"status"] isEqualToString:@"open"]];
+            break;
+        }
+        case PROXY_RELAY_AVAILABLE: {
+            NSLog(@"ApiTest 收到代理初始化消息:%@", (NSString *)eventData);
+            BOOL ok = [[Proxy sharedInstance] initWithRelayInfoString: (NSString *)eventData];
+            NSLog(@"ProxyManager 初始化Proxy %@", ok ? @"成功" : @"失败");
             break;
         }
 

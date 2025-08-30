@@ -121,6 +121,13 @@ typedef NS_ENUM(NSUInteger, TcrEvent) {
      */
     CLIENT_STATS,
     /**
+    * This event indicates that an proxy relay endpoint is ready. <br>
+    *
+    * The associated event data is of type String and represents the relay info which is further used as a
+    * parameter to start proxy.
+    */
+    PROXY_RELAY_AVAILABLE,
+    /**
      * This event indicates that an openable url link was clicked. <br>
      *
      * The associated event data is NSString (the url);

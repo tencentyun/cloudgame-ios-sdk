@@ -47,6 +47,8 @@ typedef NS_ENUM(NSInteger, TcrKeyboardCode) {
 - (void)enableCoreMotion:(BOOL)enable;
 
 - (void)onKeyboard:(int)keycode;
+- (void)onStartProxy;
+- (void)onStopProxy;
 
 @end
 
