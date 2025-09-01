@@ -24,7 +24,6 @@
 
 @property (nonatomic, assign) CGFloat scaleValue;
 @property (nonatomic, assign) BOOL enablePinch;
-@property (nonatomic, assign) UIEdgeInsets moveInsets;
 @property (nonatomic, assign) UIInterfaceOrientation videoOrientation;
 @property (nonatomic, assign) BOOL enableRender;
 @property (nonatomic, weak) id<TcrRenderViewObserver> Observer;
