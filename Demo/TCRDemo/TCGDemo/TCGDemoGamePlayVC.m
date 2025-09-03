@@ -15,6 +15,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "AudioQueuePlay.h"
 #import "TCGDemoAudioCapturor.h"
+#import <TCRVkey/TCRVKeyGamepad.h>
 #import <CoreMotion/CoreMotion.h>
 #import "video_capture/TCGCameraVideoCapturer.h"
 #import <TCRPROXYSDK/Proxy.h>
@@ -50,6 +51,7 @@
 @property (nonatomic, strong) PcTouchView *pcTouchView;
 @property (nonatomic, strong) MobileTouchView *mobileTouchView;
 @property (nonatomic, assign) BOOL isFirstRender;
+@property (nonatomic, strong) TCRVKeyGamepad *gamepad;
 @property (nonatomic, assign) BOOL isMobile;
 @property (strong, nonatomic) CMMotionManager *motionManager;
 @property (nonatomic, strong) TCGCameraVideoCapturer *videoCapturer;
@@ -152,6 +154,7 @@
     [self.renderView addSubview:self.mobileTouchView];
     [TcrSdkInstance setLogger:self withMinLevel:TCRLogLevelInfo];
     [self.session setRenderView:_renderView];
+    [self.renderView addSubview:self.gamepad];
     [self.renderView setTcrRenderViewObserver:self];
     //    [self.session setVideoSink:self];
     //    self.imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
@@ -251,6 +254,11 @@
         [[MobileTouchView alloc] initWithFrame:CGRectMake(0, 0, self.videoRenderFrame.size.width, self.videoRenderFrame.size.height)
                                        session:self.session];
     self.mobileTouchView.hidden = NO;
+
+    // 虚拟按键视图加载
+    self.gamepad = [[TCRVKeyGamepad alloc] initWithFrame:self.view.frame session:self.session];
+    [self.gamepad showKeyGamepad:[self readJsonFromFile:@"tcg_default_ps4"]];
+    self.gamepad.hidden = YES;
 }
 
 - (void)initSettingView {
@@ -372,6 +380,7 @@
 }
 
 #pragma mark--- TCGDemoSettingViewDelegate ---
+
 - (void)onStartProxy{
     [[Proxy sharedInstance] startProxy];
     NSLog(@"onStartProxy");
@@ -511,6 +520,16 @@
         }
     }
     [self.session setEnableLocalAudio:enable];
+}
+
+- (void)openGamepad:(BOOL)isOpen {
+    if (isOpen) {
+        [[self.session getGamepad] connectGamepad];
+        self.gamepad.hidden = NO;
+    } else {
+        [[self.session getGamepad] disconnectGamepad];
+        self.gamepad.hidden = YES;
+    }
 }
 
 - (void)onEnableLocalVideo:(BOOL)enable {

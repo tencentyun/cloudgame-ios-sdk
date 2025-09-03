@@ -34,6 +34,7 @@
 @property (nonatomic, strong) UIButton *enableLocalVideoBtn;
 @property (nonatomic, strong) UIButton *switchCamera;
 @property (nonatomic, strong) UIButton *patseTextBtn;
+@property (nonatomic, strong) UIButton *toggleGamepadBtn;
 @property (nonatomic, strong) UIButton *changeResBtn;
 @property (nonatomic, strong) UIButton *createDCBtn;
 @property (nonatomic, strong) UIButton *sendDCDataBtn;
@@ -133,6 +134,7 @@
     self.startProxyBtn = [self createBtnFrame:CGRectMake(left + 10, 380, 70, 25) title:@"开始代理"];
     self.stopProxyBtn = [self createBtnFrame:CGRectMake(left + 90, 380, 70, 25) title:@"停止代理"];
 
+
     self.capsLockBtn = [self createBtnFrame:CGRectMake(left + 90, 220, 70, 25) title:@"查询大写"];
     self.touchViewBtn = [self createBtnFrame:CGRectMake(left + 90, 260, 70, 25) title:@"禁用触屏"];
     self.changeResBtn = [self createBtnFrame:CGRectMake(left + 90, 300, 70, 25) title:@"改变分辨率"];
@@ -140,6 +142,7 @@
     self.enableLocalVideoBtn = [self createBtnFrame:CGRectMake(left + 170, 220, 70, 25) title:@"开摄像头"];
     self.sensorBtn = [self createBtnFrame:CGRectMake(left + 170, 260, 70, 25) title:@"开传感器"];
     self.createDCBtn = [self createBtnFrame:CGRectMake(left + 170, 300, 70, 25) title:@"创建数据通道"];
+    self.toggleGamepadBtn = [self createBtnFrame:CGRectMake(left + 250, 220, 70, 25) title:@"开启手柄"];
 
     self.restartBtn = [self createBtnFrame:CGRectMake(selfWidth - 80, 80, 70, 25) title:@"重启游戏"];
     self.pauseBtn = [self createBtnFrame:CGRectMake(selfWidth - 80, 120, 70, 25) title:@"挂起游戏"];
@@ -177,6 +180,7 @@
     [self addSubview:self.bitrateBtn];
     [self addSubview:self.enableLocalAudioBtn];
     [self addSubview:self.enableLocalVideoBtn];
+    [self addSubview:self.toggleGamepadBtn];
     [self addSubview:self.switchCamera];
     [self addSubview:self.changeResBtn];
     [self addSubview:self.patseTextBtn];
@@ -336,6 +340,15 @@
         [self.delegate onStartProxy];
     } else if (sender == self.stopProxyBtn) {
         [self.delegate onStopProxy];
+    } else if (sender == self.toggleGamepadBtn) {
+        NSString *titleText = @"关闭手柄";
+        BOOL enable = YES;
+        if ([self.toggleGamepadBtn.titleLabel.text isEqualToString:titleText]) {
+            titleText = @"开启手柄";
+            enable = NO;
+        }
+        [self.toggleGamepadBtn setTitle:titleText forState:UIControlStateNormal];
+        [self.delegate openGamepad:enable];
     }
 }
 

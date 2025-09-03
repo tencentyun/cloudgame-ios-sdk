@@ -5,4 +5,5 @@ target 'TCRDemo' do
   use_frameworks!
   pod 'TCRSDK', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git"
   pod 'TCRPROXYSDK', :git => 'https://github.com/tencentyun/cloudgame-ios-sdk.git', :tag => 'TCRPROXYSDK/1.0.0'
+  pod 'TCRVKey', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git"
 end
