@@ -541,7 +541,7 @@
                 _videoCapturer = [[TCGCameraVideoCapturer alloc] initWithTcrSession:self.session];
             }
             [_videoCapturer startCaptureWithDevice:device format:format fps:_captureFps];
-            
+
         } else {
             [_videoCapturer stopCapture];
         }
@@ -604,7 +604,7 @@
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss.SSS"];
     [formatter setTimeZone:[NSTimeZone localTimeZone]];
     NSString *timestamp = [formatter stringFromDate:[NSDate date]];
-    
+
     switch (logLevel) {
         case TCRLogLevelDebug:
             NSLog(@"[TCRSDK] %@ [DEBUG]: %@", timestamp, log);
@@ -618,7 +618,7 @@
         case TCRLogLevelError:
             NSLog(@"[TCRSDK] %@ [ERROR]: %@", timestamp, log);
             break;
-            
+
         default:
             break;
     }
@@ -630,10 +630,15 @@
     NSArray *array;
     CGRect rect;
     switch (event) {
-        case STATE_CONNECTED:
+        case STATE_CONNECTED: {
+            NSLog(@"ApiTest STATE_CONNECTED:%@", (NSString *)eventData);
             NSLog(@"requestId = %@", [_session getRequestId]);
-            [self showToast:@"连接成功"];
+            dispatch_async(dispatch_get_main_queue(), ^{
+              [self showToast:@"连接成功"];
+              self.pcTouchView.hidden = NO;
+            });
             break;
+        }
         case STATE_RECONNECTING:
             [self showToast:@"重连中"];
             break;
@@ -662,12 +667,6 @@
         case MULTI_USER_ROLE_APPLY:
             NSLog(@"ApiTest 收到坐席请求:%@", (NSString *)eventData);
             break;
-        case CURSOR_IMAGE_INFO:
-            info = (NSDictionary *)eventData;
-            array = info[@"imageFrame"];
-            rect = CGRectMake([array[0] floatValue], [array[1] floatValue], [array[2] floatValue], [array[3] floatValue]);
-            [self.pcTouchView setCursorImage:info[@"image"] andRemoteFrame:rect];
-            break;
         case CLIENT_STATS:
             info = (NSDictionary *)eventData;
             NSLog(@"ApiTest CLIENT_STATS: %@", info);
@@ -683,9 +682,10 @@
                 [self checkKBOpen];
             }
             break;
-        case GAME_START_COMPLETE:
+        case GAME_START_COMPLETE: {
             NSLog(@"ApiTest 游戏拉起:%@", (NSString *)eventData);
             break;
+        }
         case CAMERA_STATUS_CHANGED: {
             info = (NSDictionary *)eventData;
             NSLog(@"ApiTest 摄像头状态切换:%@", info);
@@ -712,6 +712,18 @@
             break;
         }
 
+        case CURSOR_STATE_CHANGE: {
+            NSLog(@"ApiTest CURSOR_STATE_CHANGE:%@", (NSString *)eventData);
+            [self.pcTouchView setCursorTouchMode:TCRMouseCursorTouchMode_RelativeTouch];
+            [self.pcTouchView setCursorIsShow:[eventData boolValue]];
+            break;
+        }
+        case CURSOR_IMAGE_INFO:
+            info = (NSDictionary *)eventData;
+            array = info[@"imageFrame"];
+            rect = CGRectMake([array[0] floatValue], [array[1] floatValue], [array[2] floatValue], [array[3] floatValue]);
+            [self.pcTouchView setCursorImage:info[@"image"] andRemoteFrame:rect];
+            break;
         default:
             break;
     }
@@ -784,7 +796,7 @@
     __weak typeof(self) weakSelf = self;
     NSData *data1 = data.data;
     dispatch_async(_audioPlayerQueue, ^{
-        [weakSelf.audioPlayer playWithData:data1];
+      [weakSelf.audioPlayer playWithData:data1];
     });
 }
 #pragma mark--- 多人互动 ---
