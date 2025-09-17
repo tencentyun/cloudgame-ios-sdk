@@ -18,7 +18,6 @@
 #import <TCRVkey/TCRVKeyGamepad.h>
 #import <CoreMotion/CoreMotion.h>
 #import "video_capture/TCGCameraVideoCapturer.h"
-#import <TCRPROXYSDK/Proxy.h>
 
 @interface TCGDemoGamePlayVC () <TcrSessionObserver, TCGDemoTextFieldDelegate, CustomDataChannelObserver, TCGDemoSettingViewDelegate, TCRLogDelegate,
     VideoSink, AudioSink, TcrRenderViewObserver, TCGDemoMultiSettingViewDelegate, UIGestureRecognizerDelegate>
@@ -381,16 +380,6 @@
 
 #pragma mark--- TCGDemoSettingViewDelegate ---
 
-- (void)onStartProxy{
-    [[Proxy sharedInstance] startProxy];
-    NSLog(@"onStartProxy");
-}
-
-- (void)onStopProxy{
-    [[Proxy sharedInstance] stopProxy];
-    NSLog(@"onStopProxy");
-}
-
 - (void)settingBtnClick:(id)sender {
     self.settingView.hidden = !self.settingView.isHidden;
 }
@@ -705,13 +694,6 @@
             [self onEnableLocalAudio:[info[@"status"] isEqualToString:@"open"]];
             break;
         }
-        case PROXY_RELAY_AVAILABLE: {
-            NSLog(@"ApiTest 收到代理初始化消息:%@", (NSString *)eventData);
-            BOOL ok = [[Proxy sharedInstance] initWithRelayInfoString: (NSString *)eventData];
-            NSLog(@"ProxyManager 初始化Proxy %@", ok ? @"成功" : @"失败");
-            break;
-        }
-
         case CURSOR_STATE_CHANGE: {
             NSLog(@"ApiTest CURSOR_STATE_CHANGE:%@", (NSString *)eventData);
             [self.pcTouchView setCursorTouchMode:TCRMouseCursorTouchMode_RelativeTouch];

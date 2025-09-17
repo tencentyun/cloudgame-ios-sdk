@@ -43,8 +43,6 @@
 @property (nonatomic, strong) UIButton *sendMenuKeyBtn;
 @property (nonatomic, strong) UIButton *sendVolumeUpKeyBtn;
 @property (nonatomic, strong) UIButton *sendVolumeDownKeyBtn;
-@property (nonatomic, strong) UIButton *startProxyBtn;
-@property (nonatomic, strong) UIButton *stopProxyBtn;
 @property (nonatomic, strong) UILabel *allInfo;
 @property (nonatomic, assign) BOOL isFrontCamera;
 
@@ -131,9 +129,6 @@
     self.sendMenuKeyBtn = [self createBtnFrame:CGRectMake(left + 170, 340, 70, 25) title:@"菜单键"];
     self.sendVolumeUpKeyBtn = [self createBtnFrame:CGRectMake(left + 250, 340, 70, 25) title:@"音量加"];
     self.sendVolumeDownKeyBtn = [self createBtnFrame:CGRectMake(left + 250, 380, 70, 25) title:@"音量减"];
-    self.startProxyBtn = [self createBtnFrame:CGRectMake(left + 10, 380, 70, 25) title:@"开始代理"];
-    self.stopProxyBtn = [self createBtnFrame:CGRectMake(left + 90, 380, 70, 25) title:@"停止代理"];
-
 
     self.capsLockBtn = [self createBtnFrame:CGRectMake(left + 90, 220, 70, 25) title:@"查询大写"];
     self.touchViewBtn = [self createBtnFrame:CGRectMake(left + 90, 260, 70, 25) title:@"禁用触屏"];
@@ -192,8 +187,6 @@
     [self addSubview:self.sendMenuKeyBtn];
     [self addSubview:self.sendVolumeUpKeyBtn];
     [self addSubview:self.sendVolumeDownKeyBtn];
-    [self addSubview:self.startProxyBtn];
-    [self addSubview:self.stopProxyBtn];
 }
 
 - (void)controlBtnClick:(id)sender {
@@ -336,10 +329,6 @@
         [self.delegate onKeyboard:KEYCODE_VOLUME_UP];
     } else if (sender == self.sendVolumeDownKeyBtn) {
         [self.delegate onKeyboard:KEYCODE_VOLUME_DOWN];
-    } else if (sender == self.startProxyBtn) {
-        [self.delegate onStartProxy];
-    } else if (sender == self.stopProxyBtn) {
-        [self.delegate onStopProxy];
     } else if (sender == self.toggleGamepadBtn) {
         NSString *titleText = @"关闭手柄";
         BOOL enable = YES;
