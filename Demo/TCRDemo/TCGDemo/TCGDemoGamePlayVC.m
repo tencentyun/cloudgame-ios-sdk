@@ -21,7 +21,7 @@
 #import <TCRPROXYSDK/Proxy.h>
 
 @interface TCGDemoGamePlayVC () <TcrSessionObserver, TCGDemoTextFieldDelegate, CustomDataChannelObserver, TCGDemoSettingViewDelegate, TCRLogDelegate,
-    VideoSink, AudioSink, TcrRenderViewObserver, TCGDemoMultiSettingViewDelegate, UIGestureRecognizerDelegate>
+    VideoSink, AudioSink, TcrRenderViewObserver, TCGDemoMultiSettingViewDelegate, UIGestureRecognizerDelegate, ProxyConnectionDelegate>
 
 @property (nonatomic, strong) NSString *remoteSession;
 @property (nonatomic, strong) NSDictionary *experienceCode;
@@ -169,6 +169,8 @@
             NSLog(@"send custom audio data failed.");
         }
     }];
+    
+    [[Proxy sharedInstance] setConnectionDelegate:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -927,6 +929,30 @@
     // 添加触觉反馈增强用户体验
     UIImpactFeedbackGenerator *feedbackGenerator = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
     [feedbackGenerator impactOccurred];
+}
+
+#pragma mark - ProxyConnectionDelegate
+
+- (void)onConnectionStateChanged:(ConnectionState)state message:(NSString *)message {
+    NSString *stateDescription = [ConnectionStateHelper descriptionForConnectionState:state];
+    
+    NSLog(@"[Proxy] 连接状态变化 - 状态: %@ (%ld), 消息: %@", stateDescription, (long)state, message);
+    
+    // 根据不同状态进行相应处理
+    switch (state) {
+        case Disconnected:
+            NSLog(@"[Proxy] 代理连接已断开: %@", message);
+            break;
+        case Connecting:
+            NSLog(@"[Proxy] 代理连接中/重连中: %@", message);
+            break;
+        case Connected:
+            NSLog(@"[Proxy] 代理连接已建立: %@", message);
+            break;
+        default:
+            NSLog(@"[Proxy] 未知连接状态: %ld, 消息: %@", (long)state, message);
+            break;
+    }
 }
 
 @end
