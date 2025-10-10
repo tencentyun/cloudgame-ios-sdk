@@ -14,3 +14,5 @@ FOUNDATION_EXPORT double TCRPROXYSDKVersionNumber;
 FOUNDATION_EXPORT const unsigned char TCRPROXYSDKVersionString[];
 
 #import <TCRPROXYSDK/Proxy.h>
+#import <TCRPROXYSDK/ConnectionState.h>
+#import <TCRPROXYSDK/ProxyConnectionDelegate.h>

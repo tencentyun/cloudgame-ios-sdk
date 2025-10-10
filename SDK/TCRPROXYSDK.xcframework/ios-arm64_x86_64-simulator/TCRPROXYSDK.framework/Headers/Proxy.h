@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <TCRPROXYSDK/ProxyConnectionDelegate.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -34,6 +35,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 停止代理服务
 - (void)stopProxy;
+
+/// 设置连接状态变化监听器
+/// 通过此接口可以监听代理服务的连接状态变化，包括：
+/// - 连接断开
+/// - 连接中/重连中  
+/// - 连接完成
+/// @param delegate 连接状态变化监听器，传nil可清除监听
+- (void)setConnectionDelegate:(nullable id<ProxyConnectionDelegate>)delegate;
 
 @end
 
