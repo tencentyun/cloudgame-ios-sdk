@@ -4,13 +4,69 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Headers/ConnectionState.h</key>
+		<data>
+		MG5pOptc4/AgEG/xUGDBI5kolHg=
+		</data>
+		<key>Headers/Proxy.h</key>
+		<data>
+		T/cD9I7sOFoZVNA4Tf+qFBu1jZ0=
+		</data>
+		<key>Headers/ProxyConnectionDelegate.h</key>
+		<data>
+		/8qajLtFKhSkPygyBtcUxDhZEJ0=
+		</data>
+		<key>Headers/TCRPROXYSDK.h</key>
+		<data>
+		U+fk5aW2D4hYD9CFR7+Tax8/Tjs=
+		</data>
 		<key>Info.plist</key>
 		<data>
 		SWCK6CqC5pipzRcdbBdd9v5MkRw=
 		</data>
+		<key>Modules/module.modulemap</key>
+		<data>
+		jR9doxGq30UtAw7XO/3B1r85Zss=
+		</data>
 	</dict>
 	<key>files2</key>
-	<dict/>
+	<dict>
+		<key>Headers/ConnectionState.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ZGe1namJ+Jtp4BfFlOtuaw137x1vilvYddSp17jFJW8=
+			</data>
+		</dict>
+		<key>Headers/Proxy.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			lXOitvLhbAxfXxtYLhHeOsVKh800j86MHGkl9xBEPrw=
+			</data>
+		</dict>
+		<key>Headers/ProxyConnectionDelegate.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			WAyA0F0KfeRU8HOQs9rgaLWytfio58rNK7EzOHRcoHs=
+			</data>
+		</dict>
+		<key>Headers/TCRPROXYSDK.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			IhoDIXfwd1/85Zg4ZbezzyOgUNp/DzGNrAxXzM3omjU=
+			</data>
+		</dict>
+		<key>Modules/module.modulemap</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			aE84xGJoQAen+b3L5o3YxRweVnC2wgq+V4mGyjlrc1E=
+			</data>
+		</dict>
+	</dict>
 	<key>rules</key>
 	<dict>
 		<key>^.*</key>
