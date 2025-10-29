@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 3.11.0 (2025-10.29)
+Features
+- CLIENT_STATS event adds audio and video upstream frame rate data.
+
 ### Version 3.10.3 (2025-10.27)
 Bug Fixes
 - Fix and optimize some known issues
