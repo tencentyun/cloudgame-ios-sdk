@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 3.12.1 (2025-11.19)
+Bug Fixes
+- Fix and optimize some known issues
+
 ### Version 3.12.0 (2025-11.19)
 Features
 - Added a new uplink video weak network degradation strategy interface to TcrSession. Strategies include: [disabled], [Maintain frame rate], [Maintain resolution], [Balanced].

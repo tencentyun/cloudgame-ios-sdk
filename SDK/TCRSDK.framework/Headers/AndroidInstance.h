@@ -1053,7 +1053,8 @@ typedef void (^CaiGetSystemMusicVolumeCompletion)(CaiGetSystemMusicVolumeRespons
  *               - key: instanceId (NSString)
  *               - value: @{
  *                   @"PackageName": @"应用包名",
- *                   @"ActivityName": @"Activity"
+ *                   @"ActivityName": @"Activity",
+ *                   @"CheckFrontApp": @YES // 用于判断是否应用已经在前台时仍然重新拉起，@YES不重新拉起，@NO会重新拉起。
  *                 }
  * @param completion 完成回调 (CaiBatchTaskCompletion)
  */
