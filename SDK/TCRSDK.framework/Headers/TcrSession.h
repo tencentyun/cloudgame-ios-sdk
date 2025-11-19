@@ -204,6 +204,24 @@
                isFrontCamera:(BOOL)isFrontCamera;
 
 /**
+ * Set the local video profile.
+ *
+ * @param width The frame width, range[128, 1920]. Suggested value: 1280.
+ * @param height The frame height, range[128, 1920]. Suggested value: 720.
+ * @param fps The frame rate must be greater than 0 Default value: `30`.
+ * @param minBitrate The minimum bitrate in Kbps. Value range: [1000,15000]. Default value: `1000`.
+ * @param maxBitrate The maximum bitrate in Kbps. Value range: [1000,15000]. Default value: `15000`.
+ * @param degrationPreference Specifies the preferred way the WebRTC layer should handle optimizing bandwidth against quality in constrained-bandwidth situations. The possible values are RTCDegradationPreferenceDisabled, RTCDegradationPreferenceMaintainFramerate, RTCDegradationPreferenceMaintainResolution or RTCDegradationPreferenceBalanced. The default value is RTCDegradationPreferenceBalanced.
+ */
+- (void)setLocalVideoProfile:(int)width
+                      height:(int)height
+                         fps:(int)fps
+                  minBitrate:(int)minBitrate
+                  maxBitrate:(int)maxBitrate
+               isFrontCamera:(BOOL)isFrontCamera
+               degrationPreference:(RTCDegradationPreference)degrationPreference;
+
+/**
  * Set the playing profile of the remote audio.
  *
  * @param volume The volume scalar in the range of [0,10] that will be set on this remote audio stream.

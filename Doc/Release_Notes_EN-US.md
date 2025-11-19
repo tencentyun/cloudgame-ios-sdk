@@ -1,5 +1,13 @@
 [中文文档](历史版本.md)
 
+### Version 3.12.0 (2025-11.19)
+Features
+- Added a new uplink video weak network degradation strategy interface to TcrSession. Strategies include: [disabled], [Maintain frame rate], [Maintain resolution], [Balanced].
+- Added uplink resolution, uplink packet loss rate, and uplink encoding bitrate metrics to CLIENT_STATS.
+
+- Bug Fixes
+- Fixed and optimized some known issues.
+
 ### Version 3.11.0 (2025-10.29)
 Features
 - CLIENT_STATS event adds audio and video upstream frame rate data.
