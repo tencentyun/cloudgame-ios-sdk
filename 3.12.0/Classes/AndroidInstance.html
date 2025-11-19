@@ -1,0 +1,3864 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>AndroidInstance Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">TcrSdk </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Tencent</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/addAppInstallBlackListWithParams:completion:">- addAppInstallBlackListWithParams:completion:</option>
+		
+		<option value="//api/name/addKeepAliveListWithParams:completion:">- addKeepAliveListWithParams:completion:</option>
+		
+		<option value="//api/name/blowWithParams:completion:">- blowWithParams:completion:</option>
+		
+		<option value="//api/name/clearAppDataWithParams:completion:">- clearAppDataWithParams:completion:</option>
+		
+		<option value="//api/name/clearAppInstallBlackListWithParams:completion:">- clearAppInstallBlackListWithParams:completion:</option>
+		
+		<option value="//api/name/clearKeepAliveListWithParams:completion:">- clearKeepAliveListWithParams:completion:</option>
+		
+		<option value="//api/name/describeAppInstallBlackListWithParams:completion:">- describeAppInstallBlackListWithParams:completion:</option>
+		
+		<option value="//api/name/describeCameraMediaPlayStatusWithParams:completion:">- describeCameraMediaPlayStatusWithParams:completion:</option>
+		
+		<option value="//api/name/describeInstancePropertiesWithParams:completion:">- describeInstancePropertiesWithParams:completion:</option>
+		
+		<option value="//api/name/describeKeepAliveListWithParams:completion:">- describeKeepAliveListWithParams:completion:</option>
+		
+		<option value="//api/name/describeKeepFrontAppStatusWithParams:completion:">- describeKeepFrontAppStatusWithParams:completion:</option>
+		
+		<option value="//api/name/disableAppWithParams:completion:">- disableAppWithParams:completion:</option>
+		
+		<option value="//api/name/displayCameraImageWithParams:completion:">- displayCameraImageWithParams:completion:</option>
+		
+		<option value="//api/name/enableAppWithParams:completion:">- enableAppWithParams:completion:</option>
+		
+		<option value="//api/name/getInstanceDownloadAddressWithInstanceId:path:">- getInstanceDownloadAddressWithInstanceId:path:</option>
+		
+		<option value="//api/name/getInstanceDownloadLogcatAddressWithInstanceId:recentDay:">- getInstanceDownloadLogcatAddressWithInstanceId:recentDay:</option>
+		
+		<option value="//api/name/getInstanceImageWithInstanceId:">- getInstanceImageWithInstanceId:</option>
+		
+		<option value="//api/name/getInstanceImageWithInstanceId:quality:screenshotWidth:screenshotHeight:">- getInstanceImageWithInstanceId:quality:screenshotWidth:screenshotHeight:</option>
+		
+		<option value="//api/name/getNavVisibleStatusWithParams:completion:">- getNavVisibleStatusWithParams:completion:</option>
+		
+		<option value="//api/name/getSystemMusicVolumeWithParams:completion:">- getSystemMusicVolumeWithParams:completion:</option>
+		
+		<option value="//api/name/joinGroupControlWithInstanceIds:clientSessions:">- joinGroupControlWithInstanceIds:clientSessions:</option>
+		
+		<option value="//api/name/listAllAppsWithParams:completion:">- listAllAppsWithParams:completion:</option>
+		
+		<option value="//api/name/listUserAppsWithParams:completion:">- listUserAppsWithParams:completion:</option>
+		
+		<option value="//api/name/mediaSearchWithParams:completion:">- mediaSearchWithParams:completion:</option>
+		
+		<option value="//api/name/modifyInstancePropertiesWithParams:completion:">- modifyInstancePropertiesWithParams:completion:</option>
+		
+		<option value="//api/name/modifyKeepFrontAppStatusWithParams:completion:">- modifyKeepFrontAppStatusWithParams:completion:</option>
+		
+		<option value="//api/name/moveAppBackgroundWithParams:completion:">- moveAppBackgroundWithParams:completion:</option>
+		
+		<option value="//api/name/muteWithParams:completion:">- muteWithParams:completion:</option>
+		
+		<option value="//api/name/pasteWithParams:completion:">- pasteWithParams:completion:</option>
+		
+		<option value="//api/name/rebootWithParams:completion:">- rebootWithParams:completion:</option>
+		
+		<option value="//api/name/removeAppInstallBlackListWithParams:completion:">- removeAppInstallBlackListWithParams:completion:</option>
+		
+		<option value="//api/name/removeKeepAliveListWithParams:completion:">- removeKeepAliveListWithParams:completion:</option>
+		
+		<option value="//api/name/requestStreamWithInstanceId:status:level:">- requestStreamWithInstanceId:status:level:</option>
+		
+		<option value="//api/name/sendClipboardWithParams:completion:">- sendClipboardWithParams:completion:</option>
+		
+		<option value="//api/name/sendTransMessageWithParams:completion:">- sendTransMessageWithParams:completion:</option>
+		
+		<option value="//api/name/setAppInstallBlackListWithParams:completion:">- setAppInstallBlackListWithParams:completion:</option>
+		
+		<option value="//api/name/setImageEventWithInterval:quality:screenshotWidth:screenshotHeight:">- setImageEventWithInterval:quality:screenshotWidth:screenshotHeight:</option>
+		
+		<option value="//api/name/setKeepAliveListWithParams:completion:">- setKeepAliveListWithParams:completion:</option>
+		
+		<option value="//api/name/setLocationWithParams:completion:">- setLocationWithParams:completion:</option>
+		
+		<option value="//api/name/setMasterWithInstanceId:">- setMasterWithInstanceId:</option>
+		
+		<option value="//api/name/setResolutionWithParams:completion:">- setResolutionWithParams:completion:</option>
+		
+		<option value="//api/name/setSensorWithParams:completion:">- setSensorWithParams:completion:</option>
+		
+		<option value="//api/name/setSyncList:">- setSyncList:</option>
+		
+		<option value="//api/name/shakeWithParams:completion:">- shakeWithParams:completion:</option>
+		
+		<option value="//api/name/startAppWithParams:completion:">- startAppWithParams:completion:</option>
+		
+		<option value="//api/name/startCameraMediaPlayWithParams:completion:">- startCameraMediaPlayWithParams:completion:</option>
+		
+		<option value="//api/name/stopAppWithParams:completion:">- stopAppWithParams:completion:</option>
+		
+		<option value="//api/name/stopCameraMediaPlayWithParams:completion:">- stopCameraMediaPlayWithParams:completion:</option>
+		
+		<option value="//api/name/stopImageEvent">- stopImageEvent</option>
+		
+		<option value="//api/name/transMessageWithPackageName:message:">- transMessageWithPackageName:message:</option>
+		
+		<option value="//api/name/unInstallByPackageNameWithParams:completion:">- unInstallByPackageNameWithParams:completion:</option>
+		
+		<option value="//api/name/uploadMediaWithInstanceId:files:completion:">- uploadMediaWithInstanceId:files:completion:</option>
+		
+		<option value="//api/name/uploadWithInstanceId:files:completion:">- uploadWithInstanceId:files:completion:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">AndroidInstance Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AndroidInstance.h<br />AndroidInstance.m</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>CaiSDK - AndroidInstance 子模块</p>
+
+<p>需要正常初始化CaiSDK后，再调用AndroidInstance相关接口</p>
+
+<p>AndroidInstance是CaiSDK的子模块，用于操作云Android设备，包括几类操作能力：
+1. 连接单个实例看到云手机画面，以及云手机各种操作
+2. 通过截图预览多个云手机的画面
+3. 其他各类功能操作</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/setMasterWithInstanceId:" title="setMasterWithInstanceId:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setMasterWithInstanceId:">&ndash;&nbsp;setMasterWithInstanceId:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>设置主控设备</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setMasterWithInstanceId:(NSString *_Nonnull)<em>instanceId</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>instanceId</code></th>
+						<td><p>主控设备的instanceId</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>设置主控设备</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/requestStreamWithInstanceId:status:level:" title="requestStreamWithInstanceId:status:level:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/requestStreamWithInstanceId:status:level:">&ndash;&nbsp;requestStreamWithInstanceId:status:level:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>请求被控串流</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)requestStreamWithInstanceId:(NSString *_Nonnull)<em>instanceId</em> status:(NSString *_Nonnull)<em>status</em> level:(NSString *_Nonnull)<em>level</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>instanceId</code></th>
+						<td><p>请求串流的instanceId</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>status</code></th>
+						<td><p>串流状态（"open"开启/&ldquo;close"关闭）</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>level</code></th>
+						<td><p>串流质量等级（"low"/&ldquo;normal&rdquo;/&ldquo;high"）</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>请求被控串流</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setSyncList:" title="setSyncList:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setSyncList:">&ndash;&nbsp;setSyncList:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>设置同步实例列表，每次设置都会覆盖上次设置的列表。如果需要停止同步，传入nil或空列表。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setSyncList:(NSArray&lt;NSString*&gt; *_Nullable)<em>list</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>list</code></th>
+						<td><p>需要同步的instanceId列表</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>设置同步实例列表，每次设置都会覆盖上次设置的列表。如果需要停止同步，传入nil或空列表。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/joinGroupControlWithInstanceIds:clientSessions:" title="joinGroupControlWithInstanceIds:clientSessions:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/joinGroupControlWithInstanceIds:clientSessions:">&ndash;&nbsp;joinGroupControlWithInstanceIds:clientSessions:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>中途加入群控</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)joinGroupControlWithInstanceIds:(NSArray&lt;NSString*&gt; *_Nonnull)<em>instanceIds</em> clientSessions:(nullable NSArray&lt;NSString*&gt; *)<em>clientSessions</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>instanceIds</code></th>
+						<td><p>需要加入的实例列表</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>clientSessions</code></th>
+						<td><p>clientSession（可选）</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>中途加入群控</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setImageEventWithInterval:quality:screenshotWidth:screenshotHeight:" title="setImageEventWithInterval:quality:screenshotWidth:screenshotHeight:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setImageEventWithInterval:quality:screenshotWidth:screenshotHeight:">&ndash;&nbsp;setImageEventWithInterval:quality:screenshotWidth:screenshotHeight:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>设置截图事件</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setImageEventWithInterval:(NSInteger)<em>interval</em> quality:(nullable NSNumber *)<em>quality</em> screenshotWidth:(int)<em>screenshotWidth</em> screenshotHeight:(int)<em>screenshotHeight</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>interval</code></th>
+						<td><p>截图事件的间隔（毫秒）</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>quality</code></th>
+						<td><p>截图质量（0-100，可选）</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>screenshotWidth</code></th>
+						<td><p>截图宽度</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>screenshotHeight</code></th>
+						<td><p>截图高度</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>设置截图事件</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/stopImageEvent" title="stopImageEvent"></a>
+	<h3 class="method-title"><code><a href="#//api/name/stopImageEvent">&ndash;&nbsp;stopImageEvent</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>停止截图事件</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)stopImageEvent</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>停止截图事件</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/transMessageWithPackageName:message:" title="transMessageWithPackageName:message:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/transMessageWithPackageName:message:">&ndash;&nbsp;transMessageWithPackageName:message:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>发送App binder消息（单连接适用）</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)transMessageWithPackageName:(NSString *_Nonnull)<em>packageName</em> message:(NSString *_Nonnull)<em>message</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>packageName</code></th>
+						<td><p>应用包名</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>message</code></th>
+						<td><p>消息内容</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>发送App binder消息（单连接适用）</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getInstanceImageWithInstanceId:" title="getInstanceImageWithInstanceId:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getInstanceImageWithInstanceId:">&ndash;&nbsp;getInstanceImageWithInstanceId:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>获取实例截图信息，quality默认20，分辨率720x1280</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSString *_Nullable)getInstanceImageWithInstanceId:(NSString *_Nonnull)<em>instanceId</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>instanceId</code></th>
+						<td><p>实例Id</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>截图URL</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>获取实例截图信息，quality默认20，分辨率720x1280</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getInstanceImageWithInstanceId:quality:screenshotWidth:screenshotHeight:" title="getInstanceImageWithInstanceId:quality:screenshotWidth:screenshotHeight:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getInstanceImageWithInstanceId:quality:screenshotWidth:screenshotHeight:">&ndash;&nbsp;getInstanceImageWithInstanceId:quality:screenshotWidth:screenshotHeight:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>获取实例截图信息</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSString *_Nullable)getInstanceImageWithInstanceId:(NSString *_Nonnull)<em>instanceId</em> quality:(int)<em>quality</em> screenshotWidth:(int)<em>screenshotWidth</em> screenshotHeight:(int)<em>screenshotHeight</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>instanceId</code></th>
+						<td><p>实例Id</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>quality</code></th>
+						<td><p>截图质量（0-100，可选，默认20）</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>screenshotWidth</code></th>
+						<td><p>截图宽度</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>screenshotHeight</code></th>
+						<td><p>截图高度</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>截图URL</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>获取实例截图信息</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/uploadWithInstanceId:files:completion:" title="uploadWithInstanceId:files:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/uploadWithInstanceId:files:completion:">&ndash;&nbsp;uploadWithInstanceId:files:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>向云端实例上传文件</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)uploadWithInstanceId:(NSString *_Nonnull)<em>instanceId</em> files:(NSArray&lt;CaiUploadFileItem*&gt; *_Nonnull)<em>files</em> completion:(nullable CaiUploadFilesCompletion)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>instanceId</code></th>
+						<td><p>实例 Id</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>files</code></th>
+						<td><p>上传的文件</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>任务完成的回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>向云端实例上传文件</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/uploadMediaWithInstanceId:files:completion:" title="uploadMediaWithInstanceId:files:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/uploadMediaWithInstanceId:files:completion:">&ndash;&nbsp;uploadMediaWithInstanceId:files:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>向云端实例上传文件</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)uploadMediaWithInstanceId:(NSString *_Nonnull)<em>instanceId</em> files:(NSArray&lt;CaiUploadMediaFileItem*&gt; *_Nonnull)<em>files</em> completion:(nullable CaiUploadMediaFilesCompletion)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>instanceId</code></th>
+						<td><p>实例 Id</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>files</code></th>
+						<td><p>上传的文件</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>任务完成的回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>向云端实例上传文件</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getInstanceDownloadAddressWithInstanceId:path:" title="getInstanceDownloadAddressWithInstanceId:path:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getInstanceDownloadAddressWithInstanceId:path:">&ndash;&nbsp;getInstanceDownloadAddressWithInstanceId:path:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>获取实例下载地址</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSString *_Nonnull)getInstanceDownloadAddressWithInstanceId:(NSString *_Nonnull)<em>instanceId</em> path:(NSString *_Nonnull)<em>path</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>instanceId</code></th>
+						<td><p>实例 Id</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>path</code></th>
+						<td><p>下载路径</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>response address - 下载地址</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>获取实例下载地址</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getInstanceDownloadLogcatAddressWithInstanceId:recentDay:" title="getInstanceDownloadLogcatAddressWithInstanceId:recentDay:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getInstanceDownloadLogcatAddressWithInstanceId:recentDay:">&ndash;&nbsp;getInstanceDownloadLogcatAddressWithInstanceId:recentDay:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>获取logcat日志下载地址</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSString *_Nonnull)getInstanceDownloadLogcatAddressWithInstanceId:(NSString *_Nonnull)<em>instanceId</em> recentDay:(int)<em>recentDay</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>instanceId</code></th>
+						<td><p>实例 Id</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>recentDay</code></th>
+						<td><p>最近几天的日志</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>response address - 下载地址</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>获取logcat日志下载地址</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setLocationWithParams:completion:" title="setLocationWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setLocationWithParams:completion:">&ndash;&nbsp;setLocationWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量设置设备GPS位置信息</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setLocationWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(nullable CaiBatchTaskCompletion)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>位置信息参数字典
+- key: instanceId (NSString)
+- value: 位置参数 (NSDictionary)，结构为:
+@{
+@&ldquo;Longitude&rdquo;: @(经度值),  // 经度 (double)
+@&ldquo;Latitude&rdquo;: @(纬度值)    // 纬度 (double)
+}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>批量操作回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量设置设备GPS位置信息</p><p>为多台设备设置模拟GPS位置信息，支持同时更新多个设备的定位数据</p>
+
+<p>参数结构说明:</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setResolutionWithParams:completion:" title="setResolutionWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setResolutionWithParams:completion:">&ndash;&nbsp;setResolutionWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量设置设备分辨率</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setResolutionWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>分辨率参数字典
+- key: instanceId (NSString)
+- value: 分辨率参数 (NSDictionary)，结构为:
+@{
+@&ldquo;Width&rdquo;: @(宽度值),   // 宽度像素 (NSInteger)
+@&ldquo;Height&rdquo;: @(高度值),  // 高度像素 (NSInteger)
+@&ldquo;DPI&rdquo;: @(DPI值)      // 像素密度 (NSInteger，可选)
+}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>批量操作回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量设置设备分辨率</p><p>动态调整设备屏幕分辨率，支持同时修改多个设备的显示设置</p>
+
+<p>参数结构说明:</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/pasteWithParams:completion:" title="pasteWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/pasteWithParams:completion:">&ndash;&nbsp;pasteWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量粘贴文本到设备</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)pasteWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>粘贴文本参数字典
+- key: instanceId (NSString)
+- value: 粘贴参数 (NSDictionary)，结构为:
+@{
+@&ldquo;Text&rdquo;: @&ldquo;粘贴文本&rdquo;  // 要粘贴的文本内容
+}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>批量操作回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量粘贴文本到设备</p><p>模拟在多个设备输入框执行粘贴操作</p>
+
+<p>参数结构说明:</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sendClipboardWithParams:completion:" title="sendClipboardWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sendClipboardWithParams:completion:">&ndash;&nbsp;sendClipboardWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量发送文本到设备剪切板</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)sendClipboardWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>剪切板文本参数字典
+- key: instanceId (NSString)
+- value: 文本参数 (NSDictionary)，结构为:
+@{
+@&ldquo;Text&rdquo;: @&ldquo;剪切板内容&rdquo;  // 要复制到剪切板的文本
+}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>批量操作回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量发送文本到设备剪切板</p><p>将文本复制到多个设备的系统剪切板</p>
+
+<p>参数结构说明:</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/shakeWithParams:completion:" title="shakeWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/shakeWithParams:completion:">&ndash;&nbsp;shakeWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量执行摇一摇操作</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)shakeWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>设备参数字典
+- key: instanceId (NSString)
+- value: 空字典 @{} (保留未来扩展)</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>批量操作回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量执行摇一摇操作</p><p>在多个设备上模拟摇一摇手势（加速度传感器事件）</p>
+
+<p>参数结构说明:</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/blowWithParams:completion:" title="blowWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/blowWithParams:completion:">&ndash;&nbsp;blowWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量执行吹一吹操作</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)blowWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>设备参数字典
+- key: instanceId (NSString)
+- value: 空字典 @{} (保留未来扩展)</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>批量操作回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量执行吹一吹操作</p><p>在多个设备上模拟吹一吹</p>
+
+<p>参数结构说明:</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setSensorWithParams:completion:" title="setSensorWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setSensorWithParams:completion:">&ndash;&nbsp;setSensorWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量设置设备传感器信息</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setSensorWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>操作参数字典
+- key: instanceId (NSString)
+- value: 传感器参数 (NSDictionary)，结构为:
+@{
+@&ldquo;Type&rdquo;: sensorType,       // 传感器类型字符串 (必需)
+@&ldquo;Values&rdquo;: valuesArray      // 传感器数值数组 (必需)
+}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>批量操作回调</p>
+
+<p>传感器参数详解:
+- <b>Type (NSString)</b>：
+支持的传感器类型：
+- @&ldquo;accelerometer"：加速度计 (单位: m/s²)
+- @"gyroscope"：陀螺仪 (单位: rad/s)</p>
+
+<ul>
+<li><b>Values (NSArray<NSNumber *>)</b>：
+3维数值数组，依次表示 x/y/z 轴的值，格式为:
+@[ @(xValue), @(yValue), @(zValue) ]</li>
+</ul>
+</td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量设置设备传感器信息</p><p>为多台设备设置加速度计或陀螺仪传感器数据，用于模拟设备的运动状态。</p>
+
+<p>参数结构说明:</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sendTransMessageWithParams:completion:" title="sendTransMessageWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sendTransMessageWithParams:completion:">&ndash;&nbsp;sendTransMessageWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量发送App binder消息</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)sendTransMessageWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>消息参数字典
+- key: instanceId (NSString)
+- value: 消息参数 (NSDictionary)，结构为:
+@{
+@&ldquo;PackageName&rdquo;: @&ldquo;应用包名&rdquo;,  // 接收消息的应用包名
+@&ldquo;Msg&rdquo;: @&ldquo;消息内容&rdquo;         // 要发送的自定义消息
+}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>批量操作回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量发送App binder消息</p><p>向多台设备上的指定应用发送自定义消息</p>
+
+<p>参数结构说明:</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/describeInstancePropertiesWithParams:completion:" title="describeInstancePropertiesWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/describeInstancePropertiesWithParams:completion:">&ndash;&nbsp;describeInstancePropertiesWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量查询实例属性</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)describeInstancePropertiesWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(nullable CaiDescribeInstancePropertiesCompletion)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>设备参数字典
+- key: instanceId (NSString)
+- value: 空字典 @{}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>批量操作回调</p>
+
+<p>响应数据结构:
+@code
+{
+&ldquo;DeviceInfo&rdquo;: { &ldquo;Brand&rdquo;: &ldquo;Samsung&rdquo;, &ldquo;Model&rdquo;: &ldquo;Galaxy S24&rdquo; },
+&ldquo;ProxyInfo&rdquo;: { &ldquo;Enabled&rdquo;: true, &ldquo;Protocol&rdquo;: &ldquo;socks5&rdquo;, &hellip; },
+&ldquo;GPSInfo&rdquo;: { &ldquo;Longitude&rdquo;: 121.4737, &ldquo;Latitude&rdquo;: 31.2304 },
+// 其他属性&hellip;
+}
+@endcode</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量查询实例属性</p><p>查询多台设备的基础属性和配置信息，如设备品牌、型号、代理设置等</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listUserAppsWithParams:completion:" title="listUserAppsWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listUserAppsWithParams:completion:">&ndash;&nbsp;listUserAppsWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>查询已安装第三方应用</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listUserAppsWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiListUserAppsCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>设备参数字典
+- key: instanceId (NSString)
+- value: 空字典 @{}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>查询已安装第三方应用</p><p>获取设备上安装的所有第三方应用程序列表</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/modifyInstancePropertiesWithParams:completion:" title="modifyInstancePropertiesWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/modifyInstancePropertiesWithParams:completion:">&ndash;&nbsp;modifyInstancePropertiesWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量修改设备属性</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)modifyInstancePropertiesWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>属性参数字典
+- key: instanceId (NSString)
+- value: 属性字典 (NSDictionary)，包含以下可选字段：</p>
+
+<p>属性字典字段详解:
+- <b>DeviceInfo (NSDictionary)</b>: 设备品牌型号信息
+- Brand (NSString): 设备品牌 (如 @&ldquo;Samsung&rdquo;)
+- Model (NSString): 设备型号 (如 @&ldquo;Galaxy S24&rdquo;)</p>
+
+<ul>
+<li><b>ProxyInfo (NSDictionary)</b>: 代理设置</li>
+<li>Enabled (BOOL): 是否启用代理 (NSNumber包装)</li>
+<li>Protocol (NSString): 代理协议 (如 @&ldquo;socks5&rdquo;)</li>
+<li>Host (NSString): 代理主机地址</li>
+<li>Port (NSNumber): 代理端口</li>
+<li>User (NSString): 代理用户名</li>
+<li><p>Password (NSString): 代理密码</p></li>
+<li><p><b>GPSInfo (NSDictionary)</b>: GPS位置信息</p></li>
+<li>Longitude (NSNumber): 经度值 (double)</li>
+<li><p>Latitude (NSNumber): 纬度值 (double)</p></li>
+<li><p><b>SIMInfo (NSDictionary)</b>: SIM卡信息</p></li>
+<li>State (NSNumber): SIM卡状态 (0=未激活, 1=已激活)</li>
+<li>PhoneNumber (NSString): 手机号码</li>
+<li>IMSI (NSString): 国际移动用户识别码</li>
+<li><p>ICCID (NSString): 集成电路卡识别码</p></li>
+<li><p><b>LocaleInfo (NSDictionary)</b>: 地区设置</p></li>
+<li><p>Timezone (NSString): 时区设置 (如 @&ldquo;Asia/Shanghai&rdquo;)</p></li>
+<li><p><b>LanguageInfo (NSDictionary)</b>: 语言设置</p></li>
+<li>Language (NSString): 语言代码 (如 @&ldquo;zh&rdquo;)</li>
+<li><p>Country (NSString): 国家代码 (如 @&ldquo;CN&rdquo;)</p></li>
+<li><p><b>ExtraProperties (NSArray)</b>: 额外属性列表</p></li>
+<li>数组元素为字典 @{ @&ldquo;Key&rdquo;: @&ldquo;属性名&rdquo;, @&ldquo;Value&rdquo;: @&ldquo;属性值&rdquo; }</li>
+</ul>
+</td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调 (<a href="../Blocks/CaiBatchTaskCompletion.html">CaiBatchTaskCompletion</a>)</p>
+
+<p>使用示例:
+@code
+NSDictionary *properties = @{
+@&ldquo;cai-device-001&rdquo;: @{
+@&ldquo;DeviceInfo&rdquo;: @{
+@&ldquo;Brand&rdquo;: @&ldquo;Samsung&rdquo;,
+@&ldquo;Model&rdquo;: @&ldquo;Galaxy S24&rdquo;
+},
+@&ldquo;ProxyInfo&rdquo;: @{
+@&ldquo;Enabled&rdquo;: @YES,
+@&ldquo;Protocol&rdquo;: @&ldquo;socks5&rdquo;,
+@&ldquo;Host&rdquo;: @&ldquo;proxy.example.com&rdquo;,
+@&ldquo;Port&rdquo;: @1080,
+@&ldquo;User&rdquo;: @&ldquo;user123&rdquo;,
+@&ldquo;Password&rdquo;: @&ldquo;pass123&rdquo;
+},
+@&ldquo;GPSInfo&rdquo;: @{
+@&ldquo;Longitude&rdquo;: @121.4737,
+@&ldquo;Latitude&rdquo;: @31.2304
+},
+@&ldquo;SIMInfo&rdquo;: @{
+@&ldquo;State&rdquo;: @1,
+@&ldquo;PhoneNumber&rdquo;: @&ldquo;+8613812345678&rdquo;,
+@&ldquo;IMSI&rdquo;: @&ldquo;460001234567890&rdquo;,
+@&ldquo;ICCID&rdquo;: @&ldquo;89860123456789012345&rdquo;
+},
+@&ldquo;LocaleInfo&rdquo;: @{
+@&ldquo;Timezone&rdquo;: @&ldquo;Asia/Shanghai&rdquo;
+},
+@&ldquo;LanguageInfo&rdquo;: @{
+@&ldquo;Language&rdquo;: @&ldquo;zh&rdquo;,
+@&ldquo;Country&rdquo;: @&ldquo;CN&rdquo;
+},
+@&ldquo;ExtraProperties&rdquo;: @[
+@{ @&ldquo;Key&rdquo;: @&ldquo;custom_property1&rdquo;, @&ldquo;Value&rdquo;: @&ldquo;value1&rdquo; },
+@{ @&ldquo;Key&rdquo;: @&ldquo;custom_property2&rdquo;, @&ldquo;Value&rdquo;: @&ldquo;value2&rdquo; }
+]
+}
+};</p>
+
+<p>[androidInstance modifyInstancePropertiesWithParams:properties
+completion:^(<a href="../Classes/CaiBatchTaskResponse.html">CaiBatchTaskResponse</a> <em>response, NSError </em>error) {
+if (error) {
+NSLog(@&ldquo;系统错误: %@&rdquo;, error);
+return;
+}</p>
+
+<p>if (response.code != 0) {
+NSLog(@&ldquo;整体操作失败: [%ld] %@&rdquo;, (long)response.code, response.message);
+return;
+}</p>
+
+<p>[response.deviceResponses enumerateKeysAndObjectsUsingBlock:^(NSString <em>deviceId, <a href="../Classes/CaiDeviceResponse.html">CaiDeviceResponse</a> </em>deviceResp, BOOL *stop) {
+if (deviceResp.code == 0) {
+NSLog(@&ldquo;设备 %@ 修改设备属性成功&rdquo;, deviceId);
+} else {
+NSLog(@&ldquo;设备 %@ 修改设备属性失败: [%ld] %@&rdquo;, deviceId, (long)deviceResp.code, deviceResp.msg);
+}
+}];
+}];
+@endcode</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量修改设备属性</p><p>更新多台设备的硬件或软件属性配置，支持修改设备信息、代理设置、位置信息、SIM卡状态等</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/unInstallByPackageNameWithParams:completion:" title="unInstallByPackageNameWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/unInstallByPackageNameWithParams:completion:">&ndash;&nbsp;unInstallByPackageNameWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量卸载应用</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)unInstallByPackageNameWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>卸载参数字典
+- key: instanceId (NSString)
+- value: @{@&ldquo;PackageName&rdquo;: @&ldquo;应用包名&rdquo;}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调 (<a href="../Blocks/CaiBatchTaskCompletion.html">CaiBatchTaskCompletion</a>)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量卸载应用</p><p>从多台设备卸载指定的应用程序</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/startAppWithParams:completion:" title="startAppWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/startAppWithParams:completion:">&ndash;&nbsp;startAppWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量启动应用</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)startAppWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>启动参数字典
+- key: instanceId (NSString)
+- value: @{
+@&ldquo;PackageName&rdquo;: @&ldquo;应用包名&rdquo;,
+@&ldquo;ActivityName&rdquo;: @&ldquo;Activity&rdquo;
+}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调 (<a href="../Blocks/CaiBatchTaskCompletion.html">CaiBatchTaskCompletion</a>)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量启动应用</p><p>在多个设备上启动指定的应用程序和Activity</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/stopAppWithParams:completion:" title="stopAppWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/stopAppWithParams:completion:">&ndash;&nbsp;stopAppWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量停止应用</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)stopAppWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>停止参数字典
+- key: instanceId (NSString)
+- value: @{@&ldquo;PackageName&rdquo;: @&ldquo;应用包名&rdquo;}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调 (<a href="../Blocks/CaiBatchTaskCompletion.html">CaiBatchTaskCompletion</a>)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量停止应用</p><p>停止在多个设备上运行的指定应用程序</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/clearAppDataWithParams:completion:" title="clearAppDataWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/clearAppDataWithParams:completion:">&ndash;&nbsp;clearAppDataWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量清除应用数据</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)clearAppDataWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>清除参数字典
+- key: instanceId (NSString)
+- value: @{@&ldquo;PackageName&rdquo;: @&ldquo;应用包名&rdquo;}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调 (<a href="../Blocks/CaiBatchTaskCompletion.html">CaiBatchTaskCompletion</a>)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量清除应用数据</p><p>清除指定应用程序在设备上的应用数据</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/enableAppWithParams:completion:" title="enableAppWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/enableAppWithParams:completion:">&ndash;&nbsp;enableAppWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量启用应用</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)enableAppWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>启用参数字典
+- key: instanceId (NSString)
+- value: @{@&ldquo;PackageName&rdquo;: @&ldquo;应用包名&rdquo;}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调 (<a href="../Blocks/CaiBatchTaskCompletion.html">CaiBatchTaskCompletion</a>)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量启用应用</p><p>启用设备上被禁用的应用程序</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/disableAppWithParams:completion:" title="disableAppWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/disableAppWithParams:completion:">&ndash;&nbsp;disableAppWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量禁用应用</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)disableAppWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>禁用参数字典
+- key: instanceId (NSString)
+- value: @{@&ldquo;PackageName&rdquo;: @&ldquo;应用包名&rdquo;}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调 (<a href="../Blocks/CaiBatchTaskCompletion.html">CaiBatchTaskCompletion</a>)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量禁用应用</p><p>禁用设备上的指定应用程序(相当于"冻结"应用)</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/startCameraMediaPlayWithParams:completion:" title="startCameraMediaPlayWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/startCameraMediaPlayWithParams:completion:">&ndash;&nbsp;startCameraMediaPlayWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量在摄像头播放媒体文件</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)startCameraMediaPlayWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>播放参数字典
+- key: instanceId (NSString)
+- value: @{
+@&ldquo;FilePath&rdquo;: @&ldquo;视频文件路径&rdquo;,
+@&ldquo;Loops&rdquo;: @(循环次数) // 负数表示无限循环
+}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调 (<a href="../Blocks/CaiBatchTaskCompletion.html">CaiBatchTaskCompletion</a>)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量在摄像头播放媒体文件</p><p>在设备摄像头模拟视频流输入</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/stopCameraMediaPlayWithParams:completion:" title="stopCameraMediaPlayWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/stopCameraMediaPlayWithParams:completion:">&ndash;&nbsp;stopCameraMediaPlayWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量停止摄像头媒体播放</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)stopCameraMediaPlayWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>设备参数字典
+- key: instanceId (NSString)
+- value: 空字典 @{}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调 (<a href="../Blocks/CaiBatchTaskCompletion.html">CaiBatchTaskCompletion</a>)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量停止摄像头媒体播放</p><p>停止在设备摄像头上的媒体文件播放</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/describeCameraMediaPlayStatusWithParams:completion:" title="describeCameraMediaPlayStatusWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/describeCameraMediaPlayStatusWithParams:completion:">&ndash;&nbsp;describeCameraMediaPlayStatusWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量查询摄像头播放状态</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)describeCameraMediaPlayStatusWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiDescribeCameraMediaPlayStatusCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>设备参数字典
+- key: instanceId (NSString)
+- value: 空字典 @{}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量查询摄像头播放状态</p><p>获取当前在设备摄像头上的媒体播放状态</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/displayCameraImageWithParams:completion:" title="displayCameraImageWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/displayCameraImageWithParams:completion:">&ndash;&nbsp;displayCameraImageWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量在摄像头显示图片</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)displayCameraImageWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>图片参数字典
+- key: instanceId (NSString)
+- value: @{@&ldquo;FilePath&rdquo;: @&ldquo;图片文件路径&rdquo;}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调 (<a href="../Blocks/CaiBatchTaskCompletion.html">CaiBatchTaskCompletion</a>)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量在摄像头显示图片</p><p>在设备摄像头模拟输入静态图片</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/modifyKeepFrontAppStatusWithParams:completion:" title="modifyKeepFrontAppStatusWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/modifyKeepFrontAppStatusWithParams:completion:">&ndash;&nbsp;modifyKeepFrontAppStatusWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>修改前台应用保活状态</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)modifyKeepFrontAppStatusWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>保活参数字典
+- key: instanceId (NSString)
+- value: 保活参数 @{
+@&ldquo;PackageName&rdquo;: @&ldquo;应用包名&rdquo;,
+@&ldquo;Enable&rdquo;: @(YES/NO), // 是否启用保活
+@&ldquo;RestartInterValSeconds&rdquo;: @(秒数) // 重新拉起最长间隔
+}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调 (<a href="../Blocks/CaiBatchTaskCompletion.html">CaiBatchTaskCompletion</a>)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>修改前台应用保活状态</p><p>配置指定应用在设备前台崩溃或被关闭时的自动重启策略</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/describeKeepFrontAppStatusWithParams:completion:" title="describeKeepFrontAppStatusWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/describeKeepFrontAppStatusWithParams:completion:">&ndash;&nbsp;describeKeepFrontAppStatusWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>查询前台应用保活状态</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)describeKeepFrontAppStatusWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiDescribeKeepFrontAppStatusCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>设备参数字典
+- key: instanceId (NSString)
+- value: 空字典 @{}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>查询前台应用保活状态</p><p>获取设备上已配置的前台应用保活设置</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addKeepAliveListWithParams:completion:" title="addKeepAliveListWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addKeepAliveListWithParams:completion:">&ndash;&nbsp;addKeepAliveListWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量添加后台保活应用</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)addKeepAliveListWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>保活参数字典
+- key: instanceId (NSString)
+- value: @{@&ldquo;AppList&rdquo;: @[@&ldquo;应用包名1&rdquo;, @&ldquo;应用包名2&rdquo;]}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调 (<a href="../Blocks/CaiBatchTaskCompletion.html">CaiBatchTaskCompletion</a>)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量添加后台保活应用</p><p>将应用添加到设备后台保活列表，减少被系统杀死的概率</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeKeepAliveListWithParams:completion:" title="removeKeepAliveListWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeKeepAliveListWithParams:completion:">&ndash;&nbsp;removeKeepAliveListWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量移除后台保活应用</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)removeKeepAliveListWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>移除参数字典
+- key: instanceId (NSString)
+- value: @{@&ldquo;AppList&rdquo;: @[@&ldquo;应用包名1&rdquo;, @&ldquo;应用包名2&rdquo;]}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调 (<a href="../Blocks/CaiBatchTaskCompletion.html">CaiBatchTaskCompletion</a>)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量移除后台保活应用</p><p>从设备后台保活列表中移除指定应用</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setKeepAliveListWithParams:completion:" title="setKeepAliveListWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setKeepAliveListWithParams:completion:">&ndash;&nbsp;setKeepAliveListWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量设置后台保活列表</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setKeepAliveListWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>保活参数字典
+- key: instanceId (NSString)
+- value: @{@&ldquo;AppList&rdquo;: @[@&ldquo;应用包名1&rdquo;, @&ldquo;应用包名2&rdquo;]}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调 (<a href="../Blocks/CaiBatchTaskCompletion.html">CaiBatchTaskCompletion</a>)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量设置后台保活列表</p><p>完全覆盖设备后台保活列表(替换现有列表)</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/describeKeepAliveListWithParams:completion:" title="describeKeepAliveListWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/describeKeepAliveListWithParams:completion:">&ndash;&nbsp;describeKeepAliveListWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量查询后台保活列表</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)describeKeepAliveListWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiDescribeKeepAliveListCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>设备参数字典
+- key: instanceId (NSString)
+- value: 空字典 @{}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量查询后台保活列表</p><p>获取设备当前的后台保活应用列表</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/clearKeepAliveListWithParams:completion:" title="clearKeepAliveListWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/clearKeepAliveListWithParams:completion:">&ndash;&nbsp;clearKeepAliveListWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量清空后台保活列表</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)clearKeepAliveListWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>设备参数字典
+- key: instanceId (NSString)
+- value: 空字典 @{}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调 (<a href="../Blocks/CaiBatchTaskCompletion.html">CaiBatchTaskCompletion</a>)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量清空后台保活列表</p><p>清空设备上所有后台保活应用</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/muteWithParams:completion:" title="muteWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/muteWithParams:completion:">&ndash;&nbsp;muteWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量设置设备静音</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)muteWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>静音参数字典
+- key: instanceId (NSString)
+- value: @{@&ldquo;Mute&rdquo;: @(YES/NO)} // YES:静音, NO:取消静音</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调 (<a href="../Blocks/CaiBatchTaskCompletion.html">CaiBatchTaskCompletion</a>)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量设置设备静音</p><p>将多台设备的媒体音量设为静音</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/mediaSearchWithParams:completion:" title="mediaSearchWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/mediaSearchWithParams:completion:">&ndash;&nbsp;mediaSearchWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量搜索媒体库文件</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)mediaSearchWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiMediaSearchCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>搜索参数字典
+- key: instanceId (NSString)
+- value: @{@&ldquo;Keyword&rdquo;: @&ldquo;搜索关键词&rdquo;}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量搜索媒体库文件</p><p>在多台设备上搜索媒体库文件</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/rebootWithParams:completion:" title="rebootWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/rebootWithParams:completion:">&ndash;&nbsp;rebootWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量重启设备</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)rebootWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>设备参数字典
+- key: instanceId (NSString)
+- value: 空字典 @{}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调 (<a href="../Blocks/CaiBatchTaskCompletion.html">CaiBatchTaskCompletion</a>)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量重启设备</p><p>重启多台设备</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listAllAppsWithParams:completion:" title="listAllAppsWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listAllAppsWithParams:completion:">&ndash;&nbsp;listAllAppsWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量查询所有应用列表</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listAllAppsWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiListAllAppsCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>设备参数字典
+- key: instanceId (NSString)
+- value: 空字典 @{}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量查询所有应用列表</p><p>获取设备上安装的所有应用列表</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/moveAppBackgroundWithParams:completion:" title="moveAppBackgroundWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/moveAppBackgroundWithParams:completion:">&ndash;&nbsp;moveAppBackgroundWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量关闭应用到后台</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)moveAppBackgroundWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>设备参数字典
+- key: instanceId (NSString)
+- value: 空字典 @{}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调 (<a href="../Blocks/CaiBatchTaskCompletion.html">CaiBatchTaskCompletion</a>)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量关闭应用到后台</p><p>将前台应用切换到后台运行</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addAppInstallBlackListWithParams:completion:" title="addAppInstallBlackListWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addAppInstallBlackListWithParams:completion:">&ndash;&nbsp;addAppInstallBlackListWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量新增应用安装黑名单</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)addAppInstallBlackListWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>黑名单参数字典
+- key: instanceId (NSString)
+- value: @{@&ldquo;AppList&rdquo;: @[@&ldquo;应用包名1&rdquo;, @&ldquo;应用包名2&rdquo;]}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调 (<a href="../Blocks/CaiBatchTaskCompletion.html">CaiBatchTaskCompletion</a>)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量新增应用安装黑名单</p><p>批量新增应用安装黑名单，新增时如果应用已安装，会进行卸载。</p><div class="note"><p><strong>Note:</strong> 如果黑名单应用已安装，会被自动卸载</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeAppInstallBlackListWithParams:completion:" title="removeAppInstallBlackListWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeAppInstallBlackListWithParams:completion:">&ndash;&nbsp;removeAppInstallBlackListWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量移除应用安装黑名单</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)removeAppInstallBlackListWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>黑名单参数字典
+- key: instanceId (NSString)
+- value: @{@&ldquo;AppList&rdquo;: @[@&ldquo;应用包名1&rdquo;, @&ldquo;应用包名2&rdquo;]}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调 (<a href="../Blocks/CaiBatchTaskCompletion.html">CaiBatchTaskCompletion</a>)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量移除应用安装黑名单</p><p>从黑名单中移除应用，允许安装</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setAppInstallBlackListWithParams:completion:" title="setAppInstallBlackListWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setAppInstallBlackListWithParams:completion:">&ndash;&nbsp;setAppInstallBlackListWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量覆盖应用安装黑名单</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setAppInstallBlackListWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>黑名单参数字典
+- key: instanceId (NSString)
+- value: @{@&ldquo;AppList&rdquo;: @[@&ldquo;应用包名1&rdquo;, @&ldquo;应用包名2&rdquo;]}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调 (<a href="../Blocks/CaiBatchTaskCompletion.html">CaiBatchTaskCompletion</a>)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量覆盖应用安装黑名单</p><p>完全替换设备上的应用安装黑名单</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/describeAppInstallBlackListWithParams:completion:" title="describeAppInstallBlackListWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/describeAppInstallBlackListWithParams:completion:">&ndash;&nbsp;describeAppInstallBlackListWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量查询应用安装黑名单</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)describeAppInstallBlackListWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiDescribeAppInstallBlackListCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>设备参数字典
+- key: instanceId (NSString)
+- value: 空字典 @{}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量查询应用安装黑名单</p><p>获取设备当前的应用安装黑名单</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/clearAppInstallBlackListWithParams:completion:" title="clearAppInstallBlackListWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/clearAppInstallBlackListWithParams:completion:">&ndash;&nbsp;clearAppInstallBlackListWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量清空应用安装黑名单</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)clearAppInstallBlackListWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiBatchTaskCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>设备参数字典
+- key: instanceId (NSString)
+- value: 空字典 @{}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调 (<a href="../Blocks/CaiBatchTaskCompletion.html">CaiBatchTaskCompletion</a>)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量清空应用安装黑名单</p><p>清空设备上的应用安装黑名单</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getNavVisibleStatusWithParams:completion:" title="getNavVisibleStatusWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getNavVisibleStatusWithParams:completion:">&ndash;&nbsp;getNavVisibleStatusWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量获取导航栏可见状态</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getNavVisibleStatusWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiGetNavVisibleStatusCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>设备参数字典
+- key: instanceId (NSString) 设备实例ID
+- value: 空字典 @{} 表示不需要额外参数</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调，返回导航栏状态结果
+- response: <a href="../Classes/CaiGetNavVisibleStatusResponse.html">CaiGetNavVisibleStatusResponse</a> 对象，包含导航栏状态信息
+- error: 网络或系统错误对象</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>批量获取导航栏可见状态</p><p>查询设备导航栏（状态栏）的当前可见状态。导航栏通常包含时间、电池状态和通知图标等系统信息。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getSystemMusicVolumeWithParams:completion:" title="getSystemMusicVolumeWithParams:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getSystemMusicVolumeWithParams:completion:">&ndash;&nbsp;getSystemMusicVolumeWithParams:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>获取系统媒体音量</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getSystemMusicVolumeWithParams:(NSDictionary&lt;NSString*,NSDictionary*&gt; *_Nonnull)<em>params</em> completion:(CaiGetSystemMusicVolumeCompletion _Nullable)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>设备参数字典
+- key: instanceId (NSString) 设备实例ID
+- value: 空字典 @{} 表示不需要额外参数</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>完成回调，返回音量信息
+- response: <a href="../Classes/CaiGetSystemMusicVolumeResponse.html">CaiGetSystemMusicVolumeResponse</a> 对象，包含音量信息
+- error: 网络或系统错误对象</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>获取系统媒体音量</p><p>查询设备当前的媒体音量设置。媒体音量控制音乐、视频、游戏和其他媒体内容的播放音量。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AndroidInstance.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2025 Tencent. All rights reserved. Updated: 2025-11-19</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
