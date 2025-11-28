@@ -15,17 +15,17 @@ FOUNDATION_EXPORT const unsigned char TCRSDKVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <TCRSDK/PublicHeader.h>
 
-#import <TCRSDK/TCRSdkConst.h>
-#import <TCRSDK/TcrSession.h>
-#import <TCRSDK/TcrRenderView.h>
-#import <TCRSDK/CustomDataChannel.h>
-#import <TCRSDK/PcTouchView.h>
-#import <TCRSDK/MobileTouchView.h>
-#import <TCRSDK/AudioSink.h>
-#import <TCRSDK/VideoSink.h>
-#import <TCRSDK/Mouse.h>
-#import <TCRSDK/Keyboard.h>
-#import <TCRSDK/GamePad.h>
-#import <TCRSDK/TouchScreen.h>
-#import <TCRSDK/TcrSdkInstance.h>
-#import <TCRSDK/AndroidInstance.h>
+#import "AndroidInstance.h"
+#import "AudioSink.h"
+#import "CustomDataChannel.h"
+#import "GamePad.h"
+#import "Keyboard.h"
+#import "MobileTouchView.h"
+#import "Mouse.h"
+#import "PcTouchView.h"
+#import "TCRSdkConst.h"
+#import "TcrRenderView.h"
+#import "TcrSdkInstance.h"
+#import "TcrSession.h"
+#import "TouchScreen.h"
+#import "VideoSink.h"

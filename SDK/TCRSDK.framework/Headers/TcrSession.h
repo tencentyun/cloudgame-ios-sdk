@@ -6,18 +6,19 @@
 //  Copyright © 2023 Tencent. All rights reserved.
 //
 
+#import <AVFoundation/AVFoundation.h>
 #import <Foundation/Foundation.h>
 #import <tcrsdk/TCRSdkConst.h>
-#import <AVFoundation/AVFoundation.h>
-#import <TCRSDK/TcrRenderView.h>
-#import <TCRSDK/AudioSink.h>
-#import <TCRSDK/VideoSink.h>
-#import <TCRSDK/Mouse.h>
-#import <TCRSDK/Keyboard.h>
-#import <TCRSDK/GamePad.h>
-#import <TCRSDK/TouchScreen.h>
-#import <TCRSDK/MotionSensor.h>
-#import <TCRSDK/CustomDataChannel.h>
+
+#import "AudioSink.h"
+#import "CustomDataChannel.h"
+#import "GamePad.h"
+#import "Keyboard.h"
+#import "MotionSensor.h"
+#import "Mouse.h"
+#import "TcrRenderView.h"
+#import "TouchScreen.h"
+#import "VideoSink.h"
 
 #pragma mark--- session event callback ---
 @protocol TcrSessionObserver <NSObject>
