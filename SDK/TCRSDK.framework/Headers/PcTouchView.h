@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
-#import "TCRSdkConst.h"
+#import <TCRSDK/TCRSdkConst.h>
 @class TcrSession;
 
 // Mouse type, only supports single-finger sliding operation

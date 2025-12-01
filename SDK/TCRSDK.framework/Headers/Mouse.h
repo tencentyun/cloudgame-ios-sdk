@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#import "TCRSdkConst.h"
+#import <TCRSDK/TCRSdkConst.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

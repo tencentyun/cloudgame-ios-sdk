@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#import "AndroidInstance.h"
-#import "TCRSdkConst.h"
+#import <TCRSDK/TCRSdkConst.h>
+#import <TCRSDK/AndroidInstance.h>
 NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark--- 日志接口 ---
