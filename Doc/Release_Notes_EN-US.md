@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 3.13.0 (2025-12.8)
+Features
+- Added updateInstanceAccessInfo:token:error interface to TcrSdkInstance
+
 ### Version 3.12.2 (2025-12.5)
 Bug Fixes
 - Fix and optimize some known issues

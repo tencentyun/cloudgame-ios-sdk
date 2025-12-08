@@ -106,5 +106,12 @@ NS_ASSUME_NONNULL_BEGIN
  * @param token New access token string.
  */
 - (void)updateToken:(NSString *)token;
+
+/**
+ * @brief Updates access info and token.
+ */
+- (BOOL)updateInstanceAccessInfo:(NSString *)accessInfoBase64
+                        token:(NSString *)token
+                           error:(NSError **)error;
 @end
 NS_ASSUME_NONNULL_END
