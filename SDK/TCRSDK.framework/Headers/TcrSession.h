@@ -188,6 +188,18 @@
 - (void)setRemoteVideoProfile:(int)fps minBitrate:(int)minBitrate maxBitrate:(int)maxBitrate DEPRECATED_MSG_ATTRIBUTE();
 
 /**
+ * Set the remote video profile.
+ *
+ * @param fps The frame rate. Value range: [10,60]. Default value: `60`.
+ * @param minBitrate The minimum bitrate in Kbps. Value range: [1000,15000]. Default value: `1000`.
+ * @param maxBitrate The maximum bitrate in Kbps. Value range: [1000,15000]. Default value: `15000`.
+ * @param width The video resolution width. Valid range: 128 to 1920 pixels.
+ * @param height The video resolution height. Valid range: 128 to 1920 pixels.
+ */
+
+- (void)setRemoteVideoProfile:(int)fps minBitrate:(int)minBitrate maxBitrate:(int)maxBitrate width:(int)width height:(int)height;
+
+/**
  * Set the local video profile.
  *
  * @param width The frame width, range[128, 1920]. Suggested value: 1280.
