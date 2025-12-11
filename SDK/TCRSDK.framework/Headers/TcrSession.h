@@ -282,6 +282,32 @@
 - (void)inputText:(NSString *_Nonnull)text mode:(BOOL)append;
 
 /**
+ * @brief Inputs text to cloud device without modifying clipboard.
+ * @discussion This method is available only when the client switches to **local input method mode**. It sends text directly to the cloud device's input field and does not alter the local clipboard content.
+ *
+ * @param text Text to input (non-null).
+ * @isOverride append Writing mode control:
+ *   - `YES`: **Override mode**. Clears the cloud input field and replaces its content with the provided text.
+ *   - `NO`: **Append mode** (default). Inserts text at the current cursor position in the cloud input field.
+ *
+ * @param indexAfterOverride The cursor position after override (only effective in override mode)
+ *
+ * @note Key constraints and behaviors:
+ * 1. **Input method dependency**: Only effective when `IME_TYPE = local`; otherwise, the call has no effect.
+ * 2. **Clipboard isolation**: Text will not be written to the clipboard, preventing contamination of user clipboard data.
+ *
+ * @example Example usage:
+ * // Override mode (default)
+ * [device inputText:@"Hello" mode:YES indexAfterOverride:1];
+ *
+ * // Append mode
+ * [device inputText:@"New Text" mode:NO];
+ *
+ * @see Constant `IME_TYPE` for input method type definitions.
+ */
+- (void)inputText:(NSString *_Nonnull)text mode:(BOOL)isOverride indexAfterOverride:(int)indexAfterOverride;
+
+/**
  * Disable the Cloud input.<br>
  * When the cloud input is disable, the cloud application's soft keyboard won't appear.<br>
  * <br>

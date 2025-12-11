@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 3.15.0 (2025-12.11)
+Features
+- Added inputText:mode:indexAfterOverride interface to TcrSession
+
 ### Version 3.14.0 (2025-12.10)
 Features
 - Added setRemoteVideoProfile:minBitrate:maxBitrate:width:height interface to TcrSession
