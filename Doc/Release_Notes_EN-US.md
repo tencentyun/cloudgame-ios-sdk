@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 3.12.3 (2025-12.11)
+Bug Fixes
+- Fix and optimize some known issues
+
 ### Version 3.12.2 (2025-12.5)
 Bug Fixes
 - Fix and optimize some known issues
