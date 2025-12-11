@@ -634,22 +634,28 @@
         case STATE_CLOSED:
             [self showToast:@"会话关闭"];
             break;
-        case VIDEO_STREAM_CONFIG_CHANGED:
-            NSLog(@"ApiTest 分辨率变化:%@", (NSString *)eventData);
-            info = (NSDictionary *)eventData;
-            CGFloat width = [info[@"width"] doubleValue];
-            CGFloat height = [info[@"height"] doubleValue];
-            [self resetVideoViewWithSize:CGSizeMake(width, height)];
-            break;
         case IME_TYPE: {
             info = (NSDictionary *)eventData;
             NSString* imeType = (NSString *)info[@"ime_type"];
             NSLog(@"gaogao 输入法类型:%@", imeType);
             break;
         }
-        case SCREEN_CONFIG_CHANGE:
+        case SCREEN_CONFIG_CHANGE: {
             NSLog(@"ApiTest 横竖屏变化:%@", (NSString *)eventData);
+            info = (NSDictionary *)eventData;
+            NSString *orientationStr = (NSString *)info[@"orientation"];
+            CGFloat width = [info[@"width"] doubleValue];
+            CGFloat height = [info[@"height"] doubleValue];
+            if ([orientationStr isEqualToString:@"landscape"]) {
+                CGFloat temp = width;
+                width = height;
+                height = temp;
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+              [self resetVideoViewWithSize:CGSizeMake(width, height)];
+            });
             break;
+        }
         case MULTI_USER_SEAT_INFO:
             NSLog(@"ApiTest 房间信息变化:%@", (NSString *)eventData);
             break;

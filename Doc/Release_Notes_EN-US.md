@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 3.15.1 (2025-12.11)
+Bug Fixes
+- Fix and optimize some known issues
+
 ### Version 3.15.0 (2025-12.11)
 Features
 - Added inputText:mode:indexAfterOverride interface to TcrSession
