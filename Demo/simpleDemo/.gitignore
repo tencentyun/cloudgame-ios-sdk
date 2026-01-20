@@ -1,0 +1,46 @@
+# 默认忽略
+.DS_Store
+*.swp
+*~
+*.lock
+
+# Xcode
+# 构建目录
+build/
+DerivedData/
+
+# 用户特定配置
+*.xcuserstate
+*.xcuserdatad/
+*.xcworkspace/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcodeproj/xcshareddata/IDEWorkspaceChecks.plist
+
+# 编译缓存文件
+*.mode1v3
+*.mode2v3
+*.pbxuser
+*.perspectivev3
+
+# 代码签名相关
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.swiftpm/
+.build/
+
+# Carthage
+Carthage/Build/
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# 临时文件
+*.log
+*.backup
+
+# 项目特定

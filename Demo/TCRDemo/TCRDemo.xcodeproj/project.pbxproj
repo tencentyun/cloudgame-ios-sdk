@@ -3,12 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		112D167A2AD67A7F003C292E /* TCGDemoMultiSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 112D16792AD67A7F003C292E /* TCGDemoMultiSettingView.m */; };
 		11D9EB592A83734E0099CF95 /* AudioQueuePlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D9EB582A83734E0099CF95 /* AudioQueuePlay.m */; };
+		1E205841E9496D0D5B40223E /* Pods_TCRDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B6FE7844B3F2CBB1BD6A3A /* Pods_TCRDemo.framework */; };
 		4DD7C5B42E58B0020030D82E /* TCGDemoAudioCapturor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD7C5A62E58B0020030D82E /* TCGDemoAudioCapturor.m */; };
 		4DD7C5B52E58B0020030D82E /* AVCaptureSession+DevicePosition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DD7C5A92E58B0020030D82E /* AVCaptureSession+DevicePosition.mm */; };
 		4DD7C5B62E58B0020030D82E /* gcd_helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD7C5AB2E58B0020030D82E /* gcd_helpers.m */; };
@@ -106,6 +107,9 @@
 		8AC0C3BE269E918900883D6C /* TCGDemoLoadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCGDemoLoadingView.m; sourceTree = "<group>"; };
 		8AE8AF6C26955B5D005FDF50 /* TCGDemoBitrateInputText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCGDemoBitrateInputText.h; sourceTree = "<group>"; };
 		8AE8AF6D26955B6E005FDF50 /* TCGDemoBitrateInputText.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCGDemoBitrateInputText.m; sourceTree = "<group>"; };
+		DEE232E2CD882EE573ED5614 /* Pods-TCRDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TCRDemo.release.xcconfig"; path = "Target Support Files/Pods-TCRDemo/Pods-TCRDemo.release.xcconfig"; sourceTree = "<group>"; };
+		E1C955AD41851B1A201C1E6E /* Pods-TCRDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TCRDemo.debug.xcconfig"; path = "Target Support Files/Pods-TCRDemo/Pods-TCRDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		F5B6FE7844B3F2CBB1BD6A3A /* Pods_TCRDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TCRDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,7 @@
 				8A7ECDE226A666300092A918 /* libc++.tbd in Frameworks */,
 				8A7ECDE626A6663E0092A918 /* SystemConfiguration.framework in Frameworks */,
 				8A7ECDE826A666450092A918 /* JavaScriptCore.framework in Frameworks */,
+				1E205841E9496D0D5B40223E /* Pods_TCRDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +132,8 @@
 		3C53EF10B3E076995A0C4598 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				E1C955AD41851B1A201C1E6E /* Pods-TCRDemo.debug.xcconfig */,
+				DEE232E2CD882EE573ED5614 /* Pods-TCRDemo.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -166,6 +173,7 @@
 				8A7ECDE326A666380092A918 /* Security.framework */,
 				8A7ECDE126A666170092A918 /* libc++.tbd */,
 				8A7ECDDF26A666060092A918 /* libz.tbd */,
+				F5B6FE7844B3F2CBB1BD6A3A /* Pods_TCRDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -247,10 +255,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A97C1DF258B9C80005AA486 /* Build configuration list for PBXNativeTarget "TCRDemo" */;
 			buildPhases = (
+				409BC78DB32EC12206657BC3 /* [CP] Check Pods Manifest.lock */,
 				8A97C1C2258B9C7E005AA486 /* Sources */,
 				8A97C1C3258B9C7E005AA486 /* Frameworks */,
 				8A97C1C4258B9C7E005AA486 /* Resources */,
 				11EFBC642AD7DBD4008E2C28 /* Embed Frameworks */,
+				F2B3DFEA9ECB35A34FA82BD9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -303,6 +313,52 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		409BC78DB32EC12206657BC3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TCRDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2B3DFEA9ECB35A34FA82BD9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TCRDemo/Pods-TCRDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TCRDemo/Pods-TCRDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TCRDemo/Pods-TCRDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8A97C1C2258B9C7E005AA486 /* Sources */ = {
@@ -470,13 +526,14 @@
 		};
 		8A97C1E0258B9C80005AA486 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1C955AD41851B1A201C1E6E /* Pods-TCRDemo.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 38Y5MA3LD2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -498,13 +555,14 @@
 		};
 		8A97C1E1258B9C80005AA486 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DEE232E2CD882EE573ED5614 /* Pods-TCRDemo.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 38Y5MA3LD2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
