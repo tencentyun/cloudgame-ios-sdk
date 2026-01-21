@@ -355,6 +355,7 @@ static NSString *kHostBaseUrl = @"https://cai-server.cloud-device.crtrcloud.com"
                 tcrSessionConfig[@"local_audio"] = @(0);
                 tcrSessionConfig[@"preferredCodec"] = @"H264";
                 tcrSessionConfig[@"idleThreshold"] = @(6000);
+                tcrSessionConfig[@"sessionMode"] = @"ExclusiveSession";
                 strongSelf3.session = [[TcrSdkInstance sharedInstance] createSessionWithParams:tcrSessionConfig];
                 [strongSelf3.session setTcrSessionObserver:strongSelf3];
                 
