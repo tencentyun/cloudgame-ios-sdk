@@ -72,6 +72,10 @@
  *         - @"remoteDesktopResolution":@{@"width":NSInteger , @"height":NSInteger} ,Set the resolution of Cloud Desktop. If the cloud PC
  *           application is in full-screen mode, the resolution of the downstream video stream will also change accordingly.
  *           NOTE：This param  is only for PC application, and the mobile application is not supported.
+ *
+ *         - @"sessionMode": Optional values are @"ExclusiveSession" or @"SharedSession". Default is @"SharedSession".
+ *           @"ExclusiveSession" will request the cloud instance to disconnect other client streaming connections,
+ *           while @"SharedSession" allows keeping other client connections.
  * @param Observer The delegate of the TcrSession, listening for callback of events.
  */
 - (instancetype _Nonnull)initWithParams:(NSDictionary *_Nullable)params andDelegate:(id<TcrSessionObserver> _Nonnull)Observer;
