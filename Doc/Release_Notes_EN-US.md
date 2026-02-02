@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 3.15.6 (2026-2.2)
+Bug Fixes
+- H264 Profile level too low.
+
 ### Version 3.15.2 (2026-1.21)
 Features
 - Added sessionMode config to TcrSession
