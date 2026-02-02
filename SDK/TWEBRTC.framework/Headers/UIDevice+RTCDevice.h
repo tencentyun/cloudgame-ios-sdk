@@ -107,5 +107,5 @@ typedef NS_ENUM(NSInteger, RTCDeviceType) {
 
 + (RTCDeviceType)deviceType;
 + (BOOL)isIOS11OrLater;
-
++ (NSString *)machineName;
 @end

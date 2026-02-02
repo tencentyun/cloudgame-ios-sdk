@@ -690,7 +690,7 @@
             } else {
                 _isFrontCamera = [status isEqualToString:@"open_front"];
                 [self onEnableLocalVideo:true];
-                [self.session setLocalVideoProfile:_captureWidth height:_captureHeight fps:_captureFps minBitrate:1000 maxBitrate:15000 isFrontCamera:_isFrontCamera];
+                [self.session setLocalVideoProfile:_captureWidth height:_captureHeight fps:_captureFps minBitrate:1000 maxBitrate:5000 isFrontCamera:_isFrontCamera];
             }
             break;
         }
