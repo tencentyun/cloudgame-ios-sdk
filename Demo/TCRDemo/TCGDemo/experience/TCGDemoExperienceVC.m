@@ -142,6 +142,9 @@ static NSString *kHostBaseUrl = @"https://code.cloud-gaming.myqcloud.com/";
     _isSimpleMode = YES;
 
     NSString *simpleCode = [[_experienceCfg objectForKey:@"simple"] objectForKey:@"ExperienceCode"];
+    if (!simpleCode || [simpleCode length] == 0) {
+        simpleCode = @"TM0QY0EY";
+    }
     _simpleCodeTxt = [[TCGDemoExperienceInputText alloc] initWithFrame:CGRectMake(0, 0, 225, 22.5)
                                                                   name:@"体验码"
                                                                oldValue:simpleCode];
@@ -172,8 +175,9 @@ static NSString *kHostBaseUrl = @"https://code.cloud-gaming.myqcloud.com/";
     
     _loadingView = [[TCGDemoLoadingView alloc] initWithFrame:self.view.bounds process:0];
     _loadingView.hidden = YES;
-    _enableCustomAudioCapture = true;
-    _enableCustomVideoCapture = true;
+    // 如果要测试自定义音视频采集上行才打开
+    //_enableCustomAudioCapture = true;
+    //_enableCustomVideoCapture = true;
 }
 
 - (void)initAdvanceInput {

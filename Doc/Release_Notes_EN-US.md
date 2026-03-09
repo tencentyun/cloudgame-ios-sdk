@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 3.15.8 (2026-3.9)
+Bug Fixes
+- release camera.
+
 ### Version 3.15.7 (2026-2.3)
 Bug Fixes
 - H264 Profile level too low.
