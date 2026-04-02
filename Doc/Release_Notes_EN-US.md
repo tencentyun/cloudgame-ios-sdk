@@ -1,5 +1,9 @@
 [中文文档](历史版本.md)
 
+### Version 3.15.9 (2026-4.2)
+Bug Fixes
+- reconnection.
+
 ### Version 3.15.8 (2026-3.9)
 Bug Fixes
 - release camera.
