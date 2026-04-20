@@ -1,7 +1,7 @@
 [中文文档](历史版本.md)
 
-### Version 3.15.10 (2026-4.15)
-Bug Fixes
+### Version 3.15.11 (2026-4.20)
+Bug Fixes Gamepad
 
 ### Version 3.15.9 (2026-4.2)
 Bug Fixes
