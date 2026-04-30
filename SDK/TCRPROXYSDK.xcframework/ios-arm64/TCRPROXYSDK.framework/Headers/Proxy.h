@@ -28,7 +28,18 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param bandwidth 设备带宽（如 @"1MB" 或 @"500KB"），最大 4MB
 /// @param relayInfoString 云端下发的代理中继信息
 /// @return 初始化是否成功
-- (BOOL)initWithBandwidth:(nullable NSString *)bandwidth relayInfoString:(NSString *)relayInfoString;
+/// @deprecated 请使用 initWithUploadBandwidth:downloadBandwidth:relayInfoString: 以分别控制上下行带宽
+- (BOOL)initWithBandwidth:(nullable NSString *)bandwidth relayInfoString:(NSString *)relayInfoString
+    DEPRECATED_MSG_ATTRIBUTE("Use initWithUploadBandwidth:downloadBandwidth:relayInfoString: instead");
+
+/// 初始化代理服务（分别指定上下行带宽，必须先于 startProxy 调用）
+/// @param uploadBandwidth   上行带宽限制（即本地手机发往云机），如 @"2MB"、@"512KB"，nil 使用默认值 4MB，最大 4MB
+/// @param downloadBandwidth 下行带宽限制（即云机发往本地手机），如 @"4MB"、@"1MB"，nil 使用默认值 4MB，最大 4MB
+/// @param relayInfoString   云端下发的代理中继信息
+/// @return 初始化是否成功
+- (BOOL)initWithUploadBandwidth:(nullable NSString *)uploadBandwidth
+               downloadBandwidth:(nullable NSString *)downloadBandwidth
+                relayInfoString:(NSString *)relayInfoString;
 
 /// 启动代理服务。须先 init 成功
 - (void)startProxy;
