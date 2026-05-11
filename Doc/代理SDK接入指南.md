@@ -33,7 +33,7 @@
    使用 [CocoaPods](https://cocoapods.org/):
 
    ```ruby
-   pod 'TCRPROXYSDK', :git => 'https://github.com/tencentyun/cloudgame-ios-sdk.git', :tag => 'TCRPROXYSDK/1.3.0'
+   pod 'TCRPROXYSDK', :git => 'https://github.com/tencentyun/cloudgame-ios-sdk.git', :tag => 'TCRPROXYSDK/1.3.2'
    ```
 
    安装依赖：
