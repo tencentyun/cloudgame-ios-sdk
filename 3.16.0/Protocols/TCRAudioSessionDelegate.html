@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>TCRAudioSessionDelegate Protocol Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">TcrSdk </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Tencent</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/onSetActive:error:">- onSetActive:error:</option>
+		
+		<option value="//api/name/onSetCategory:withOptions:error:">- onSetCategory:withOptions:error:</option>
+		
+		<option value="//api/name/onSetMode:error:">- onSetMode:error:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">TCRAudioSessionDelegate Protocol Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Conforms to</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>TcrSession.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Advanced escape hatch for taking over AVAudioSession management.</p>
+
+<p>For most audio-coexistence scenarios (e.g. running alongside third-party audio SDKs), prefer the
+declarative keys <code>audioSessionCategoryOptions</code> / <code>audioSessionMode</code> of initWithParams:andDelegate:,
+which require no method implementation and carry no risk. Use this delegate only when you need
+dynamic per-call decisions, or need to intercept <code>setActive:</code> as well.</p>
+
+<p>How it works: once set via +setAudioSessionDelegate:, the SDK swizzles RTCAudioSession&rsquo;s
+setCategory:withOptions:error: / setMode:error: / setActive:error: and forwards them to the
+corresponding onSetXxx methods — but only the methods your delegate implements at the moment of
+setting are taken over; the rest keep the SDK default behavior. All AVAudioSession writes going
+through RTCAudioSession are intercepted, including the SDK&rsquo;s internal ones.
+Priority: TCRAudioSessionDelegate > initWithParams audio keys > SDK defaults.</p>
+
+<p>Note: if you implement <a href="#//api/name/onSetActive:error:">onSetActive:error:</a>, it will additionally be invoked on WebRTC&rsquo;s
+post-event recovery path (interruption ended / media services reset / returning to foreground
+while interrupted), carrying the most recent activation state you confirmed. Your implementation
+must be prepared to receive these extra calls and perform the corresponding AVAudioSession
+activation so that audio recovers after interruptions.</p>
+
+<p>Warnings:
+- Must be set BEFORE creating any <a href="../Classes/TcrSession.html">TcrSession</a>, and can be set only once per process
+(swizzling is installed via dispatch_once).
+- The delegate is held weakly; your app must retain it for the whole session lifetime.
+Once it is deallocated, intercepted calls silently fail (return NO) and audio breaks.
+- Each implemented onSetXxx method MUST really perform the corresponding AVAudioSession
+operation and return its result. There is NO fallback to the original implementation —
+an empty implementation leaves audio dead, which is worse than not setting the delegate at all.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/onSetCategory:withOptions:error:" title="onSetCategory:withOptions:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onSetCategory:withOptions:error:">&ndash;&nbsp;onSetCategory:withOptions:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Forwarded from RTCAudioSession.setCategory:withOptions:error:. Must perform the real
+AVAudioSession call and return its result.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)onSetCategory:(NSString *_Nonnull)<em>category</em> withOptions:(AVAudioSessionCategoryOptions)<em>options</em> error:(NSError *_Nullable *_Nullable)<em>outError</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/onSetMode:error:" title="onSetMode:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onSetMode:error:">&ndash;&nbsp;onSetMode:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Forwarded from RTCAudioSession.setMode:error:. Same contract as above.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)onSetMode:(NSString *_Nonnull)<em>mode</em> error:(NSError *_Nullable *_Nullable)<em>outError</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/onSetActive:error:" title="onSetActive:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onSetActive:error:">&ndash;&nbsp;onSetActive:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Forwarded from RTCAudioSession.setActive:error:. Same contract as above.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)onSetActive:(BOOL)<em>active</em> error:(NSError *_Nullable *_Nullable)<em>outError</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TcrSession.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2026 Tencent. All rights reserved. Updated: 2026-08-13</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
