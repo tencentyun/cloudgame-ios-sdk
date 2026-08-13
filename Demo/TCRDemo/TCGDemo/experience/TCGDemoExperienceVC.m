@@ -143,7 +143,7 @@ static NSString *kHostBaseUrl = @"https://code.cloud-gaming.myqcloud.com/";
 
     NSString *simpleCode = [[_experienceCfg objectForKey:@"simple"] objectForKey:@"ExperienceCode"];
     if (!simpleCode || [simpleCode length] == 0) {
-        simpleCode = @"TM0QY0EY";
+        simpleCode = @"PGGEHLZU";
     }
     _simpleCodeTxt = [[TCGDemoExperienceInputText alloc] initWithFrame:CGRectMake(0, 0, 225, 22.5)
                                                                   name:@"体验码"

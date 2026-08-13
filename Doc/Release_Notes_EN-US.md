@@ -1,5 +1,21 @@
 [中文文档](历史版本.md)
 
+### Version 3.16.0
+**Features**
+- Added the `TOKEN_EXPIRED` (access token expired) event to `TcrEvent`. (2026-07-03)
+- Cloud phone instance authentication aligned with Android: the SDK stores authentication info by instance InstanceId and passes it through during standalone/group connections. (2026-07-31)
+- Audio session parameterization: `TcrSession initWithParams:andDelegate:` adds `audioSessionCategoryOptions` and `audioSessionMode` parameters to customize the AVAudioSession category options and mode written by the SDK, for coexisting with third-party audio SDKs. (2026-08-12)
+- Updated TWEBRTC.framework. (2026-08-12)
+- Added granular connection failure codes to `TcrSession`'s STATE_CLOSED event: `SessionStopConnectFailedServerRejected`(104009), `SessionStopConnectFailedSdp`(104010), `SessionStopServerSessionInvalid`(104008). (2026-08-13)
+
+**Bug Fixes**
+- Fixed an issue with custom audio capture. (2026-08-12)
+- Fixed the Demo login failure and the SDK standalone/group connection failure issues. (2026-07-31)
+
+**Attention (Behavior Change)**
+- On connection failure, the SDK no longer reports SessionStopConnectFailed(104007) and reports one of the granular codes above instead. If your code matches 104007 exactly, please adapt it to the granular codes, or treat 104007 as a fallback for unknown connection failures.
+- When the ServerSession returned by the cloud is invalid, the SDK no longer reports SessionStopServerUnknown(104001) and reports SessionStopServerSessionInvalid(104008) instead.
+
 ### Version 3.15.12 (2026-4.21)
 Bug Fixes Gamepad
 

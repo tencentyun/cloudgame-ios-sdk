@@ -68,8 +68,21 @@ typedef NS_ENUM(NSInteger, TcrCode) {
     SessionStopStopManually = SessionStopBaseCode + 5,
     /*! This value indicates that reconnection failure leads to exit **/
     SessionStopReconnectFailed = SessionStopBaseCode + 6,
-    /*! This value indicate that failed to connect to cloud  **/
-    SessionStopConnectFailed = SessionStopBaseCode + 7
+    /*! This value indicate that failed to connect to cloud.<br>
+     * It is a general connection failure code kept for compatibility. The SDK now reports more specific
+     * failure codes instead: SessionStopConnectFailedServerRejected and SessionStopConnectFailedSdp.
+     * You are recommended to handle these specific codes, and treat this code as an unknown connection
+     * failure fallback.
+     **/
+    SessionStopConnectFailed = SessionStopBaseCode + 7,
+    /*! This value indicate that the ServerSession is invalid **/
+    SessionStopServerSessionInvalid = SessionStopBaseCode + 8,
+    /*! This value indicates that the connection request to the cloud failed: the connect/play API request
+     * failed or the response could not be parsed. Refer to the SDK logs for details.
+     **/
+    SessionStopConnectFailedServerRejected = SessionStopBaseCode + 9,
+    /*! This value indicates that the connection failed because the WebRTC SDP negotiation failed **/
+    SessionStopConnectFailedSdp = SessionStopBaseCode + 10
 };
 
 typedef NS_ENUM(NSInteger, CaiCode) {
@@ -473,6 +486,17 @@ typedef NS_ENUM(NSUInteger, TcrEvent) {
      * }
      */
     CAI_SYSTEM_STATUS,
+    /**
+     * This event indicates that the access token has expired.<br>
+     *
+     * The associated event data is of type NSDictionary in json format:
+     * {@code
+     * {
+     *      // token expired detail, structure determined by server
+     * }
+     * }
+     */
+    TOKEN_EXPIRED,
 };
 
 

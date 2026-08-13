@@ -28,15 +28,43 @@
 
 #pragma mark--- audioDelegate ---
 /*!
- * sdk audioSession proxy, after implementing and passing addTCGAudioSessionDelegate.
- * AudioSession will no longer be operated in the sdk, but AudioSession related operations will be called back 
- * to the APP through the proxy for processing. The APP will set the AVAudioSession 
- * according to the parameters according to actual needs.
+ * Advanced escape hatch for taking over AVAudioSession management.
+ *
+ * For most audio-coexistence scenarios (e.g. running alongside third-party audio SDKs), prefer the
+ * declarative keys `audioSessionCategoryOptions` / `audioSessionMode` of initWithParams:andDelegate:,
+ * which require no method implementation and carry no risk. Use this delegate only when you need
+ * dynamic per-call decisions, or need to intercept `setActive:` as well.
+ *
+ * How it works: once set via +setAudioSessionDelegate:, the SDK swizzles RTCAudioSession's
+ * setCategory:withOptions:error: / setMode:error: / setActive:error: and forwards them to the
+ * corresponding onSetXxx methods — but only the methods your delegate implements at the moment of
+ * setting are taken over; the rest keep the SDK default behavior. All AVAudioSession writes going
+ * through RTCAudioSession are intercepted, including the SDK's internal ones.
+ * Priority: TCRAudioSessionDelegate > initWithParams audio keys > SDK defaults.
+ *
+ * Note: if you implement onSetActive:error:, it will additionally be invoked on WebRTC's
+ * post-event recovery path (interruption ended / media services reset / returning to foreground
+ * while interrupted), carrying the most recent activation state you confirmed. Your implementation
+ * must be prepared to receive these extra calls and perform the corresponding AVAudioSession
+ * activation so that audio recovers after interruptions.
+ *
+ * Warnings:
+ * - Must be set BEFORE creating any TcrSession, and can be set only once per process
+ *   (swizzling is installed via dispatch_once).
+ * - The delegate is held weakly; your app must retain it for the whole session lifetime.
+ *   Once it is deallocated, intercepted calls silently fail (return NO) and audio breaks.
+ * - Each implemented onSetXxx method MUST really perform the corresponding AVAudioSession
+ *   operation and return its result. There is NO fallback to the original implementation —
+ *   an empty implementation leaves audio dead, which is worse than not setting the delegate at all.
  */
 @protocol TCRAudioSessionDelegate <NSObject>
 @optional
+/// Forwarded from RTCAudioSession.setCategory:withOptions:error:. Must perform the real
+/// AVAudioSession call and return its result.
 - (BOOL)onSetCategory:(NSString *_Nonnull)category withOptions:(AVAudioSessionCategoryOptions)options error:(NSError *_Nullable *_Nullable)outError;
+/// Forwarded from RTCAudioSession.setMode:error:. Same contract as above.
 - (BOOL)onSetMode:(NSString *_Nonnull)mode error:(NSError *_Nullable *_Nullable)outError;
+/// Forwarded from RTCAudioSession.setActive:error:. Same contract as above.
 - (BOOL)onSetActive:(BOOL)active error:(NSError *_Nullable *_Nullable)outError;
 @end
 
@@ -76,6 +104,36 @@
  *         - @"sessionMode": Optional values are @"ExclusiveSession" or @"SharedSession". Default is @"SharedSession".
  *           @"ExclusiveSession" will request the cloud instance to disconnect other client streaming connections,
  *           while @"SharedSession" allows keeping other client connections.
+ *
+ *         - @"audioSessionCategoryOptions": Optional. An NSNumber wrapping AVAudioSessionCategoryOptions.
+ *           Applied whenever the SDK writes AVAudioSession on mic on/off, overriding the SDK default options
+ *           entirely (mic on: AllowBluetooth | DefaultToSpeaker; mic off: 0).
+ *
+ *         - @"audioSessionMode": Optional. An AVAudioSessionMode value, e.g. AVAudioSessionModeDefault.
+ *           Applied whenever the SDK writes AVAudioSession on mic on/off, overriding the SDK default mode
+ *           (mic on: AVAudioSessionModeVoiceChat for system-level echo cancellation; mic off: AVAudioSessionModeDefault).
+ *           Typical use: coexisting with third-party audio SDKs whose voice processing conflicts with
+ *           VoiceChat mode and suppresses capture volume.
+ *
+ *           IMPORTANT: this key only controls the mode the SDK writes *explicitly*. It cannot prevent the
+ *           implicit override: whenever a VoiceProcessingIO (VPIO) AudioUnit has its input side enabled,
+ *           iOS forces the session mode to VoiceChat (the system AEC/AGC chain is tied to the
+ *           VPIO + chat-mode combination), and this implicit override does not go through AVAudioSession's
+ *           ObjC interface, so neither this key nor TCRAudioSessionDelegate can intercept it.
+ *             - SDK internal capture uses VPIO: mic-on enables its input, so the mode will still be pulled
+ *               to VoiceChat regardless of this key.
+ *             - With custom audio capture (enableCustomAudioCapture), the SDK's capture VPIO keeps its input
+ *               disabled, so the implicit override is not triggered — provided the custom capturer itself does
+ *               NOT use VPIO (e.g. uses RemoteIO). If the custom capturer uses VPIO, its own input-enable
+ *               will again pull the mode to VoiceChat.
+ *
+ *         - @"audioSessionCategory": Reserved. The SDK always forces the category according to mic state
+ *           (PlayAndRecord when the mic is on, Playback when off), so this key currently has no effect.
+ *
+ *         When both mechanisms are used, the priority is:
+ *           TCRAudioSessionDelegate > the audio keys above > SDK defaults.
+ *         For typical audio-coexistence needs, prefer these declarative keys over TCRAudioSessionDelegate.
+ *
  * @param Observer The delegate of the TcrSession, listening for callback of events.
  */
 - (instancetype _Nonnull)initWithParams:(NSDictionary *_Nullable)params andDelegate:(id<TcrSessionObserver> _Nonnull)Observer;
@@ -463,9 +521,14 @@
 - (void)syncRoomInfo;
 
 /**
- * Set audiosession proxy
+ * Set the audio session delegate to take over AVAudioSession management.
  *
- * @param delegate The delegate to set
+ * Advanced API — prefer the declarative audio keys of initWithParams:andDelegate: for typical
+ * audio-coexistence needs. Must be called before creating any TcrSession and takes effect only
+ * once per process. The delegate is held weakly; keep it alive for the whole session lifetime.
+ * See TCRAudioSessionDelegate for the full contract and warnings.
+ *
+ * @param delegate The delegate to set. Passing nil is a no-op.
  */
 + (void)setAudioSessionDelegate:(id<TCRAudioSessionDelegate>_Nonnull)delegate;
 
