@@ -320,6 +320,9 @@
         case CAI_TRANS_MESSAGE:
             ApiTestNSLog(@"CAI_TRANS_MESSAGE: %@", (NSString *)eventData);
             break;
+        case PROXY_RELAY_AVAILABLE:
+            ApiTestNSLog(@"PROXY_RELAY_AVAILABLE: %@", (NSString *)eventData);
+            break;
         default:
             break;
     }
@@ -890,9 +893,9 @@
     [array addObject:itemJpg];
     
     CaiUploadFileItem* itemApk = [CaiUploadFileItem new];
-    itemApk.fileName = @"app-release.apk";
+    itemApk.fileName = @"1.apk";
     itemApk.filePath = @"/sdcard/media";
-    itemApk.fileData = [self dataForAssetNamed:@"app-release" ofType:@"apk"];
+    itemApk.fileData = [self dataForAssetNamed:@"1" ofType:@"apk"];
     [array addObject:itemApk];
     [self.androidInstance uploadWithInstanceId:instanceId files:array completion:^(CaiUploadResponse * _Nonnull response, NSError * _Nullable error) {
         if (error) {

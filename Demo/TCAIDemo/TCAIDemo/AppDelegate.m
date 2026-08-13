@@ -34,7 +34,11 @@
     CGRect frame = [[UIScreen mainScreen] bounds];
     self.window = [[UIWindow alloc] initWithFrame:frame];
     CAIDemoLoginVC *vc = [[CAIDemoLoginVC alloc] init];
-    self.window.rootViewController = vc;
+    // 登录页 -> 实例列表页 -> 实例操作页，使用导航栈管理跳转
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:vc];
+    navVC.navigationBar.hidden = YES;
+    self.window.rootViewController = navVC;
+    [self.window makeKeyAndVisible];
 }
 
 @end

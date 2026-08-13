@@ -20,8 +20,6 @@ static AudioUnit m_audioUnit;
 static AudioBufferList *m_buffList;
 static AudioStreamBasicDescription m_audioDataFormat;
 
-uint32_t g_av_base_time = 100;
-
 @interface CAIDemoAudioCapturor ()
 
 @property (nonatomic, assign, readwrite) BOOL isRunning;
@@ -35,18 +33,16 @@ static TcrSession *_tcr_session = nil;
 static NSInteger _sampleRate;
 static NSInteger _channelCount;
 static BOOL _isDump;
+static BOOL _isConfigured = NO;
 static NSFileHandle *_fileHandle;
 
 static OSStatus AudioCaptureCallback(void *inRefCon, AudioUnitRenderActionFlags *ioActionFlags, const AudioTimeStamp *inTimeStamp, UInt32 inBusNumber,
     UInt32 inNumberFrames, AudioBufferList *ioData) {
     AudioUnitRender(m_audioUnit, ioActionFlags, inTimeStamp, inBusNumber, inNumberFrames, m_buffList);
 
-    if (g_av_base_time == 0) {
-        return noErr;
-    }
-
-    Float64 currentTime = CMTimeGetSeconds(CMClockMakeHostTimeFromSystemUnits(inTimeStamp->mHostTime));
-    int64_t pts = (int64_t)((currentTime - g_av_base_time) * 1000);
+    // 采集时刻时间戳，SDK 要求纳秒（sendCustomAudioData:captureTimeNs:）
+    Float64 currentTimeSec = CMTimeGetSeconds(CMClockMakeHostTimeFromSystemUnits(inTimeStamp->mHostTime));
+    uint64_t captureTimeNs = (uint64_t)(currentTimeSec * NSEC_PER_SEC);
 
     void *bufferData = m_buffList->mBuffers[0].mData;
     UInt32 bufferSize = m_buffList->mBuffers[0].mDataByteSize;
@@ -54,24 +50,30 @@ static OSStatus AudioCaptureCallback(void *inRefCon, AudioUnitRenderActionFlags 
     NSData *audioData = [NSData dataWithBytes:bufferData length:bufferSize];
 
     if (_fileHandle) {
-        NSLog(@"write data");
         [_fileHandle writeData:audioData];
     }
 
     if (_tcr_session) {
-        [_tcr_session sendCustomAudioData:audioData captureTimeNs:(uint64_t)currentTime];
+        [_tcr_session sendCustomAudioData:audioData captureTimeNs:captureTimeNs];
     }
     return noErr;
 }
 
 #pragma mark - Public
-+ (void)configureAudioCapturor:(int)sampleRate channelCount:(int)channelCount dumpAudio:(BOOL)isDump {
++ (void)configureAudioCapturor:(NSInteger)sampleRate channelCount:(NSInteger)channelCount dumpAudio:(BOOL)isDump {
     _sampleRate = sampleRate;
     _channelCount = channelCount;
     _isDump = isDump;
+    _isConfigured = YES;
 }
 
+// 未调用 configureAudioCapturor: 配置时返回 nil（对其发消息为空操作），
+// 避免以非法采样率创建 AudioUnit。
 + (instancetype)getInstance {
+    if (!_isConfigured) {
+        NSLog(@"%@: audio capturor is not configured, call configureAudioCapturor first \n", kModuleName);
+        return nil;
+    }
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc] initWithParams:_sampleRate channelCount:_channelCount isDump:_isDump];
@@ -101,7 +103,7 @@ static OSStatus AudioCaptureCallback(void *inRefCon, AudioUnitRenderActionFlags 
 }
 
 #pragma mark - Init
-- (instancetype)initWithParams:(int)sampleRate channelCount:(int)channelCount isDump:(BOOL)isDump {
+- (instancetype)initWithParams:(NSInteger)sampleRate channelCount:(NSInteger)channelCount isDump:(BOOL)isDump {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         // 如果要dump录制的音频，那么要先创建文件
@@ -149,6 +151,21 @@ static OSStatus AudioCaptureCallback(void *inRefCon, AudioUnitRenderActionFlags 
 
     if (*isRunning) {
         NSLog(@"%@:  %s - start recorder repeat \n", kModuleName, __func__);
+        return;
+    }
+
+    // RemoteIO 不会自行把 AVAudioSession 拉到录音态：若当前不是录音态（category 非
+    // PlayAndRecord/Record，例如 SDK 把 session 切回了 Playback，或异步配置尚未生效），
+    // 直接启动采集会无声。此时延迟重试，等 SDK 的开麦配置生效后再启动。
+    // 注意按 category（录音能力）判断而非 mode——audioSessionMode=Default 时 mode 恒为 Default。
+    NSString *category = [AVAudioSession sharedInstance].category;
+    BOOL isRecordCategory = [category isEqualToString:AVAudioSessionCategoryPlayAndRecord]
+        || [category isEqualToString:AVAudioSessionCategoryRecord];
+    if (!isRecordCategory) {
+        NSLog(@"%@:  %s - session category is %@, not ready for capture, retry after 300ms \n", kModuleName, __func__, category);
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self startAudioCaptureWithAudioUnit:audioUnit isRunning:isRunning];
+        });
         return;
     }
 
@@ -234,6 +251,15 @@ static OSStatus AudioCaptureCallback(void *inRefCon, AudioUnitRenderActionFlags 
     AudioUnit audioUnit;
     AudioComponentDescription audioDesc;
     audioDesc.componentType = kAudioUnitType_Output;
+    // 本文件是 sendCustomAudioData 的【自定义采集实现示例】，演示用 AudioUnit 采集 PCM 上行。
+    // 已接入第三方音频 SDK（声网/火山等）的客户无需使用本文件——直接在第三方模块的原始音频帧回调里
+    // 转发 sendCustomAudioData 即可，采集子类型/参数由客户在第三方模块侧自行权衡。
+    //
+    // 对使用本示例的客户，子类型选择需知（VPIO 与 AVAudioSession mode 的相互作用是普适机制）：
+    // - VoiceProcessingIO（本示例默认）：自带系统 AEC/AGC，但输入侧启用时系统会隐式把 session mode 拉为
+    //   VoiceChat（不经 AVAudioSession ObjC 接口，无法拦截），此时 audioSessionMode=Default 传参被覆盖失效；
+    // - RemoteIO：纯 IO 单元、无语音处理、不改 session mode，配合 audioSessionMode=Default 可全程无
+    //   VoiceChat（代价：失去系统 AEC/AGC，需自行处理回声）。
     audioDesc.componentSubType = kAudioUnitSubType_VoiceProcessingIO;  // kAudioUnitSubType_RemoteIO;
     audioDesc.componentManufacturer = kAudioUnitManufacturer_Apple;
     audioDesc.componentFlags = 0;

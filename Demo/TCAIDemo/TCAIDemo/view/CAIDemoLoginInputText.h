@@ -19,6 +19,9 @@
 
 - (instancetype)initWithFrame:(CGRect)frame name:(NSString *)name oldValue:(NSString*)oldText;
 
+// height: 输入框高度；multiline: 是否支持多行输入（用于 AccessInfo 这类长文本）
+- (instancetype)initWithFrame:(CGRect)frame name:(NSString *)name oldValue:(NSString*)oldText height:(CGFloat)height multiline:(BOOL)multiline;
+
 - (NSString *)text;
 
 @end

@@ -18,7 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, readonly) BOOL isRunning;
 
 + (void)configureAudioCapturor:(NSInteger)sampleRate channelCount:(NSInteger)channelCount dumpAudio:(BOOL)isDump;
-+ (instancetype)getInstance;
+// 未配置时返回 nil，对其调用 start/stop 为空操作
++ (instancetype _Nullable)getInstance;
 - (void)startAudioCapture:(TcrSession *)tcrSession;
 - (void)stopAudioCapture;
 

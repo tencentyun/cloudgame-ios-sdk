@@ -12,12 +12,13 @@
 #import "CAIDemoLoadingView.h"
 #import "CAIDemoMultiSettingView.h"
 #import <AVFoundation/AVFoundation.h>
-#import "AudioQueuePlay.h"
 #import "CAIDemoAudioCapturor.h"
+#import "CAIDemoUtils.h"
+#import <TCRVkey/TCRVKeyGamepad.h>
 #import <CoreMotion/CoreMotion.h>
 
 @interface CAIDemoMasterControlVC () <TcrSessionObserver, CAIDemoTextFieldDelegate, CustomDataChannelObserver, CAIDemoSettingViewDelegate,
-    VideoSink, AudioSink, TcrRenderViewObserver, CAIDemoMultiSettingViewDelegate, UIGestureRecognizerDelegate>
+    TcrRenderViewObserver, CAIDemoMultiSettingViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) NSString *remoteSession;
 @property (nonatomic, strong) NSDictionary *experienceCode;
@@ -41,12 +42,9 @@
 @property (nonatomic, assign) BOOL usingCursor;
 @property (nonatomic, strong) CustomDataChannel *customChannel;
 @property (nonatomic, weak) CAIDemoLoadingView *loadingView;
-@property (nonatomic, strong) UIImageView *imageView;
-@property (nonatomic, strong) AudioQueuePlay *audioPlayer;
-@property (nonatomic, strong) dispatch_queue_t audioPlayerQueue;
 @property (nonatomic, strong) PcTouchView *pcTouchView;
 @property (nonatomic, strong) MobileTouchView *mobileTouchView;
-@property (nonatomic, assign) BOOL isFirstRender;
+@property (nonatomic, strong) TCRVKeyGamepad *gamepad;
 @property (nonatomic, assign) BOOL isMobile;
 @property (strong, nonatomic) CMMotionManager *motionManager;
 
@@ -59,7 +57,6 @@
     self = [super init];
     if (self) {
         self.session = play;
-        self.isFirstRender = NO;
         self.loadingView = (CAIDemoLoadingView *)loadingView;
         [self.session setTcrSessionObserver:self];
     }
@@ -82,8 +79,6 @@
     [self addEdgeSwipeGestures];
     self.motionManager = [[CMMotionManager alloc] init];
 
-    dispatch_queue_attr_t attr = dispatch_queue_attr_make_with_qos_class(DISPATCH_QUEUE_SERIAL, QOS_CLASS_DEFAULT, 0);
-    _audioPlayerQueue = dispatch_queue_create("com.media.audioplayer", attr);
     // 图层的层级要注意，影响点击事件的响应
     [self.view addSubview:self.hiddenText];
     self.renderView = [[TcrRenderView alloc] initWithFrame:self.view.frame];
@@ -101,10 +96,16 @@
     [self.renderView addSubview:self.mobileTouchView];
 
     [self.session setRenderView:self.renderView];
+    [self.renderView addSubview:self.gamepad];
     [self.renderView setTcrRenderViewObserver:self];
+    // 自定义渲染/播放示例（默认关闭）：SDK 支持把解码后的音视频帧回调给 App 自行渲染/播放。
+    // 取消下面几行注释即可启用，回调实现见文件底部"音视频数据回调（自定义渲染/播放示例）"注释块。
+    // 注意：使用 AudioSink 自播放音频时必须同时关闭 SDK 内部播放，否则会双重发声。
     //    [self.session setVideoSink:self];
     //    self.imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     //    [self.view addSubview:self.imageView];
+    //    [self.session setAudioSink:self];
+    //    [self.session setEnableAudioPlaying:NO];
     self.isMobile = NO;  // 云端应用为手机应用还是windows应用
 }
 
@@ -114,9 +115,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 
-    [[CAIDemoAudioCapturor getInstance] startAudioCapture:self.session];
-    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-    NSLog(@"sample rate:%f", [audioSession sampleRate]);
+    // 音频审计：打印进入画面时的音频基线状态
+    [CAIDemoUtils CAI_dumpAudioStateWithTag:@"进入画面"];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -190,6 +190,11 @@
         [[MobileTouchView alloc] initWithFrame:CGRectMake(0, 0, self.videoRenderFrame.size.width, self.videoRenderFrame.size.height)
                                        session:self.session];
     self.mobileTouchView.hidden = NO;
+
+    // 虚拟按键视图加载
+    self.gamepad = [[TCRVKeyGamepad alloc] initWithFrame:self.view.frame session:self.session];
+    [self.gamepad showKeyGamepad:[self readJsonFromFile:@"lol_5v5"]];
+    self.gamepad.hidden = YES;
 }
 
 - (void)initSettingView {
@@ -327,15 +332,13 @@
         [self.motionManager stopAccelerometerUpdates];
         [self.renderView removeFromSuperview];
         [self.session setRenderView:nil];
-        [self.audioPlayer stop];
-        
+
         self.leftEdgeGesture.delegate = nil;
         self.rightEdgeGesture.delegate = nil;
         self.hiddenText.keyCodedelegate = nil;
         self.settingView.delegate = nil;
         self.multiSettingView.delegate = nil;
         
-        self.audioPlayer = nil;
         self.renderView = nil;
         self.leftEdgeGesture = nil;
         self.rightEdgeGesture = nil;
@@ -451,7 +454,22 @@
 }
 
 - (void)onEnableLocalAudio:(BOOL)enable {
+    NSString *action = enable ? @"开麦克风" : @"关麦克风";
+    // 音频审计：对比操作前后的音频状态，观察 SDK 对 AudioUnit/AVAudioSession 的影响
+    [CAIDemoUtils CAI_dumpAudioStateWithTag:[NSString stringWithFormat:@"%@-前", action]];
+    // 自定义音频采集模式下，开/关麦克风需要同步启停本地采集器；
+    // 未启用自定义采集时 getInstance 返回 nil，以下调用为空操作。
+    if (enable) {
+        [[CAIDemoAudioCapturor getInstance] startAudioCapture:self.session];
+    } else {
+        [[CAIDemoAudioCapturor getInstance] stopAudioCapture];
+    }
     [self.session setEnableLocalAudio:enable];
+    [CAIDemoUtils CAI_dumpAudioStateWithTag:[NSString stringWithFormat:@"%@-后(同步)", action]];
+    // SDK 对 AVAudioSession 的修改在内部队列异步生效，延迟补打一次确认最终状态
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [CAIDemoUtils CAI_dumpAudioStateWithTag:[NSString stringWithFormat:@"%@-后(1s)", action]];
+    });
 }
 
 - (void)onEnableLocalVideo:(BOOL)enable {
@@ -603,16 +621,22 @@
     });
 }
 
-#pragma mark--- 音视频数据回调 ---
+#pragma mark--- 音视频数据回调（自定义渲染/播放示例，默认未启用）---
+/*
+ * 启用步骤：
+ * 1. 在上方 @interface 的协议列表中加入 VideoSink, AudioSink，并添加成员：
+ *      @property (nonatomic, strong) UIImageView *imageView;
+ *      @property (nonatomic, strong) AudioQueuePlay *audioPlayer;
+ *      @property (nonatomic, strong) dispatch_queue_t audioPlayerQueue;
+ * 2. 取消 viewDidLoad 中 setVideoSink:/setAudioSink: 等行的注释；
+ * 3. 把 AudioQueuePlay.h/.m 加入编译目标并 #import "AudioQueuePlay.h"（音频自播放示例依赖它）；
+ * 4. 取消下面两个回调的注释，并在 stopControl 中补充 [self.audioPlayer stop]。
+ *
+ * 注意：回调不在主线程，渲染需切回主线程；pixelBuffer 跨线程使用需自行 retain/release。
+ *
 - (void)onRenderVideoFrame:(TCRVideoFrame *)frame {
     CVPixelBufferRef pixelBuffer = frame.pixelBuffer;
-    if (!self.isFirstRender) {
-        self.isFirstRender = YES;
-        [self.loadingView setProcessValue:100];
-    }
-    //    NSLog(@"onframe %d*%d",frame.width,frame.height);
-    if (!frame.pixelBuffer) {
-        NSLog(@"onframe frame=nil");
+    if (!pixelBuffer) {
         return;
     }
     CFRetain(pixelBuffer);
@@ -623,9 +647,8 @@
             CFRelease(pixelBuffer);
             return;
         }
-        UIImageView *videoView = strongSelf.imageView;
-        videoView.image = [UIImage imageWithCIImage:[CIImage imageWithCVImageBuffer:pixelBuffer]];
-        videoView.contentMode = UIViewContentModeScaleAspectFit;
+        strongSelf.imageView.image = [UIImage imageWithCIImage:[CIImage imageWithCVImageBuffer:pixelBuffer]];
+        strongSelf.imageView.contentMode = UIViewContentModeScaleAspectFit;
         CFRelease(pixelBuffer);
     });
 }
@@ -634,12 +657,17 @@
     if (!self.audioPlayer) {
         self.audioPlayer = [[AudioQueuePlay alloc] initWithFrame:data];
     }
+    if (!self.audioPlayerQueue) {
+        self.audioPlayerQueue = dispatch_queue_create("com.media.audioplayer", DISPATCH_QUEUE_SERIAL);
+    }
     __weak typeof(self) weakSelf = self;
-    NSData *data1 = data.data;
-    dispatch_async(_audioPlayerQueue, ^{
-        [weakSelf.audioPlayer playWithData:data1];
+    NSData *audioData = data.data;
+    dispatch_async(self.audioPlayerQueue, ^{
+        [weakSelf.audioPlayer playWithData:audioData];
     });
 }
+*/
+
 #pragma mark--- 多人互动 ---
 - (void)onApplySeatChange:(nonnull NSString *)userid index:(int)index role:(nonnull NSString *)role {
     [self.session requestChangeSeat:userid targetRole:role targetPlayerIndex:index blk:^(int retCode) {

@@ -32,6 +32,8 @@
 		4DEAD87F2E2785B8000D18A7 /* CAIDemoLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAD87B2E2785B8000D18A7 /* CAIDemoLoadingView.m */; };
 		4DEAD8802E2785B8000D18A7 /* CAIDemoLoginInputText.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAD87D2E2785B8000D18A7 /* CAIDemoLoginInputText.m */; };
 		4DEAD8892E28997F000D18A7 /* app-release.apk in Resources */ = {isa = PBXBuildFile; fileRef = 4DEAD8822E27955C000D18A7 /* app-release.apk */; };
+		4D4535B32E38FFC600B6E880 /* 1.apk in Resources */ = {isa = PBXBuildFile; fileRef = 4D4535AB2E38F50800B6E880 /* 1.apk */; };
+		4DEAD9022E20AA0000D18A70 /* CAIDemoInstanceListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAD9002E20AA0000D18A70 /* CAIDemoInstanceListVC.m */; };
 		76439D29BD13F6FF76296C3E /* Pods_TCAIDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A6DE88B5B739D272527BD7 /* Pods_TCAIDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +112,9 @@
 		4DEAD87C2E2785B8000D18A7 /* CAIDemoLoginInputText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAIDemoLoginInputText.h; sourceTree = "<group>"; };
 		4DEAD87D2E2785B8000D18A7 /* CAIDemoLoginInputText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAIDemoLoginInputText.m; sourceTree = "<group>"; };
 		4DEAD8822E27955C000D18A7 /* app-release.apk */ = {isa = PBXFileReference; lastKnownFileType = file; path = "app-release.apk"; sourceTree = "<group>"; };
+		4D4535AB2E38F50800B6E880 /* 1.apk */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.apk; sourceTree = "<group>"; };
+		4DEAD9002E20AA0000D18A70 /* CAIDemoInstanceListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAIDemoInstanceListVC.m; sourceTree = "<group>"; };
+		4DEAD9012E20AA0000D18A70 /* CAIDemoInstanceListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAIDemoInstanceListVC.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				4D92140E2E151EC900C9E8AA /* Base.lproj */,
+				4D4535AB2E38F50800B6E880 /* 1.apk */,
 				4DEAD8452E24F182000D18A7 /* picture.jpg */,
 				4DEAD8432E24F133000D18A7 /* movie.mp4 */,
 				4DEAD8822E27955C000D18A7 /* app-release.apk */,
@@ -183,6 +189,8 @@
 				4DEAD8782E2784BE000D18A7 /* utils */,
 				4DEAD8712E267BC8000D18A7 /* CAIDemoLoginVC.h */,
 				4DEAD86F2E267BC8000D18A7 /* CAIDemoLoginVC.m */,
+				4DEAD9012E20AA0000D18A70 /* CAIDemoInstanceListVC.h */,
+				4DEAD9002E20AA0000D18A70 /* CAIDemoInstanceListVC.m */,
 				4DEAD8422E1FDDFA000D18A7 /* CAIDemoGroupControlVC.h */,
 				4DEAD8402E1FDD95000D18A7 /* CAIDemoGroupControlVC.m */,
 				4DEAD8632E267BA1000D18A7 /* CAIDemoMasterControlVC.h */,
@@ -362,7 +370,8 @@
 				4D9214442E151ECA00C9E8AA /* Assets.xcassets in Resources */,
 				4DEAD8442E24F133000D18A7 /* movie.mp4 in Resources */,
 				4DEAD8892E28997F000D18A7 /* app-release.apk in Resources */,
-			);
+				4D4535B32E38FFC600B6E880 /* 1.apk in Resources */,
+				);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		4D92136A2E15156500C9E8AA /* Resources */ = {
@@ -429,6 +438,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DEAD8802E2785B8000D18A7 /* CAIDemoLoginInputText.m in Sources */,
+				4DEAD9022E20AA0000D18A70 /* CAIDemoInstanceListVC.m in Sources */,
 				4D92143F2E151ECA00C9E8AA /* AudioQueuePlay.m in Sources */,
 				4DEAD8762E267BC8000D18A7 /* CAIDemoLoginVC.m in Sources */,
 				4D9214342E151ECA00C9E8AA /* AppDelegate.m in Sources */,

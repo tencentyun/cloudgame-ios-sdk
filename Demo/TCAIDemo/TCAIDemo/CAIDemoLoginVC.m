@@ -10,19 +10,14 @@
 #import "CAIDemoUtils.h"
 #import "CAIDemoMasterControlVC.h"
 #import "CAIDemoLoadingView.h"
-#import "CAIDemoGroupControlVC.h"
-#import "utils/CAIDemoAudioCapturor.h"
-#import <AVFoundation/AVFoundation.h>
+#import "CAIDemoInstanceListVC.h"
 #import <TCRSDK/TCRSDK.h>
 
 
-#define TEST_EXPERI 1
-#ifdef TEST_EXPERI
-static NSString *kHostBaseUrl = @"https://test-cai-server.cloud-device.crtrcloud.com";
-#else
-static NSString *kHostBaseUrl = @"https://cai-server.cloud-device.crtrcloud.com";
-#endif
-@interface CAIDemoLoginVC()<CAIDemoInputDelegate, TCRAudioSessionDelegate, TCRLogDelegate, TcrSessionObserver> {
+// 体验服务器（测试环境），路径前缀 /external 与 Android 端 ExpServerRequest 对齐
+static NSString *kHostBaseUrl = @"https://test-cai-experience-server.crtrcloud.com/external";
+
+@interface CAIDemoLoginVC()<CAIDemoInputDelegate, TCRLogDelegate> {
     UIImageView *_bgView;
     UIView *_loginWindowView;
     CAGradientLayer *_loginBgLayer;
@@ -30,21 +25,31 @@ static NSString *kHostBaseUrl = @"https://cai-server.cloud-device.crtrcloud.com"
     NSMutableDictionary *_experienceCfg;
 
     BOOL _isSimpleMode;
-    UIButton *_simpleModeBtn;
-    UIButton *_advanceModeBtn;
+
+    // 登录模式：NO=账号密码登录，YES=Token+AccessInfo登录
+    BOOL _isTokenMode;
+    UIButton *_accountModeBtn;   // 账号密码模式
+    UIButton *_tokenModeBtn;     // Token模式
+    UIView *_accountContentView; // 账号密码输入区
+    UIView *_tokenContentView;   // Token/AccessInfo输入区
 
     UIScrollView *_usernameInputScrollView;
     CAIDemoLoginInputText *_usernameTxt;
     
     UIScrollView *_passwordInputScrollView;
     CAIDemoLoginInputText *_passwordCodeTxt;
+
+    UIScrollView *_tokenInputScrollView;
+    CAIDemoLoginInputText *_tokenTxt;
+
+    UIScrollView *_accessInfoInputScrollView;
+    CAIDemoLoginInputText *_accessInfoTxt;
     
     CGFloat _keyboardTop;
     UIView *_currentInputView;
     UIView *_advanceContentView;
     CAIDemoLoadingView *_loadingView;
     NSString *_userId;
-    BOOL _enableCustomAudioCapture;
     NSNumber* _idleThreshold;
     NSString *_token;
     NSString *_accessInfo;
@@ -52,7 +57,17 @@ static NSString *kHostBaseUrl = @"https://cai-server.cloud-device.crtrcloud.com"
     
     UIButton *_startBtn;
 }
-@property(nonatomic, strong) TcrSession *session;
+
+// 登录模式切换
+- (void)setupLoginModeUI;
+- (void)switchLoginMode:(BOOL)tokenMode;
+
+// Token 登录：解析 AccessInfo 中的实例 ID
+- (void)handleTokenLogin;
+- (NSMutableArray *)parseInstanceIdsFromAccessInfo:(NSString *)accessInfo;
+
+// 登录完成后进入实例列表页
+- (void)gotoInstanceListVC;
 
 @end
 
@@ -98,7 +113,7 @@ static NSString *kHostBaseUrl = @"https://cai-server.cloud-device.crtrcloud.com"
     _bgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"login_bg"]];
     _bgView.frame = self.view.bounds;
 
-    _loginWindowView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 275, 216)];
+    _loginWindowView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 275, 300)];
     _loginBgLayer = [CAGradientLayer layer];
     _loginBgLayer.frame = _loginWindowView.bounds;
     _loginBgLayer.startPoint = CGPointMake(0, 0);
@@ -111,33 +126,71 @@ static NSString *kHostBaseUrl = @"https://cai-server.cloud-device.crtrcloud.com"
     _loginWindowView.backgroundColor = [UIColor clearColor];
     
     UIImageView *iconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CAI_cloud"]];
-    iconView.frame = CGRectMake(41.5, 5, 192.5, 60);
+    iconView.frame = CGRectMake(41.5, 8, 192.5, 60);
     [_loginWindowView addSubview:iconView];
 
+    // 登录模式切换
+    [self setupLoginModeUI];
+
+    // ===== 账号密码登录输入区 =====
+    _accountContentView = [[UIView alloc] initWithFrame:CGRectMake(0, 100, 275, 90)];
+    [_loginWindowView addSubview:_accountContentView];
+
+    // 账号（上次登录成功后本地保存，首次启动为空）
     NSString *username = [[_experienceCfg objectForKey:@"user"] objectForKey:@"UserId"];
     _usernameTxt = [[CAIDemoLoginInputText alloc] initWithFrame:CGRectMake(0, 0, 225, 22.5)
                                                                   name:@"用户名"
                                                                oldValue:username];
     _usernameTxt.inputDelegate = self;
-    
-    _usernameInputScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(25, 100, 300, 22.5)];
+    _usernameInputScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(25, 0, 225, 22.5)];
     _usernameInputScrollView.contentSize = _usernameTxt.bounds.size;
     [_usernameInputScrollView addSubview:_usernameTxt];
-    [_loginWindowView addSubview:_usernameInputScrollView];
+    [_accountContentView addSubview:_usernameInputScrollView];
     
+    // 密码（上次登录成功后本地保存，首次启动为空）
     NSString *password = [[_experienceCfg objectForKey:@"user"] objectForKey:@"Password"];
-    _passwordCodeTxt = [[CAIDemoLoginInputText alloc] initWithFrame:CGRectMake(0, 0, 300, 22.5)
+    _passwordCodeTxt = [[CAIDemoLoginInputText alloc] initWithFrame:CGRectMake(0, 0, 225, 22.5)
                                                                   name:@"密码"
                                                                oldValue:password];
     _passwordCodeTxt.inputDelegate = self;
-    
-    _passwordInputScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(25, 130, 225, 22.5)];
+    _passwordInputScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(25, 32, 225, 22.5)];
     _passwordInputScrollView.contentSize = _passwordCodeTxt.bounds.size;
     [_passwordInputScrollView addSubview:_passwordCodeTxt];
-    [_loginWindowView addSubview:_passwordInputScrollView];
+    [_accountContentView addSubview:_passwordInputScrollView];
 
-    _startBtn = [[UIButton alloc] initWithFrame:CGRectMake(25, 165, 225, 22.5)];
-    _startBtn.backgroundColor = [CAIDemoUtils CAI_colorValue:@"006EFF"];
+    // ===== Token + AccessInfo 登录输入区 =====
+    _tokenContentView = [[UIView alloc] initWithFrame:CGRectMake(0, 100, 275, 130)];
+    _tokenContentView.hidden = YES;
+    [_loginWindowView addSubview:_tokenContentView];
+
+    // 默认无凭证，请填入业务侧申请到的 Token/AccessInfo
+    NSString *defaultToken = @"";
+    NSString *defaultAccessInfo = @"";
+
+    _tokenTxt = [[CAIDemoLoginInputText alloc] initWithFrame:CGRectMake(0, 0, 225, 22.5)
+                                                          name:@"Token"
+                                                     oldValue:defaultToken];
+    _tokenTxt.inputDelegate = self;
+    _tokenInputScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(25, 0, 225, 22.5)];
+    _tokenInputScrollView.contentSize = _tokenTxt.bounds.size;
+    [_tokenInputScrollView addSubview:_tokenTxt];
+    [_tokenContentView addSubview:_tokenInputScrollView];
+
+    // AccessInfo 为多行长文本，使用支持多行的输入框
+    _accessInfoTxt = [[CAIDemoLoginInputText alloc] initWithFrame:CGRectMake(0, 0, 225, 95)
+                                                               name:@"AccessInfo"
+                                                          oldValue:defaultAccessInfo
+                                                           height:95
+                                                        multiline:YES];
+    _accessInfoTxt.inputDelegate = self;
+    _accessInfoInputScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(25, 32, 225, 95)];
+    _accessInfoInputScrollView.contentSize = _accessInfoTxt.bounds.size;
+    [_accessInfoInputScrollView addSubview:_accessInfoTxt];
+    [_tokenContentView addSubview:_accessInfoInputScrollView];
+
+    // ===== 启动按钮 =====
+    _startBtn = [[UIButton alloc] initWithFrame:CGRectMake(25, 258, 225, 22.5)];
+    _startBtn.backgroundColor = [CAIDemoUtils CAI_colorValue:@"006EFF20"];
     [_startBtn setTitle:@"启动" forState:UIControlStateNormal];
     [_startBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_startBtn.titleLabel setFont:[UIFont fontWithName:@"PingFangSC-Medium" size:8]];
@@ -155,7 +208,76 @@ static NSString *kHostBaseUrl = @"https://cai-server.cloud-device.crtrcloud.com"
     
     _loadingView = [[CAIDemoLoadingView alloc] initWithFrame:self.view.bounds process:0];
     _loadingView.hidden = YES;
-    _enableCustomAudioCapture = true;
+}
+
+// 登录模式切换 UI（账号密码 / Token+AccessInfo）
+- (void)setupLoginModeUI {
+    UIFont *modeFont = [UIFont systemFontOfSize:12];
+
+    _accountModeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_accountModeBtn setTitle:@"账号登录" forState:UIControlStateNormal];
+    [_accountModeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    _accountModeBtn.titleLabel.font = modeFont;
+    [_accountModeBtn setImage:[UIImage imageNamed:@"login_radio_selected"] forState:UIControlStateNormal];
+    _accountModeBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [_accountModeBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 8)];
+    [_accountModeBtn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+    [_accountModeBtn addTarget:self action:@selector(switchToAccountMode) forControlEvents:UIControlEventTouchUpInside];
+
+    _tokenModeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_tokenModeBtn setTitle:@"Tok登录" forState:UIControlStateNormal];
+    [_tokenModeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    _tokenModeBtn.titleLabel.font = modeFont;
+    [_tokenModeBtn setImage:[UIImage imageNamed:@"login_radio_unselected"] forState:UIControlStateNormal];
+    _tokenModeBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [_tokenModeBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 8)];
+    [_tokenModeBtn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+    [_tokenModeBtn addTarget:self action:@selector(switchToTokenMode) forControlEvents:UIControlEventTouchUpInside];
+
+    // 显式约束按钮尺寸，避免 StackView 下 intrinsic size 过大
+    [_accountModeBtn.widthAnchor constraintEqualToConstant:96].active = YES;
+    [_accountModeBtn.heightAnchor constraintEqualToConstant:28].active = YES;
+    [_tokenModeBtn.widthAnchor constraintEqualToConstant:96].active = YES;
+    [_tokenModeBtn.heightAnchor constraintEqualToConstant:28].active = YES;
+    _accountModeBtn.imageView.bounds = CGRectMake(0, 0, 18, 18);
+    _tokenModeBtn.imageView.bounds = CGRectMake(0, 0, 18, 18);
+
+    // 用水平 StackView 排布，按钮尺寸已由上面约束固定，避免显示过大
+    UIStackView *modeSwitch = [[UIStackView alloc] initWithArrangedSubviews:@[_accountModeBtn, _tokenModeBtn]];
+    modeSwitch.axis = UILayoutConstraintAxisHorizontal;
+    modeSwitch.spacing = 14;
+    modeSwitch.alignment = UIStackViewAlignmentCenter;
+    modeSwitch.distribution = UIStackViewDistributionEqualCentering;
+    modeSwitch.translatesAutoresizingMaskIntoConstraints = NO;
+    // 先加入视图层级，再激活约束，避免“无共同祖先”崩溃
+    [_loginWindowView addSubview:modeSwitch];
+    [modeSwitch.arrangedSubviews enumerateObjectsUsingBlock:^(UIView *v, NSUInteger idx, BOOL *stop) {
+        [v setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+    }];
+    [modeSwitch.widthAnchor constraintLessThanOrEqualToConstant:240].active = YES;
+    [modeSwitch.centerXAnchor constraintEqualToAnchor:_loginWindowView.centerXAnchor].active = YES;
+    [modeSwitch.topAnchor constraintEqualToAnchor:_loginWindowView.topAnchor constant:74].active = YES;
+}
+
+// 切换到账号密码登录模式
+- (void)switchToAccountMode {
+    [self switchLoginMode:NO];
+}
+
+// 切换到 Token 登录模式
+- (void)switchToTokenMode {
+    [self switchLoginMode:YES];
+}
+
+- (void)switchLoginMode:(BOOL)tokenMode {
+    _isTokenMode = tokenMode;
+    [_accountModeBtn setImage:[UIImage imageNamed:tokenMode ? @"login_radio_unselected" : @"login_radio_selected"]
+                     forState:UIControlStateNormal];
+    [_tokenModeBtn setImage:[UIImage imageNamed:tokenMode ? @"login_radio_selected" : @"login_radio_unselected"]
+                   forState:UIControlStateNormal];
+    _accountContentView.hidden = tokenMode;
+    _tokenContentView.hidden = !tokenMode;
+    [self keyboardWillHide:nil];
 }
 
 - (void)onBeginEditing:(UIView *)view {
@@ -191,7 +313,13 @@ static NSString *kHostBaseUrl = @"https://cai-server.cloud-device.crtrcloud.com"
 
 - (void)keyboardWillHide:(NSNotification *)notificationP {
     _keyboardBgView.hidden = YES;
-    if ([[_usernameTxt text] length] > 0 && [[_passwordCodeTxt text] length] > 0) {
+    BOOL canStart = NO;
+    if (_isTokenMode) {
+        canStart = ([[_tokenTxt text] length] > 0 && [[_accessInfoTxt text] length] > 0);
+    } else {
+        canStart = ([[_usernameTxt text] length] > 0 && [[_passwordCodeTxt text] length] > 0);
+    }
+    if (canStart) {
         _startBtn.backgroundColor = [CAIDemoUtils CAI_colorValue:@"006EFF"];
         [_startBtn setEnabled:YES];
     } else {
@@ -222,6 +350,13 @@ static NSString *kHostBaseUrl = @"https://cai-server.cloud-device.crtrcloud.com"
 - (void)startExpericence {
     _loadingView.hidden = NO;
     [_loadingView setProcessValue:0];
+
+    if (_isTokenMode) {
+        // Token + AccessInfo 登录：解析 AccessInfo 中的实例 ID 后直接进入实例列表页
+        [self handleTokenLogin];
+        return;
+    }
+
     NSString *username = [_usernameTxt text];
     NSString *password = [_passwordCodeTxt text];
     
@@ -243,151 +378,123 @@ static NSString *kHostBaseUrl = @"https://cai-server.cloud-device.crtrcloud.com"
         
         if (error != nil || data == nil) {
             [strongSelf showToast:[NSString stringWithFormat:@"登录云手机平台失败:%@", error.userInfo.description]];
-            [strongSelf stopConnectCAI];
+            [strongSelf stopLoading];
             return;
         }
         NSError *err = nil;
         id dataJson = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
         if (err != nil || ![dataJson isKindOfClass:[NSDictionary class]]) {
             [strongSelf showToast:[NSString stringWithFormat:@"登录云手机平台失败:%@", err.userInfo.description]];
-            [strongSelf stopConnectCAI];
+            [strongSelf stopLoading];
             return;
         }
-        
+
         NSDictionary *dataObj = (NSDictionary *) dataJson;
+        NSDictionary *loginResp = dataObj[@"Response"];
+        if (![loginResp isKindOfClass:[NSDictionary class]] || loginResp[@"Error"] != nil) {
+            NSLog(@"Login failed: %@", dataObj);
+            [strongSelf showToast:@"登录云手机平台失败，请检查账号与密码"];
+            [strongSelf stopLoading];
+            return;
+        }
         NSLog(@"Login success: %@", dataObj);
-        
-#pragma mark +++ 流程(02)：查询实例列表
-        NSString *describeAndroidInstancesUrl = [kHostBaseUrl stringByAppendingString:@"/DescribeAndroidInstances"];
-        NSDictionary *describeAndroidInstancesParams = @{
-            @"InstanceIds":@[],
-            @"Limit":@(100),
-            @"Offset":@(0),
-            @"AndroidInstanceZone":@"ap-hangzhou-ec-1",
-            @"RequestId":[[NSUUID UUID] UUIDString]
-        };
-        NSLog(@"describeAndroidInstancesParams: %@", describeAndroidInstancesParams);
-        [CAIDemoUtils CAI_postUrl:describeAndroidInstancesUrl params:describeAndroidInstancesParams finishBlk:^(NSData *data, NSURLResponse *response, NSError *error) {
-            __strong typeof(weakSelf) strongSelf2 = weakSelf;
-            if (!strongSelf2) return;
-            
-            if (error != nil || data == nil) {
-                [strongSelf2 showToast:[NSString stringWithFormat:@"查询安卓实例失败:%@", error.userInfo.description]];
-                [strongSelf2 stopConnectCAI];
-                return;
-            }
-            NSError *err = nil;
-            id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
-            if (err != nil || ![json isKindOfClass:[NSDictionary class]]) {
-                [strongSelf2 showToast:[NSString stringWithFormat:@"查询安卓实例失败:%@", err.userInfo.description]];
-                [strongSelf2 stopConnectCAI];
-                return;
-            }
-            NSDictionary *jsonObj = (NSDictionary *) json;
-            // 请求失败
-            if ([jsonObj objectForKey:@"Response"] == nil) {
-                NSLog(@"DescribeAndroidInstances failed: %@", jsonObj);
-                return;
-            }
-            
-            NSLog(@"DescribeAndroidInstances success: %@", jsonObj);
-            jsonObj = jsonObj[@"Response"];
-            
-#pragma mark +++ 流程(03)：解析Android实例ID
-            NSNumber* instancesCount = jsonObj[@"TotalCount"];
-            NSArray *androidInstances = jsonObj[@"AndroidInstances"];
-            strongSelf2->instanceIds = [NSMutableArray new];
-            for (int i = 0; i < androidInstances.count; ++i) {
-                [strongSelf2->instanceIds addObject:androidInstances[i][@"AndroidInstanceId"]];
-            }
-            
-#pragma mark +++ 流程(04)：调用 CreateAndroidInstancesAccessToken 请求
-            NSString *createAndroidInstancesAccessTokenUrl = [kHostBaseUrl stringByAppendingString:@"/CreateAndroidInstancesAccessToken"];
-            NSMutableDictionary *createAndroidInstancesAccessTokenParams = [NSMutableDictionary new];
-            [createAndroidInstancesAccessTokenParams setObject:strongSelf2->instanceIds forKey:@"AndroidInstanceIds"];
-            [createAndroidInstancesAccessTokenParams setObject:@"12h" forKey:@"ExpirationDuration"];
-            [createAndroidInstancesAccessTokenParams setObject:[[NSUUID UUID] UUIDString] forKey:@"RequestId"];
-            NSLog(@"createAndroidInstancesAccessTokenParams: %@", createAndroidInstancesAccessTokenParams);
-            
-            [CAIDemoUtils CAI_postUrl:createAndroidInstancesAccessTokenUrl params:createAndroidInstancesAccessTokenParams finishBlk:^(NSData *data, NSURLResponse *response, NSError *error) {
-                __strong typeof(weakSelf) strongSelf3 = weakSelf;
-                if (!strongSelf3) return;
-                
-                if (error != nil || data == nil) {
-                    [strongSelf3 showToast:[NSString stringWithFormat:@"创建安卓实例失败:%@", error.userInfo.description]];
-                    [strongSelf3 stopConnectCAI];
-                    return;
-                }
-                NSError *err = nil;
-                id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
-                if (err != nil || ![json isKindOfClass:[NSDictionary class]]) {
-                    [strongSelf3 showToast:[NSString stringWithFormat:@"创建安卓实例失败:%@", err.userInfo.description]];
-                    [strongSelf3 stopConnectCAI];
-                    return;
-                }
-                NSDictionary *jsonObj = (NSDictionary *) json;
-                // 请求失败
-                if ([jsonObj objectForKey:@"Response"] == nil) {
-                    NSLog(@"CreateAndroidInstancesAccessToken failed: %@", jsonObj);
-                    return;
-                }
-                
-                NSLog(@"CreateAndroidInstancesAccessToken success: %@", jsonObj);
-                jsonObj = jsonObj[@"Response"];
-                
-#pragma mark +++ 流程(05)：获取Token和AccessInfo
-                strongSelf3->_token = jsonObj[@"Token"];
-                strongSelf3->_accessInfo = jsonObj[@"AccessInfo"];
-                
-#pragma mark +++ 流程(06)：给TcrSdk设置Token与AccessInfo，用于云手机请求
-                TcrConfig* tcrConfig = [[TcrConfig alloc] initWithToken:strongSelf3->_token accessInfo:strongSelf3->_accessInfo];
-                NSError *tcrErr = nil;
-                [[TcrSdkInstance sharedInstance] setTcrConfig:tcrConfig error:&tcrErr];
-                if (tcrErr != nil) {
-                    [strongSelf3 showToast:[NSString stringWithFormat:@"TcrSdk 设置AccessInfo和Token失败:%@", tcrErr.userInfo.description]];
-                    [strongSelf3 stopConnectCAI];
-                    return;
-                }
-                NSLog(@"TcrSdk setTcrConfig success.");
-                
-#pragma mark +++ 流程(07)：创建TcrSession
-                NSMutableDictionary *tcrSessionConfig = [NSMutableDictionary dictionary];
-                tcrSessionConfig[@"local_audio"] = @(0);
-                tcrSessionConfig[@"preferredCodec"] = @"H264";
-                tcrSessionConfig[@"idleThreshold"] = @(6000);
-                tcrSessionConfig[@"sessionMode"] = @"ExclusiveSession";
-                strongSelf3.session = [[TcrSdkInstance sharedInstance] createSessionWithParams:tcrSessionConfig];
-                [strongSelf3.session setTcrSessionObserver:strongSelf3];
-                
-                // 如果超过10个InstanceId先连接10个（仅Demo演示，并非SDK限制）
-                strongSelf3->instanceIds = [[strongSelf3->instanceIds subarrayWithRange:NSMakeRange(0, MIN(10, strongSelf3->instanceIds.count))] mutableCopy];
-                [strongSelf3.session accessWithInstanceIds:strongSelf3->instanceIds];
-            }];
-        }];
+
+#pragma mark +++ 流程(02)：登录成功，进入实例列表页（实例查询与会话创建都在列表页完成）
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [strongSelf stopLoading];
+            [strongSelf gotoInstanceListVC];
+        });
     }];
 }
 
--(void)onEvent:(TcrEvent)event eventData:(id)eventData {
-#pragma mark +++ 流程(08)：跳转到云手机页面
-    if (event == STATE_CONNECTED) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self gotoGroupControlVC];
-        });
+#pragma mark +++ Token 登录：解析 AccessInfo 中的实例 ID 后进入实例列表页
+
+- (void)handleTokenLogin {
+    NSString *token = [_tokenTxt text];
+    NSString *accessInfo = [_accessInfoTxt text];
+    if (token.length == 0) {
+        [self showToast:@"请输入 Token"];
+        [self stopLoading];
+        return;
+    }
+    if (accessInfo.length == 0) {
+        [self showToast:@"请输入 AccessInfo"];
+        [self stopLoading];
+        return;
+    }
+    NSMutableArray *ids = [self parseInstanceIdsFromAccessInfo:accessInfo];
+    if (ids.count == 0) {
+        [self showToast:@"无法从 AccessInfo 中解析实例 ID"];
+        [self stopLoading];
+        return;
+    }
+    _token = token;
+    _accessInfo = accessInfo;
+    instanceIds = ids;
+    [self stopLoading];
+    [self gotoInstanceListVC];
+}
+
+// 从 AccessInfo（JSON 或 Base64 编码 JSON）中解析实例 ID 列表
+- (NSMutableArray *)parseInstanceIdsFromAccessInfo:(NSString *)accessInfo {
+    NSMutableArray *ids = [NSMutableArray new];
+    if (accessInfo.length == 0) {
+        return ids;
+    }
+    NSString *jsonPayload = [accessInfo stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if (![jsonPayload hasPrefix:@"{"]) {
+        // 尝试 Base64 解码
+        NSData *decoded = [[NSData alloc] initWithBase64EncodedString:accessInfo
+                                                              options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        if (decoded != nil) {
+            jsonPayload = [[NSString alloc] initWithData:decoded encoding:NSUTF8StringEncoding];
+        }
+    }
+    NSData *jsonData = [jsonPayload dataUsingEncoding:NSUTF8StringEncoding];
+    if (jsonData == nil) {
+        return ids;
+    }
+    NSError *err = nil;
+    id jsonObj = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&err];
+    if (err != nil || ![jsonObj isKindOfClass:[NSDictionary class]]) {
+        NSLog(@"解析 AccessInfo 失败: %@", err.userInfo.description);
+        return ids;
+    }
+    NSArray *accessArray = jsonObj[@"AccessInfo"];
+    if (![accessArray isKindOfClass:[NSArray class]]) {
+        return ids;
+    }
+    for (NSDictionary *zoneInfo in accessArray) {
+        if (![zoneInfo isKindOfClass:[NSDictionary class]]) {
+            continue;
+        }
+        NSArray *instanceIdArray = zoneInfo[@"InstanceIds"];
+        if (![instanceIdArray isKindOfClass:[NSArray class]]) {
+            continue;
+        }
+        for (NSString *instanceId in instanceIdArray) {
+            if (instanceId.length > 0 && ![ids containsObject:instanceId]) {
+                [ids addObject:instanceId];
+            }
+        }
+    }
+    return ids;
+}
+
+
+#pragma mark +++ 进入实例列表页（实例勾选与会话创建均由列表页负责）
+- (void)gotoInstanceListVC {
+    CAIDemoInstanceListVC *listVC = [[CAIDemoInstanceListVC alloc] initWithHostBaseUrl:kHostBaseUrl
+                                                                                 token:_isTokenMode ? _token : nil
+                                                                            accessInfo:_isTokenMode ? _accessInfo : nil
+                                                                           instanceIds:_isTokenMode ? instanceIds : nil];
+    if (self.navigationController != nil) {
+        [self.navigationController pushViewController:listVC animated:YES];
+    } else {
+        listVC.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:listVC animated:YES completion:nil];
     }
 }
-
-- (void)gotoGroupControlVC {
-    CAIDemoGroupControlVC *subVC = [[CAIDemoGroupControlVC alloc] initWithTcrSession:self.session
-                                                                         instancesId:self->instanceIds loadingView:_loadingView];
-    [self addChildViewController:subVC];
-    subVC.view.frame = self.view.bounds;
-    [self.view insertSubview:subVC.view belowSubview:_loadingView];
-    [subVC didMoveToParentViewController:self];
-    [_loadingView setProcessValue:80];
-    // 这里可以释放对SDK的实例retain
-    self.session = nil;
-}
-
 
 - (NSMutableDictionary *)loadConfig {
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
@@ -403,10 +510,8 @@ static NSString *kHostBaseUrl = @"https://cai-server.cloud-device.crtrcloud.com"
     [user setObject:cfgDic forKey:@"CAIDEMO_EXPERIENCE_CFG"];
 }
 
-- (void)stopConnectCAI {
+- (void)stopLoading {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[TcrSdkInstance sharedInstance] destroySession:self.session];
-        self.session = nil;
         self->_loadingView.hidden = YES;
     });
 }
