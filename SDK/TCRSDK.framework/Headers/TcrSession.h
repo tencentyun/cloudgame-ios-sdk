@@ -153,13 +153,35 @@
 
 
 /**
- * Starts the session. This method should only be called once.
+ * Starts the session with a ServerSession that the app has obtained itself.
  *
- * @param serverSession The ServerSessionreturned from CreateSessionAPI.
+ * A session is connected through exactly one of two entries, chosen by scenario, and the two must
+ * never be combined on the same session:
+ *   - this method, for scenarios where the app calls CreateSessionAPI and passes the returned
+ *     ServerSession down;
+ *   - accessWithInstanceId: / accessWithInstanceIds:, for cloud phone scenarios, where the app only
+ *     knows the instance ID(s) and the SDK requests the ServerSession and starts the session
+ *     internally.
+ * If you use accessWithInstanceId: or accessWithInstanceIds:, do not call this method.
  *
- * @return true if success, false otherwise.
+ * When this method is used, it must be called at most once per session, after the STATE_INITED
+ * event is received.
+ * All results are reported asynchronously through the TcrSessionObserver onEvent callback:
+ * success is STATE_CONNECTED, and failure is STATE_CLOSED carrying the specific failure code
+ * (see TcrCode SessionStopBaseCode). A failed session cannot be reused; create a new session
+ * to retry.
+ *
+ * Calling this method before STATE_INITED, or calling it more than once, violates the contract.
+ * Such a call is always ignored and an error is written to the SDK log, and:
+ *   - if the session has not been started yet (STATE_INITED not received), it is terminated with
+ *     SessionStopConnectFailedInvalidState so that the mistake is not silently swallowed;
+ *   - if a session is running, it keeps running and is never interrupted;
+ *   - if the session has already been terminated, nothing more is reported, since STATE_CLOSED
+ *     with the original failure code has already been delivered.
+ *
+ * @param serverSession The ServerSession returned from CreateSessionAPI.
  */
-- (BOOL)start:(NSString *_Nonnull)serverSession;
+- (void)start:(NSString *_Nonnull)serverSession;
 
 /**
  * Release the session. <br>
@@ -392,6 +414,38 @@
  * @param height Height of cloud desktop.
  */
 - (void)setRemoteDesktopResolution:(int)width height:(int)height;
+
+/**
+ * Distributes and installs the APK corresponding to the specified package name on the cloud device.<br>
+ * <br>
+ * This interface is effective in cloud phone scenarios. After calling this method,
+ * the distribution status will be notified through the TcrEvent#DISTRIBUTE_STATUS_CHANGED event.
+ *
+ * @param pkgName The package name of the APK to be distributed and installed
+ */
+- (void)distributeApp:(NSString *_Nonnull)pkgName;
+
+/**
+ * Preserve Specified Apps.<br>
+ * After invocation, the cloud phone will retain only the specified package names; all other non-system apps will be stopped or removed.
+ *
+ * @param packageNames the list of package names to be preserved
+ */
+- (void)preserveApps:(NSArray<NSString *> *_Nonnull)packageNames;
+
+/**
+ * Launches the specified app and keeps it persistently in the foreground.<br>
+ * If the app is closed or killed, it will be automatically relaunched to remain in the foreground.
+ *
+ * @param pkgName The package name of the app to be kept in the foreground
+ */
+- (void)keepAppInForeground:(NSString *_Nonnull)pkgName;
+
+/**
+ * Disables the persistent foreground mode.<br>
+ * No app will be forcefully kept in the foreground, and the device returns to normal behavior.
+ */
+- (void)disableForegroundApp;
 
 /**
  * Send custom audio data.

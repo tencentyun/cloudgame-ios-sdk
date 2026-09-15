@@ -80,7 +80,7 @@
 
 /**
  * 设备型号
- * @discussion 例如 @"Galaxy S24", @"Redmi Note 10" 等
+ * @discussion 例如 @"SM-S9210"
  */
 @property (nonatomic, copy, nullable) NSString *model;
 
@@ -718,24 +718,58 @@ typedef void (^CaiGetSystemMusicVolumeCompletion)(CaiGetSystemMusicVolumeRespons
  * 1. 连接单个实例看到云手机画面，以及云手机各种操作
  * 2. 通过截图预览多个云手机的画面
  * 3. 其他各类功能操作
+ *
+ * ## 会话依赖
+ *
+ * 本类接口分为两类，调用前置条件不同：
+ *
+ * **一、无需会话（大多数接口）**
+ *
+ * 只依赖鉴权凭证，直接向云端发起 HTTP 请求，无需创建 TcrSession。
+ * 包括截图、文件上传下载、以及全部批量设备操作接口。
+ * 因此仅做实例管理或截图预览时不必创建会话，避免建立不必要的串流连接。
+ *
+ * **二、需要已连接的会话（少数接口）**
+ *
+ * 下列接口通过会话的数据通道向云端下发指令，要求已创建 TcrSession
+ * 且已通过 TcrSessionObserver 收到 STATE_CONNECTED：
+ *
+ * - `setMasterWithInstanceId:`
+ * - `requestStreamWithInstanceId:status:level:`
+ * - `setSyncList:`
+ * - `joinGroupControlWithInstanceIds:clientSessions:`
+ * - `setImageEventWithInterval:quality:screenshotWidth:screenshotHeight:`
+ * - `transMessageWithPackageName:message:`
+ *
+ * 前置条件不满足时，调用**静默失败**：不生效、无异常、无回调，仅在 SDK 日志中记录错误。
+ * 这类接口应在收到 STATE_CONNECTED 之后调用。
+ *
+ * 会话由 `TcrSdkInstance` 的 `createSessionWithParams:` 创建。本类始终关联最近一次创建的会话，
+ * 会话销毁后上述接口即不可用，直到创建并连接新的会话。
  */
 @interface AndroidInstance : NSObject
 
-- (instancetype)init NS_UNAVAILABLE;
-+ (instancetype)new NS_UNAVAILABLE;
-+ (instancetype)createInstance NS_UNAVAILABLE;
+- (instancetype _Nonnull)init NS_UNAVAILABLE;
++ (instancetype _Nonnull)new NS_UNAVAILABLE;
++ (instancetype _Nonnull)createInstance NS_UNAVAILABLE;
 
 
-#pragma mark - 云手机群控接口
+#pragma mark - 云手机群控接口（需要已连接的会话）
 
 /**
  * 设置主控设备
+ *
+ * @warning 需要已连接的会话，详见类说明「会话依赖」。
+ *
  * @param instanceId 主控设备的instanceId
  */
 - (void)setMasterWithInstanceId:(NSString * _Nonnull)instanceId;
 
 /**
  * 请求被控串流
+ *
+ * @warning 需要已连接的会话，详见类说明「会话依赖」。
+ *
  * @param instanceId 请求串流的instanceId
  * @param status 串流状态（"open"开启/"close"关闭）
  * @param level 串流质量等级（"low"/"normal"/"high"）
@@ -747,12 +781,19 @@ typedef void (^CaiGetSystemMusicVolumeCompletion)(CaiGetSystemMusicVolumeRespons
 /**
  * 设置同步实例列表，每次设置都会覆盖上次设置的列表。如果需要停止同步，传入nil或空列表。
  *
+ * @warning 需要已连接的会话，详见类说明「会话依赖」。传入 nil 停止同步同样需要会话仍然存活，
+ *          因此销毁会话前若要撤销同步，须先调用本接口。
+ *
  * @param list 需要同步的instanceId列表
  */
 - (void)setSyncList:(NSArray<NSString *> *_Nullable)list;
 
 /**
  * 中途加入群控
+ *
+ * @warning 需要已连接的会话，详见类说明「会话依赖」。本接口先经 HTTP 请求云端加入群组，
+ *          再通过会话数据通道更新同步列表，两步都完成才算加入成功。
+ *
  * @param instanceIds 需要加入的实例列表
  * @param clientSessions clientSession（可选）
  */
@@ -760,7 +801,13 @@ typedef void (^CaiGetSystemMusicVolumeCompletion)(CaiGetSystemMusicVolumeRespons
                          clientSessions:(nullable NSArray<NSString *> *)clientSessions;
 
 /**
- * 设置截图事件
+ * 设置截图事件：按固定间隔拉取同步列表内各实例的截图，并通过 TcrSessionObserver 的
+ * CAI_IMAGE_EVENT 事件回调截图地址。
+ *
+ * @warning 需要已连接的会话，详见类说明「会话依赖」。截图本身走 HTTP，但结果依赖会话事件投递，
+ *          所以无会话时收不到任何回调。若只需预览画面而不建立连接，
+ *          请改为自行定时调用 getInstanceImageWithInstanceId: 系列接口。
+ *
  * @param interval 截图事件的间隔（毫秒）
  * @param quality 截图质量（0-100，可选）
  * @param screenshotWidth 截图宽度
@@ -771,6 +818,8 @@ typedef void (^CaiGetSystemMusicVolumeCompletion)(CaiGetSystemMusicVolumeRespons
 
 /**
  * 停止截图事件
+ *
+ * @note 无需会话，只停止本地定时器。
  */
 - (void)stopImageEvent;
 
@@ -778,6 +827,10 @@ typedef void (^CaiGetSystemMusicVolumeCompletion)(CaiGetSystemMusicVolumeRespons
 
 /**
  * 发送App binder消息（单连接适用）
+ *
+ * @warning 需要已连接的会话，详见类说明「会话依赖」。
+ *          若需在无连接状态下向多台实例发消息，请改用 sendTransMessageWithParams:completion:。
+ *
  * @param packageName 应用包名
  * @param message 消息内容
  */
@@ -785,7 +838,9 @@ typedef void (^CaiGetSystemMusicVolumeCompletion)(CaiGetSystemMusicVolumeRespons
                            message:(NSString *_Nonnull)message;
 
 
-#pragma mark - 云手机操作接口
+#pragma mark - 云手机操作接口（无需会话）
+// 本节所有接口只依赖凭证，走 HTTP 请求，无需创建 TcrSession。
+
 #pragma mark 云手机操作接口 > 单设备操作
 /**
  * 获取实例截图信息，quality默认20，分辨率720x1280
@@ -1027,6 +1082,23 @@ typedef void (^CaiGetSystemMusicVolumeCompletion)(CaiGetSystemMusicVolumeRespons
                    completion:(CaiListUserAppsCompletion _Nullable)completion;
 
 
+/**
+ * 批量修改设备属性
+ * @discussion 修改设备信息、代理设置、位置信息、SIM 卡状态、地区与语言等
+ *
+ * @param params 属性参数字典
+ *               - key: instanceId (NSString)
+ *               - value: 属性字典，仅需包含本次要修改的属性组；除 RequestID 外均可选
+ *                 - RequestID (NSString): 必填，每台实例各自一个，由调用方生成（如 UUID）
+ *                 - DeviceInfo: Brand、Model。
+ *                 - ProxyInfo: Enabled、Protocol、Host、Port、User、Password
+ *                 - GPSInfo: Longitude、Latitude
+ *                 - SIMInfo: State、PhoneNumber、IMSI、ICCID
+ *                 - LocaleInfo: Timezone
+ *                 - LanguageInfo: Language、Country
+ *                 - ExtraProperties: 元素为 @{ @"Key": ..., @"Value": ... } 的数组
+ * @param completion 完成回调
+ */
 - (void)modifyInstancePropertiesWithParams:(NSDictionary<NSString *, NSDictionary *> * _Nonnull)params
                                completion:(CaiBatchTaskCompletion _Nullable)completion;
 

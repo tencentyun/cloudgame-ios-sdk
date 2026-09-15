@@ -1,5 +1,23 @@
 [中文文档](历史版本.md)
 
+### Version 3.17.0
+**Features**
+- Added `setAccessToken:token:error:` to `TcrSdkInstance` for setting the AccessInfo and Token of cloud phone instances. Entries are merged by instance id, so renewing credentials does not affect already created sessions, and the method can be called again whenever credentials are about to expire. (2026-09-15)
+- Added cloud phone app management APIs to `TcrSession`: `distributeApp:` (distributes and installs the APK of the given package name, with the result reported through the `DISTRIBUTE_STATUS_CHANGED` event), `preserveApps:` (keeps only the given apps), `keepAppInForeground:` (keeps the given app persistently in the foreground) and `disableForegroundApp` (disables the persistent foreground mode). (2026-09-15)
+- Added the `DISTRIBUTE_STATUS_CHANGED` (app distribution status changed) event to `TcrEvent`. (2026-09-15)
+- Added granular connection failure codes to `TcrSession`'s STATE_CLOSED event: `SessionStopConnectFailedDisconnected`(104011), `SessionStopConnectFailedNetwork`(104012), `SessionStopConnectFailedResponseInvalid`(104013), `SessionStopServerSessionParseFailed`(104014), `SessionStopConnectFailedInvalidState`(104015), `SessionStopConnectFailedAccessInfoMissing`(104016), `SessionStopLocalSdpSetFailed`(104018), `SessionStopRemoteSdpSetFailed`(104019), `SessionStopLocalSdpCreateFailed`(104020), `SessionStopClientSessionInvalid`(104021). (2026-09-15)
+- Reworked the cloud phone demo (TCAIDemo): the login, instance list, instance operation and streaming pages are now split per page, with added examples for instance properties, app management, file transfer and screenshot APIs. (2026-09-16)
+
+**Bug Fixes**
+- Fixed an issue where setting the credentials again invalidated the credentials of already created sessions and made subsequent connections fail. (2026-09-12)
+
+**Attention (Behavior Change)**
+- **The minimum supported system version is raised from iOS 12.0 to iOS 15.0.** If your app still needs to support iOS 12 to 14, stay on 3.16.0. When upgrading, raise your project's iOS Deployment Target to 15.0 or above, otherwise `pod install` will fail.
+- The return type of `TcrSession`'s `start:` changed from `BOOL` to `void`. The connection result is always reported through the `TcrSessionObserver` `onEvent` callback: STATE_CONNECTED on success, and STATE_CLOSED carrying the specific failure code on failure. The former return value only indicated whether the request had been sent and could not represent the connection result, which made it easy to mistake for a successful connection. If your code used that return value, please check `onEvent` instead.
+- The credential APIs are consolidated into `setAccessToken:token:error:`. The following are removed: the `TcrConfig` class, `setTcrConfig:error:`, `updateToken:` and `updateInstanceAccessInfo:token:error:`. What used to take two steps (building a `TcrConfig` and then setting it) is now a single call, used both for the initial setup and for later renewals.
+- `TcrEnvTest` is no longer a public class. It was only used by the demo to call the trial server and is not part of the SDK integration surface, so do not use it in your code.
+- On connection failure, the SDK no longer reports `SessionStopConnectFailedSdp`(104010) and reports one of the granular SDP codes above instead. The constant is kept for compatibility but will no longer be delivered.
+
 ### Version 3.16.0
 **Features**
 - Added the `TOKEN_EXPIRED` (access token expired) event to `TcrEvent`. (2026-07-03)

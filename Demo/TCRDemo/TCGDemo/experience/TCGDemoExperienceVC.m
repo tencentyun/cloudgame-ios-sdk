@@ -77,10 +77,7 @@ static NSString *kHostBaseUrl = @"https://code.cloud-gaming.myqcloud.com/";
     self.view.backgroundColor = [UIColor whiteColor];
     _experienceCfg = [self loadConfig];
     [self initSubviews];
-    [self keyboardWillHide:nil];    // 更新StartBtn的背景色
-    
-    [TcrSdkInstance setLogger:self withMinLevel:TCRLogLevelDebug];
-    
+    [self keyboardWillHide:nil];    // 更新StartBtn的背景色    
     [self.view addSubview:_bgView];
     [self.view addSubview:_loginWindowView];
     [self.view addSubview:_keyboardBgView];

@@ -22,28 +22,40 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)logWithLevel:(TCRLogLevel)logLevel log:(NSString *_Nullable)log;
 @end
 
-/*!
- * Session configuration information, which is obtained by the business backend calling the cloud API CreateAndroidInstancesAccessToken.
- */
-@interface TcrConfig : NSObject
-@property(nonatomic, copy)NSString* token;
-@property(nonatomic, copy)NSString* accessInfo;
-
--(instancetype)initWithToken:(NSString*)token accessInfo:(NSString*)accessInfo;
-@end
-
 @interface TcrSdkInstance : NSObject
 
 + (instancetype)sharedInstance;
 
-+ (void)setLogger:(id<TCRLogDelegate> _Nonnull)logger withMinLevel:(TCRLogLevel)minLevel;
 /**
- * Set the AccessInfo and Token to TcrSdk
+ * @brief Sets the SDK log delegate.
  *
- * @param tcrConfig Session configuration information, which is obtained by the business backend calling the cloud API CreateAndroidInstancesAccessToken.
+ * @discussion By default the SDK writes its logs both to files under Documents/tcg_logs and to the
+ * console, at Info level. Once a delegate is set, the SDK stops printing on its own and only
+ * forwards logs to the delegate. The delegate is weakly referenced and is called on an internal
+ * serial background queue, so it must not assume the main thread. Pass nil to restore the built-in
+ * log output.
  *
+ * Being a class method, this can be called before the SDK singleton is created, so logs emitted
+ * during SDK initialization are forwarded as well.
+ *
+ * @param logger The delegate that receives SDK log messages.
+ * @param minLevel The minimum level of log messages to forward.
  */
-- (void)setTcrConfig:(TcrConfig*) tcrConfig error:(NSError**)error;
++ (void)setLogger:(nullable id<TCRLogDelegate>)logger withMinLevel:(TCRLogLevel)minLevel;
+
+/**
+ * @brief Updates the access info and token to TcrSdk.
+ *
+ * @discussion Can be called again whenever credentials are about to expire. Entries are merged by
+ * instance id, so instances that are not part of the new access info are kept, and created sessions
+ * stay usable.
+ *
+ * @param accessInfo Base64 encoded access info returned by the business backend. Must not be empty.
+ * @param token Access token returned by the business backend. Must not be empty.
+ * @param error Returns an error if accessInfo/token is empty or cannot be parsed.
+ * @return YES if the credentials were loaded.
+ */
+- (BOOL)setAccessToken:(NSString *)accessInfo token:(NSString *)token error:(NSError **)error;
 
 /**
  * @brief Creates a new TcrSession instance.
@@ -90,28 +102,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * @brief Retrieves the AndroidInstance operator object.
  *
- * @discussion Returns the operator instance for interacting with cloud Android devices.
- * Returns nil if the SDK client hasn't been properly initialized.
- *
- * @return AndroidInstance operator object, nil if uninitialized.
+ * @return AndroidInstance operator object.
  */
 - (AndroidInstance*)getAndroidInstance;
-
-/**
- * @brief Updates access tokens for all instances.
- *
- * @discussion Bulk updates access tokens for all created instances. This operation takes
- * immediate effect, and all subsequent requests will use the new token for authentication.
- *
- * @param token New access token string.
- */
-- (void)updateToken:(NSString *)token;
-
-/**
- * @brief Updates access info and token.
- */
-- (BOOL)updateInstanceAccessInfo:(NSString *)accessInfoBase64
-                        token:(NSString *)token
-                           error:(NSError **)error;
 @end
 NS_ASSUME_NONNULL_END

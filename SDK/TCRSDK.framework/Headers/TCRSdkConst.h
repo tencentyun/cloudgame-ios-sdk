@@ -70,19 +70,81 @@ typedef NS_ENUM(NSInteger, TcrCode) {
     SessionStopReconnectFailed = SessionStopBaseCode + 6,
     /*! This value indicate that failed to connect to cloud.<br>
      * It is a general connection failure code kept for compatibility. The SDK now reports more specific
-     * failure codes instead: SessionStopConnectFailedServerRejected and SessionStopConnectFailedSdp.
+     * failure codes instead: SessionStopConnectFailedServerRejected, SessionStopLocalSdpSetFailed,
+     * SessionStopRemoteSdpSetFailed, SessionStopLocalSdpCreateFailed, SessionStopClientSessionInvalid,
+     * SessionStopConnectFailedDisconnected,
+     * SessionStopConnectFailedNetwork, SessionStopConnectFailedResponseInvalid,
+     * SessionStopServerSessionParseFailed, SessionStopConnectFailedInvalidState and
+     * SessionStopConnectFailedAccessInfoMissing.
      * You are recommended to handle these specific codes, and treat this code as an unknown connection
      * failure fallback.
      **/
     SessionStopConnectFailed = SessionStopBaseCode + 7,
-    /*! This value indicate that the ServerSession is invalid **/
+    /*! This value indicate that the ServerSession is missing or invalid in the cloud response **/
     SessionStopServerSessionInvalid = SessionStopBaseCode + 8,
-    /*! This value indicates that the connection request to the cloud failed: the connect/play API request
-     * failed or the response could not be parsed. Refer to the SDK logs for details.
+    /*! This value indicates that the cloud rejected the connection request: the connect/play API returned a
+     * non-zero business code (e.g. the instance is in an abnormal state or the number of concurrent
+     * connections exceeds the limit). Refer to the SDK logs for the business code and message returned by
+     * the cloud.
      **/
     SessionStopConnectFailedServerRejected = SessionStopBaseCode + 9,
-    /*! This value indicates that the connection failed because the WebRTC SDP negotiation failed **/
-    SessionStopConnectFailedSdp = SessionStopBaseCode + 10
+    /*! This value indicates that the underlying WebRTC connection was disconnected before the first
+     * connection was established, usually caused by network issues.
+     **/
+    SessionStopConnectFailedDisconnected = SessionStopBaseCode + 11,
+    /*! This value indicates that the connection request to the cloud failed at the network layer: the
+     * connect/play API request failed or timed out and no response was received. Usually caused by network
+     * issues, retry is recommended.
+     **/
+    SessionStopConnectFailedNetwork = SessionStopBaseCode + 12,
+    /*! This value indicates that the cloud responded to the connection request but the response could not
+     * be parsed (invalid JSON or unexpected structure). Refer to the SDK logs for details.
+     **/
+    SessionStopConnectFailedResponseInvalid = SessionStopBaseCode + 13,
+    /*! This value indicates that the ServerSession returned by the cloud could not be parsed or is missing
+     * required fields (e.g. sdp). Refer to the SDK logs for details.
+     **/
+    SessionStopServerSessionParseFailed = SessionStopBaseCode + 14,
+    /*! This value indicates that the session was not in a startable state when the connection was
+     * requested, e.g. start was called before the STATE_INITED event or called more than once.
+     * Check the calling sequence in the App.
+     **/
+    SessionStopConnectFailedInvalidState = SessionStopBaseCode + 15,
+    /*! This value indicates that the AccessInfo/Token passed to TcrSdk does not contain the access
+     * information of the requested cloud phone instance. Check the AccessInfo obtained from the cloud
+     * API and the instance ids passed to the connect API.
+     **/
+    SessionStopConnectFailedAccessInfoMissing = SessionStopBaseCode + 16,
+    /*! This value indicates that applying the locally produced SDP to the local WebRTC endpoint failed.
+     * The SDP is the one WebRTC itself has just produced, so the cause is the state of the local WebRTC
+     * endpoint rather than the SDP content. Refer to the SDK logs for the failing step and the underlying
+     * WebRTC error.<br>
+     * This may happen while connecting, while reconnecting, or during renegotiation of an established
+     * session. Which one it was is told by the preceding STATE_CONNECTED / STATE_RECONNECTING events, so
+     * this code always reports the cause rather than the phase.
+     **/
+    SessionStopLocalSdpSetFailed = SessionStopBaseCode + 18,
+    /*! This value indicates that applying the SDP returned by the cloud to the local WebRTC endpoint
+     * failed, e.g. it declares a codec profile or level that the device cannot accept. The local SDP had
+     * been produced and applied successfully, so the cause is in the SDP delivered by the cloud. Refer to
+     * the SDK logs for the received SDP and the underlying WebRTC error.<br>
+     * This may happen while connecting, while reconnecting, or during renegotiation of an established
+     * session. Which one it was is told by the preceding STATE_CONNECTED / STATE_RECONNECTING events, so
+     * this code always reports the cause rather than the phase.
+     **/
+    SessionStopRemoteSdpSetFailed = SessionStopBaseCode + 19,
+    /*! This value indicates that WebRTC failed to create the local offer/answer, before any SDP was
+     * applied. This is a purely local, deterministic operation with no external input, so it is expected
+     * to be unreachable in practice; receiving it indicates the PeerConnection was already closed or in an
+     * unexpected state. Refer to the SDK logs for the failing step and the underlying WebRTC error.
+     **/
+    SessionStopLocalSdpCreateFailed = SessionStopBaseCode + 20,
+    /*! This value indicates that the ClientSession assembled by the SDK carries no sdp, although the local
+     * SDP had been produced successfully. This is an internal inconsistency of the SDK rather than a
+     * WebRTC negotiation failure; the cloud would otherwise accept the request and return a ServerSession
+     * with an empty sdp, which would surface the problem much later and point at the wrong component.
+     **/
+    SessionStopClientSessionInvalid = SessionStopBaseCode + 21
 };
 
 typedef NS_ENUM(NSInteger, CaiCode) {
@@ -497,6 +559,34 @@ typedef NS_ENUM(NSUInteger, TcrEvent) {
      * }
      */
     TOKEN_EXPIRED,
+    /**
+     * This event indicates the distribute status. <br>
+     *
+     * The associated event data is of type NSDictionary in json format:
+     * {@code
+     * {
+     *   state: String  // The distribute state
+     *   package_name: String  // The package name of the distribute app
+     * }
+     * }
+     *
+     * Supported state values:
+     *
+     *   SUCCESS: Distribution completed (also sent if app was already distributed on cloud instance)
+     *
+     *   UNSUPPORTED: Current image doesn't support distribution
+     *
+     *   BUSY: Currently distributing another app
+     *
+     *   FAIL: Package distribution failed
+     *
+     * Recommended app handling:
+     *
+     *   SUCCESS: Remove default overlay if you added one on the video stream
+     *
+     *   UNSUPPORTED/FAIL/BUSY: Notification of distribution error and exit streaming session
+     */
+    DISTRIBUTE_STATUS_CHANGED,
 };
 
 

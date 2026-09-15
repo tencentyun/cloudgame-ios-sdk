@@ -24,7 +24,6 @@ typedef void (^httpResponseBlk)(NSData *data, NSURLResponse *response, NSError *
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [TcrSdkInstance setLogger:self withMinLevel:TCRLogLevelInfo];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor grayColor];
     UIButton *startBtn = [[UIButton alloc] initWithFrame:CGRectMake(50, 50, 100, 45)];

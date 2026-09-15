@@ -123,7 +123,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    NSLog(@"init ver:%@", TCRSDKVersion);
     self.view.backgroundColor = [UIColor whiteColor];
     [self initGamePlayView];
     [self initSettingView];
@@ -151,7 +150,6 @@
     [self resetVideoViewWithSize:CGSizeMake(1280, 720)];
     [self.renderView addSubview:self.pcTouchView];
     [self.renderView addSubview:self.mobileTouchView];
-    [TcrSdkInstance setLogger:self withMinLevel:TCRLogLevelInfo];
     [self.session setRenderView:_renderView];
     [self.renderView addSubview:self.gamepad];
     [self.renderView setTcrRenderViewObserver:self];

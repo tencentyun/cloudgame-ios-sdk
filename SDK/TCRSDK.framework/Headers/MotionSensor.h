@@ -27,8 +27,11 @@ typedef NS_ENUM(NSUInteger, SensorType) {
 *
 * This method is triggered whenever the sensor detects a change in its readings.
 * The method processes the incoming sensor event and determines the type of sensor
-* that generated the event. Currently, it supports accelerometer and gyroscope sensors.
+* that generated the event.
 *
+* @param key Only ACCELEROMETER and GYRO are supported, since x/y/z are three-axis values.
+*            Passing LOCATION is ignored (logged as an error); report location changes
+*            through onLocationChanged:latitude: instead.
 */
 - (void)onSensorData:(SensorType)key x:(double)x y:(double)y z:(double)z;
 

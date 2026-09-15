@@ -10,7 +10,7 @@ If you need to implement some advanced functions, we also provide advanced guida
 ## II、Quick start
 1、Experience Cloud Rendering Quickly
 
-Enter the project directory under Demo, **pod update** update the SDK library file, and run the corresponding project to quickly experience the Cloud Rendering example. 
+Enter the project directory under Demo, run **pod install** to install the SDK library files, then open the generated **.xcworkspace** (not the .xcodeproj) and run it to quickly experience the Cloud Rendering example. Once the SDK library files are updated, run **pod update**.
 
 2、Virtual key quick start
 

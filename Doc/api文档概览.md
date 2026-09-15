@@ -8,7 +8,8 @@
 
 | API                                                          | 描述                  |
 | ------------------------------------------------------------ |---------------------|
-| `setLogger` | 设置SDK的日志回调级别 |
+| `setLogger` | 设置SDK的日志回调与回调级别 |
+| `setAccessToken` | 设置云手机实例的 AccessInfo 与 Token |
 
 ## TcrSession
 
@@ -44,6 +45,10 @@
 | `pasteText` | 粘贴文本到云端应用的输入框 |
 | `setRemoteDesktopResolution` | 设置云端桌面的分辨率   |
 | `setDisableCloudInput` | 关闭云端输入法          |
+| `distributeApp` | 下发并安装指定包名的应用（云手机） |
+| `preserveApps` | 只保留指定应用，停止或移除其他非系统应用（云手机） |
+| `keepAppInForeground` | 保持指定应用常驻前台（云手机） |
+| `disableForegroundApp` | 关闭常驻前台模式（云手机） |
 
 ### 多人云游接口
 

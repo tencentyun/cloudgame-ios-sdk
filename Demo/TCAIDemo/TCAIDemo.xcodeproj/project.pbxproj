@@ -7,33 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02E0D28A51C71909BED1A2A2 /* CAIDemoSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 341E299D7326BDB4D9385876 /* CAIDemoSettingView.m */; };
+		0372FBECA31F5301C25E6F76 /* CAIAudioCapturer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2298B8EEFBCE26124652E40A /* CAIAudioCapturer.m */; };
+		14AC3350547E65AA311EC544 /* DemoToast.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8244CFEE27A56C95F0ABD2 /* DemoToast.m */; };
+		1C8633AF61B4AA5B57876FB1 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 427F463AB29F438F4024D946 /* LoginVC.m */; };
+		3715842C088EBF180A71F257 /* ExpServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBF3D50A61ECD5B74DACE76 /* ExpServerRequest.m */; };
+		3CA5AAAD96D77440166FE063 /* picture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9667EB29F6F348D7F9AE2775 /* picture.jpg */; };
 		4D9213EC2E151C4500C9E8AA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9213EB2E151C4500C9E8AA /* SystemConfiguration.framework */; };
 		4D9213EE2E151C4B00C9E8AA /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9213ED2E151C4B00C9E8AA /* JavaScriptCore.framework */; };
 		4D9213F02E151C5300C9E8AA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9213EF2E151C5300C9E8AA /* Security.framework */; };
 		4D9213F22E151C5B00C9E8AA /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9213F12E151C5B00C9E8AA /* libz.tbd */; };
 		4D9213F42E151C6100C9E8AA /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9213F32E151C6100C9E8AA /* libc++.tbd */; };
-		4D9214332E151ECA00C9E8AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D92140D2E151EC900C9E8AA /* Main.storyboard */; };
-		4D9214342E151ECA00C9E8AA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D92140F2E151EC900C9E8AA /* AppDelegate.m */; };
-		4D92143C2E151ECA00C9E8AA /* tcg_default_ps4.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 4D92141F2E151EC900C9E8AA /* tcg_default_ps4.cfg */; };
-		4D92143D2E151ECA00C9E8AA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9214202E151EC900C9E8AA /* main.m */; };
-		4D92143F2E151ECA00C9E8AA /* AudioQueuePlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9214222E151EC900C9E8AA /* AudioQueuePlay.m */; };
-		4D9214402E151ECA00C9E8AA /* lol_5v5.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 4D9214252E151EC900C9E8AA /* lol_5v5.cfg */; };
-		4D9214442E151ECA00C9E8AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D92142E2E151ECA00C9E8AA /* Assets.xcassets */; };
-		4DEAD8412E1FDD95000D18A7 /* CAIDemoGroupControlVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAD8402E1FDD95000D18A7 /* CAIDemoGroupControlVC.m */; };
-		4DEAD8442E24F133000D18A7 /* movie.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4DEAD8432E24F133000D18A7 /* movie.mp4 */; };
-		4DEAD8462E24F182000D18A7 /* picture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4DEAD8452E24F182000D18A7 /* picture.jpg */; };
-		4DEAD8662E267BA1000D18A7 /* CAIDemoUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAD8562E267BA0000D18A7 /* CAIDemoUtils.m */; };
-		4DEAD8672E267BA1000D18A7 /* CAIDemoTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAD8572E267BA0000D18A7 /* CAIDemoTextField.m */; };
-		4DEAD8692E267BA1000D18A7 /* CAIDemoMasterControlVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAD85C2E267BA0000D18A7 /* CAIDemoMasterControlVC.m */; };
-		4DEAD86A2E267BA1000D18A7 /* CAIDemoAudioCapturor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAD8602E267BA0000D18A7 /* CAIDemoAudioCapturor.m */; };
-		4DEAD86B2E267BA1000D18A7 /* CAIDemoSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAD8612E267BA0000D18A7 /* CAIDemoSettingView.m */; };
-		4DEAD86D2E267BA1000D18A7 /* CAIDemoMultiSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAD8642E267BA1000D18A7 /* CAIDemoMultiSettingView.m */; };
-		4DEAD8762E267BC8000D18A7 /* CAIDemoLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAD86F2E267BC8000D18A7 /* CAIDemoLoginVC.m */; };
-		4DEAD87F2E2785B8000D18A7 /* CAIDemoLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAD87B2E2785B8000D18A7 /* CAIDemoLoadingView.m */; };
-		4DEAD8802E2785B8000D18A7 /* CAIDemoLoginInputText.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAD87D2E2785B8000D18A7 /* CAIDemoLoginInputText.m */; };
-		4D4535B32E38FFC600B6E880 /* 1.apk in Resources */ = {isa = PBXBuildFile; fileRef = 4D4535AB2E38F50800B6E880 /* 1.apk */; };
-		4DEAD9022E20AA0000D18A70 /* CAIDemoInstanceListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAD9002E20AA0000D18A70 /* CAIDemoInstanceListVC.m */; };
 		76439D29BD13F6FF76296C3E /* Pods_TCAIDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A6DE88B5B739D272527BD7 /* Pods_TCAIDemo.framework */; };
+		79BBE27570663870D3F2F4F8 /* InstanceListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FCC7210C9F494075CE605D /* InstanceListVC.m */; };
+		7C3D7FA0245DE206737BE7E0 /* StreamingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AE7BCD28FB917F4434CCF4 /* StreamingVC.m */; };
+		80194837A0D2E58FF49A0F2C /* InstanceControlVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DF8C6A1D9D71DFE659287F /* InstanceControlVC.m */; };
+		919A43E72E81898A90C920C1 /* CAIDemoTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAF1FC20893B77D278CC46B /* CAIDemoTextField.m */; };
+		ACAFC80129E712E3CA3CD772 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D73DEDB2BCAE746B7EA603 /* AppDelegate.m */; };
+		B93994F9B7698F6E960AB3B0 /* 1.apk in Resources */ = {isa = PBXBuildFile; fileRef = 2789C4C25A5CF37D9CAFEB90 /* 1.apk */; };
+		BB9E27175DA5646F9F906EEB /* CAICloudPhoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5DA77B2A226B5C760CF593 /* CAICloudPhoneCell.m */; };
+		BCDD62669036615FA484183E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 340988BE5055689815036DFB /* Assets.xcassets */; };
+		C35DCCB4787EB7E06E319362 /* movie.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7B224FFE11EE2417D0FFCAF8 /* movie.mp4 */; };
+		D5880AC8AD8D7C84A2AC3191 /* CAIDemoIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBE8078CDF98956DA022618 /* CAIDemoIcon.m */; };
+		E6CCB92FE3A6BD2FE29F4679 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F4234EFC6C7FBA6E660D18 /* main.m */; };
+		F24E8B4FEEAB94B31F363B28 /* InstanceApiMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2C5537A5AB54A2EC69331C /* InstanceApiMenuView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,8 +64,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		05832FB2FEC877149B22585B /* CAIDemoSettingView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CAIDemoSettingView.h; sourceTree = "<group>"; };
+		0F4902C2AE1C43EF1B9874D0 /* CAICloudPhoneCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CAICloudPhoneCell.h; sourceTree = "<group>"; };
+		11CFF96B12922366D7800208 /* InstanceApiMenuView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = InstanceApiMenuView.h; sourceTree = "<group>"; };
 		15A6DE88B5B739D272527BD7 /* Pods_TCAIDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TCAIDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2298B8EEFBCE26124652E40A /* CAIAudioCapturer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CAIAudioCapturer.m; sourceTree = "<group>"; };
+		247C4898325C7EF222CC0C0F /* InstanceControlVC.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = InstanceControlVC.h; sourceTree = "<group>"; };
+		2789C4C25A5CF37D9CAFEB90 /* 1.apk */ = {isa = PBXFileReference; includeInIndex = 1; path = 1.apk; sourceTree = "<group>"; };
+		340988BE5055689815036DFB /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		341E299D7326BDB4D9385876 /* CAIDemoSettingView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CAIDemoSettingView.m; sourceTree = "<group>"; };
 		3CBD8FBC6C0B6DEB294D44AB /* Pods-TCAIDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TCAIDemo.debug.xcconfig"; path = "Target Support Files/Pods-TCAIDemo/Pods-TCAIDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		427F463AB29F438F4024D946 /* LoginVC.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		4851DCEB61857808FDDCE8EE /* Pods-TCAIDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TCAIDemo.release.xcconfig"; path = "Target Support Files/Pods-TCAIDemo/Pods-TCAIDemo.release.xcconfig"; sourceTree = "<group>"; };
 		4D9213512E15156400C9E8AA /* TCAIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCAIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D92136C2E15156500C9E8AA /* TCAIDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCAIDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,41 +84,30 @@
 		4D9213EF2E151C5300C9E8AA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4D9213F12E151C5B00C9E8AA /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		4D9213F32E151C6100C9E8AA /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		4D9214082E151EC900C9E8AA /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4D92140B2E151EC900C9E8AA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4D92140C2E151EC900C9E8AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
-		4D92140F2E151EC900C9E8AA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4D92141F2E151EC900C9E8AA /* tcg_default_ps4.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tcg_default_ps4.cfg; sourceTree = "<group>"; };
-		4D9214202E151EC900C9E8AA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4D9214222E151EC900C9E8AA /* AudioQueuePlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioQueuePlay.m; sourceTree = "<group>"; };
-		4D9214242E151EC900C9E8AA /* AudioQueuePlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioQueuePlay.h; sourceTree = "<group>"; };
-		4D9214252E151EC900C9E8AA /* lol_5v5.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lol_5v5.cfg; sourceTree = "<group>"; };
-		4D92142E2E151ECA00C9E8AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4DEAD8402E1FDD95000D18A7 /* CAIDemoGroupControlVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAIDemoGroupControlVC.m; sourceTree = "<group>"; };
-		4DEAD8422E1FDDFA000D18A7 /* CAIDemoGroupControlVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAIDemoGroupControlVC.h; sourceTree = "<group>"; };
-		4DEAD8432E24F133000D18A7 /* movie.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = movie.mp4; sourceTree = "<group>"; };
-		4DEAD8452E24F182000D18A7 /* picture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = picture.jpg; sourceTree = "<group>"; };
-		4DEAD8562E267BA0000D18A7 /* CAIDemoUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAIDemoUtils.m; path = TCAIDemo/utils/CAIDemoUtils.m; sourceTree = SOURCE_ROOT; };
-		4DEAD8572E267BA0000D18A7 /* CAIDemoTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAIDemoTextField.m; path = TCAIDemo/view/CAIDemoTextField.m; sourceTree = SOURCE_ROOT; };
-		4DEAD8582E267BA0000D18A7 /* CAIDemoTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAIDemoTextField.h; path = TCAIDemo/view/CAIDemoTextField.h; sourceTree = SOURCE_ROOT; };
-		4DEAD85B2E267BA0000D18A7 /* CAIDemoMultiSettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAIDemoMultiSettingView.h; path = TCAIDemo/view/CAIDemoMultiSettingView.h; sourceTree = SOURCE_ROOT; };
-		4DEAD85C2E267BA0000D18A7 /* CAIDemoMasterControlVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAIDemoMasterControlVC.m; path = TCAIDemo/CAIDemoMasterControlVC.m; sourceTree = SOURCE_ROOT; };
-		4DEAD85D2E267BA0000D18A7 /* CAIDemoUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAIDemoUtils.h; path = TCAIDemo/utils/CAIDemoUtils.h; sourceTree = SOURCE_ROOT; };
-		4DEAD85E2E267BA0000D18A7 /* CAIDemoSettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAIDemoSettingView.h; path = TCAIDemo/view/CAIDemoSettingView.h; sourceTree = SOURCE_ROOT; };
-		4DEAD8602E267BA0000D18A7 /* CAIDemoAudioCapturor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAIDemoAudioCapturor.m; path = TCAIDemo/utils/CAIDemoAudioCapturor.m; sourceTree = SOURCE_ROOT; };
-		4DEAD8612E267BA0000D18A7 /* CAIDemoSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAIDemoSettingView.m; path = TCAIDemo/view/CAIDemoSettingView.m; sourceTree = SOURCE_ROOT; };
-		4DEAD8632E267BA1000D18A7 /* CAIDemoMasterControlVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAIDemoMasterControlVC.h; path = TCAIDemo/CAIDemoMasterControlVC.h; sourceTree = SOURCE_ROOT; };
-		4DEAD8642E267BA1000D18A7 /* CAIDemoMultiSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAIDemoMultiSettingView.m; path = TCAIDemo/view/CAIDemoMultiSettingView.m; sourceTree = SOURCE_ROOT; };
-		4DEAD8652E267BA1000D18A7 /* CAIDemoAudioCapturor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAIDemoAudioCapturor.h; path = TCAIDemo/utils/CAIDemoAudioCapturor.h; sourceTree = SOURCE_ROOT; };
-		4DEAD86F2E267BC8000D18A7 /* CAIDemoLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAIDemoLoginVC.m; sourceTree = "<group>"; };
-		4DEAD8712E267BC8000D18A7 /* CAIDemoLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAIDemoLoginVC.h; sourceTree = "<group>"; };
-		4DEAD87A2E2785B8000D18A7 /* CAIDemoLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAIDemoLoadingView.h; sourceTree = "<group>"; };
-		4DEAD87B2E2785B8000D18A7 /* CAIDemoLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAIDemoLoadingView.m; sourceTree = "<group>"; };
-		4DEAD87C2E2785B8000D18A7 /* CAIDemoLoginInputText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAIDemoLoginInputText.h; sourceTree = "<group>"; };
-		4DEAD87D2E2785B8000D18A7 /* CAIDemoLoginInputText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAIDemoLoginInputText.m; sourceTree = "<group>"; };
-		4D4535AB2E38F50800B6E880 /* 1.apk */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.apk; sourceTree = "<group>"; };
-		4DEAD9002E20AA0000D18A70 /* CAIDemoInstanceListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAIDemoInstanceListVC.m; sourceTree = "<group>"; };
-		4DEAD9012E20AA0000D18A70 /* CAIDemoInstanceListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAIDemoInstanceListVC.h; sourceTree = "<group>"; };
+		50F4234EFC6C7FBA6E660D18 /* main.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6C2C5537A5AB54A2EC69331C /* InstanceApiMenuView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = InstanceApiMenuView.m; sourceTree = "<group>"; };
+		6C6E61E5D620664F44D13B68 /* DemoToast.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DemoToast.h; sourceTree = "<group>"; };
+		6F2D9FA3582CEFB26A643B4D /* CAIAudioCapturer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CAIAudioCapturer.h; sourceTree = "<group>"; };
+		72FCC7210C9F494075CE605D /* InstanceListVC.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = InstanceListVC.m; sourceTree = "<group>"; };
+		7B224FFE11EE2417D0FFCAF8 /* movie.mp4 */ = {isa = PBXFileReference; includeInIndex = 1; path = movie.mp4; sourceTree = "<group>"; };
+		8CAF1FC20893B77D278CC46B /* CAIDemoTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CAIDemoTextField.m; sourceTree = "<group>"; };
+		8DBE8078CDF98956DA022618 /* CAIDemoIcon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CAIDemoIcon.m; sourceTree = "<group>"; };
+		8E7E8DF7DB23B010F6EC9B49 /* LoginVC.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		9667EB29F6F348D7F9AE2775 /* picture.jpg */ = {isa = PBXFileReference; includeInIndex = 1; path = picture.jpg; sourceTree = "<group>"; };
+		A04F778C70817148C4675DC3 /* CAIDemoTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CAIDemoTextField.h; sourceTree = "<group>"; };
+		A2DF8C6A1D9D71DFE659287F /* InstanceControlVC.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = InstanceControlVC.m; sourceTree = "<group>"; };
+		A53BF4B1DB7CA56C6C38E4AA /* CAIDemoIcon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CAIDemoIcon.h; sourceTree = "<group>"; };
+		AD8244CFEE27A56C95F0ABD2 /* DemoToast.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DemoToast.m; sourceTree = "<group>"; };
+		AE5DA77B2A226B5C760CF593 /* CAICloudPhoneCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CAICloudPhoneCell.m; sourceTree = "<group>"; };
+		BCBD6D497BB723F550D81D98 /* InstanceListVC.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = InstanceListVC.h; sourceTree = "<group>"; };
+		BFF171E27DD10D63CFD0E130 /* AppDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C11EB26D4E5CC5FBF89EC499 /* StreamingVC.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = StreamingVC.h; sourceTree = "<group>"; };
+		C84569F5EE43BB20118DED6C /* ExpServerRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ExpServerRequest.h; sourceTree = "<group>"; };
+		D3D73DEDB2BCAE746B7EA603 /* AppDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E2AE7BCD28FB917F4434CCF4 /* StreamingVC.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = StreamingVC.m; sourceTree = "<group>"; };
+		E2B0CCDD4E7F428B904E7A83 /* CAIDemoAccessibilityIds.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CAIDemoAccessibilityIds.h; sourceTree = "<group>"; };
+		ECBF3D50A61ECD5B74DACE76 /* ExpServerRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ExpServerRequest.m; sourceTree = "<group>"; };
+		EFB634A95F457E9417F69303 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,13 +141,77 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B3E341E59CD3F07B40E05A3 /* Streaming */ = {
+			isa = PBXGroup;
+			children = (
+				6F2D9FA3582CEFB26A643B4D /* CAIAudioCapturer.h */,
+				2298B8EEFBCE26124652E40A /* CAIAudioCapturer.m */,
+				05832FB2FEC877149B22585B /* CAIDemoSettingView.h */,
+				341E299D7326BDB4D9385876 /* CAIDemoSettingView.m */,
+				A04F778C70817148C4675DC3 /* CAIDemoTextField.h */,
+				8CAF1FC20893B77D278CC46B /* CAIDemoTextField.m */,
+				C11EB26D4E5CC5FBF89EC499 /* StreamingVC.h */,
+				E2AE7BCD28FB917F4434CCF4 /* StreamingVC.m */,
+			);
+			name = Streaming;
+			path = Streaming;
+			sourceTree = "<group>";
+		};
+		1058225802F380DF841EA830 /* TCAIDemo */ = {
+			isa = PBXGroup;
+			children = (
+				46ABEEFB0F9B50655E2FE7D9 /* Application */,
+				1D03ECABD9F437281C18234C /* Login */,
+				44FFB77AF29436BE01426507 /* InstanceList */,
+				8DDA1555531B8F44E3EB92B1 /* InstanceControl */,
+				0B3E341E59CD3F07B40E05A3 /* Streaming */,
+				FAB0BC2CEDC6FB8B7A23DD6F /* ExpServer */,
+				6768BCA67A381C51CA5A0612 /* Shared */,
+				77FE9622846095407406FEF1 /* Resources */,
+			);
+			name = TCAIDemo;
+			path = TCAIDemo;
+			sourceTree = "<group>";
+		};
+		1D03ECABD9F437281C18234C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8E7E8DF7DB23B010F6EC9B49 /* LoginVC.h */,
+				427F463AB29F438F4024D946 /* LoginVC.m */,
+			);
+			name = Login;
+			path = Login;
+			sourceTree = "<group>";
+		};
+		44FFB77AF29436BE01426507 /* InstanceList */ = {
+			isa = PBXGroup;
+			children = (
+				BCBD6D497BB723F550D81D98 /* InstanceListVC.h */,
+				72FCC7210C9F494075CE605D /* InstanceListVC.m */,
+			);
+			name = InstanceList;
+			path = InstanceList;
+			sourceTree = "<group>";
+		};
+		46ABEEFB0F9B50655E2FE7D9 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				BFF171E27DD10D63CFD0E130 /* AppDelegate.h */,
+				D3D73DEDB2BCAE746B7EA603 /* AppDelegate.m */,
+				EFB634A95F457E9417F69303 /* Info.plist */,
+				50F4234EFC6C7FBA6E660D18 /* main.m */,
+			);
+			name = Application;
+			path = Application;
+			sourceTree = "<group>";
+		};
 		4D9213482E15156300C9E8AA = {
 			isa = PBXGroup;
 			children = (
-				4D9213532E15156400C9E8AA /* TCAIDemo */,
 				4D9213522E15156400C9E8AA /* Products */,
 				4D9213E82E151C3500C9E8AA /* Frameworks */,
 				B8B0A07432F78DF09EADD12F /* Pods */,
+				1058225802F380DF841EA830 /* TCAIDemo */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,36 +223,6 @@
 				4D9213762E15156500C9E8AA /* TCAIDemoUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		4D9213532E15156400C9E8AA /* TCAIDemo */ = {
-			isa = PBXGroup;
-			children = (
-				4D92140E2E151EC900C9E8AA /* Base.lproj */,
-				4D4535AB2E38F50800B6E880 /* 1.apk */,
-				4DEAD8452E24F182000D18A7 /* picture.jpg */,
-				4DEAD8432E24F133000D18A7 /* movie.mp4 */,
-				4D92140B2E151EC900C9E8AA /* Info.plist */,
-				4D9214252E151EC900C9E8AA /* lol_5v5.cfg */,
-				4D9214202E151EC900C9E8AA /* main.m */,
-				4D92141F2E151EC900C9E8AA /* tcg_default_ps4.cfg */,
-				4D92142E2E151ECA00C9E8AA /* Assets.xcassets */,
-				4D9214082E151EC900C9E8AA /* AppDelegate.h */,
-				4D92140F2E151EC900C9E8AA /* AppDelegate.m */,
-				4D9214242E151EC900C9E8AA /* AudioQueuePlay.h */,
-				4D9214222E151EC900C9E8AA /* AudioQueuePlay.m */,
-				4DEAD87E2E2785B8000D18A7 /* view */,
-				4DEAD8782E2784BE000D18A7 /* utils */,
-				4DEAD8712E267BC8000D18A7 /* CAIDemoLoginVC.h */,
-				4DEAD86F2E267BC8000D18A7 /* CAIDemoLoginVC.m */,
-				4DEAD9012E20AA0000D18A70 /* CAIDemoInstanceListVC.h */,
-				4DEAD9002E20AA0000D18A70 /* CAIDemoInstanceListVC.m */,
-				4DEAD8422E1FDDFA000D18A7 /* CAIDemoGroupControlVC.h */,
-				4DEAD8402E1FDD95000D18A7 /* CAIDemoGroupControlVC.m */,
-				4DEAD8632E267BA1000D18A7 /* CAIDemoMasterControlVC.h */,
-				4DEAD85C2E267BA0000D18A7 /* CAIDemoMasterControlVC.m */,
-			);
-			path = TCAIDemo;
 			sourceTree = "<group>";
 		};
 		4D9213E82E151C3500C9E8AA /* Frameworks */ = {
@@ -209,40 +238,43 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4D92140E2E151EC900C9E8AA /* Base.lproj */ = {
+		6768BCA67A381C51CA5A0612 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				4D92140D2E151EC900C9E8AA /* Main.storyboard */,
+				E2B0CCDD4E7F428B904E7A83 /* CAIDemoAccessibilityIds.h */,
+				A53BF4B1DB7CA56C6C38E4AA /* CAIDemoIcon.h */,
+				8DBE8078CDF98956DA022618 /* CAIDemoIcon.m */,
+				6C6E61E5D620664F44D13B68 /* DemoToast.h */,
+				AD8244CFEE27A56C95F0ABD2 /* DemoToast.m */,
 			);
-			path = Base.lproj;
+			name = Shared;
+			path = Shared;
 			sourceTree = "<group>";
 		};
-		4DEAD8782E2784BE000D18A7 /* utils */ = {
+		77FE9622846095407406FEF1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4DEAD8652E267BA1000D18A7 /* CAIDemoAudioCapturor.h */,
-				4DEAD8602E267BA0000D18A7 /* CAIDemoAudioCapturor.m */,
-				4DEAD85D2E267BA0000D18A7 /* CAIDemoUtils.h */,
-				4DEAD8562E267BA0000D18A7 /* CAIDemoUtils.m */,
+				2789C4C25A5CF37D9CAFEB90 /* 1.apk */,
+				340988BE5055689815036DFB /* Assets.xcassets */,
+				7B224FFE11EE2417D0FFCAF8 /* movie.mp4 */,
+				9667EB29F6F348D7F9AE2775 /* picture.jpg */,
 			);
-			path = utils;
+			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
-		4DEAD87E2E2785B8000D18A7 /* view */ = {
+		8DDA1555531B8F44E3EB92B1 /* InstanceControl */ = {
 			isa = PBXGroup;
 			children = (
-				4DEAD85B2E267BA0000D18A7 /* CAIDemoMultiSettingView.h */,
-				4DEAD8642E267BA1000D18A7 /* CAIDemoMultiSettingView.m */,
-				4DEAD85E2E267BA0000D18A7 /* CAIDemoSettingView.h */,
-				4DEAD8612E267BA0000D18A7 /* CAIDemoSettingView.m */,
-				4DEAD8582E267BA0000D18A7 /* CAIDemoTextField.h */,
-				4DEAD8572E267BA0000D18A7 /* CAIDemoTextField.m */,
-				4DEAD87A2E2785B8000D18A7 /* CAIDemoLoadingView.h */,
-				4DEAD87B2E2785B8000D18A7 /* CAIDemoLoadingView.m */,
-				4DEAD87C2E2785B8000D18A7 /* CAIDemoLoginInputText.h */,
-				4DEAD87D2E2785B8000D18A7 /* CAIDemoLoginInputText.m */,
+				0F4902C2AE1C43EF1B9874D0 /* CAICloudPhoneCell.h */,
+				AE5DA77B2A226B5C760CF593 /* CAICloudPhoneCell.m */,
+				11CFF96B12922366D7800208 /* InstanceApiMenuView.h */,
+				6C2C5537A5AB54A2EC69331C /* InstanceApiMenuView.m */,
+				247C4898325C7EF222CC0C0F /* InstanceControlVC.h */,
+				A2DF8C6A1D9D71DFE659287F /* InstanceControlVC.m */,
 			);
-			path = view;
+			name = InstanceControl;
+			path = InstanceControl;
 			sourceTree = "<group>";
 		};
 		B8B0A07432F78DF09EADD12F /* Pods */ = {
@@ -252,6 +284,16 @@
 				4851DCEB61857808FDDCE8EE /* Pods-TCAIDemo.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FAB0BC2CEDC6FB8B7A23DD6F /* ExpServer */ = {
+			isa = PBXGroup;
+			children = (
+				C84569F5EE43BB20118DED6C /* ExpServerRequest.h */,
+				ECBF3D50A61ECD5B74DACE76 /* ExpServerRequest.m */,
+			);
+			name = ExpServer;
+			path = ExpServer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,14 +402,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D9214332E151ECA00C9E8AA /* Main.storyboard in Resources */,
-				4D92143C2E151ECA00C9E8AA /* tcg_default_ps4.cfg in Resources */,
-				4DEAD8462E24F182000D18A7 /* picture.jpg in Resources */,
-				4D9214402E151ECA00C9E8AA /* lol_5v5.cfg in Resources */,
-				4D9214442E151ECA00C9E8AA /* Assets.xcassets in Resources */,
-				4DEAD8442E24F133000D18A7 /* movie.mp4 in Resources */,
-				4D4535B32E38FFC600B6E880 /* 1.apk in Resources */,
-				);
+				B93994F9B7698F6E960AB3B0 /* 1.apk in Resources */,
+				BCDD62669036615FA484183E /* Assets.xcassets in Resources */,
+				C35DCCB4787EB7E06E319362 /* movie.mp4 in Resources */,
+				3CA5AAAD96D77440166FE063 /* picture.jpg in Resources */,
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		4D92136A2E15156500C9E8AA /* Resources */ = {
@@ -433,20 +472,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DEAD8802E2785B8000D18A7 /* CAIDemoLoginInputText.m in Sources */,
-				4DEAD9022E20AA0000D18A70 /* CAIDemoInstanceListVC.m in Sources */,
-				4D92143F2E151ECA00C9E8AA /* AudioQueuePlay.m in Sources */,
-				4DEAD8762E267BC8000D18A7 /* CAIDemoLoginVC.m in Sources */,
-				4D9214342E151ECA00C9E8AA /* AppDelegate.m in Sources */,
-				4DEAD8672E267BA1000D18A7 /* CAIDemoTextField.m in Sources */,
-				4DEAD8412E1FDD95000D18A7 /* CAIDemoGroupControlVC.m in Sources */,
-				4DEAD87F2E2785B8000D18A7 /* CAIDemoLoadingView.m in Sources */,
-				4DEAD86A2E267BA1000D18A7 /* CAIDemoAudioCapturor.m in Sources */,
-				4DEAD8692E267BA1000D18A7 /* CAIDemoMasterControlVC.m in Sources */,
-				4DEAD8662E267BA1000D18A7 /* CAIDemoUtils.m in Sources */,
-				4DEAD86D2E267BA1000D18A7 /* CAIDemoMultiSettingView.m in Sources */,
-				4DEAD86B2E267BA1000D18A7 /* CAIDemoSettingView.m in Sources */,
-				4D92143D2E151ECA00C9E8AA /* main.m in Sources */,
+				ACAFC80129E712E3CA3CD772 /* AppDelegate.m in Sources */,
+				E6CCB92FE3A6BD2FE29F4679 /* main.m in Sources */,
+				1C8633AF61B4AA5B57876FB1 /* LoginVC.m in Sources */,
+				79BBE27570663870D3F2F4F8 /* InstanceListVC.m in Sources */,
+				BB9E27175DA5646F9F906EEB /* CAICloudPhoneCell.m in Sources */,
+				F24E8B4FEEAB94B31F363B28 /* InstanceApiMenuView.m in Sources */,
+				80194837A0D2E58FF49A0F2C /* InstanceControlVC.m in Sources */,
+				0372FBECA31F5301C25E6F76 /* CAIAudioCapturer.m in Sources */,
+				02E0D28A51C71909BED1A2A2 /* CAIDemoSettingView.m in Sources */,
+				919A43E72E81898A90C920C1 /* CAIDemoTextField.m in Sources */,
+				7C3D7FA0245DE206737BE7E0 /* StreamingVC.m in Sources */,
+				3715842C088EBF180A71F257 /* ExpServerRequest.m in Sources */,
+				D5880AC8AD8D7C84A2AC3191 /* CAIDemoIcon.m in Sources */,
+				14AC3350547E65AA311EC544 /* DemoToast.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,17 +517,6 @@
 			targetProxy = 4D9213772E15156500C9E8AA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		4D92140D2E151EC900C9E8AA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4D92140C2E151EC900C9E8AA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4D92137E2E15156500C9E8AA /* Debug */ = {
@@ -623,13 +651,12 @@
 					"$(PROJECT_DIR)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TCAIDemo/Info.plist;
+				INFOPLIST_FILE = TCAIDemo/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -662,13 +689,12 @@
 					"$(PROJECT_DIR)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TCAIDemo/Info.plist;
+				INFOPLIST_FILE = TCAIDemo/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
